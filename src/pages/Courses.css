@@ -1,0 +1,177 @@
+/* ============================================
+   COURSES CATALOG PAGE (Clean, Minimal, Modern)
+   ============================================ */
+
+.courses-page {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* 1. HERO SECTION */
+.courses-hero {
+  position: relative;
+  padding: 105px 0 44px;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.92) 60%, #ffffff 100%), url('../assets/hero_study_bg.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  border-bottom: none;
+  text-align: center;
+}
+
+.courses-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.25;
+  margin: 0 auto 12px;
+  letter-spacing: -0.02em;
+}
+
+.courses-hero__subtitle {
+  font-size: 1.05rem;
+  color: #64748B;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+/* 2. SEGMENTED FILTER */
+.course-filter-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 16px;
+}
+
+.course-filter-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.course-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.course-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748B;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.course-filter__btn:hover {
+  color: #EA580C;
+}
+
+.course-filter__btn.active {
+  background: #EA580C;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+}
+
+/* 3. CATALOG GRID */
+.courses-catalog-section {
+  padding: 48px 0 80px;
+  background: #FAFBFD;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  align-items: stretch;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* 4. ADVISORY SECTION */
+.courses-advisory-section {
+  padding: 72px 0;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 840px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .courses-hero {
+    padding: 95px 0 28px;
+  }
+
+  .courses-hero__title {
+    font-size: 1.85rem;
+  }
+
+  .courses-hero__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .course-filter-wrapper {
+    padding: 4px 10px;
+  }
+
+  .course-filter {
+    flex-wrap: nowrap;
+    border-radius: 9999px;
+    padding: 4px;
+    gap: 3px;
+  }
+
+  .course-filter__btn {
+    padding: 7px 14px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .course-filter {
+    gap: 2px;
+    padding: 3px;
+  }
+
+  .course-filter__btn {
+    padding: 6px 11px;
+    font-size: 0.76rem;
+  }
+
+  .courses-catalog-section {
+    padding: 32px 0 60px;
+  }
+
+  .courses-advisory-section {
+    padding: 48px 0;
+  }
+}

@@ -1,0 +1,231 @@
+.cta-section {
+  padding: 28px 0 44px;
+}
+
+.cta-card {
+  position: relative;
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 50%, #C2410C 100%);
+  border-radius: var(--radius-xl);
+  padding: 48px 32px;
+  overflow: hidden;
+  box-shadow: 
+    0 24px 60px -10px rgba(249, 115, 22, 0.45),
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  color: #ffffff;
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.cta-card:hover {
+  box-shadow: 
+    0 32px 70px -10px rgba(249, 115, 22, 0.55),
+    0 12px 30px -5px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.45);
+}
+
+/* Dynamic Cursor Spotlight */
+.cta-card__mouse-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.18),
+    transparent 65%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.cta-card:hover .cta-card__mouse-glow {
+  opacity: 1;
+}
+
+/* Floating Ambient Glowing Orbs */
+.cta-card__circle {
+  position: absolute;
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.cta-card__circle--1 {
+  width: 440px;
+  height: 440px;
+  top: -140px;
+  right: -90px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: floatOrb1 10s ease-in-out infinite alternate;
+}
+
+.cta-card__circle--2 {
+  width: 380px;
+  height: 380px;
+  bottom: -110px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: floatOrb2 13s ease-in-out infinite alternate;
+}
+
+.cta-card__circle--3 {
+  width: 320px;
+  height: 320px;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(254, 215, 170, 0.22) 0%, rgba(254, 215, 170, 0) 70%);
+  filter: blur(35px);
+  animation: pulseCenter 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 30px) scale(1.1); }
+  100% { transform: translate(25px, -20px) scale(0.95); }
+}
+
+@keyframes floatOrb2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(35px, -25px) scale(1.12); }
+  100% { transform: translate(-20px, 25px) scale(0.92); }
+}
+
+@keyframes pulseCenter {
+  0% { opacity: 0.35; transform: translate(-50%, -50%) scale(0.9); }
+  100% { opacity: 0.75; transform: translate(-50%, -50%) scale(1.22); }
+}
+
+.cta-card__content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Transformation Badge with Pulsing Beacon */
+.cta-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(8px);
+  padding: 6px 18px;
+  border-radius: 9999px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cta-card__badge:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.cta-card__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px #ffffff;
+  animation: ctaDotPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes ctaDotPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px #ffffff;
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.7);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.cta-card__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 4.4vw, 2.9rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.18;
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-card__desc {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.94);
+  margin-bottom: 36px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-card__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+/* Interactive Perk Pills */
+.cta-card__perks {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cta-card__perk-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  user-select: none;
+}
+
+.cta-card__perk-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 640px) {
+  .cta-card {
+    padding: 44px 20px;
+  }
+  .cta-card__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-card__actions .flow-button {
+    width: 100%;
+    max-width: 320px;
+  }
+  .cta-card__perks {
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+}

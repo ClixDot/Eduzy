@@ -1,0 +1,117 @@
+.faq {
+  background: var(--color-bg);
+  position: relative;
+}
+
+.faq__header {
+  margin-bottom: 24px;
+}
+
+.faq__accordion {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq__item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq__item:hover {
+  border-color: rgba(249, 115, 22, 0.3);
+}
+
+.faq__item--open {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.08);
+}
+
+.faq__trigger {
+  width: 100%;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.faq__question-text {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.faq__item--open .faq__question-text {
+  color: var(--color-primary);
+}
+
+.faq__icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq__icon-bar {
+  position: absolute;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.faq__icon-bar--h {
+  width: 12px;
+  height: 2px;
+}
+
+.faq__icon-bar--v {
+  width: 2px;
+  height: 12px;
+}
+
+.faq__icon-bar--v.rotated {
+  transform: rotate(90deg);
+}
+
+.faq__content-wrap {
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.2, 0, 0, 1), opacity 0.25s ease;
+}
+
+.faq__answer-inner {
+  padding: 0 28px 24px 28px;
+  font-size: 0.98rem;
+  color: var(--color-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .faq__trigger {
+    padding: 18px 20px;
+  }
+  .faq__question-text {
+    font-size: 0.98rem;
+  }
+  .faq__answer-inner {
+    padding: 0 20px 20px 20px;
+    font-size: 0.92rem;
+  }
+}

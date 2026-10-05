@@ -1,0 +1,403 @@
+/* ============================================
+   EDUZY VIDEO SUCCESS STORIES — CLEAN REELS CAROUSEL
+   (Only Thumbnail & Center Play Button)
+   ============================================ */
+
+.video-section {
+  position: relative;
+  background: #ffffff;
+  padding: 70px 0 80px;
+  overflow: hidden;
+}
+
+/* Ambient Background Glows */
+.video-section__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.video-section__glow--1 {
+  top: -10%;
+  left: 5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
+}
+
+.video-section__glow--2 {
+  bottom: -10%;
+  right: 5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(254, 215, 170, 0.25) 0%, transparent 70%);
+}
+
+.video-section__header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+}
+
+/* ============================================
+   CAROUSEL VIEWPORT & TRACK
+   ============================================ */
+
+.video-carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 12px 4px 20px;
+}
+
+.video-carousel__track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.video-carousel__slide {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   CLEAN 9:16 VERTICAL VIDEO CARD (NO TEXT, ONLY PLAY)
+   ============================================ */
+
+.video-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  user-select: none;
+}
+
+.video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(249, 115, 22, 0.3), 0 0 0 2px #F97316;
+}
+
+/* Background Thumbnail */
+.video-card__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.video-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-card:hover .video-card__img {
+  transform: scale(1.06);
+}
+
+.video-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  transition: background 0.3s ease;
+}
+
+.video-card:hover .video-card__overlay {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+/* Center Floating Glass Play Button */
+.video-card__play-center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.video-card__play-circle {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #F97316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-card:hover .video-card__play-circle {
+  transform: scale(1.15);
+  background: #F97316;
+  color: #ffffff;
+  box-shadow: 0 14px 34px rgba(249, 115, 22, 0.55);
+}
+
+.video-card__play-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(249, 115, 22, 0.45);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   BOTTOM NAVIGATION & DOTS
+   ============================================ */
+
+.video-carousel__controls {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.video-ctrl-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.video-ctrl-btn--prev {
+  background: #FFF7ED;
+  color: #EA580C;
+  border: 1px solid #FFEDD5;
+}
+
+.video-ctrl-btn--prev:hover {
+  background: #FFEDD5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.2);
+}
+
+.video-ctrl-btn--next {
+  background: #F97316;
+  color: #ffffff;
+}
+
+.video-ctrl-btn--next:hover {
+  background: #EA580C;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
+}
+
+.video-carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.video-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #E2E8F0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-dot.active {
+  width: 24px;
+  background: #F97316;
+}
+
+/* ============================================
+   POPUP VIDEO MODAL
+   ============================================ */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.video-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.video-modal__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 760px;
+  background: #0F172A;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.video-modal__close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.video-modal__close-btn:hover {
+  background: #F97316;
+  transform: scale(1.08);
+}
+
+.video-modal__player {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background: #000000;
+}
+
+.video-modal__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-modal__meta {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: #1E293B;
+}
+
+.video-modal__course {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #F97316;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.video-modal__title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.video-modal__quote {
+  font-size: 0.88rem;
+  color: #94A3B8;
+  margin: 4px 0 0;
+}
+
+.video-modal__external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #F97316;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.video-modal__external-link:hover {
+  background: #F97316;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .video-section {
+    padding: 50px 0 60px;
+  }
+
+  .video-card {
+    border-radius: 18px;
+  }
+
+  .video-card__play-circle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .video-modal__meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

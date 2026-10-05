@@ -1,0 +1,225 @@
+/* ============================================
+   CONTACT PAGE (Clean, Minimal, Modern)
+   ============================================ */
+
+.contact-page {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* 1. HERO SECTION */
+.contact-hero {
+  position: relative;
+  padding: 105px 0 44px;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.92) 60%, #ffffff 100%), url('../assets/hero_study_bg.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  border-bottom: none;
+  text-align: center;
+}
+
+.contact-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.25;
+  margin: 0 auto 12px;
+  letter-spacing: -0.02em;
+}
+
+.contact-hero__subtitle {
+  font-size: 1.05rem;
+  color: #64748B;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 2. MAIN SECTION & TWO-COLUMN GRID */
+.contact-main-section {
+  padding: 48px 0 72px;
+  background: #FAFBFD;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 32px;
+  align-items: stretch;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.contact-info-col,
+.contact-form-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Academy Info Card */
+.contact-info-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact-info-header {
+  margin-bottom: 24px;
+}
+
+.contact-info-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.contact-info-desc {
+  font-size: 0.92rem;
+  color: #64748B;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Contact Details List */
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contact-detail-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #FFF7ED;
+  color: #EA580C;
+  border: 1px solid rgba(249, 115, 22, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.contact-detail-icon--whatsapp {
+  background: #F0FDF4;
+  color: #16A34A;
+  border-color: rgba(22, 163, 74, 0.2);
+}
+
+.contact-detail-content {
+  flex: 1;
+}
+
+.contact-detail-label {
+  display: block;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748B;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.contact-detail-val {
+  font-size: 0.92rem;
+  color: #1E293B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contact-detail-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contact-detail-links a {
+  font-size: 0.92rem;
+  color: #0F172A;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-detail-links a:hover {
+  color: #EA580C;
+}
+
+.contact-detail-sep {
+  color: #CBD5E1;
+  font-size: 0.8rem;
+}
+
+.whatsapp-link {
+  color: #15803D !important;
+  font-weight: 700 !important;
+}
+
+.whatsapp-link:hover {
+  text-decoration: underline;
+}
+
+/* 3. GOOGLE MAPS SECTION */
+.map-section {
+  padding: 64px 0;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.map-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 600px;
+  }
+
+  .contact-info-card {
+    padding: 26px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-hero {
+    padding: 95px 0 28px;
+  }
+
+  .contact-hero__title {
+    font-size: 1.85rem;
+  }
+
+  .contact-main-section {
+    padding: 32px 0 48px;
+  }
+
+  .map-section {
+    padding: 48px 0;
+  }
+}

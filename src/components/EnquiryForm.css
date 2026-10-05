@@ -1,0 +1,231 @@
+/* ============================================
+   ENQUIRY FORM (Clean, Minimal, Modern)
+   ============================================ */
+
+.enquiry-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.enquiry-card__header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.enquiry-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.enquiry-card__subtitle {
+  font-size: 0.92rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: #0F172A;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-input::placeholder {
+  color: #94A3B8;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #F97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.form-input.is-invalid,
+.form-select.is-invalid {
+  border-color: #EF4444;
+  background-color: #FEF2F2;
+}
+
+.form-error {
+  font-size: 0.76rem;
+  color: #DC2626;
+  font-weight: 600;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 13px 20px;
+  margin-top: 4px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 10px;
+  background: #EA580C;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #C2410C;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.32);
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Quick Direct Contact */
+.enquiry-card__direct {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.enquiry-card__direct-label {
+  font-size: 0.78rem;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.enquiry-card__direct-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.enquiry-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.enquiry-pill--wa {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #15803D;
+}
+
+.enquiry-pill--wa:hover {
+  background: #DCFCE7;
+  border-color: #86EFAC;
+}
+
+.enquiry-pill--phone {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #334155;
+}
+
+.enquiry-pill--phone:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+}
+
+/* Success state */
+.enquiry-success {
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.enquiry-success__icon {
+  color: #16A34A;
+  margin-bottom: 12px;
+}
+
+.enquiry-success__title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 8px;
+}
+
+.enquiry-success__text {
+  font-size: 0.92rem;
+  color: #64748B;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 640px) {
+  .enquiry-card {
+    padding: 24px 18px;
+  }
+
+  .enquiry-card__title {
+    font-size: 1.3rem;
+  }
+
+  .enquiry-card__direct-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .enquiry-pill {
+    width: 100%;
+  }
+}
