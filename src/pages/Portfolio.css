@@ -142,8 +142,17 @@
 /* ================= 2. GALLERY SECTION & FILTERS ================= */
 .portfolio-filters-wrapper {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 8px 16px;
   margin-bottom: 34px;
+}
+
+.portfolio-filters-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .portfolio-filters {
@@ -155,8 +164,9 @@
   border-radius: 9999px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 auto;
+  white-space: nowrap;
 }
 
 .portfolio-filter-btn {
@@ -1010,21 +1020,13 @@
   }
 
   .portfolio-filters-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
-    padding: 4px 6px 10px;
+    padding: 6px 12px;
     margin-bottom: 22px;
-    scrollbar-width: none;
-  }
-
-  .portfolio-filters-wrapper::-webkit-scrollbar {
-    display: none;
   }
 
   .portfolio-filters {
-    flex-wrap: nowrap;
-    border-radius: 9999px;
+    gap: 4px;
+    padding: 4px;
   }
 
   .portfolio-filter-btn {

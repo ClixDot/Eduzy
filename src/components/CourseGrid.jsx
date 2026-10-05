@@ -42,8 +42,8 @@ export default function CourseGrid({ showAll = false, compact = false }) {
   return (
     <div className="course-grid-wrapper" ref={sectionRef}>
       {/* Category filter */}
-      <div className="course-filter" role="tablist" aria-label="Filter courses by category">
-        <div className="course-filter__scroll">
+      <div className="course-filter-wrapper">
+        <div className="course-filter" role="tablist" aria-label="Filter courses by category">
           {courseCategories.map((cat) => (
             <button
               key={cat.id}

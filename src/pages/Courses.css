@@ -40,14 +40,13 @@
 /* 2. SEGMENTED FILTER */
 .course-filter-wrapper {
   display: flex;
-  justify-content: center;
-  margin-top: 8px;
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 4px 16px;
+  padding: 8px 16px;
+  margin-top: 8px;
 }
 
 .course-filter-wrapper::-webkit-scrollbar {
@@ -59,32 +58,35 @@
   align-items: center;
   gap: 6px;
   background: #ffffff;
-  padding: 5px;
+  padding: 6px;
   border-radius: 9999px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   flex-wrap: nowrap;
   white-space: nowrap;
   flex-shrink: 0;
+  margin: 0 auto;
 }
 
 .course-filter__btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 8px 22px;
   border-radius: 9999px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #64748B;
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s ease;
   white-space: nowrap;
 }
 
 .course-filter__btn:hover {
   color: #EA580C;
+  background: #FFF7ED;
 }
 
 .course-filter__btn.active {
@@ -140,18 +142,18 @@
   }
 
   .course-filter-wrapper {
-    padding: 4px 10px;
+    padding: 6px 12px;
   }
 
   .course-filter {
     flex-wrap: nowrap;
     border-radius: 9999px;
     padding: 4px;
-    gap: 3px;
+    gap: 4px;
   }
 
   .course-filter__btn {
-    padding: 7px 14px;
+    padding: 7px 16px;
     font-size: 0.82rem;
   }
 }
@@ -163,8 +165,8 @@
   }
 
   .course-filter__btn {
-    padding: 6px 11px;
-    font-size: 0.76rem;
+    padding: 6px 12px;
+    font-size: 0.78rem;
   }
 
   .courses-catalog-section {

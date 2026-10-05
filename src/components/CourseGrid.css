@@ -1,38 +1,59 @@
 /* Course Filter */
-.course-filter {
+.course-filter-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 8px 16px;
   margin-bottom: 2.5rem;
 }
 
-.course-filter__scroll {
-  display: flex;
-  gap: 0.625rem;
-  flex-wrap: wrap;
+.course-filter-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.course-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+  margin: 0 auto;
+  white-space: nowrap;
 }
 
 .course-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 20px;
-  border-radius: var(--radius-full);
-  font-size: 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--color-secondary);
-  background: var(--color-white);
-  border: 1.5px solid var(--color-border);
+  color: #64748B;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: all 0.22s ease;
   white-space: nowrap;
 }
 
 .course-filter__btn:hover {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-  background: var(--color-primary-light);
+  color: #EA580C;
+  background: #FFF7ED;
 }
 
 .course-filter__btn.active {
-  background: var(--color-primary);
-  color: #fff;
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-orange);
+  background: #EA580C;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
 }
 
 /* Course Grid */
@@ -64,22 +85,37 @@
   }
 }
 
-@media (max-width: 768px) {
-  .course-filter__scroll {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-    scrollbar-width: none;
+@media (max-width: 640px) {
+  .course-filter-wrapper {
+    padding: 6px 12px;
+    margin-bottom: 2rem;
   }
 
-  .course-filter__scroll::-webkit-scrollbar {
-    display: none;
+  .course-filter {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .course-filter__btn {
+    padding: 7px 16px;
+    font-size: 0.82rem;
   }
 }
 
 @media (max-width: 600px) {
   .course-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 440px) {
+  .course-filter {
+    gap: 2px;
+    padding: 3px;
+  }
+
+  .course-filter__btn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
   }
 }

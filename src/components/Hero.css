@@ -141,16 +141,27 @@
   flex-wrap: wrap;
 }
 
+.hero-ref__actions .flow-button {
+  min-height: 52px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  box-sizing: border-box;
+}
+
 .btn-hero-primary {
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: linear-gradient(135deg, #F97316 0%, #EA580C 50%, #F59E0B 100%);
   background-size: 200% 200%;
   background-position: 0% 50%;
   color: #ffffff;
-  padding: 15px 32px;
+  min-height: 52px;
+  padding: 14px 32px;
   border-radius: 9999px;
   font-size: 1rem;
   font-weight: 700;
@@ -160,6 +171,7 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   overflow: hidden;
   cursor: pointer;
+  box-sizing: border-box;
   transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -662,12 +674,19 @@
   .hero-ref__actions {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
   }
 
   .hero-ref__actions .btn-hero-primary,
+  .hero-ref__actions .flow-button,
   .hero-ref__actions .btn-hero-outline {
-    width: 100%;
+    width: 100% !important;
+    min-height: 52px;
+    padding: 14px 24px;
+    font-size: 0.98rem;
+    font-weight: 700;
     justify-content: center;
+    box-sizing: border-box;
   }
 
   .hero-ref__stage {
