@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { courses } from '../data/courses';
 import { CheckCircle2, MessageCircle, Phone } from 'lucide-react';
+import CustomSelect from './ui/CustomSelect';
 import './EnquiryForm.css';
 
 export default function EnquiryForm({ 
@@ -124,20 +125,15 @@ export default function EnquiryForm({
             <label htmlFor="enquiry-course" className="form-label">
               Select Course
             </label>
-            <select
+            <CustomSelect
               id="enquiry-course"
               name="course"
               value={formData.course}
               onChange={handleChange}
-              className={`form-select ${errors.course ? 'is-invalid' : ''}`}
-            >
-              <option value="">-- Choose a course --</option>
-              {courses.map((c) => (
-                <option key={c.id} value={c.name}>
-                  {c.name}
-                </option>
-              ))}
-            </select>
+              options={courses}
+              placeholder="-- Choose a course --"
+              error={errors.course}
+            />
             {errors.course && <span className="form-error">{errors.course}</span>}
           </div>
 

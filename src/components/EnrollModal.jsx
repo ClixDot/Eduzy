@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, MessageCircle, Phone } from 'lucide-react';
 import { courses } from '../data/courses';
+import CustomSelect from './ui/CustomSelect';
 import './EnrollModal.css';
 
 export default function EnrollModal({ isOpen, onClose, initialCourse = '' }) {
@@ -179,20 +180,15 @@ export default function EnrollModal({ isOpen, onClose, initialCourse = '' }) {
                 <label htmlFor="modal-course" className="enroll-form-label">
                   Select Program
                 </label>
-                <select
+                <CustomSelect
                   id="modal-course"
                   name="course"
                   value={formData.course}
                   onChange={handleChange}
-                  className={`enroll-form-select ${errors.course ? 'is-invalid' : ''}`}
-                >
-                  <option value="">-- Choose a course --</option>
-                  {courses.map((c) => (
-                    <option key={c.id} value={c.name}>
-                      {c.name}
-                    </option>
-                  ))}
-                </select>
+                  options={courses}
+                  placeholder="-- Choose a course --"
+                  error={errors.course}
+                />
                 {errors.course && <span className="enroll-form-error">{errors.course}</span>}
               </div>
 

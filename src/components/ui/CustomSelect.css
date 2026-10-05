@@ -1,0 +1,208 @@
+/* ============================================
+   CUSTOM SELECT DROPDOWN COMPONENT
+   ============================================ */
+
+.custom-select-container {
+  position: relative;
+  width: 100%;
+  user-select: none;
+}
+
+/* Trigger Button */
+.custom-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  color: #0F172A;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.custom-select-trigger:hover {
+  border-color: #CBD5E1;
+  background: #FAFAFA;
+}
+
+.custom-select-container.is-open .custom-select-trigger,
+.custom-select-trigger:focus {
+  outline: none;
+  border-color: #F97316;
+  background: #ffffff;
+  box-shadow: 0 0 0 3.5px rgba(249, 115, 22, 0.14);
+}
+
+.custom-select-container.is-invalid .custom-select-trigger {
+  border-color: #EF4444;
+  background-color: #FEF2F2;
+}
+
+.custom-select-trigger-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.custom-select-icon {
+  color: #F97316;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.custom-select-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.custom-select-placeholder {
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.custom-select-arrow-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748B;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.custom-select-arrow {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.custom-select-arrow.rotate {
+  transform: rotate(180deg);
+  color: #EA580C;
+}
+
+/* Dropdown Menu */
+.custom-select-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.16),
+              0 4px 12px rgba(249, 115, 22, 0.08);
+  overflow: hidden;
+  animation: customSelectFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes customSelectFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.custom-select-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94A3B8;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.custom-select-options-list {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #E2E8F0 transparent;
+}
+
+.custom-select-options-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-select-options-list::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 4px;
+}
+
+.custom-select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.custom-select-option:hover {
+  background: #FFF7ED;
+  transform: translateX(2px);
+}
+
+.custom-select-option.selected {
+  background: #FFEDD5;
+  color: #C2410C;
+}
+
+.custom-select-option-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.custom-select-option-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.custom-select-option.selected .custom-select-option-text {
+  color: #C2410C;
+  font-weight: 700;
+}
+
+.custom-select-option-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: #F1F5F9;
+  color: #64748B;
+}
+
+.custom-select-option.selected .custom-select-option-badge {
+  background: #EA580C;
+  color: #ffffff;
+}
+
+.custom-select-check {
+  color: #EA580C;
+  flex-shrink: 0;
+}
