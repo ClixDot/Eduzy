@@ -1,0 +1,589 @@
+/* ============================================
+   FLOATING CONNECT WIDGET & POPUP MODAL
+   (Desktop Hover & Mobile Click Interactions)
+   ============================================ */
+
+/* Fullscreen backdrop (Mobile focused) */
+.floating-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: backdropFadeIn 0.22s ease-out both;
+}
+
+@keyframes backdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Hide backdrop on desktop so mouse hover is non-obstructive */
+@media (min-width: 769px) {
+  .floating-popup-backdrop {
+    display: none;
+  }
+}
+
+/* Floating widget container (bottom-right) */
+.floating-contact {
+  position: fixed;
+  right: 24px;
+  bottom: 28px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+  animation: floatingSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes floatingSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.floating-contact__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+/* Single Social Button - Vibrant Brand Gradient */
+.floating-contact__btn--social {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF7A18 0%, #EA580C 100%);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 28px -2px rgba(234, 88, 12, 0.45),
+              0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.28s ease,
+              background-color 0.28s ease,
+              filter 0.28s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.floating-contact__btn--social:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 16px 36px -2px rgba(234, 88, 12, 0.58),
+              0 6px 14px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.06);
+}
+
+.floating-contact__btn--social:active {
+  transform: translateY(0) scale(0.96);
+}
+
+/* Button state when popup is open */
+.floating-contact__btn--social.open {
+  background: #0F172A;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
+}
+
+.floating-contact__btn--social.open:hover {
+  background: #1E293B;
+  transform: scale(1.05);
+}
+
+/* Glowing Pulse Radar Effect */
+.floating-contact__pulse--social {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.6) 0%, rgba(234, 88, 12, 0) 70%);
+  animation: socialRadarPulse 3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes socialRadarPulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  60% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Icon Interactions */
+.floating-contact__icon {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.floating-contact__btn--social:hover .floating-contact__icon {
+  transform: scale(1.1) rotate(12deg);
+}
+
+.floating-contact__icon--close {
+  animation: rotateIn 0.25s ease-out;
+}
+
+@keyframes rotateIn {
+  from { transform: rotate(-90deg) scale(0.7); opacity: 0; }
+  to { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+/* Tooltip Badge (Desktop Hover / Focus) */
+.floating-contact__tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  background: rgba(17, 24, 39, 0.92);
+  color: #ffffff;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18),
+              0 2px 6px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.floating-contact__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(17, 24, 39, 0.92);
+}
+
+.floating-contact__item:hover .floating-contact__tooltip,
+.floating-contact__btn--social:focus-visible ~ .floating-contact__tooltip,
+.floating-contact__btn--social:focus .floating-contact__tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.floating-contact__btn--social:focus-visible {
+  outline: 3px solid #2563EB;
+  outline-offset: 3px;
+}
+
+/* ============================================
+   THE POPUP CARD (Exact match to Reference Image)
+   ============================================ */
+
+.floating-popup-card {
+  position: relative;
+  pointer-events: auto;
+  width: 380px;
+  max-width: calc(100vw - 36px);
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 26px 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 20px 48px -10px rgba(15, 23, 42, 0.22),
+              0 0 0 1px rgba(0, 0, 0, 0.08);
+  transform-origin: bottom right;
+  animation: popupCardBounce 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Invisible bridge between card and button so mouse transition is unbroken */
+.floating-popup-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -16px;
+  height: 16px;
+  pointer-events: auto;
+}
+
+@keyframes popupCardBounce {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+.floating-popup__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.floating-popup__title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+
+.floating-popup__subtitle {
+  font-size: 0.86rem;
+  color: #64748B;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.floating-popup__close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #64748B;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.floating-popup__close-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+  transform: scale(1.08);
+}
+
+/* Channels List */
+.floating-popup__channels {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+/* Channel Item */
+.floating-popup__channel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.22s ease,
+              border-color 0.22s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.floating-popup__channel-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.floating-popup__icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.floating-popup__channel-item:hover .floating-popup__icon-box {
+  transform: scale(1.08);
+}
+
+.floating-popup__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.floating-popup__channel-name {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.floating-popup__channel-sub {
+  font-size: 0.82rem;
+  color: #64748B;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* Arrow circle */
+.floating-popup__arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease;
+}
+
+.floating-popup__channel-item:hover .floating-popup__arrow-btn {
+  transform: translateX(4px);
+}
+
+/* ================= 1: WHATSAPP ================= */
+.floating-popup__channel--whatsapp {
+  background-color: #F0FDF4;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.floating-popup__channel--whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.16);
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.floating-popup__icon-box--whatsapp {
+  background-color: #22C55E;
+}
+
+.floating-popup__arrow--whatsapp {
+  background-color: #DCFCE7;
+  color: #15803D;
+}
+
+.floating-popup__channel--whatsapp:hover .floating-popup__arrow--whatsapp {
+  background-color: #BBF7D0;
+}
+
+/* ================= 2: INSTAGRAM ================= */
+.floating-popup__channel--instagram {
+  background-color: #FDF2F8;
+  border: 1px solid rgba(244, 114, 182, 0.28);
+}
+
+.floating-popup__channel--instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.16);
+  border-color: rgba(236, 72, 153, 0.5);
+}
+
+.floating-popup__icon-box--instagram {
+  background: linear-gradient(45deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%);
+}
+
+.floating-popup__arrow--instagram {
+  background-color: #FCE7F3;
+  color: #BE185D;
+}
+
+.floating-popup__channel--instagram:hover .floating-popup__arrow--instagram {
+  background-color: #FBCFE8;
+}
+
+/* ================= 3: YOUTUBE ================= */
+.floating-popup__channel--youtube {
+  background-color: #FEF2F2;
+  border: 1px solid rgba(248, 113, 113, 0.28);
+}
+
+.floating-popup__channel--youtube:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.16);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.floating-popup__icon-box--youtube {
+  background-color: #EF4444;
+}
+
+.floating-popup__arrow--youtube {
+  background-color: #FEE2E2;
+  color: #B91C1C;
+}
+
+.floating-popup__channel--youtube:hover .floating-popup__arrow--youtube {
+  background-color: #FECACA;
+}
+
+.floating-popup__channel--youtube.coming-soon-active {
+  border-color: #EF4444;
+  background-color: #FFF1F2;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.18);
+}
+
+.floating-popup__coming-soon-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #EF4444;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.35);
+  animation: pillPop 0.22s ease-out both;
+  white-space: nowrap;
+}
+
+.floating-popup__notice {
+  background: #FEF2F2;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #DC2626;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  animation: noticeSlide 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes noticeSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pillPop {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ================= 4: CALL NOW ================= */
+.floating-popup__channel--call {
+  background-color: #EFF6FF;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.floating-popup__channel--call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.16);
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+.floating-popup__icon-box--call {
+  background-color: #2563EB;
+}
+
+.floating-popup__arrow--call {
+  background-color: #DBEAFE;
+  color: #1D4ED8;
+}
+
+.floating-popup__channel--call:hover .floating-popup__arrow--call {
+  background-color: #BFDBFE;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .floating-contact {
+    right: 16px;
+    bottom: 20px;
+  }
+
+  .floating-popup-card {
+    width: calc(100vw - 32px);
+    max-width: 360px;
+    padding: 22px 16px;
+    border-radius: 22px;
+  }
+
+  .floating-popup__title {
+    font-size: 1.35rem;
+  }
+
+  .floating-popup__subtitle {
+    font-size: 0.8rem;
+  }
+
+  .floating-popup__channel-item {
+    padding: 10px 12px;
+    border-radius: 15px;
+  }
+
+  .floating-popup__icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .floating-popup__icon-box svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .floating-popup__channel-name {
+    font-size: 0.95rem;
+  }
+
+  .floating-popup__channel-sub {
+    font-size: 0.78rem;
+  }
+
+  .floating-popup__arrow-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .floating-contact__btn--social {
+    width: 48px;
+    height: 48px;
+  }
+
+  .floating-contact__icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .floating-contact__tooltip {
+    display: none;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .floating-contact,
+  .floating-popup-card,
+  .floating-popup-backdrop,
+  .floating-contact__btn--social,
+  .floating-contact__pulse--social {
+    animation: none !important;
+    transition: none !important;
+  }
+}

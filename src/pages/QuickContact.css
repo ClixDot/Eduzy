@@ -1,0 +1,338 @@
+/* ============================================
+   QUICK CONTACT (Connect With Us - Bio Channel View)
+   ============================================ */
+
+.quick-contact-page {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0 60px;
+  background-color: #F8FAFC;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(37, 211, 102, 0.04) 0px, transparent 50%);
+}
+
+.quick-contact-page__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 520px;
+  padding: 0 16px;
+}
+
+/* Main Card */
+.quick-contact-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 38px 30px;
+  box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.08),
+              0 4px 16px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+/* Header */
+.quick-contact-card__header {
+  margin-bottom: 26px;
+  text-align: left;
+}
+
+.quick-contact-card__title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+.quick-contact-card__subtitle {
+  font-size: 0.95rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Channels List */
+.quick-channels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Base Channel Item Card */
+.quick-channel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.24s ease,
+              border-color 0.24s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.quick-channel-item__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.quick-channel__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quick-channel__name {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.quick-channel__sub {
+  font-size: 0.88rem;
+  color: #64748B;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* Right circular arrow button */
+.quick-channel__arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease;
+}
+
+.quick-channel-item:hover .quick-channel__arrow-btn {
+  transform: translateX(4px);
+}
+
+/* Base Icon Box */
+.quick-channel__icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  flex-shrink: 0;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.quick-channel-item:hover .quick-channel__icon-box {
+  transform: scale(1.06);
+}
+
+/* ================= CHANNEL 1: WHATSAPP ================= */
+.quick-channel--whatsapp {
+  background-color: #F0FDF4;
+  border: 1px solid rgba(74, 222, 128, 0.28);
+}
+
+.quick-channel--whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.45);
+}
+
+.quick-channel__icon-box--whatsapp {
+  background-color: #22C55E;
+}
+
+.quick-channel__arrow--whatsapp {
+  background-color: #DCFCE7;
+  color: #15803D;
+}
+
+.quick-channel--whatsapp:hover .quick-channel__arrow--whatsapp {
+  background-color: #BBF7D0;
+}
+
+/* ================= CHANNEL 2: INSTAGRAM ================= */
+.quick-channel--instagram {
+  background-color: #FDF2F8;
+  border: 1px solid rgba(244, 114, 182, 0.25);
+}
+
+.quick-channel--instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(236, 72, 153, 0.15);
+  border-color: rgba(236, 72, 153, 0.45);
+}
+
+.quick-channel__icon-box--instagram {
+  background: linear-gradient(45deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%);
+}
+
+.quick-channel__arrow--instagram {
+  background-color: #FCE7F3;
+  color: #BE185D;
+}
+
+.quick-channel--instagram:hover .quick-channel__arrow--instagram {
+  background-color: #FBCFE8;
+}
+
+/* ================= CHANNEL 3: YOUTUBE ================= */
+.quick-channel--youtube {
+  background-color: #FEF2F2;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+.quick-channel--youtube:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.45);
+}
+
+.quick-channel__icon-box--youtube {
+  background-color: #EF4444;
+}
+
+.quick-channel__arrow--youtube {
+  background-color: #FEE2E2;
+  color: #B91C1C;
+}
+
+.quick-channel--youtube:hover .quick-channel__arrow--youtube {
+  background-color: #FECACA;
+}
+
+.quick-channel--youtube.coming-soon-active {
+  border-color: #EF4444;
+  background-color: #FFF1F2;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.18);
+}
+
+.quick-channel__coming-soon-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #EF4444;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+  animation: pillPop 0.22s ease-out both;
+  white-space: nowrap;
+}
+
+.quick-contact__notice {
+  background: #FEF2F2;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #DC2626;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  animation: noticeSlide 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes noticeSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pillPop {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ================= CHANNEL 4: CALL NOW ================= */
+.quick-channel--call {
+  background-color: #EFF6FF;
+  border: 1px solid rgba(96, 165, 250, 0.28);
+}
+
+.quick-channel--call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.45);
+}
+
+.quick-channel__icon-box--call {
+  background-color: #2563EB;
+}
+
+.quick-channel__arrow--call {
+  background-color: #DBEAFE;
+  color: #1D4ED8;
+}
+
+.quick-channel--call:hover .quick-channel__arrow--call {
+  background-color: #BFDBFE;
+}
+
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .quick-contact-page {
+    padding: 85px 0 40px;
+    align-items: flex-start;
+  }
+
+  .quick-contact-card {
+    padding: 28px 18px;
+    border-radius: 22px;
+  }
+
+  .quick-contact-card__title {
+    font-size: 1.6rem;
+  }
+
+  .quick-channel-item {
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+
+  .quick-channel__icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  .quick-channel__icon-box svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .quick-channel__name {
+    font-size: 1.02rem;
+  }
+
+  .quick-channel__sub {
+    font-size: 0.82rem;
+  }
+
+  .quick-channel__arrow-btn {
+    width: 34px;
+    height: 34px;
+  }
+}

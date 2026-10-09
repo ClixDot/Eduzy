@@ -99,21 +99,21 @@ export default function CTA() {
             </p>
 
             <div className="cta-card__actions">
-              {/* Button 1: White to Orange */}
+              {/* Button 1: Call Now (Direct Call) */}
               <FlowButton
-                text="Enroll Now"
-                onClick={() => window.dispatchEvent(new CustomEvent('open-enroll-modal'))}
+                text="Call Now"
+                href="tel:+919747944374"
                 className="flow-button--white-to-orange"
                 hoverColor="#EA580C"
-                id="cta-enroll-now"
+                id="cta-call-now"
               />
-              {/* Button 2: Orange to White */}
+              {/* Button 2: Message (WhatsApp Message) */}
               <FlowButton
-                text="Talk to an Expert"
-                href="https://wa.me/919747944374?text=Hi%2C%20I%20would%20like%20to%20talk%20to%20an%20expert%20counselor%20at%20EDUZY"
+                text="Message"
+                href="https://wa.me/919747944374?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enquire%20about%20admissions"
                 className="flow-button--orange-to-white"
                 hoverColor="#ffffff"
-                id="cta-talk-expert"
+                id="cta-message-whatsapp"
               />
             </div>
 

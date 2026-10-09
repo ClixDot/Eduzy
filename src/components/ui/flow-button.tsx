@@ -51,11 +51,12 @@ export function FlowButton({
   }
 
   if (href) {
+    const isTel = href.startsWith('tel:');
     return (
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={isTel ? undefined : "_blank"}
+        rel={isTel ? undefined : "noopener noreferrer"}
         className={`flow-button ${className}`}
         onClick={onClick}
         id={id}

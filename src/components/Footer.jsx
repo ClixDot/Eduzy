@@ -14,7 +14,6 @@ const quickLinks = [
   { label: 'Home', to: '/' },
   { label: 'All Courses', to: '/courses' },
   { label: 'Success Portfolio', to: '/portfolio' },
-  { label: 'Contact & Admissions', to: '/contact' },
 ];
 
 const currentYear = new Date().getFullYear();
@@ -173,11 +172,11 @@ export default function Footer() {
           </p>
 
           <div className="footer__legal">
-            <Link to="/contact">Privacy Policy</Link>
+            <Link to="/">Privacy Policy</Link>
             <span className="footer__dot">•</span>
-            <Link to="/contact">Terms &amp; Conditions</Link>
+            <Link to="/">Terms &amp; Conditions</Link>
             <span className="footer__dot">•</span>
-            <Link to="/contact">Sitemap</Link>
+            <Link to="/">Sitemap</Link>
           </div>
 
           <button 
