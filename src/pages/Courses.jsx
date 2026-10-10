@@ -75,7 +75,7 @@ export default function Courses() {
     <main className="courses-page" id="main-content">
       {/* 1. Header / Hero Section */}
       <section className="courses-hero" aria-label="Course Explorer Hero">
-        <div className="container text-center">
+        <div className="container text-center courses-hero__container">
           <h1 className="courses-hero__title">
             Explore All <span className="highlight-orange">Courses</span>
           </h1>
