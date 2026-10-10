@@ -16,13 +16,13 @@ export default function Courses() {
       let designingHeaderAdded = false;
 
       courses.forEach((course) => {
-        // Add Designing category heading before 05.1
+        // Add Designing category heading before 03.1
         if (course.isUnderDesigningCategory && !designingHeaderAdded) {
           items.push({
             type: 'heading',
             id: 'category-heading-designing',
             categoryTitle: 'Designing',
-            badge: '05. Designing',
+            badge: '03. Designing',
             subtitle: 'Specialized creative programs in fashion, interior spaces, and visual digital arts.',
           });
           designingHeaderAdded = true;
@@ -39,7 +39,7 @@ export default function Courses() {
           type: 'heading',
           id: 'category-heading-designing',
           categoryTitle: 'Designing',
-          badge: '05. Designing',
+          badge: '03. Designing',
           subtitle: 'Specialized creative programs in fashion, interior spaces, and visual digital arts.',
         },
       ];

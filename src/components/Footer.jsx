@@ -4,10 +4,14 @@ import { MapPin, Phone, Mail, Clock, ArrowUp } from 'lucide-react';
 import './Footer.css';
 
 const popularCourses = [
-  { name: 'Digital Marketing', slug: 'digital-marketing' },
-  { name: 'Influencer Marketing', slug: 'influencer-marketing' },
-  { name: 'Entrepreneurship', slug: 'entrepreneurship' },
-  { name: 'Business Development', slug: 'business-development' },
+  { name: 'Logistics and Supply Chain Management', slug: 'logistics-and-supply-chain-management' },
+  { name: 'Accounting', slug: 'accounting' },
+  { name: 'Designing', slug: 'fashion-designing' },
+  { name: 'Digital Marketing & Influencer Marketing', slug: 'digital-marketing-influencer-marketing' },
+  { name: 'Entrepreneurship & Business Development', slug: 'entrepreneurship-business-development' },
+  { name: 'Hospital Administration', slug: 'hospital-administration' },
+  { name: 'Human Resource Management', slug: 'human-resource-management' },
+  { name: 'Aviation', slug: 'aviation' },
 ];
 
 const quickLinks = [

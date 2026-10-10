@@ -2,7 +2,7 @@ export const faqs = [
   {
     id: 1,
     question: "What programs does EDUZY offer?",
-    answer: "EDUZY offers industry-led executive programs in Digital Marketing, Influencer Marketing & Personal Branding, Entrepreneurship & Startups, and Business Development.",
+    answer: "EDUZY offers industry-led executive programs in Logistics & Supply Chain Management, Accounting, Designing, Digital Marketing & Influencer Marketing, Entrepreneurship & Business Development, Hospital Administration, Human Resource Management, and Aviation.",
   },
   {
     id: 2,

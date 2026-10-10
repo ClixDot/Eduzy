@@ -12,7 +12,9 @@ export default function CourseDetails() {
   const { courseSlug } = useParams();
 
   const course = courses.find(
-    (c) => c.slug.toLowerCase() === courseSlug?.toLowerCase()
+    (c) =>
+      c.slug.toLowerCase() === courseSlug?.toLowerCase() ||
+      (Array.isArray(c.aliases) && c.aliases.map((a) => a.toLowerCase()).includes(courseSlug?.toLowerCase()))
   );
 
   if (!course) {

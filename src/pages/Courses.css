@@ -46,14 +46,14 @@
 /* 2. SEGMENTED CATEGORY FILTER */
 .course-filter-wrapper {
   display: flex;
-  justify-content: center;
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 8px 16px;
-  margin-top: 8px;
+  padding: 10px 16px 18px;
+  margin: 12px auto 0;
+  box-sizing: border-box;
 }
 
 .course-filter-wrapper::-webkit-scrollbar {
@@ -65,10 +65,11 @@
   align-items: center;
   gap: 6px;
   background: #ffffff;
-  padding: 6px;
+  padding: 7px 8px;
+  min-height: 58px;
   border-radius: 9999px;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.06);
   flex-wrap: nowrap;
   white-space: nowrap;
   flex-shrink: 0;
@@ -79,9 +80,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 22px;
+  padding: 10px 22px;
+  min-height: 44px;
   border-radius: 9999px;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: #64748B;
   background: transparent;
@@ -89,6 +91,7 @@
   cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 .course-filter__btn:hover {
@@ -100,7 +103,7 @@
   background: #EA580C;
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.3);
 }
 
 /* 3. CATALOG GRID & LAYOUT */

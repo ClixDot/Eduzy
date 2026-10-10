@@ -6,8 +6,9 @@
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 8px 16px;
-  margin-bottom: 2.5rem;
+  padding: 10px 16px 18px;
+  margin-bottom: 2.4rem;
+  box-sizing: border-box;
 }
 
 .course-filter-wrapper::-webkit-scrollbar {
@@ -19,10 +20,11 @@
   align-items: center;
   gap: 6px;
   background: #ffffff;
-  padding: 6px;
+  padding: 7px 8px;
+  min-height: 58px;
   border-radius: 9999px;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
   margin: 0 auto;
   white-space: nowrap;
@@ -32,9 +34,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 20px;
+  padding: 10px 22px;
+  min-height: 44px;
   border-radius: 9999px;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: #64748B;
   background: transparent;
@@ -42,6 +45,7 @@
   cursor: pointer;
   transition: all 0.22s ease;
   white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 .course-filter__btn:hover {
@@ -53,7 +57,7 @@
   background: #EA580C;
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.3);
 }
 
 /* Course Grid */
