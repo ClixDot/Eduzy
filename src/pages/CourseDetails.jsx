@@ -62,13 +62,13 @@ export default function CourseDetails() {
               <div className="course-hero__meta-card">
                 <span className="course-hero__meta-label">Duration</span>
                 <span className="course-hero__meta-val" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <Clock size={16} /> {course.duration}
+                  <Clock size={16} /> {course.duration || 'Comprehensive'}
                 </span>
               </div>
               <div className="course-hero__meta-card">
                 <span className="course-hero__meta-label">Training Format</span>
                 <span className="course-hero__meta-val" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <Globe size={16} /> {course.format}
+                  <Globe size={16} /> {course.format || 'Classroom & Online'}
                 </span>
               </div>
               <div className="course-hero__meta-card">

@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
+import { gsap } from '../utils/gsapSetup';
 import { courses, courseCategories } from '../data/courses';
 import CourseCard from '../components/CourseCard';
 import EnquiryForm from '../components/EnquiryForm';
@@ -9,33 +9,82 @@ import './Courses.css';
 export default function Courses() {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const filteredCourses = useMemo(() => {
-    if (selectedCategory === 'all') return courses;
-    return courses.filter((c) => c.category === selectedCategory);
+  // Compute displayed list with 05. Designing category heading
+  const displayItems = useMemo(() => {
+    if (selectedCategory === 'all') {
+      const items = [];
+      let designingHeaderAdded = false;
+
+      courses.forEach((course) => {
+        // Add Designing category heading before 05.1
+        if (course.isUnderDesigningCategory && !designingHeaderAdded) {
+          items.push({
+            type: 'heading',
+            id: 'category-heading-designing',
+            categoryTitle: 'Designing',
+            badge: '05. Designing',
+            subtitle: 'Specialized creative programs in fashion, interior spaces, and visual digital arts.',
+          });
+          designingHeaderAdded = true;
+        }
+        items.push({ type: 'course', ...course });
+      });
+
+      return items;
+    }
+
+    if (selectedCategory === 'designing') {
+      const items = [
+        {
+          type: 'heading',
+          id: 'category-heading-designing',
+          categoryTitle: 'Designing',
+          badge: '05. Designing',
+          subtitle: 'Specialized creative programs in fashion, interior spaces, and visual digital arts.',
+        },
+      ];
+
+      courses
+        .filter((c) => c.category === 'designing')
+        .forEach((course) => {
+          items.push({ type: 'course', ...course });
+        });
+
+      return items;
+    }
+
+    // Filter by specific category without changing original order
+    const filtered = courses.filter((c) => {
+      if (c.category === selectedCategory) return true;
+      if (Array.isArray(c.categories) && c.categories.includes(selectedCategory)) return true;
+      return false;
+    });
+
+    return filtered.map((course) => ({ type: 'course', ...course }));
   }, [selectedCategory]);
 
   useEffect(() => {
     gsap.fromTo(
       '.course-card',
-      { y: 35, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.08, duration: 0.6, ease: 'power2.out' }
+      { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, stagger: 0.05, duration: 0.45, ease: 'power2.out' }
     );
-  }, [filteredCourses]);
+  }, [selectedCategory]);
 
   return (
     <main className="courses-page" id="main-content">
-      {/* Clean Header / Hero */}
-      <section className="courses-hero">
+      {/* 1. Header / Hero Section */}
+      <section className="courses-hero" aria-label="Course Explorer Hero">
         <div className="container text-center">
           <h1 className="courses-hero__title">
             Explore All <span className="highlight-orange">Courses</span>
           </h1>
 
           <p className="courses-hero__subtitle">
-            Industry-led executive programs in digital marketing, creator growth, and business leadership.
+            Industry-focused programs designed to develop professional skills and prepare learners for career opportunities.
           </p>
 
-          {/* Simple Category Filter */}
+          {/* Functional Category Filter matching reference screenshot */}
           <div className="course-filter-wrapper">
             <div className="course-filter" role="tablist" aria-label="Course categories">
               {courseCategories.map((cat) => {
@@ -44,7 +93,9 @@ export default function Courses() {
                   <button
                     key={cat.id}
                     role="tab"
+                    id={`filter-tab-${cat.id}`}
                     aria-selected={isActive}
+                    aria-controls="courses-catalog-grid"
                     className={`course-filter__btn ${isActive ? 'active' : ''}`}
                     onClick={() => setSelectedCategory(cat.id)}
                   >
@@ -57,18 +108,36 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* Course List */}
-      <section className="courses-catalog-section">
+      {/* 2. Course Catalog Section */}
+      <section className="courses-catalog-section" aria-label="Available Courses Catalog">
         <div className="container">
-          <div className="course-grid">
-            {filteredCourses.map((course) => (
-              <CourseCard key={course.id} course={course} />
-            ))}
+          <div className="course-grid" id="courses-catalog-grid">
+            {displayItems.map((item) => {
+              if (item.type === 'heading') {
+                return (
+                  <div
+                    key={item.id}
+                    className="course-category-banner"
+                    role="region"
+                    aria-label={item.categoryTitle}
+                  >
+                    <div className="course-category-banner__tag">
+                      <span className="course-category-banner__indicator" aria-hidden="true" />
+                      <span>{item.badge}</span>
+                    </div>
+                    <h2 className="course-category-banner__title">{item.categoryTitle}</h2>
+                    <p className="course-category-banner__desc">{item.subtitle}</p>
+                  </div>
+                );
+              }
+
+              return <CourseCard key={item.id} course={item} />;
+            })}
           </div>
         </div>
       </section>
 
-      {/* Advisory Enquiry Form */}
+      {/* 3. Advisory Enquiry Form */}
       <section className="courses-advisory-section">
         <div className="container" style={{ maxWidth: '580px' }}>
           <EnquiryForm
