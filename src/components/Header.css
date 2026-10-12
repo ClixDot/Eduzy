@@ -119,12 +119,12 @@
   font-weight: 600;
   font-family: var(--font-body);
   color: #ffffff;
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 45%, #f59e0b 100%);
+  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 45%, #FF5722 100%);
   background-size: 200% 200%;
   background-position: 0% 50%;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 
-    0 4px 14px rgba(249, 115, 22, 0.32),
+    0 4px 14px rgba(255, 59, 11, 0.32),
     inset 0 1px 0 rgba(255, 255, 255, 0.35);
   cursor: pointer;
   overflow: hidden;
@@ -143,7 +143,7 @@
   position: absolute;
   inset: -6px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.75) 0%, rgba(249, 115, 22, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 59, 11, 0.75) 0%, rgba(255, 59, 11, 0) 70%);
   opacity: 0;
   filter: blur(10px);
   pointer-events: none;
@@ -181,8 +181,8 @@
   transform: translateY(-2.5px) scale(1.035);
   background-position: 100% 50%;
   box-shadow: 
-    0 12px 28px -4px rgba(249, 115, 22, 0.58),
-    0 0 20px rgba(251, 146, 60, 0.4),
+    0 12px 28px -4px rgba(255, 59, 11, 0.58),
+    0 0 20px rgba(255, 95, 50, 0.4),
     inset 0 1px 1px rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.6);
 }
@@ -200,7 +200,7 @@
 .header__enroll-btn:active {
   transform: translateY(0px) scale(0.97);
   box-shadow: 
-    0 4px 12px rgba(249, 115, 22, 0.4),
+    0 4px 12px rgba(255, 59, 11, 0.4),
     inset 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -352,9 +352,9 @@
 
 .mobile-menu__close:hover,
 .mobile-menu__close:active {
-  background: #EA580C;
+  background: #FF3B0B;
   color: #ffffff;
-  border-color: #EA580C;
+  border-color: #FF3B0B;
 }
 
 .mobile-menu__list {
@@ -386,9 +386,9 @@
 
 .mobile-menu__link:hover,
 .mobile-menu__link.active {
-  color: #EA580C;
+  color: #FF3B0B;
   background: #FFF7ED;
-  border-left-color: #EA580C;
+  border-left-color: #FF3B0B;
 }
 
 .mobile-menu__footer {

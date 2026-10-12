@@ -6,8 +6,8 @@
   padding: 85px 0;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(249, 115, 22, 0.12);
-  border-bottom: 1px solid rgba(249, 115, 22, 0.12);
+  border-top: 1px solid rgba(255, 59, 11, 0.12);
+  border-bottom: 1px solid rgba(255, 59, 11, 0.12);
 }
 
 .testimonials__top {
@@ -45,11 +45,11 @@
 }
 
 .carousel-btn:hover {
-  background: #EA580C;
+  background: #FF3B0B;
   color: #ffffff;
-  border-color: #EA580C;
+  border-color: #FF3B0B;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.28);
+  box-shadow: 0 6px 18px rgba(255, 59, 11, 0.28);
 }
 
 .testimonials__carousel-viewport {
@@ -88,9 +88,9 @@
 
 .testimonial-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 36px -10px rgba(249, 115, 22, 0.16),
+  box-shadow: 0 18px 36px -10px rgba(255, 59, 11, 0.16),
               0 6px 16px -4px rgba(0, 0, 0, 0.04);
-  border-color: rgba(249, 115, 22, 0.35);
+  border-color: rgba(255, 59, 11, 0.35);
 }
 
 /* Background Quote Mark */
@@ -101,7 +101,7 @@
   font-family: Georgia, serif;
   font-size: 80px;
   line-height: 1;
-  color: rgba(249, 115, 22, 0.07);
+  color: rgba(255, 59, 11, 0.07);
   pointer-events: none;
   user-select: none;
 }
@@ -123,7 +123,7 @@
 .testimonial-card__course-tag {
   font-size: 0.74rem;
   font-weight: 700;
-  color: #EA580C;
+  color: #FF3B0B;
   background: #FFF7ED;
   padding: 3px 10px;
   border-radius: 9999px;
@@ -155,7 +155,7 @@
   height: 44px;
   border-radius: 50%;
   background: #FFF7ED;
-  color: #EA580C;
+  color: #FF3B0B;
   border: 1.5px solid #FFEDD5;
   display: flex;
   align-items: center;
@@ -168,11 +168,11 @@
 }
 
 .testimonial-card:hover .testimonial-card__avatar {
-  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
   color: #ffffff;
   border-color: transparent;
   transform: scale(1.08);
-  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.28);
+  box-shadow: 0 6px 16px rgba(255, 59, 11, 0.28);
 }
 
 .testimonial-card__name {
@@ -212,7 +212,7 @@
 
 .testimonials__dot.active {
   width: 28px;
-  background: #EA580C;
+  background: #FF3B0B;
 }
 
 /* Responsive */

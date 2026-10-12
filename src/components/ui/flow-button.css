@@ -21,10 +21,10 @@
 }
 
 .flow-button:hover {
-  border-color: #F97316;
+  border-color: #FF3B0B;
   color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 10px 24px rgba(255, 59, 11, 0.35);
 }
 
 .flow-button:active {
@@ -66,7 +66,7 @@
   transform: translate(-50%, -50%);
   width: 1rem;
   height: 1rem;
-  background-color: #F97316;
+  background-color: #FF3B0B;
   border-radius: 50%;
   opacity: 0;
   transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -100,7 +100,7 @@
 .flow-button--white {
   background: #ffffff;
   border: 1.5px solid #ffffff;
-  color: #EA580C;
+  color: #FF3B0B;
   font-weight: 700;
   font-size: 0.95rem;
   padding: 0.85rem 2.4rem;
@@ -111,7 +111,7 @@
 .flow-button--white-to-orange .flow-arrow-right,
 .flow-button--white .flow-arrow-left,
 .flow-button--white .flow-arrow-right {
-  stroke: #EA580C;
+  stroke: #FF3B0B;
 }
 
 .flow-button--white-to-orange:hover,
@@ -153,17 +153,17 @@
 .flow-button--orange-to-white:hover,
 .flow-button--outline-white:hover {
   border-color: #ffffff;
-  color: #EA580C;
+  color: #FF3B0B;
   border-radius: 14px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .flow-button--orange-to-white:hover .flow-arrow-left,
 .flow-button--outline-white:hover .flow-arrow-left {
-  stroke: #EA580C;
+  stroke: #FF3B0B;
 }
 
 .flow-button--orange-to-white:hover .flow-arrow-right,
 .flow-button--outline-white:hover .flow-arrow-right {
-  stroke: #EA580C;
+  stroke: #FF3B0B;
 }

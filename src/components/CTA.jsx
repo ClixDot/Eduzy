@@ -104,7 +104,7 @@ export default function CTA() {
                 text="Call Now"
                 href="tel:+919747944374"
                 className="flow-button--white-to-orange"
-                hoverColor="#EA580C"
+                hoverColor="#FF3B0B"
                 id="cta-call-now"
               />
               {/* Button 2: Message (WhatsApp Message) */}

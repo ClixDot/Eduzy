@@ -25,7 +25,7 @@
   left: 5%;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 59, 11, 0.12) 0%, transparent 70%);
 }
 
 .video-section__glow--2 {
@@ -89,7 +89,7 @@
 
 .video-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 22px 45px rgba(249, 115, 22, 0.3), 0 0 0 2px #F97316;
+  box-shadow: 0 22px 45px rgba(255, 59, 11, 0.3), 0 0 0 2px #FF3B0B;
 }
 
 /* Background Thumbnail */
@@ -140,7 +140,7 @@
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #F97316;
+  color: #FF3B0B;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,16 +151,16 @@
 
 .video-card:hover .video-card__play-circle {
   transform: scale(1.15);
-  background: #F97316;
+  background: #FF3B0B;
   color: #ffffff;
-  box-shadow: 0 14px 34px rgba(249, 115, 22, 0.55);
+  box-shadow: 0 14px 34px rgba(255, 59, 11, 0.55);
 }
 
 .video-card__play-pulse {
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 2px solid rgba(249, 115, 22, 0.45);
+  border: 2px solid rgba(255, 59, 11, 0.45);
   animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   pointer-events: none;
 }
@@ -209,25 +209,25 @@
 
 .video-ctrl-btn--prev {
   background: #FFF7ED;
-  color: #EA580C;
+  color: #FF3B0B;
   border: 1px solid #FFEDD5;
 }
 
 .video-ctrl-btn--prev:hover {
   background: #FFEDD5;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.2);
+  box-shadow: 0 6px 16px rgba(255, 59, 11, 0.2);
 }
 
 .video-ctrl-btn--next {
-  background: #F97316;
+  background: #FF3B0B;
   color: #ffffff;
 }
 
 .video-ctrl-btn--next:hover {
-  background: #EA580C;
+  background: #E62E00;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 8px 20px rgba(255, 59, 11, 0.35);
 }
 
 .video-carousel__dots {
@@ -247,7 +247,7 @@
 
 .video-dot.active {
   width: 24px;
-  background: #F97316;
+  background: #FF3B0B;
 }
 
 /* ============================================
@@ -303,7 +303,7 @@
 }
 
 .video-modal__close-btn:hover {
-  background: #F97316;
+  background: #FF3B0B;
   transform: scale(1.08);
 }
 
@@ -336,7 +336,7 @@
 .video-modal__course {
   font-size: 0.78rem;
   font-weight: 700;
-  color: #F97316;
+  color: #FF3B0B;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: block;
@@ -361,9 +361,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(249, 115, 22, 0.15);
-  border: 1px solid rgba(249, 115, 22, 0.35);
-  color: #F97316;
+  background: rgba(255, 59, 11, 0.15);
+  border: 1px solid rgba(255, 59, 11, 0.35);
+  color: #FF3B0B;
   padding: 10px 16px;
   border-radius: 9999px;
   font-size: 0.88rem;
@@ -373,7 +373,7 @@
 }
 
 .video-modal__external-link:hover {
-  background: #F97316;
+  background: #FF3B0B;
   color: #ffffff;
   transform: translateY(-2px);
 }

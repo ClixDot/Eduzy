@@ -83,7 +83,7 @@ export default function CourseDetails() {
               <div className="course-hero__meta-card">
                 <span className="course-hero__meta-label">Rating</span>
                 <span className="course-hero__meta-val">
-                  <Star size={16} fill="#EA580C" stroke="#EA580C" /> {course.rating ? `${course.rating} / 5.0` : '4.8 / 5.0'}
+                  <Star size={16} fill="#FF3B0B" stroke="#FF3B0B" /> {course.rating ? `${course.rating} / 5.0` : '4.8 / 5.0'}
                 </span>
               </div>
             </div>
@@ -191,7 +191,7 @@ export default function CourseDetails() {
                   {displayedTestimonials.slice(0, 1).map((t) => (
                     <div key={t.id} className="course-testi-box">
                       <div className="course-testi-header">
-                        <div className="course-testi-avatar" style={{ backgroundColor: t.color || '#EA580C' }}>
+                        <div className="course-testi-avatar" style={{ backgroundColor: t.color || '#FF3B0B' }}>
                           {t.initials}
                         </div>
                         <div>

@@ -20,7 +20,7 @@ export function FlowButton({
   to,
   href,
   className = "",
-  hoverColor = "#F97316",
+  hoverColor = "#FF3B0B",
   id,
 }: FlowButtonProps) {
   const content = (

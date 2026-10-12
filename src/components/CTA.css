@@ -4,12 +4,12 @@
 
 .cta-card {
   position: relative;
-  background: linear-gradient(135deg, #F97316 0%, #EA580C 50%, #C2410C 100%);
+  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 50%, #CC2900 100%);
   border-radius: var(--radius-xl);
   padding: 48px 32px;
   overflow: hidden;
   box-shadow: 
-    0 24px 60px -10px rgba(249, 115, 22, 0.45),
+    0 24px 60px -10px rgba(255, 59, 11, 0.45),
     0 10px 25px -5px rgba(0, 0, 0, 0.1),
     inset 0 1px 1px rgba(255, 255, 255, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -22,7 +22,7 @@
 
 .cta-card:hover {
   box-shadow: 
-    0 32px 70px -10px rgba(249, 115, 22, 0.55),
+    0 32px 70px -10px rgba(255, 59, 11, 0.55),
     0 12px 30px -5px rgba(0, 0, 0, 0.15),
     inset 0 1px 2px rgba(255, 255, 255, 0.45);
 }

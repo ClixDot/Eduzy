@@ -24,7 +24,7 @@
   left: -8%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 59, 11, 0.12) 0%, transparent 70%);
 }
 
 .journey__bg-glow--right {
@@ -87,8 +87,8 @@
 
 .journey-step:hover .journey-card {
   transform: translateY(-6px);
-  border-color: #F97316;
-  box-shadow: 0 16px 36px rgba(249, 115, 22, 0.16);
+  border-color: #FF3B0B;
+  box-shadow: 0 16px 36px rgba(255, 59, 11, 0.16);
 }
 
 /* Watermark Number in Card Corner */
@@ -106,7 +106,7 @@
 }
 
 .journey-step:hover .journey-card__watermark {
-  color: rgba(249, 115, 22, 0.1);
+  color: rgba(255, 59, 11, 0.1);
 }
 
 /* Card Header */
@@ -123,7 +123,7 @@
   height: 46px;
   border-radius: 12px;
   background: #FFF7ED;
-  color: #EA580C;
+  color: #FF3B0B;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,10 +132,10 @@
 }
 
 .journey-step:hover .journey-card__icon-box {
-  background: #F97316;
+  background: #FF3B0B;
   color: #ffffff;
   transform: scale(1.06);
-  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 6px 16px rgba(255, 59, 11, 0.3);
 }
 
 /* Card Body */
@@ -167,14 +167,14 @@
 /* Goal Step 05 Celebratory Highlights */
 .journey-step--goal .journey-card {
   background: linear-gradient(160deg, #FFFFFF 0%, #FFF7ED 100%);
-  border-color: rgba(249, 115, 22, 0.35);
-  box-shadow: 0 8px 26px rgba(249, 115, 22, 0.12);
+  border-color: rgba(255, 59, 11, 0.35);
+  box-shadow: 0 8px 26px rgba(255, 59, 11, 0.12);
 }
 
 .journey-step--goal .journey-card__icon-box {
-  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 14px rgba(255, 59, 11, 0.35);
 }
 
 .journey-card__goal-tag {
@@ -183,8 +183,8 @@
   align-items: center;
   gap: 6px;
   background: #FEECD7;
-  border: 1px solid rgba(249, 115, 22, 0.25);
-  color: #C2410C;
+  border: 1px solid rgba(255, 59, 11, 0.25);
+  color: #FF3B0B;
   font-size: 0.72rem;
   font-weight: 700;
   padding: 5px 9px;

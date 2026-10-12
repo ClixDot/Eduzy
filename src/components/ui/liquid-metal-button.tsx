@@ -323,7 +323,7 @@ export function LiquidMetalButton({
                 margin: "2px",
                 borderRadius: "100px",
                 background: isOrange
-                  ? "linear-gradient(135deg, rgba(255, 122, 24, 0.85) 0%, rgba(234, 88, 12, 0.88) 100%)"
+                  ? "linear-gradient(135deg, rgba(255, 59, 11, 0.88) 0%, rgba(230, 46, 0, 0.92) 100%)"
                   : "linear-gradient(180deg, #202020 0%, #000000 100%)",
                 boxShadow: isPressed
                   ? isOrange
@@ -358,14 +358,14 @@ export function LiquidMetalButton({
                 borderRadius: "100px",
                 boxShadow: isPressed
                   ? isOrange
-                    ? "0px 4px 14px rgba(234, 88, 12, 0.4), 0px 0px 0px 1px rgba(234, 88, 12, 0.5)"
+                    ? "0px 4px 14px rgba(255, 59, 11, 0.4), 0px 0px 0px 1px rgba(255, 59, 11, 0.5)"
                     : "0px 0px 0px 1px rgba(0, 0, 0, 0.5), 0px 1px 2px 0px rgba(0, 0, 0, 0.3)"
                   : isHovered
                     ? isOrange
-                      ? "0px 16px 36px -4px rgba(234, 88, 12, 0.6), 0px 6px 16px rgba(0, 0, 0, 0.12), 0px 0px 0px 1px rgba(255, 122, 24, 0.6)"
+                      ? "0px 16px 36px -4px rgba(255, 59, 11, 0.6), 0px 6px 16px rgba(0, 0, 0, 0.12), 0px 0px 0px 1px rgba(255, 59, 11, 0.6)"
                       : "0px 0px 0px 1px rgba(0, 0, 0, 0.4), 0px 12px 6px 0px rgba(0, 0, 0, 0.05), 0px 8px 5px 0px rgba(0, 0, 0, 0.1), 0px 4px 4px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.2)"
                     : isOrange
-                      ? "0px 10px 28px -4px rgba(234, 88, 12, 0.45), 0px 4px 10px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(249, 115, 22, 0.35)"
+                      ? "0px 10px 28px -4px rgba(255, 59, 11, 0.45), 0px 4px 10px rgba(0, 0, 0, 0.08), 0px 0px 0px 1px rgba(255, 59, 11, 0.35)"
                       : "0px 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 36px 14px 0px rgba(0, 0, 0, 0.02), 0px 20px 12px 0px rgba(0, 0, 0, 0.08), 0px 9px 9px 0px rgba(0, 0, 0, 0.12), 0px 2px 5px 0px rgba(0, 0, 0, 0.15)",
                 transition:
                   "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.4s ease, height 0.4s ease, box-shadow 0.25s ease",

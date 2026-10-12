@@ -7,7 +7,7 @@ export const testimonials = [
     rating: 5,
     text: "EDUZY gave me the perfect foundation for audit and corporate accounting. The computerized Tally and GST filing sessions helped me clear every technical interview round during placement in the UAE!",
     initials: 'AM',
-    color: '#F97316',
+    color: '#FF3B0B',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const testimonials = [
     rating: 5,
     text: "The practical case study simulations in freight forwarding, customs clearance, and warehouse operations at EDUZY prepared me directly for shipping line roles. Top-notch mentors!",
     initials: 'SK',
-    color: '#EA580C',
+    color: '#FF3B0B',
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const testimonials = [
     rating: 5,
     text: "The hands-on garment drafting, textile science, and moodboard creation modules at EDUZY gave me the confidence to launch my own designer apparel studio.",
     initials: 'PN',
-    color: '#F97316',
+    color: '#FF3B0B',
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const testimonials = [
     rating: 5,
     text: "Mastering AutoCAD drafting, 3D spatial renders, and BOQ estimation taught at EDUZY made my transition into commercial architectural design effortless.",
     initials: 'AM',
-    color: '#EA580C',
+    color: '#FF3B0B',
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const testimonials = [
     rating: 5,
     text: "Learning After Effects animations, vector branding, and kinetic typography at EDUZY helped me build an outstanding portfolio that landed me agency roles immediately.",
     initials: 'SR',
-    color: '#F97316',
+    color: '#FF3B0B',
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ export const testimonials = [
     rating: 5,
     text: "Running live ad budgets, mastering Google & Meta Ads, and understanding creator rate negotiations at EDUZY gave me real, job-ready confidence.",
     initials: 'FK',
-    color: '#EA580C',
+    color: '#FF3B0B',
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ export const testimonials = [
     rating: 5,
     text: "From unit economics and pitch decks to high-stakes B2B outbound prospecting, the mentors at EDUZY provided invaluable practical execution training.",
     initials: 'VP',
-    color: '#F97316',
+    color: '#FF3B0B',
   },
   {
     id: 8,
@@ -77,7 +77,7 @@ export const testimonials = [
     rating: 5,
     text: "Understanding NABH accreditation workflows, HIS electronic health records, and clinical department operations gave me a huge competitive edge in healthcare management.",
     initials: 'MK',
-    color: '#EA580C',
+    color: '#FF3B0B',
   },
   {
     id: 9,
@@ -87,7 +87,7 @@ export const testimonials = [
     rating: 5,
     text: "The statutory payroll compliance drills, CTC structuring, and end-to-end recruitment pipelines taught at EDUZY made me completely corporate-ready.",
     initials: 'DS',
-    color: '#F97316',
+    color: '#FF3B0B',
   },
   {
     id: 10,
@@ -97,7 +97,7 @@ export const testimonials = [
     rating: 5,
     text: "Mock airport check-in counter simulations, flight safety drills, and aviation grooming gave me the poise to clear my international airline ground interview on my first attempt!",
     initials: 'MR',
-    color: '#EA580C',
+    color: '#FF3B0B',
   },
   {
     id: 11,
@@ -107,9 +107,8 @@ export const testimonials = [
     rating: 5,
     text: "The EDUZY team and mentors are truly dedicated to student success. The coaching is practical, focused, and very personalized. Highly recommended!",
     initials: 'DV',
-    color: '#F97316',
+    color: '#FF3B0B',
   },
 ];
 
 export default testimonials;
-

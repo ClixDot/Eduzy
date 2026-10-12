@@ -39,7 +39,7 @@
   border-radius: 22px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 20px 48px -8px rgba(15, 23, 42, 0.25),
-              0 6px 18px rgba(249, 115, 22, 0.12);
+              0 6px 18px rgba(255, 59, 11, 0.12);
   padding: 34px 30px;
   animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   max-height: 90vh;
@@ -100,11 +100,11 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #EA580C;
+  color: #FF3B0B;
   background: #FFF7ED;
   padding: 3px 10px;
   border-radius: 9999px;
-  border: 1px solid rgba(249, 115, 22, 0.2);
+  border: 1px solid rgba(255, 59, 11, 0.2);
   margin-bottom: 8px;
 }
 
@@ -164,8 +164,8 @@
 .enroll-form-input:focus,
 .enroll-form-select:focus {
   outline: none;
-  border-color: #F97316;
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+  border-color: #FF3B0B;
+  box-shadow: 0 0 0 3px rgba(255, 59, 11, 0.12);
 }
 
 .enroll-form-select {
@@ -197,18 +197,18 @@
   font-size: 0.95rem;
   font-weight: 700;
   border-radius: 10px;
-  background: #EA580C;
+  background: #FF3B0B;
   color: #ffffff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+  box-shadow: 0 4px 14px rgba(255, 59, 11, 0.25);
   transition: all 0.2s ease;
 }
 
 .enroll-modal__submit-btn:hover:not(:disabled) {
-  background: #C2410C;
+  background: #E62E00;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.32);
+  box-shadow: 0 6px 18px rgba(255, 59, 11, 0.32);
 }
 
 .enroll-modal__submit-btn:disabled {

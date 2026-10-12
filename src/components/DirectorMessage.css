@@ -6,8 +6,8 @@
   padding: 90px 0;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(249, 115, 22, 0.12);
-  border-bottom: 1px solid rgba(249, 115, 22, 0.12);
+  border-top: 1px solid rgba(255, 59, 11, 0.12);
+  border-bottom: 1px solid rgba(255, 59, 11, 0.12);
 }
 
 .director__container {
@@ -55,7 +55,7 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #EA580C;
+  color: #FF3B0B;
   margin-bottom: 10px;
 }
 
@@ -106,7 +106,7 @@
 
 .director__role {
   font-size: 0.88rem;
-  color: #EA580C;
+  color: #FF3B0B;
   font-weight: 700;
   margin-top: 3px;
 }
@@ -168,7 +168,7 @@
   font-weight: 800;
   text-transform: uppercase;
   color: #ffffff;
-  background: #EA580C;
+  background: #FF3B0B;
   padding: 3px 8px;
   border-radius: 9999px;
   letter-spacing: 0.04em;

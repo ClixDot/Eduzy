@@ -49,15 +49,15 @@
 }
 
 .course-filter__btn:hover {
-  color: #EA580C;
+  color: #FF3B0B;
   background: #FFF7ED;
 }
 
 .course-filter__btn.active {
-  background: #EA580C;
+  background: #FF3B0B;
   color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.28);
+  box-shadow: 0 4px 16px rgba(255, 59, 11, 0.28);
 }
 
 /* Course Grid */

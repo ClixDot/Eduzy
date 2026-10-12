@@ -27,7 +27,7 @@
 .proof-card:hover {
   transform: translateY(-5px);
   background: var(--color-white);
-  border-color: rgba(249, 115, 22, 0.4);
+  border-color: rgba(255, 59, 11, 0.4);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -58,7 +58,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--color-primary-dark);
-  background: rgba(249, 115, 22, 0.1);
+  background: rgba(255, 59, 11, 0.1);
   padding: 4px 10px;
   border-radius: var(--radius-full);
 }
