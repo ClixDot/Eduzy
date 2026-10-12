@@ -245,16 +245,19 @@
 
 .course-layout-grid {
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: minmax(0, 1fr) 420px;
   gap: 36px;
   align-items: start;
   position: relative;
+  width: 100%;
 }
 
 .course-layout-main {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  min-width: 0;
+  width: 100%;
 }
 
 /* Shared Card Styling */
@@ -264,6 +267,9 @@
   border: 1px solid rgba(15, 23, 42, 0.08);
   padding: 34px 32px;
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .course-section-title {
@@ -468,23 +474,29 @@
   top: 92px;
   align-self: start;
   z-index: 20;
+  min-width: 0;
+  width: 100%;
 }
 
 .sticky-enquiry-box {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 /* 5. RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
   .course-layout-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
+    width: 100%;
   }
 
   .course-layout-sidebar {
     position: static;
     top: auto;
+    width: 100%;
+    min-width: 0;
   }
 
   .course-hero__inner {
@@ -619,27 +631,50 @@
   }
 
   .course-layout-grid {
-    gap: 24px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .course-layout-main {
     gap: 20px;
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .course-layout-sidebar {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .sticky-enquiry-box {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .course-info-card {
-    padding: 22px 16px;
+    padding: 20px 16px;
     border-radius: 16px;
     box-sizing: border-box;
     width: 100%;
+    min-width: 0;
     max-width: 100%;
+    overflow: hidden;
   }
 
   .course-section-title {
-    font-size: 1.20rem;
+    font-size: 1.18rem;
     margin-bottom: 16px;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .course-section-title::after {
@@ -648,12 +683,21 @@
     height: 3px;
   }
 
+  .course-syllabus-grid {
+    width: 100%;
+    min-width: 0;
+    gap: 10px;
+  }
+
   .course-syllabus-item {
     padding: 12px 14px;
     gap: 12px;
     border-radius: 12px;
     align-items: flex-start;
     box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .course-syllabus-num {
@@ -670,22 +714,28 @@
     flex: 1;
     min-width: 0;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .course-checklist {
     gap: 12px;
+    width: 100%;
+    min-width: 0;
   }
 
   .course-checklist__item {
     gap: 12px;
     font-size: 0.90rem;
     line-height: 1.5;
+    width: 100%;
+    min-width: 0;
   }
 
   .course-checklist__item span:last-child {
     flex: 1;
     min-width: 0;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .course-checklist__icon {
@@ -697,32 +747,47 @@
   }
 
   .course-method-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
+    width: 100%;
+    min-width: 0;
   }
 
   .method-box {
     padding: 16px 14px;
     border-radius: 12px;
     box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .method-box h4 {
     font-size: 0.96rem;
     margin-bottom: 6px;
     gap: 8px;
+    word-break: break-word;
   }
 
   .method-box p {
     font-size: 0.86rem;
     line-height: 1.55;
     word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .course-testimonials-list {
+    width: 100%;
+    min-width: 0;
   }
 
   .course-testi-box {
     padding: 16px 14px;
     border-radius: 14px;
     box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .course-testi-header {
@@ -731,6 +796,8 @@
     gap: 12px;
     margin-bottom: 10px;
     flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
   }
 
   .course-testi-avatar {
@@ -742,12 +809,13 @@
 
   .course-testi-header > div:nth-child(2) {
     flex: 1;
-    min-width: 140px;
+    min-width: 0;
   }
 
   .course-testi-name {
     font-size: 0.94rem;
     display: block;
+    word-break: break-word;
   }
 
   .course-testi-role {
@@ -770,23 +838,24 @@
     font-size: 0.88rem;
     line-height: 1.58;
     word-break: break-word;
+    overflow-wrap: break-word;
   }
 }
 
 /* Specific refinement for 320px to 380px extra small mobile screens */
 @media (max-width: 380px) {
   .course-hero {
-    padding: 20px 0 28px;
+    padding: 18px 0 26px;
   }
 
   .course-hero__title {
-    font-size: 1.35rem;
+    font-size: 1.30rem;
     line-height: 1.22;
   }
 
   .course-hero__desc {
-    font-size: 0.86rem;
-    line-height: 1.52;
+    font-size: 0.84rem;
+    line-height: 1.50;
     margin-bottom: 16px;
   }
 
@@ -808,36 +877,102 @@
 
   .course-hero__actions .btn {
     padding: 12px 14px !important;
-    font-size: 0.88rem !important;
+    font-size: 0.86rem !important;
   }
 
   .course-hero__img {
-    height: 190px;
+    height: 180px;
+  }
+
+  .course-detail-content {
+    padding: 22px 0 34px;
+  }
+
+  .course-layout-grid {
+    gap: 16px;
+  }
+
+  .course-layout-main {
+    gap: 16px;
   }
 
   .course-info-card {
-    padding: 18px 12px;
+    padding: 16px 12px;
     border-radius: 14px;
   }
 
   .course-section-title {
-    font-size: 1.12rem;
+    font-size: 1.10rem;
+    margin-bottom: 12px;
   }
 
   .course-syllabus-item {
-    padding: 10px 12px;
+    padding: 10px 10px;
     gap: 10px;
+    border-radius: 10px;
+  }
+
+  .course-syllabus-num {
+    width: 26px;
+    height: 26px;
+    font-size: 0.78rem;
   }
 
   .course-syllabus-text {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
+    line-height: 1.40;
+  }
+
+  .course-checklist {
+    gap: 10px;
+  }
+
+  .course-checklist__item {
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  .course-checklist__icon {
+    width: 18px;
+    height: 18px;
+    font-size: 0.70rem;
   }
 
   .method-box {
     padding: 14px 12px;
+    border-radius: 10px;
+  }
+
+  .method-box h4 {
+    font-size: 0.90rem;
+  }
+
+  .method-box p {
+    font-size: 0.82rem;
+    line-height: 1.50;
   }
 
   .course-testi-box {
     padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .course-testi-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 0.80rem;
+  }
+
+  .course-testi-name {
+    font-size: 0.88rem;
+  }
+
+  .course-testi-role {
+    font-size: 0.74rem;
+  }
+
+  .course-testi-quote {
+    font-size: 0.82rem;
+    line-height: 1.50;
   }
 }

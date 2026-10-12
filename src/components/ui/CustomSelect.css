@@ -5,12 +5,17 @@
 .custom-select-container {
   position: relative;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
   user-select: none;
 }
 
 /* Trigger Button */
 .custom-select-trigger {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,6 +30,7 @@
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .custom-select-trigger:hover {
@@ -50,7 +56,9 @@
   align-items: center;
   gap: 10px;
   min-width: 0;
+  max-width: calc(100% - 24px);
   flex: 1;
+  overflow: hidden;
 }
 
 .custom-select-icon {
@@ -66,6 +74,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
+  display: block;
 }
 
 .custom-select-placeholder {
