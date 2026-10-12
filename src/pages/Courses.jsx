@@ -1,4 +1,5 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { gsap } from '../utils/gsapSetup';
 import { courses, courseCategories } from '../data/courses';
 import CourseCard from '../components/CourseCard';
@@ -7,7 +8,64 @@ import CTA from '../components/CTA';
 import './Courses.css';
 
 export default function Courses() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+
+  const validCategoryIds = useMemo(() => new Set(courseCategories.map((c) => c.id)), []);
+
+  const getInitialCategory = () => {
+    // 1. From URL query param
+    const paramCat = searchParams.get('category');
+    if (paramCat && validCategoryIds.has(paramCat)) {
+      return paramCat;
+    }
+    // 2. From router location state
+    if (location.state?.fromCategory && validCategoryIds.has(location.state.fromCategory)) {
+      return location.state.fromCategory;
+    }
+    if (location.state?.category && validCategoryIds.has(location.state.category)) {
+      return location.state.category;
+    }
+    // 3. From session storage (e.g., if user backed out from a course details page)
+    const storedCat = sessionStorage.getItem('edozy_active_course_category');
+    if (storedCat && validCategoryIds.has(storedCat)) {
+      return storedCat;
+    }
+    return 'all';
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState(getInitialCategory);
+
+  // Sync state if searchParams or session changes
+  useEffect(() => {
+    const paramCat = searchParams.get('category');
+    if (paramCat && validCategoryIds.has(paramCat)) {
+      if (paramCat !== selectedCategory) {
+        setSelectedCategory(paramCat);
+      }
+    } else if (!paramCat) {
+      const storedCat = sessionStorage.getItem('edozy_active_course_category');
+      if (storedCat && validCategoryIds.has(storedCat) && storedCat !== selectedCategory) {
+        setSelectedCategory(storedCat);
+        setSearchParams({ category: storedCat }, { replace: true });
+      }
+    }
+  }, [searchParams, validCategoryIds, selectedCategory, setSearchParams]);
+
+  const handleSelectCategory = useCallback((catId) => {
+    setSelectedCategory(catId);
+    if (catId === 'all') {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.delete('category');
+      setSearchParams(newParams, { replace: true });
+      sessionStorage.removeItem('edozy_active_course_category');
+    } else {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.set('category', catId);
+      setSearchParams(newParams, { replace: true });
+      sessionStorage.setItem('edozy_active_course_category', catId);
+    }
+  }, [searchParams, setSearchParams]);
 
   // Compute displayed list with 05. Designing category heading
   const displayItems = useMemo(() => {
@@ -71,6 +129,14 @@ export default function Courses() {
     );
   }, [selectedCategory]);
 
+  // Scroll active tab into view in horizontal filter tab bar
+  useEffect(() => {
+    const activeTabEl = document.getElementById(`filter-tab-${selectedCategory}`);
+    if (activeTabEl) {
+      activeTabEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [selectedCategory]);
+
   return (
     <main className="courses-page" id="main-content">
       {/* 1. Header / Hero Section */}
@@ -97,7 +163,7 @@ export default function Courses() {
                     aria-selected={isActive}
                     aria-controls="courses-catalog-grid"
                     className={`course-filter__btn ${isActive ? 'active' : ''}`}
-                    onClick={() => setSelectedCategory(cat.id)}
+                    onClick={() => handleSelectCategory(cat.id)}
                   >
                     {cat.label}
                   </button>

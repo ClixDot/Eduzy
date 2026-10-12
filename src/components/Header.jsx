@@ -47,7 +47,13 @@ export default function Header() {
   }, [location.pathname]);
 
   const handleNavClick = (e, to) => {
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
     setMenuOpen(false);
+    if (to === '/courses') {
+      sessionStorage.removeItem('edozy_active_course_category');
+    }
     if (to.startsWith('/#')) {
       e.preventDefault();
       const id = to.replace('/#', '');
@@ -144,7 +150,7 @@ export default function Header() {
         className={`mobile-menu ${menuOpen ? 'open' : ''}`}
         role="navigation"
         aria-label="Mobile navigation"
-        aria-hidden={!menuOpen}
+        inert={!menuOpen ? '' : undefined}
       >
         <div className="mobile-menu__header">
           <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)}>

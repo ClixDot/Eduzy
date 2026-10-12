@@ -213,19 +213,61 @@
 
 @media (max-width: 640px) {
   .enquiry-card {
-    padding: 24px 18px;
+    padding: 22px 16px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
   }
 
   .enquiry-card__title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    word-break: break-word;
+  }
+
+  .enquiry-card__subtitle {
+    font-size: 0.88rem;
+    word-break: break-word;
+  }
+
+  .form-input,
+  .form-select {
+    padding: 11px 12px;
+    font-size: 0.90rem;
+  }
+
+  .btn-submit {
+    padding: 13px 18px;
+    font-size: 0.94rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
   }
 
   .enquiry-card__direct-actions {
     flex-direction: column;
     gap: 8px;
+    width: 100%;
   }
 
   .enquiry-pill {
     width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
   }
 }
+
+@media (max-width: 380px) {
+  .enquiry-card {
+    padding: 18px 12px;
+    border-radius: 14px;
+  }
+
+  .enquiry-card__title {
+    font-size: 1.15rem;
+  }
+
+  .enquiry-card__subtitle {
+    font-size: 0.82rem;
+  }
+}
+

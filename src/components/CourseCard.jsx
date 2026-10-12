@@ -7,11 +7,19 @@ export default function CourseCard({ course }) {
   const hasDuration = Boolean(course.duration);
   const hasFormat = Boolean(course.format);
 
+  const handleCardClick = () => {
+    if (course.category) {
+      sessionStorage.setItem('edozy_active_course_category', course.category);
+    }
+  };
+
   return (
     <article className="course-card" aria-label={`${course.name} course`}>
       {/* 1. Thumbnail */}
       <Link
         to={`/courses/${course.slug}`}
+        state={{ fromCategory: course.category }}
+        onClick={handleCardClick}
         className="course-card__img-link"
         tabIndex="-1"
         aria-hidden="true"
@@ -50,7 +58,12 @@ export default function CourseCard({ course }) {
 
         {/* 4. Course Title */}
         <h3 className="course-card__name">
-          <Link to={`/courses/${course.slug}`} className="course-card__title-link">
+          <Link
+            to={`/courses/${course.slug}`}
+            state={{ fromCategory: course.category }}
+            onClick={handleCardClick}
+            className="course-card__title-link"
+          >
             {course.name}
           </Link>
         </h3>
@@ -62,6 +75,8 @@ export default function CourseCard({ course }) {
         <div className="course-card__footer">
           <Link
             to={`/courses/${course.slug}`}
+            state={{ fromCategory: course.category }}
+            onClick={handleCardClick}
             className="course-card__btn"
             id={`course-view-${course.slug}`}
             aria-label={`Explore ${course.name} course`}

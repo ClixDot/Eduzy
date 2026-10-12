@@ -3,7 +3,6 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { Clock, Globe, Star, Laptop, Building2 } from 'lucide-react';
 import { courses } from '../data/courses';
 import testimonials from '../data/testimonials';
-import faqs from '../data/faqs';
 import EnquiryForm from '../components/EnquiryForm';
 import CTA from '../components/CTA';
 import './CourseDetails.css';
@@ -23,12 +22,19 @@ export default function CourseDetails() {
 
   // Find testimonials relevant to this course or fallback
   const courseTestimonials = testimonials.filter(
-    (t) => t.course.toLowerCase().includes(course.name.toLowerCase()) || course.name.toLowerCase().includes(t.course.toLowerCase())
+    (t) =>
+      t.course.toLowerCase().includes(course.name.toLowerCase()) ||
+      course.name.toLowerCase().includes(t.course.toLowerCase()) ||
+      (course.category && t.course.toLowerCase().includes(course.category.toLowerCase()))
   );
-  const displayedTestimonials = courseTestimonials.length > 0 ? courseTestimonials : testimonials.slice(0, 2);
+  const displayedTestimonials = courseTestimonials.length > 0 ? courseTestimonials : testimonials.slice(0, 1);
 
-  // Relevant FAQs
-  const relevantFaqs = faqs.slice(0, 4);
+  // Remember course category for back navigation
+  React.useEffect(() => {
+    if (course?.category) {
+      sessionStorage.setItem('edozy_active_course_category', course.category);
+    }
+  }, [course]);
 
   return (
     <main className="course-detail-page" id="main-content">
@@ -36,9 +42,9 @@ export default function CourseDetails() {
       <nav className="breadcrumb-nav" aria-label="Breadcrumb">
         <div className="container breadcrumb-inner">
           <Link to="/">Home</Link>
-          <span className="breadcrumb-sep">/</span>
-          <Link to="/courses">Courses</Link>
-          <span className="breadcrumb-sep">/</span>
+          <span className="breadcrumb-sep">&gt;</span>
+          <Link to={`/courses?category=${course.category}`} state={{ fromCategory: course.category }}>Courses</Link>
+          <span className="breadcrumb-sep">&gt;</span>
           <span className="breadcrumb-current" aria-current="page">{course.name}</span>
         </div>
       </nav>
@@ -49,7 +55,8 @@ export default function CourseDetails() {
           <div className="course-hero__content">
             <div className="course-hero__badges">
               <span className="course-hero__cat-badge">{course.category.toUpperCase()}</span>
-              {course.badge && <span className="badge badge-orange">{course.badge}</span>}
+              {course.duration && <span className="course-hero__dur-badge">{course.duration.toUpperCase()}</span>}
+              {course.badge && <span className="course-hero__highlight-badge">{course.badge}</span>}
             </div>
 
             <h1 className="course-hero__title">
@@ -63,20 +70,20 @@ export default function CourseDetails() {
             <div className="course-hero__highlights">
               <div className="course-hero__meta-card">
                 <span className="course-hero__meta-label">Duration</span>
-                <span className="course-hero__meta-val" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <span className="course-hero__meta-val">
                   <Clock size={16} /> {course.duration || 'Comprehensive'}
                 </span>
               </div>
               <div className="course-hero__meta-card">
                 <span className="course-hero__meta-label">Training Format</span>
-                <span className="course-hero__meta-val" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <Globe size={16} /> {course.format || 'Classroom & Online'}
+                <span className="course-hero__meta-val">
+                  <Globe size={16} /> {course.format || 'Online & Offline'}
                 </span>
               </div>
               <div className="course-hero__meta-card">
                 <span className="course-hero__meta-label">Rating</span>
-                <span className="course-hero__meta-val" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <Star size={16} /> {course.rating} / 5.0
+                <span className="course-hero__meta-val">
+                  <Star size={16} fill="#EA580C" stroke="#EA580C" /> {course.rating ? `${course.rating} / 5.0` : '4.8 / 5.0'}
                 </span>
               </div>
             </div>
@@ -85,7 +92,7 @@ export default function CourseDetails() {
               <button
                 type="button"
                 onClick={() => window.dispatchEvent(new CustomEvent('open-enroll-modal', { detail: { course: course.name } }))}
-                className="btn btn-primary btn-lg"
+                className="btn btn-primary btn-lg course-hero__btn-enroll"
                 id="course-detail-enroll"
               >
                 Enroll in {course.name}
@@ -94,7 +101,7 @@ export default function CourseDetails() {
                 href={`https://wa.me/919747944374?text=Hi%2C%20I%20would%20like%20more%20information%20about%20the%20${encodeURIComponent(course.name)}%20course`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline btn-lg"
+                className="btn btn-outline btn-lg course-hero__btn-wa"
               >
                 Chat on WhatsApp
               </a>
@@ -110,7 +117,6 @@ export default function CourseDetails() {
                 loading="eager"
               />
               <div className="course-hero__img-overlay">
-                <span className="course-hero__img-icon">{course.icon}</span>
                 <span className="course-hero__img-name">{course.name} Excellence</span>
               </div>
             </div>
@@ -119,7 +125,7 @@ export default function CourseDetails() {
       </section>
 
       {/* Main Content Grid: Details Left, Sticky Enquiry Right */}
-      <section className="section bg-light-orange">
+      <section className="course-detail-content">
         <div className="container course-layout-grid">
           <div className="course-layout-main">
             {/* 1. What You Will Learn */}
@@ -157,21 +163,21 @@ export default function CourseDetails() {
               <h2 className="course-section-title">Flexible Learning Modes</h2>
               <div className="course-method-cards">
                 <div className="method-box">
-                  <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <h4>
                     <Laptop size={18} />
                     <span>Online Live Interactive</span>
                   </h4>
                   <p>
-                    Live Zoom lectures with real-time mentor corrections, doubt resolution, and full recording access.
+                    Live face-to-face online sessions with direct mentor doubts clearing, study materials, and full recording access.
                   </p>
                 </div>
                 <div className="method-box">
-                  <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <h4>
                     <Building2 size={18} />
                     <span>Classroom Coaching</span>
                   </h4>
                   <p>
-                    In-person training near Pulinchod Metro, Aluva with dedicated quiet study spaces and on-site mock tests.
+                    Physical classroom training in modern lecture rooms, interactive labs, and direct peer group discussions with trainers and mentors.
                   </p>
                 </div>
               </div>
@@ -185,9 +191,11 @@ export default function CourseDetails() {
                   {displayedTestimonials.slice(0, 1).map((t) => (
                     <div key={t.id} className="course-testi-box">
                       <div className="course-testi-header">
-                        <div className="course-testi-avatar" style={{ backgroundColor: t.color }}>{t.initials}</div>
+                        <div className="course-testi-avatar" style={{ backgroundColor: t.color || '#EA580C' }}>
+                          {t.initials}
+                        </div>
                         <div>
-                          <strong>{t.name}</strong>
+                          <strong className="course-testi-name">{t.name}</strong>
                           <div className="course-testi-role">{t.role} ({t.course})</div>
                         </div>
                         <div className="course-testi-stars">★★★★★</div>
@@ -218,3 +226,4 @@ export default function CourseDetails() {
     </main>
   );
 }
+
