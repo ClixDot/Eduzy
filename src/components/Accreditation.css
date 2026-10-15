@@ -248,51 +248,8 @@
    SCROLLING PARTNER & ACCREDITATION TICKER (04 - 10)
    ============================================ */
 .accreditation__scroll-wrap {
-  margin-top: 60px;
-  padding-top: 40px;
-  border-top: 1px solid #F3F4F6;
+  margin-top: 50px;
   position: relative;
-}
-
-.accreditation__scroll-header {
-  text-align: center;
-  margin-bottom: 26px;
-}
-
-.accreditation__scroll-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 10px;
-}
-
-.accreditation__scroll-line {
-  flex: 1;
-  max-width: 140px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #E5E7EB, transparent);
-}
-
-.accreditation__scroll-pill {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-heading);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #374151;
-  background: #F9FAFB;
-  border: 1px solid #E5E7EB;
-  padding: 5px 16px;
-  border-radius: var(--radius-full);
-}
-
-.accreditation__scroll-subtext {
-  font-size: 0.92rem;
-  color: #6B7280;
-  margin: 0;
 }
 
 /* Marquee track container */
@@ -371,52 +328,27 @@
   text-align: left;
 }
 
-.accreditation__ticker-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-  margin-bottom: 2px;
-}
-
-.accreditation__ticker-num {
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: #FF3B0B;
-  background: rgba(255, 59, 11, 0.08);
-  padding: 1px 6px;
-  border-radius: 4px;
-}
-
-.accreditation__ticker-badge {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: #6B7280;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
 .accreditation__ticker-name {
   font-family: var(--font-heading);
-  font-size: 0.94rem;
+  font-size: 0.98rem;
   font-weight: 800;
   color: #111827;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.25;
+  margin-bottom: 2px;
 }
 
 .accreditation__ticker-tag {
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: #6B7280;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 2px;
 }
+
 
 
 /* ============================================
@@ -472,23 +404,12 @@
   }
 
   .accreditation__scroll-wrap {
-    margin-top: 42px;
-    padding-top: 28px;
+    margin-top: 36px;
   }
 
   .accreditation__ticker-card {
     width: 250px;
     padding: 12px 14px;
-  }
-
-  .accreditation__scroll-pill {
-    font-size: 0.7rem;
-    padding: 4px 12px;
-  }
-
-  .accreditation__scroll-subtext {
-    font-size: 0.85rem;
-    padding: 0 16px;
   }
 }
 

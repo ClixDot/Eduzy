@@ -264,19 +264,6 @@ export default function Accreditation() {
 
         {/* Scrolling Partner & Certification Ticker (Items 04 - 10) */}
         <div className="accreditation__scroll-wrap">
-          <div className="accreditation__scroll-header">
-            <div className="accreditation__scroll-divider">
-              <span className="accreditation__scroll-line" />
-              <span className="accreditation__scroll-pill">
-                Certifications &amp; Industry Standards (04 – 10)
-              </span>
-              <span className="accreditation__scroll-line" />
-            </div>
-            <p className="accreditation__scroll-subtext">
-              Recognized by premier international boards, national skill councils &amp; enterprise platforms
-            </p>
-          </div>
-
           <div className="accreditation__marquee" aria-label="Partner and accreditation ticker">
             <div className="accreditation__marquee-track">
               {scrollingPartners.concat(scrollingPartners).map((p, idx) => (
@@ -288,10 +275,6 @@ export default function Accreditation() {
                     {p.icon}
                   </div>
                   <div className="accreditation__ticker-info">
-                    <div className="accreditation__ticker-top">
-                      <span className="accreditation__ticker-num">#{p.num}</span>
-                      <span className="accreditation__ticker-badge">{p.badge}</span>
-                    </div>
                     <div className="accreditation__ticker-name">{p.name}</div>
                     <div className="accreditation__ticker-tag">{p.tag}</div>
                   </div>
@@ -309,10 +292,6 @@ export default function Accreditation() {
                     {p.icon}
                   </div>
                   <div className="accreditation__ticker-info">
-                    <div className="accreditation__ticker-top">
-                      <span className="accreditation__ticker-num">#{p.num}</span>
-                      <span className="accreditation__ticker-badge">{p.badge}</span>
-                    </div>
                     <div className="accreditation__ticker-name">{p.name}</div>
                     <div className="accreditation__ticker-tag">{p.tag}</div>
                   </div>
