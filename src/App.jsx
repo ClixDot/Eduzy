@@ -23,6 +23,7 @@ export default function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:courseSlug" element={<CourseDetails />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/blogs" element={<Portfolio />} />
           <Route path="/contact" element={<Navigate to="/" replace />} />
           <Route path="/quick-contact" element={<QuickContact />} />
           <Route path="/connect" element={<QuickContact />} />

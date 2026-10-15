@@ -2,12 +2,12 @@
    DIRECTOR'S MESSAGE (Editorial Minimalist UI)
    ============================================ */
 .director {
-  background: linear-gradient(180deg, #FFF6EB 0%, #FEEDD8 100%);
-  padding: 90px 0;
+  background: transparent;
+  padding: 55px 0 45px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 59, 11, 0.12);
-  border-bottom: 1px solid rgba(255, 59, 11, 0.12);
+  border-top: none;
+  border-bottom: none;
 }
 
 .director__container {
@@ -17,7 +17,7 @@
 /* Editorial 2-Column Grid: Content Left, Portrait Right */
 .director__editorial-grid {
   display: grid;
-  grid-template-columns: 36px 1fr 480px;
+  grid-template-columns: 32px 1fr 380px;
   gap: 36px;
   align-items: center;
 }
@@ -67,23 +67,23 @@
 /* Main Editorial Headline */
 .director__heading {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  font-size: clamp(1.8rem, 2.7vw, 2.35rem);
   font-weight: 900;
-  line-height: 1.18;
+  line-height: 1.2;
   color: #111827;
   letter-spacing: -0.025em;
-  margin: 0 0 24px 0;
+  margin: 0 0 18px 0;
 }
 
 /* Quote Texts */
 .director__text {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  font-size: 1rem;
-  line-height: 1.72;
+  gap: 14px;
+  font-size: 0.95rem;
+  line-height: 1.68;
   color: #4B5563;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
 .director__text p {
@@ -92,23 +92,23 @@
 
 /* Signature Block */
 .director__signature {
-  padding-top: 18px;
+  padding-top: 14px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .director__name {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #111827;
   line-height: 1.2;
 }
 
 .director__role {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   color: #FF3B0B;
   font-weight: 700;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 /* ================= RIGHT: PORTRAIT ================= */
@@ -121,7 +121,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 560px;
+  height: 420px;
   background: transparent;
 }
 
@@ -132,50 +132,50 @@
   object-fit: contain;
   object-position: bottom center;
   display: block;
-  transform: scale(1.12);
+  transform: scale(1.04);
   transform-origin: center bottom;
-  -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
-  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.12));
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.08));
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
 }
 
 .director__img-wrapper:hover .director__img {
-  transform: scale(1.16);
-  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.16));
+  transform: scale(1.07);
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.12));
 }
 
 /* Minimalist Floating Pill Badge */
 .director__badge {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: rgba(255, 255, 255, 0.94);
+  bottom: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 9999px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
-  gap: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  gap: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   z-index: 2;
 }
 
 .director__badge-tag {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
   color: #ffffff;
   background: #FF3B0B;
-  padding: 3px 8px;
+  padding: 2.5px 7px;
   border-radius: 9999px;
   letter-spacing: 0.04em;
 }
 
 .director__badge-text {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #1F2937;
 }
@@ -183,8 +183,8 @@
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1140px) {
   .director__editorial-grid {
-    grid-template-columns: 1fr 420px;
-    gap: 32px;
+    grid-template-columns: 1fr 340px;
+    gap: 28px;
   }
 
   .director__side-label {
@@ -192,18 +192,18 @@
   }
 
   .director__img-wrapper {
-    height: 500px;
+    height: 380px;
   }
 }
 
 @media (max-width: 900px) {
   .director {
-    padding: 60px 0;
+    padding: 45px 0 35px;
   }
 
   .director__editorial-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 
   .director__media {
@@ -211,27 +211,26 @@
   }
 
   .director__img-wrapper {
-    height: 420px;
-    max-width: 480px;
+    height: 340px;
+    max-width: 380px;
     margin: 0 auto;
   }
 
   .director__heading {
-    font-size: 2.1rem;
+    font-size: 1.85rem;
   }
 }
 
 @media (max-width: 640px) {
   .director {
-    padding: 48px 0;
+    padding: 36px 0 28px;
   }
 
   .director__img-wrapper {
-    height: 360px;
+    height: 290px;
   }
 
-
   .director__heading {
-    font-size: 1.85rem;
+    font-size: 1.6rem;
   }
 }

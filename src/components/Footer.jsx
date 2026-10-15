@@ -4,20 +4,20 @@ import { MapPin, Phone, Mail, Clock, ArrowUp } from 'lucide-react';
 import './Footer.css';
 
 const popularCourses = [
-  { name: 'Logistics and Supply Chain Management', slug: 'logistics-and-supply-chain-management' },
-  { name: 'Accounting', slug: 'accounting' },
-  { name: 'Designing', slug: 'fashion-designing' },
-  { name: 'Digital Marketing & Influencer Marketing', slug: 'digital-marketing-influencer-marketing' },
-  { name: 'Entrepreneurship & Business Development', slug: 'entrepreneurship-business-development' },
-  { name: 'Hospital Administration', slug: 'hospital-administration' },
-  { name: 'Human Resource Management', slug: 'human-resource-management' },
-  { name: 'Aviation', slug: 'aviation' },
+  { name: 'AI-Integrated International Diploma in Logistics & Supply Chain Management', slug: 'logistics-and-supply-chain-management' },
+  { name: 'AI-Integrated International Diploma in Accounting', slug: 'accounting' },
+  { name: 'AI-Integrated International Diploma in Fashion Designing', slug: 'fashion-designing' },
+  { name: 'AI-Integrated International Diploma in Digital Marketing & Influencer Marketing', slug: 'digital-marketing-influencer-marketing' },
+  { name: 'AI-Integrated International Diploma in Entrepreneurship & Business Development', slug: 'entrepreneurship-business-development' },
+  { name: 'AI-Integrated International Diploma in Hospital Administration', slug: 'hospital-administration' },
+  { name: 'AI-Integrated International Diploma in Human Resource Management', slug: 'human-resource-management' },
+  { name: 'AI-Integrated International Diploma in Aviation', slug: 'aviation' },
 ];
 
 const quickLinks = [
   { label: 'Home', to: '/' },
   { label: 'All Courses', to: '/courses' },
-  { label: 'Success Portfolio', to: '/portfolio' },
+  { label: 'Blogs', to: '/blogs' },
 ];
 
 const currentYear = new Date().getFullYear();

@@ -3,10 +3,10 @@ import { gsap, ScrollTrigger } from '../utils/gsapSetup';
 import './TrustStats.css';
 
 const stats = [
-  { number: 20000, suffix: '+', label: 'Students Trained' },
-  { number: 40, suffix: '+', label: 'Expert Trainers' },
+  { number: 15, suffix: '+', label: 'Years of Experience' },
+  { number: 40000, suffix: '+', label: 'Students Placed' },
+  { number: 97, suffix: '+', label: 'Placement Partners' },
   { number: 25, suffix: '+', label: 'Awards Won' },
-  { number: 96, suffix: '%', label: 'Placement Rate' },
 ];
 
 export default function TrustStats() {

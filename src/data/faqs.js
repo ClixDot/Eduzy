@@ -2,7 +2,7 @@ export const faqs = [
   {
     id: 1,
     question: "What programs does EDUZY offer?",
-    answer: "EDUZY offers industry-led executive programs in Logistics & Supply Chain Management, Accounting, Designing, Digital Marketing & Influencer Marketing, Entrepreneurship & Business Development, Hospital Administration, Human Resource Management, and Aviation.",
+    answer: "EDUZY offers industry-led AI-Integrated International Diploma programs in Logistics & Supply Chain Management, Accounting, Fashion Designing, Interior Designing, Animation & Graphic Designing, Digital Marketing & Influencer Marketing, Entrepreneurship & Business Development, Hospital Administration, Human Resource Management, and Aviation.",
   },
   {
     id: 2,

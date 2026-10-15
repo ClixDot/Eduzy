@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FlowButton } from '@/components/ui/flow-button';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import roseImg from '../assets/rose.png';
+import heroGirlImg from '../assets/hero_girl.png';
 import './Hero.css';
 
 export default function Hero() {
@@ -21,7 +21,7 @@ export default function Hero() {
         .from('.hero-ref__desc', { y: 15, duration: 0.7 }, '-=0.5')
         .from('.hero-ref__actions', { y: 15, duration: 0.6 }, '-=0.4')
         .from('.hero-ref__portrait-wrapper', { scale: 0.95, duration: 0.9 }, '-=0.8')
-        .from('.hero-ref__circle-svg', { rotation: -90, duration: 1.1 }, '-=0.9')
+        .from('.hero-ref__circle-text-wrap', { scale: 0.9, opacity: 0, duration: 1.1 }, '-=0.9')
         .from('.hero-ref__mentor-card', { y: 25, scale: 0.92, duration: 0.7, ease: 'back.out(1.5)' }, '-=0.5');
 
       // 2. GSAP ScrollTrigger Parallax Animations
@@ -50,8 +50,8 @@ export default function Hero() {
       });
 
       // Rotating curved text continuous scrub with scroll
-      gsap.to('.hero-ref__circle-svg', {
-        rotation: 360,
+      gsap.to('.hero-ref__circle-text-wrap', {
+        rotation: 120,
         ease: 'none',
         scrollTrigger: {
           trigger: el,
@@ -122,18 +122,18 @@ export default function Hero() {
           {/* ================= RIGHT VISUAL COMPOSITION (From Image 1) ================= */}
           <div className="hero-ref__visual hero-animate">
             <div className="hero-ref__stage">
-              {/* 1. Large Circular Rotating Text Ring behind student */}
+              {/* 1. Large Circular Rotating Text Ring behind portrait */}
               <div className="hero-ref__circle-text-wrap" aria-hidden="true">
-                <svg viewBox="0 0 300 300" className="hero-ref__circle-svg">
+                <svg viewBox="0 0 440 440" className="hero-ref__circle-svg">
                   <defs>
                     <path
                       id="circleTextPath"
-                      d="M 150, 150 m -115, 0 a 115,115 0 1,1 230,0 a 115,115 0 1,1 -230,0"
+                      d="M 220, 220 m -205, 0 a 205,205 0 1,1 410,0 a 205,205 0 1,1 -410,0"
                     />
                   </defs>
                   <text className="hero-ref__curved-text">
                     <textPath href="#circleTextPath" startOffset="0%">
-                      • EDUZY GLOBAL ACADEMY • MENTORED BY ROSE • 10+ YEARS EXCELLENCE •
+                      • EDUZY GLOBAL ACADEMY • MENTORED BY ROSE • 10+ YEARS EXCELLENCE • ACHIEVE YOUR DREAM SCORE • EDUZY GLOBAL ACADEMY • MENTORED BY ROSE • 10+ YEARS EXCELLENCE •
                     </textPath>
                   </text>
                 </svg>
@@ -147,8 +147,8 @@ export default function Hero() {
               {/* 3. Mentor Portrait */}
               <div className="hero-ref__portrait-wrapper">
                 <img
-                  src={roseImg}
-                  alt="Rose, Founder & Lead Mentor of EDUZY"
+                  src={heroGirlImg}
+                  alt="Mentor at EDUZY"
                   className="hero-ref__portrait-img"
                   width="480"
                   height="640"

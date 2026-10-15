@@ -3,6 +3,7 @@ import { Target, Compass } from 'lucide-react';
 import About from '../components/About';
 import DirectorMessage from '../components/DirectorMessage';
 import TrustStats from '../components/TrustStats';
+import Accreditation from '../components/Accreditation';
 import Achievements from '../components/Achievements';
 import CTA from '../components/CTA';
 
@@ -24,6 +25,9 @@ export default function AboutPage() {
 
       {/* Stats */}
       <TrustStats />
+
+      {/* International Accreditations & Certifications */}
+      <Accreditation />
 
       {/* Director's Message */}
       <DirectorMessage />

@@ -67,58 +67,14 @@ export default function Courses() {
     }
   }, [searchParams, setSearchParams]);
 
-  // Compute displayed list with 05. Designing category heading
-  const displayItems = useMemo(() => {
-    if (selectedCategory === 'all') {
-      const items = [];
-      let designingHeaderAdded = false;
-
-      courses.forEach((course) => {
-        // Add Designing category heading before 03.1
-        if (course.isUnderDesigningCategory && !designingHeaderAdded) {
-          items.push({
-            type: 'heading',
-            id: 'category-heading-designing',
-            categoryTitle: 'Designing',
-            badge: '03. Designing',
-            subtitle: 'Specialized creative programs in fashion, interior spaces, and visual digital arts.',
-          });
-          designingHeaderAdded = true;
-        }
-        items.push({ type: 'course', ...course });
-      });
-
-      return items;
-    }
-
-    if (selectedCategory === 'designing') {
-      const items = [
-        {
-          type: 'heading',
-          id: 'category-heading-designing',
-          categoryTitle: 'Designing',
-          badge: '03. Designing',
-          subtitle: 'Specialized creative programs in fashion, interior spaces, and visual digital arts.',
-        },
-      ];
-
-      courses
-        .filter((c) => c.category === 'designing')
-        .forEach((course) => {
-          items.push({ type: 'course', ...course });
-        });
-
-      return items;
-    }
-
-    // Filter by specific category without changing original order
-    const filtered = courses.filter((c) => {
+  // Filter courses by selected category
+  const filteredCourses = useMemo(() => {
+    if (selectedCategory === 'all') return courses;
+    return courses.filter((c) => {
       if (c.category === selectedCategory) return true;
       if (Array.isArray(c.categories) && c.categories.includes(selectedCategory)) return true;
       return false;
     });
-
-    return filtered.map((course) => ({ type: 'course', ...course }));
   }, [selectedCategory]);
 
   useEffect(() => {
@@ -178,27 +134,9 @@ export default function Courses() {
       <section className="courses-catalog-section" aria-label="Available Courses Catalog">
         <div className="container">
           <div className="course-grid" id="courses-catalog-grid">
-            {displayItems.map((item) => {
-              if (item.type === 'heading') {
-                return (
-                  <div
-                    key={item.id}
-                    className="course-category-banner"
-                    role="region"
-                    aria-label={item.categoryTitle}
-                  >
-                    <div className="course-category-banner__tag">
-                      <span className="course-category-banner__indicator" aria-hidden="true" />
-                      <span>{item.badge}</span>
-                    </div>
-                    <h2 className="course-category-banner__title">{item.categoryTitle}</h2>
-                    <p className="course-category-banner__desc">{item.subtitle}</p>
-                  </div>
-                );
-              }
-
-              return <CourseCard key={item.id} course={item} />;
-            })}
+            {filteredCourses.map((course) => (
+              <CourseCard key={course.id} course={course} />
+            ))}
           </div>
         </div>
       </section>

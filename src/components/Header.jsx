@@ -7,7 +7,7 @@ import './Header.css';
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Courses', to: '/courses' },
-  { label: 'Portfolio', to: '/portfolio' },
+  { label: 'Blogs', to: '/blogs' },
 ];
 
 export default function Header() {
@@ -74,6 +74,7 @@ export default function Header() {
 
   const isActive = (to) => {
     if (to === '/') return location.pathname === '/';
+    if (to === '/blogs') return location.pathname === '/blogs' || location.pathname === '/portfolio';
     return location.pathname.startsWith(to.split('#')[0]) && to !== '/';
   };
 
@@ -150,7 +151,7 @@ export default function Header() {
         className={`mobile-menu ${menuOpen ? 'open' : ''}`}
         role="navigation"
         aria-label="Mobile navigation"
-        inert={!menuOpen ? '' : undefined}
+        inert={!menuOpen ? true : undefined}
       >
         <div className="mobile-menu__header">
           <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)}>

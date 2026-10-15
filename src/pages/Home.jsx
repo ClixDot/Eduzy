@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/Hero';
 import TrustStats from '../components/TrustStats';
 import About from '../components/About';
+import Accreditation from '../components/Accreditation';
 import WhyChooseUs from '../components/WhyChooseUs';
 import LearningJourney from '../components/LearningJourney';
 import DirectorMessage from '../components/DirectorMessage';
@@ -21,7 +22,10 @@ export default function Home() {
       {/* 3. About Section */}
       <About />
 
-      {/* 4. Why Choose Us */}
+      {/* 4. International Accreditations & Certifications */}
+      <Accreditation />
+
+      {/* 5. Why Choose Us */}
       <WhyChooseUs />
 
       {/* 5. Learning Journey Timeline */}
