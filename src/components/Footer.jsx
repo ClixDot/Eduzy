@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowUp, ChevronDown, ChevronUp } from 'lucide-react';
 import './Footer.css';
 
 const popularCourses = [
   { name: 'AI-Integrated International Diploma in Logistics & Supply Chain Management', slug: 'logistics-and-supply-chain-management' },
   { name: 'AI-Integrated International Diploma in Accounting', slug: 'accounting' },
   { name: 'AI-Integrated International Diploma in Fashion Designing', slug: 'fashion-designing' },
+  { name: 'AI-Integrated International Diploma in Interior Designing', slug: 'interior-designing' },
+  { name: 'AI-Integrated International Diploma in Animation & Graphic Designing', slug: 'animation-graphic-designing' },
   { name: 'AI-Integrated International Diploma in Digital Marketing & Influencer Marketing', slug: 'digital-marketing-influencer-marketing' },
   { name: 'AI-Integrated International Diploma in Entrepreneurship & Business Development', slug: 'entrepreneurship-business-development' },
   { name: 'AI-Integrated International Diploma in Hospital Administration', slug: 'hospital-administration' },
@@ -23,9 +25,14 @@ const quickLinks = [
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
+  const [showAllPrograms, setShowAllPrograms] = useState(false);
+
+  const displayedCourses = showAllPrograms ? popularCourses : popularCourses.slice(0, 4);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
 
   return (
     <footer className="footer" role="contentinfo">
@@ -115,14 +122,26 @@ export default function Footer() {
           <div className="footer__col">
             <h4 className="footer__heading">Top Programs</h4>
             <ul className="footer__links">
-              {popularCourses.map((c) => (
-                <li key={c.slug}>
+              {displayedCourses.map((c) => (
+                <li key={c.slug} className="footer__link-item">
                   <Link to={`/courses/${c.slug}`} className="footer__link">
                     {c.name}
                   </Link>
                 </li>
               ))}
             </ul>
+
+            {popularCourses.length > 4 && (
+              <button 
+                type="button" 
+                className="footer__view-more-btn"
+                onClick={() => setShowAllPrograms(!showAllPrograms)}
+                aria-expanded={showAllPrograms}
+              >
+                <span>{showAllPrograms ? 'View Less' : `View More (${popularCourses.length - 4}+)`}</span>
+                {showAllPrograms ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+              </button>
+            )}
           </div>
 
           {/* Column 4: Contact & Location */}

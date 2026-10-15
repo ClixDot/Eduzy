@@ -37,6 +37,7 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr 1.15fr 1.6fr;
   gap: 40px;
+  align-items: start;
   margin-bottom: 44px;
 }
 
@@ -160,6 +161,21 @@
   gap: 10px;
 }
 
+.footer__link-item {
+  animation: footerLinkFadeIn 0.25s ease-out;
+}
+
+@keyframes footerLinkFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .footer__link {
   display: inline-block;
   color: #4B5563;
@@ -173,6 +189,35 @@
   color: #FF3B0B;
   transform: translateX(2px);
 }
+
+/* View More / View Less Toggle Button */
+.footer__view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 14px;
+  background: rgba(255, 59, 11, 0.08);
+  color: #FF3B0B;
+  border: 1px solid rgba(255, 59, 11, 0.22);
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: fit-content;
+}
+
+.footer__view-more-btn:hover {
+  background: #FF3B0B;
+  color: #ffffff;
+  border-color: #FF3B0B;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255, 59, 11, 0.25);
+}
+
 
 /* ============================================
    CONTACT COLUMN (Clean, Minimal)
