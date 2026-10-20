@@ -166,7 +166,7 @@ export default function About() {
               return (
                 <div key={idx} className="about__feature-card">
                   <div className="about__feature-icon-wrap">
-                    <Icon size={20} className="about__feature-icon" />
+                    <Icon size={26} className="about__feature-icon" strokeWidth={2.2} />
                   </div>
                   <div className="about__feature-info">
                     <h3 className="about__feature-title">{item.title}</h3>
