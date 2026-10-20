@@ -8,23 +8,23 @@ import './About.css';
 const features = [
   {
     icon: GraduationCap,
-    title: 'Personal Mentoring',
-    desc: '1-on-1 guidance tailored to your learning pace.',
+    title: 'Expert Mentorship',
+    desc: 'Learn from experienced trainers with personalized guidance and dedicated support.',
   },
   {
     icon: ClipboardCheck,
-    title: 'Mock Exams',
-    desc: 'Regular tests with real exam conditions.',
+    title: 'Personalized Learning',
+    desc: 'Get a learning plan tailored to your goals, strengths, and learning pace.',
   },
   {
     icon: Trophy,
-    title: 'Proven Results',
-    desc: 'Focused prep for OET, IELTS, German & NCLEX.',
+    title: 'Result-Oriented Training',
+    desc: 'Prepare with focused practice, mock exams, and proven learning strategies.',
   },
   {
     icon: CalendarClock,
-    title: 'Flexible Batches',
-    desc: 'Online & offline classes to fit your routine.',
+    title: 'Flexible Learning Options',
+    desc: 'Choose online or offline classes that fit your schedule and lifestyle.',
   },
 ];
 
@@ -95,7 +95,7 @@ export default function About() {
   }, []);
 
   return (
-    <section className="about section" id="about" ref={sectionRef} aria-label="About EDUZY Academy">
+    <section className="about section" id="about" ref={sectionRef} aria-label="Why Choose EDUZY?">
       {/* Subtle Background Glows */}
       <div className="about__bg-glow about__bg-glow--top" aria-hidden="true" />
       <div className="about__bg-glow about__bg-glow--bottom" aria-hidden="true" />
@@ -151,13 +151,12 @@ export default function About() {
         <div className="about__content slide-right">
           {/* Heading */}
           <h2 className="about__heading">
-            Learn With Experts.<br />
-            <span className="about__heading--highlight">Grow With Confidence.</span>
+            Why Choose <span className="about__heading--highlight">EDUZY?</span>
           </h2>
 
           {/* Concise Lead Text */}
           <p className="about__lead">
-            Guided by <strong>Rose</strong>, EDUZY helps healthcare professionals and students achieve their dream scores in OET, IELTS, German, and NCLEX-RN.
+            Choose EDUZY for expert guidance, personalized learning, and result-oriented preparation. We help you achieve your goals in OET, IELTS, German, and NCLEX-RN with confidence.
           </p>
 
           {/* Feature Bento Grid */}
@@ -181,7 +180,7 @@ export default function About() {
           {/* Action Row */}
           <div className="about__action-row">
             <Link to="/portfolio" className="about__primary-btn" id="about-portfolio-btn">
-              <span>View Success Portfolio</span>
+              <span>Explore Our Success Stories</span>
               <ArrowRight size={18} className="about__btn-arrow" />
             </Link>
 
