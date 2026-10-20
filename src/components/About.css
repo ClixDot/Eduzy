@@ -158,11 +158,11 @@
 .about-editorial__title {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.52rem;
-  line-height: 1.2;
-  font-weight: 800;
+  line-height: 1.3;
+  font-weight: 600;
   color: #0F172A;
   margin: 0 0 10px 0;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .about-editorial__title--highlight {
@@ -269,7 +269,7 @@
 
   .about-editorial__title {
     font-size: 1.35rem;
-    line-height: 1.22;
+    line-height: 1.3;
   }
 
   .about-editorial__desc {
