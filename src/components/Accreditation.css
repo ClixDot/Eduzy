@@ -64,14 +64,17 @@
   max-width: 720px;
 }
 
-/* 3 Badges Grid */
+/* Badges Grid (1 Row: 4 Cards, Centered) */
 .accreditation__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 20px;
   align-items: stretch;
   margin-bottom: 0;
 }
+
+
 
 /* Card Styling */
 .accreditation__card {
@@ -79,73 +82,80 @@
   background: #ffffff;
   border: 1px solid #E5E7EB;
   border-radius: var(--radius-xl);
-  padding: 36px 28px 32px;
+  padding: 24px 16px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.35s ease;
+  flex: 0 0 calc((100% - 60px) / 4);
+  max-width: calc((100% - 60px) / 4);
+  width: calc((100% - 60px) / 4);
+  box-sizing: border-box;
 }
 
 .accreditation__card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(255, 59, 11, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(255, 59, 11, 0.1);
   border-color: rgba(255, 59, 11, 0.35);
 }
 
-/* Featured Centerpiece Card (STED Council) */
+/* Featured Centerpiece Card (STED Council & Alagappa) */
 .accreditation__card--featured {
   background: linear-gradient(180deg, #FFFFFF 0%, #FFF9F2 100%);
   border: 2px solid #FF3B0B;
-  box-shadow: 0 14px 40px rgba(255, 59, 11, 0.12);
-  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(255, 59, 11, 0.1);
+  transform: none;
 }
 
 .accreditation__card--featured:hover {
-  transform: scale(1.02) translateY(-6px);
-  box-shadow: 0 24px 55px rgba(255, 59, 11, 0.18);
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(255, 59, 11, 0.16);
   border-color: #E62E00;
 }
 
 /* Top ribbon for featured card */
 .accreditation__featured-ribbon {
   position: absolute;
-  top: -14px;
+  top: -12px;
   background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
   color: #ffffff;
   font-family: var(--font-heading);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 4px 14px;
+  padding: 3px 12px;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  box-shadow: 0 4px 14px rgba(255, 59, 11, 0.35);
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(255, 59, 11, 0.3);
 }
 
 /* Badge Visual Frame */
 .accreditation__badge-frame {
   position: relative;
-  width: 170px;
-  height: 170px;
+  width: 100%;
+  max-width: 180px;
+  height: 115px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
+
 
 .accreditation__badge-glow {
   position: absolute;
-  width: 130px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 59, 11, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 59, 11, 0.10) 0%, transparent 70%);
   filter: blur(12px);
   pointer-events: none;
   transition: transform 0.4s ease, opacity 0.4s ease;
@@ -162,9 +172,10 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08));
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
+
 
 .accreditation__card:hover .accreditation__badge-img {
   transform: scale(1.08) rotate(1deg);
@@ -176,7 +187,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
+  justify-content: center;
   width: 100%;
 }
 
@@ -189,60 +200,12 @@
   text-transform: uppercase;
   color: #FF3B0B;
   background: var(--color-primary-light);
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-full);
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
-.accreditation__card-title {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: #111827;
-  line-height: 1.25;
-  margin: 0 0 4px;
-}
 
-.accreditation__card-subtitle {
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: #6B7280;
-  line-height: 1.4;
-  margin: 0 0 14px;
-}
-
-.accreditation__card-desc {
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: #4B5563;
-  margin: 0 0 20px;
-  flex: 1;
-}
-
-/* Check points */
-.accreditation__points {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-top: 16px;
-  border-top: 1px dashed #E5E7EB;
-}
-
-.accreditation__point-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #374151;
-  text-align: left;
-}
-
-.accreditation__point-icon {
-  color: #10B981;
-  flex-shrink: 0;
-}
 
 /* ============================================
    SCROLLING PARTNER & ACCREDITATION TICKER (04 - 10)
@@ -320,7 +283,18 @@
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 6px;
+  background: #ffffff;
 }
+
+.accreditation__ticker-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 
 .accreditation__ticker-info {
   flex: 1;
@@ -356,25 +330,20 @@
    ============================================ */
 @media (max-width: 1024px) {
   .accreditation__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 18px;
   }
 
   .accreditation__card {
-    padding: 30px 20px 26px;
+    flex: 0 0 calc((100% - 36px) / 3);
+    max-width: calc((100% - 36px) / 3);
+    width: calc((100% - 36px) / 3);
+    padding: 22px 14px 18px;
   }
 
   .accreditation__badge-frame {
-    width: 140px;
-    height: 140px;
-  }
-
-  .accreditation__card--featured {
-    transform: none;
-  }
-
-  .accreditation__card--featured:hover {
-    transform: translateY(-6px);
+    width: 100%;
+    max-width: 160px;
+    height: 105px;
   }
 }
 
@@ -392,24 +361,17 @@
   }
 
   .accreditation__grid {
-    grid-template-columns: 1fr;
-    max-width: 440px;
-    margin: 0 auto;
-    gap: 24px;
+    gap: 16px;
+  }
+
+  .accreditation__card {
+    flex: 0 0 calc((100% - 16px) / 2);
+    max-width: calc((100% - 16px) / 2);
+    width: calc((100% - 16px) / 2);
   }
 
   .accreditation__badge-frame {
-    width: 150px;
-    height: 150px;
-  }
-
-  .accreditation__scroll-wrap {
-    margin-top: 36px;
-  }
-
-  .accreditation__ticker-card {
-    width: 250px;
-    padding: 12px 14px;
+    height: 95px;
   }
 }
 
@@ -422,18 +384,18 @@
     font-size: 0.95rem;
   }
 
+  .accreditation__grid {
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 16px;
+  }
+
   .accreditation__card {
-    padding: 28px 18px 24px;
-  }
-
-  .accreditation__ticker-card {
-    width: 235px;
-    padding: 10px 12px;
-  }
-
-  .accreditation__ticker-icon {
-    width: 38px;
-    height: 38px;
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    padding: 20px 14px 18px;
   }
 }
+
 

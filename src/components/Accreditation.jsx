@@ -1,12 +1,21 @@
 import React, { useEffect, useRef } from 'react';
-import { CheckCircle2, Award } from 'lucide-react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
+import { Award } from 'lucide-react';
+import { gsap } from '../utils/gsapSetup';
 import badge1Img from '../assets/badge1.png';
 import badge2Img from '../assets/badge2.png';
 import badge3Img from '../assets/badge3.png';
+import ncvetImg from '../assets/NCVET_Gear_Emblem_with_Hindi_Tagline-removebg-preview.png';
+import alagappaImg from '../assets/logo2.png';
+import kalingaImg from '../assets/Kalinga University Heraldic Emblem.png';
+import isoImg from '../assets/Blue ISO Globe Logo.png';
+import ignetImg from '../assets/IGNET_University_Emblem_and_Wordmark-removebg-preview.png';
+import excelImg from '../assets/Microsoft Excel Logo on Transparency.png';
+import tallyImg from '../assets/Tally_Black_and_Red_Script_Logo-removebg-preview.png';
+import sapImg from '../assets/SAP Blue Gradient Logo.png';
 import './Accreditation.css';
 
 const badges = [
+  // --- ROW 1: International Accreditations (3 Cards) ---
   {
     id: 'iqa-usa',
     img: badge1Img,
@@ -17,6 +26,7 @@ const badges = [
     desc: 'Validated benchmark of global excellence aligned with United States international education standards.',
     points: ['US Benchmarked Standards', 'Global Credential Validity'],
     isFeatured: false,
+    ribbonText: null,
   },
   {
     id: 'sted-council',
@@ -28,6 +38,7 @@ const badges = [
     desc: 'Authorized Training Provider delivering internationally recognized, government-registered professional certifications.',
     points: ['IQA-USA Accredited Provider', 'Official Verifiable Credentials'],
     isFeatured: true,
+    ribbonText: 'Authorized Provider',
   },
   {
     id: 'aaa-accreditation',
@@ -39,115 +50,113 @@ const badges = [
     desc: 'Recognized organizational membership ensuring rigorous curriculum quality and global institutional compliance.',
     points: ['Organizational Member', 'International Quality Audited'],
     isFeatured: false,
+    ribbonText: null,
+  },
+
+  // --- ROW 2: University & Govt Recognitions (3 Cards) ---
+  {
+    id: 'ncvet-india',
+    img: ncvetImg,
+    alt: 'NCVET - National Council for Vocational Education and Training, Govt of India',
+    pill: 'Govt. of India Recognition',
+    title: 'NCVET — Govt. of India',
+    subtitle: 'National Council for Vocational Education & Training',
+    desc: 'National regulatory body establishing standardized vocational qualifications and NSQF frameworks under MSDE, Govt. of India.',
+    points: ['National Skill Qualification (NSQF)', 'Govt. Regulated Framework'],
+    isFeatured: false,
+    ribbonText: null,
+  },
+  {
+    id: 'alagappa-university',
+    img: alagappaImg,
+    alt: 'Alagappa University - State University NAAC A+ Grade',
+    pill: 'University Partner',
+    title: 'Alagappa University',
+    subtitle: 'State University — NAAC A+ Grade',
+    desc: 'Prestigious UGC-recognized State University partnership delivering accredited undergraduate, diploma, and specialized certifications.',
+    points: ['NAAC A+ Grade University', 'UGC & Equivalence Recognized'],
+    isFeatured: false,
+    ribbonText: null,
+  },
+  {
+    id: 'kalinga-university',
+    img: kalingaImg,
+    alt: 'Kalinga University - UGC, AICTE & AIU Approved',
+    pill: 'University Affiliation',
+    title: 'Kalinga University',
+    subtitle: 'UGC, AICTE & AIU Approved',
+    desc: 'Premier multidisciplinary university partnership offering industry-aligned degrees with global credit transfer and embassy attestation.',
+    points: ['UGC & AICTE Approved', 'Embassy Attestation Eligible'],
+    isFeatured: false,
+    ribbonText: null,
+  },
+
+  // --- ROW 3: Quality & Global Certification Standards (3 Cards) ---
+  {
+    id: 'iso-9001',
+    img: isoImg,
+    alt: 'ISO 9001:2015 Certified Quality Management',
+    pill: 'Quality Standard',
+    title: 'ISO 9001:2015 Certified',
+    subtitle: 'International Organization for Standardization',
+    desc: 'Certified quality management standard verifying rigorous institutional administration, curriculum excellence, and global benchmarks.',
+    points: ['Certified Quality Management', 'International Standard Audited'],
+    isFeatured: false,
+    ribbonText: null,
+  },
+  {
+    id: 'ignet-network',
+    img: ignetImg,
+    alt: 'IGNET - Indira Gandhi National Educational Trust',
+    pill: 'National Education Network',
+    title: 'IGNET Network',
+    subtitle: 'Indira Gandhi National Educational Trust',
+    desc: 'Government-registered open education network delivering standardized vocational diplomas and skill certifications across India.',
+    points: ['Established Since 2004', 'Govt. Registered Trust Network'],
+    isFeatured: false,
+    ribbonText: null,
+  },
+
+  // --- ROW 4: Industry Software & Technology Standards (3 Cards) ---
+  {
+    id: 'microsoft-excel',
+    img: excelImg,
+    alt: 'Microsoft Excel - Advanced Analytics & Financial Modeling',
+    pill: 'Analytics & Modeling',
+    title: 'Microsoft Excel',
+    subtitle: 'Advanced Data Analytics & Financial Modeling',
+    desc: 'Hands-on training in corporate financial modeling, automated formulas, dynamic dashboards, pivot reporting, and business analytics.',
+    points: ['Advanced Spreadsheet Modeling', 'Data Analytics & Visualization'],
+    isFeatured: false,
+    ribbonText: null,
+  },
+  {
+    id: 'tally-prime',
+    img: tallyImg,
+    alt: 'TallyPrime - Corporate Accounting & Taxation',
+    pill: 'Corporate Accounting',
+    title: 'TallyPrime with GST',
+    subtitle: 'Comprehensive Computerized Accounting & Taxation',
+    desc: 'Live practical drills covering computerized corporate bookkeeping, inventory tracking, GST e-filing, TDS, and statutory compliance.',
+    points: ['Live GST & TDS Filing Practical', 'Industry Standard Accounting'],
+    isFeatured: false,
+    ribbonText: null,
+  },
+  {
+    id: 'sap-erp',
+    img: sapImg,
+    alt: 'SAP - Enterprise ERP Solutions',
+    pill: 'Enterprise ERP',
+    title: 'SAP ERP Solutions',
+    subtitle: 'Global Enterprise Resource Planning Standard',
+    desc: 'Industry-standard ERP workflows covering global logistics, supply chain operations, materials management (MM), and finance modules.',
+    points: ['Enterprise ERP Workflow Practice', 'Global Multinational Benchmark'],
+    isFeatured: false,
+    ribbonText: null,
   },
 ];
 
-const scrollingPartners = [
-  {
-    num: '04',
-    name: 'American Board of Education',
-    tag: 'Global Accreditation',
-    badge: 'USA Certified',
-    color: '#2563EB',
-    bg: '#EFF6FF',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-        <path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/>
-      </svg>
-    ),
-  },
-  {
-    num: '05',
-    name: 'NSDC',
-    tag: 'National Skill Development Corp',
-    badge: 'Skill India',
-    color: '#EA580C',
-    bg: '#FFF7ED',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="9"/>
-        <path d="M12 3v18M3 12h18M6.5 6.5l11 11M6.5 17.5l11-11"/>
-      </svg>
-    ),
-  },
-  {
-    num: '06',
-    name: 'IGNET',
-    tag: 'Global Education Network',
-    badge: 'International',
-    color: '#0D9488',
-    bg: '#F0FDFA',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-      </svg>
-    ),
-  },
-  {
-    num: '07',
-    name: 'ISO 9001:2015',
-    tag: 'Certified Quality Management',
-    badge: 'Quality Standard',
-    color: '#DC2626',
-    bg: '#FEF2F2',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        <path d="m9 12 2 2 4-4"/>
-      </svg>
-    ),
-  },
-  {
-    num: '08',
-    name: 'SAP',
-    tag: 'Enterprise ERP Solutions',
-    badge: 'Industry Standard',
-    color: '#0284C7',
-    bg: '#F0F9FF',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-        <polyline points="2 17 12 22 22 17"/>
-        <polyline points="2 12 12 17 22 12"/>
-      </svg>
-    ),
-  },
-  {
-    num: '09',
-    name: 'Microsoft Excel',
-    tag: 'Advanced Analytics & Modeling',
-    badge: 'Certified Skills',
-    color: '#16A34A',
-    bg: '#F0FDF4',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-        <line x1="3" y1="9" x2="21" y2="9"/>
-        <line x1="3" y1="15" x2="21" y2="15"/>
-        <line x1="9" y1="3" x2="9" y2="21"/>
-        <line x1="15" y1="3" x2="15" y2="21"/>
-      </svg>
-    ),
-  },
-  {
-    num: '10',
-    name: 'TallyPrime',
-    tag: 'Corporate Accounting & GST',
-    badge: 'Finance Partner',
-    color: '#B45309',
-    bg: '#FFFBEB',
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"/>
-        <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
-        <path d="M12 6v2m0 8v2"/>
-      </svg>
-    ),
-  },
-];
+
 
 export default function Accreditation() {
   const sectionRef = useRef(null);
@@ -204,17 +213,17 @@ export default function Accreditation() {
         {/* Section Header */}
         <div className="text-center accreditation__header">
           <h2 className="accreditation__title">
-            International Certification<br />
-            <span className="highlight-orange">Issued by STED Council</span>
+            International Certifications &<br />
+            <span className="highlight-orange">University Recognitions</span>
           </h2>
 
           <p className="accreditation__subtitle">
-            EDUZY training programs are internationally validated and accredited by prestigious global councils — 
+            EDUZY training programs are internationally validated, government-regulated, and university-recognized — 
             ensuring your credentials are accepted for overseas healthcare licensure, embassy attestation, and global careers.
           </p>
         </div>
 
-        {/* 3 Badges Grid */}
+        {/* 6 Badges Grid (1st Row 3 Cards, 2nd Row 3 Cards - Same Level) */}
         <div className="accreditation__grid">
           {badges.map((b) => (
             <div 
@@ -224,7 +233,7 @@ export default function Accreditation() {
               {b.isFeatured && (
                 <div className="accreditation__featured-ribbon">
                   <Award size={13} />
-                  <span>Authorized Provider</span>
+                  <span>{b.ribbonText || 'Authorized Provider'}</span>
                 </div>
               )}
 
@@ -244,64 +253,14 @@ export default function Accreditation() {
               {/* Badge Info */}
               <div className="accreditation__card-body">
                 <span className="accreditation__pill-tag">{b.pill}</span>
-                <h3 className="accreditation__card-title">{b.title}</h3>
-                <h4 className="accreditation__card-subtitle">{b.subtitle}</h4>
-                <p className="accreditation__card-desc">{b.desc}</p>
-
-                {/* Key Points */}
-                <div className="accreditation__points">
-                  {b.points.map((pt, i) => (
-                    <div key={i} className="accreditation__point-item">
-                      <CheckCircle2 size={15} className="accreditation__point-icon" />
-                      <span>{pt}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Scrolling Partner & Certification Ticker (Items 04 - 10) */}
-        <div className="accreditation__scroll-wrap">
-          <div className="accreditation__marquee" aria-label="Partner and accreditation ticker">
-            <div className="accreditation__marquee-track">
-              {scrollingPartners.concat(scrollingPartners).map((p, idx) => (
-                <div key={`track1-${p.num}-${idx}`} className="accreditation__ticker-card">
-                  <div 
-                    className="accreditation__ticker-icon" 
-                    style={{ color: p.color, backgroundColor: p.bg }}
-                  >
-                    {p.icon}
-                  </div>
-                  <div className="accreditation__ticker-info">
-                    <div className="accreditation__ticker-name">{p.name}</div>
-                    <div className="accreditation__ticker-tag">{p.tag}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="accreditation__marquee-track" aria-hidden="true">
-              {scrollingPartners.concat(scrollingPartners).map((p, idx) => (
-                <div key={`track2-${p.num}-${idx}`} className="accreditation__ticker-card">
-                  <div 
-                    className="accreditation__ticker-icon" 
-                    style={{ color: p.color, backgroundColor: p.bg }}
-                  >
-                    {p.icon}
-                  </div>
-                  <div className="accreditation__ticker-info">
-                    <div className="accreditation__ticker-name">{p.name}</div>
-                    <div className="accreditation__ticker-tag">{p.tag}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
 
