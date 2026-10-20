@@ -65,7 +65,7 @@
   background: #FF3D16;
   border: 1px solid #FF3D16;
   box-shadow: 0 18px 44px rgba(255, 61, 22, 0.32), 0 4px 14px rgba(255, 61, 22, 0.18);
-  padding: 0 0 36px 0;
+  padding: 28px 28px 34px 28px;
   justify-content: flex-start;
 }
 
@@ -85,8 +85,8 @@
 }
 
 .about-editorial__card-header--mission {
-  padding: 0 28px;
-  margin-top: 20px;
+  padding: 0;
+  margin-top: 22px;
   margin-bottom: 16px;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .about-editorial__card-text--mission {
-  padding: 0 28px;
+  padding: 0;
   margin-bottom: 0;
 }
 
@@ -212,38 +212,29 @@
 }
 
 /* =========================================================
-   CARD 2 TOP MEDIA WITH ABSTRACT GEOMETRIC CUTOUT
+   CARD 2 TOP MEDIA (CLEAN, NO SVG OVERLAY)
    ========================================================= */
 .about-editorial__mission-media {
   position: relative;
   width: 100%;
-  height: 310px;
+  height: 270px;
   overflow: hidden;
-  border-top-left-radius: 31px;
-  border-top-right-radius: 31px;
-  background-color: #FF3D16;
+  border-radius: 22px;
+  background-color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .about-editorial__mission-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 24% 10%;
+  object-position: center 20%;
   display: block;
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-editorial__card--orange:hover .about-editorial__mission-img {
   transform: scale(1.04);
-}
-
-.about-editorial__cutout-overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
 }
 
 /* =========================================================
@@ -269,9 +260,12 @@
     padding: 28px 22px 22px;
   }
 
-  .about-editorial__card-header--mission,
-  .about-editorial__card-text--mission {
-    padding: 0 22px;
+  .about-editorial__card--orange {
+    padding: 22px 22px 28px 22px;
+  }
+
+  .about-editorial__card-header--mission {
+    margin-top: 18px;
   }
 
   .about-editorial__title {
@@ -283,14 +277,9 @@
     font-size: 0.9rem;
   }
 
-  .about-editorial__image-box {
-    height: 230px;
-  }
-
+  .about-editorial__image-box,
   .about-editorial__mission-media {
-    height: 275px;
-    border-top-left-radius: 27px;
-    border-top-right-radius: 27px;
+    height: 230px;
   }
 }
 
@@ -315,13 +304,18 @@
     padding: 30px 24px 24px;
   }
 
-  .about-editorial__image-box {
+  .about-editorial__card--orange {
+    padding: 24px 24px 30px 24px;
+  }
+
+  .about-editorial__image-box,
+  .about-editorial__mission-media {
     height: 260px;
     margin-top: 18px;
   }
 
   .about-editorial__mission-media {
-    height: 310px;
+    margin-top: 0;
   }
 
   .about-editorial__title {
@@ -342,13 +336,8 @@
     padding: 24px 18px 18px;
   }
 
-  .about-editorial__card-header--mission,
-  .about-editorial__card-text--mission {
-    padding: 0 18px;
-  }
-
   .about-editorial__card--orange {
-    padding-bottom: 26px;
+    padding: 18px 18px 24px 18px;
   }
 
   .about-editorial__title {
@@ -359,14 +348,9 @@
     font-size: 0.88rem;
   }
 
-  .about-editorial__image-box {
-    height: 210px;
-    border-radius: 16px;
-  }
-
+  .about-editorial__image-box,
   .about-editorial__mission-media {
-    height: 260px;
-    border-top-left-radius: 23px;
-    border-top-right-radius: 23px;
+    height: 210px;
+    border-radius: 18px;
   }
 }

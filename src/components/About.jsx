@@ -114,70 +114,16 @@ export default function About() {
             role="region"
             aria-label="Our Mission details"
           >
-            {/* Visual Media Area with Abstract Geometric Cutout Overlay */}
+            {/* Visual Media Area (Clean, unmasked high-resolution photo) */}
             <div className="about-editorial__mission-media">
               <img
                 src={missionStudentImg}
-                alt="EDUZY student smiling and writing notes in an interactive lecture"
+                alt="EDUZY students engaged in professional training in a modern classroom"
                 className="about-editorial__mission-img"
                 loading="lazy"
                 width="640"
-                height="460"
+                height="440"
               />
-
-              {/* Exact Cutout Shapes matching Reference Design */}
-              <svg
-                className="about-editorial__cutout-overlay"
-                viewBox="0 0 1000 700"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                {/* 1. Top blob hanging down */}
-                <path
-                  d="M 60,0 C 70,45 95,72 120,72 C 145,72 170,45 180,0 Z"
-                  fill="#FF3D16"
-                />
-
-                {/* 2. Left rounded tab */}
-                <path
-                  d="M 0,150 C 48,150 78,180 78,220 C 78,260 48,290 0,290 Z"
-                  fill="#FF3D16"
-                />
-
-                {/* 3. Bottom-Left corner wedge */}
-                <path
-                  d="M 0,490 C 65,490 140,540 210,590 L 210,700 L 0,700 Z"
-                  fill="#FF3D16"
-                />
-
-                {/* 4. Center-Right 4-Prong Asterisk / Starburst + Right/Bottom Fill */}
-                <path
-                  d="M 640,0 
-                     L 750,0 
-                     C 725,85 745,125 770,140 
-                     C 820,120 920,60 1000,25 
-                     L 1000,120 
-                     C 885,160 810,205 745,245 
-                     C 805,275 905,310 1000,330 
-                     L 1000,700 
-                     L 540,700 
-                     C 540,630 525,580 495,540 
-                     C 460,495 405,460 365,435 
-                     C 345,422 348,405 368,392 
-                     C 420,360 490,310 525,260 
-                     C 555,215 565,115 640,0 Z"
-                  fill="#FF3D16"
-                />
-
-                {/* 5. Bottom notch base fill leaving the notebook framed cleanly */}
-                <path
-                  d="M 0,660 
-                     L 210,660 
-                     L 210,700 
-                     L 0,700 Z"
-                  fill="#FF3D16"
-                />
-              </svg>
             </div>
 
             {/* Header row below image */}
