@@ -56,8 +56,8 @@
 .faq__question-text {
   font-family: var(--font-heading);
   font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-dark);
+  font-weight: 800;
+  color: #000000;
   line-height: 1.4;
   transition: color 0.2s ease;
 }
@@ -116,12 +116,15 @@
 .faq__answer-inner {
   padding: 0 24px 22px 24px;
   font-size: 0.96rem;
-  color: var(--color-secondary);
+  color: #000000;
+  font-weight: 600;
   line-height: 1.7;
 }
 
 .faq__answer-inner p {
   margin: 0;
+  color: #000000;
+  font-weight: 600;
 }
 
 @media (max-width: 640px) {

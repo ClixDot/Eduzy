@@ -134,7 +134,8 @@
 .testimonial-card__quote {
   font-size: 0.94rem;
   line-height: 1.68;
-  color: #374151;
+  color: #000000;
+  font-weight: 600;
   font-style: normal;
   margin: 0 0 24px 0;
   flex-grow: 1;
@@ -179,16 +180,16 @@
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 800;
-  color: #111827;
+  color: #000000;
   margin: 0 0 2px 0;
   line-height: 1.2;
 }
 
 .testimonial-card__role {
   font-size: 0.82rem;
-  color: #6B7280;
+  color: #000000;
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* Pagination Dots */

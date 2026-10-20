@@ -245,7 +245,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.5rem;
   font-weight: 800;
-  color: #0F172A;
+  color: #000000;
   letter-spacing: -0.02em;
   line-height: 1.25;
   margin: 0 0 4px;
@@ -253,7 +253,8 @@
 
 .floating-popup__subtitle {
   font-size: 0.86rem;
-  color: #64748B;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.45;
   margin: 0;
 }
@@ -335,16 +336,16 @@
 .floating-popup__channel-name {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1rem;
-  font-weight: 700;
-  color: #0F172A;
+  font-weight: 800;
+  color: #000000;
   letter-spacing: -0.01em;
   line-height: 1.25;
 }
 
 .floating-popup__channel-sub {
   font-size: 0.82rem;
-  color: #64748B;
-  font-weight: 500;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.35;
 }
 

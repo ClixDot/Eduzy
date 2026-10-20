@@ -24,8 +24,9 @@
   border: 1.5px solid #E2E8F0;
   border-radius: 10px;
   font-size: 0.92rem;
+  font-weight: 600;
   font-family: inherit;
-  color: #0F172A;
+  color: #000000;
   cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
@@ -69,8 +70,8 @@
 
 .custom-select-label {
   font-size: 0.92rem;
-  font-weight: 600;
-  color: #0F172A;
+  font-weight: 700;
+  color: #000000;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -79,8 +80,8 @@
 }
 
 .custom-select-placeholder {
-  color: #94A3B8;
-  font-weight: 500;
+  color: #000000;
+  font-weight: 600;
 }
 
 .custom-select-arrow-box {
@@ -187,8 +188,8 @@
 
 .custom-select-option-text {
   font-size: 0.9rem;
-  font-weight: 600;
-  color: #1E293B;
+  font-weight: 700;
+  color: #000000;
 }
 
 .custom-select-option.selected .custom-select-option-text {

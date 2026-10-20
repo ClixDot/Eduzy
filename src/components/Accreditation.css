@@ -50,7 +50,7 @@
   font-size: clamp(2.1rem, 3.8vw, 3rem);
   font-weight: 800;
   line-height: 1.16;
-  color: #111827;
+  color: #000000;
   letter-spacing: -0.025em;
   margin: 0 0 16px;
   text-transform: none;
@@ -59,7 +59,8 @@
 .accreditation__subtitle {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #4B5563;
+  color: #000000;
+  font-weight: 600;
   margin: 0 auto;
   max-width: 720px;
 }
@@ -358,7 +359,7 @@
   font-family: var(--font-heading);
   font-size: 0.98rem;
   font-weight: 800;
-  color: #111827;
+  color: #000000;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -368,8 +369,8 @@
 
 .accreditation__ticker-tag {
   font-size: 0.78rem;
-  font-weight: 500;
-  color: #6B7280;
+  font-weight: 700;
+  color: #000000;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

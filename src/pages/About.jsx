@@ -53,18 +53,18 @@ export default function AboutPage() {
               <div style={{ marginBottom: '14px', color: '#0F172A' }}>
                 <Target size={32} />
               </div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px' }}>Our Mission</h3>
-              <p style={{ color: '#555', lineHeight: 1.7 }}>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: '#000000' }}>Our Mission</h3>
+              <p style={{ color: '#000000', fontWeight: 600, lineHeight: 1.7 }}>
                 To provide high-quality, personalized, and exam-focused education that equips healthcare professionals and students with the language proficiency and certifications required to excel on global platforms.
               </p>
             </div>
 
             <div className="card" style={{ padding: '36px', background: '#fff', borderRadius: '16px', border: '1px solid #E5E5E5' }}>
-              <div style={{ marginBottom: '14px', color: '#0F172A' }}>
+              <div style={{ marginBottom: '14px', color: '#000000' }}>
                 <Compass size={32} />
               </div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px' }}>Our Vision</h3>
-              <p style={{ color: '#555', lineHeight: 1.7 }}>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: '#000000' }}>Our Vision</h3>
+              <p style={{ color: '#000000', fontWeight: 600, lineHeight: 1.7 }}>
                 To be the most trusted and result-oriented career training academy in India, celebrated for authentic mentor guidance, cutting-edge teaching methodologies, and life-changing student success stories.
               </p>
             </div>

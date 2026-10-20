@@ -152,14 +152,15 @@
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 800;
-  color: #0F172A;
+  color: #000000;
   margin: 0;
   line-height: 1.3;
 }
 
 .journey-card__desc {
   font-size: 0.84rem;
-  color: #64748B;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.5;
   margin: 0;
 }

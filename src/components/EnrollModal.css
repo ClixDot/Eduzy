@@ -112,14 +112,15 @@
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
-  color: #0F172A;
+  color: #000000;
   margin: 0 0 6px;
   letter-spacing: -0.01em;
 }
 
 .enroll-modal__subtitle {
   font-size: 0.88rem;
-  color: #64748B;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.5;
   margin: 0;
 }
@@ -140,7 +141,7 @@
 .enroll-form-label {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #334155;
+  color: #000000;
 }
 
 .enroll-form-input,
@@ -150,7 +151,8 @@
   border: 1.5px solid #E2E8F0;
   border-radius: 10px;
   font-size: 0.92rem;
-  color: #0F172A;
+  font-weight: 600;
+  color: #000000;
   background: #ffffff;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   box-sizing: border-box;
@@ -226,8 +228,8 @@
 
 .enroll-modal__footer-text {
   font-size: 0.78rem;
-  color: #94A3B8;
-  font-weight: 600;
+  color: #000000;
+  font-weight: 700;
   display: block;
   margin-bottom: 10px;
 }
@@ -246,7 +248,7 @@
   padding: 9px 12px;
   border-radius: 8px;
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -264,13 +266,13 @@
 
 .enroll-modal__pill--phone {
   background: #F8FAFC;
-  color: #334155;
+  color: #000000;
   border: 1px solid #E2E8F0;
 }
 
 .enroll-modal__pill--phone:hover {
   background: #F1F5F9;
-  color: #0F172A;
+  color: #000000;
 }
 
 /* Success State */

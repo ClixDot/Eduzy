@@ -9,7 +9,7 @@ export default function NotFound() {
           404
         </div>
         <h1 style={{ fontSize: '2rem', fontWeight: 800, margin: '16px 0' }}>Page Not Found</h1>
-        <p style={{ color: 'var(--color-secondary)', marginBottom: '30px' }}>
+        <p style={{ color: '#000000', fontWeight: 600, marginBottom: '30px' }}>
           Sorry, the page you are looking for does not exist or has been moved. Explore our popular courses or head back to the homepage.
         </p>
         <div style={{ display: 'flex', gap: '14px', justifyContent: 'center' }}>

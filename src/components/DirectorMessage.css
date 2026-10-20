@@ -31,7 +31,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #9CA3AF;
+  color: #000000;
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -68,9 +68,9 @@
 .director__heading {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 2.7vw, 2.35rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.2;
-  color: #111827;
+  color: #000000;
   letter-spacing: -0.025em;
   margin: 0 0 18px 0;
 }
@@ -82,7 +82,8 @@
   gap: 14px;
   font-size: 0.95rem;
   line-height: 1.68;
-  color: #4B5563;
+  color: #000000;
+  font-weight: 600;
   margin-bottom: 22px;
 }
 
@@ -100,7 +101,7 @@
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 800;
-  color: #111827;
+  color: #000000;
   line-height: 1.2;
 }
 
@@ -177,7 +178,7 @@
 .director__badge-text {
   font-size: 0.78rem;
   font-weight: 700;
-  color: #1F2937;
+  color: #000000;
 }
 
 /* ================= RESPONSIVE ================= */

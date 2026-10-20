@@ -25,7 +25,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(2.15rem, 4.2vw, 2.9rem);
   font-weight: 800;
-  color: #0F172A;
+  color: #000000;
   line-height: 1.25;
   margin: 0 auto 14px;
   letter-spacing: -0.025em;
@@ -37,7 +37,8 @@
 
 .courses-hero__subtitle {
   font-size: 1.05rem;
-  color: #64748B;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.62;
   max-width: 650px;
   margin: 0 auto 28px;
@@ -88,8 +89,8 @@
   min-height: 44px;
   border-radius: 9999px;
   font-size: 0.90rem;
-  font-weight: 600;
-  color: #64748B;
+  font-weight: 700;
+  color: #000000;
   background: transparent;
   border: none;
   cursor: pointer;

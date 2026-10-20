@@ -104,7 +104,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(1.08rem, 1.2vw, 1.18rem);
   font-weight: 800;
-  color: #0F172A;
+  color: #000000;
   line-height: 1.36;
   margin: 0 0 10px 0;
   letter-spacing: -0.015em;
@@ -126,7 +126,8 @@
 /* 5. Short Description */
 .course-card__desc {
   font-size: 0.89rem;
-  color: #64748B;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.58;
   margin: 0 0 22px 0;
   display: -webkit-box;

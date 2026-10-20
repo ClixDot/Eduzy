@@ -28,8 +28,8 @@
 }
 
 .breadcrumb-inner a {
-  color: #64748B;
-  font-weight: 500;
+  color: #000000;
+  font-weight: 700;
   transition: color 0.2s ease;
 }
 
@@ -101,7 +101,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(2rem, 3.4vw, 2.75rem);
   font-weight: 800;
-  color: #0F172A;
+  color: #000000;
   line-height: 1.2;
   margin-bottom: 16px;
   letter-spacing: -0.025em;
@@ -109,7 +109,8 @@
 
 .course-hero__desc {
   font-size: 1.05rem;
-  color: #475569;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.68;
   margin-bottom: 26px;
 }
@@ -132,7 +133,7 @@
 .course-hero__meta-label {
   display: block;
   font-size: 0.72rem;
-  color: #64748B;
+  color: #000000;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 700;
@@ -142,7 +143,7 @@
 .course-hero__meta-val {
   font-size: 0.98rem;
   font-weight: 800;
-  color: #0F172A;
+  color: #000000;
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -276,7 +277,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.38rem;
   font-weight: 800;
-  color: #0F172A;
+  color: #000000;
   margin-bottom: 22px;
   position: relative;
   display: block;
@@ -331,8 +332,8 @@
 
 .course-syllabus-text {
   font-size: 0.95rem;
-  color: #0F172A;
-  font-weight: 600;
+  color: #000000;
+  font-weight: 700;
   line-height: 1.45;
   margin: 0;
 }
@@ -349,7 +350,8 @@
   align-items: flex-start;
   gap: 14px;
   font-size: 0.96rem;
-  color: #334155;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.55;
 }
 
@@ -386,8 +388,8 @@
 .method-box h4 {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.05rem;
-  font-weight: 700;
-  color: #0F172A;
+  font-weight: 800;
+  color: #000000;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -401,7 +403,8 @@
 
 .method-box p {
   font-size: 0.90rem;
-  color: #64748B;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.6;
   margin: 0;
 }
@@ -443,13 +446,14 @@
 
 .course-testi-name {
   font-size: 1rem;
-  font-weight: 700;
-  color: #0F172A;
+  font-weight: 800;
+  color: #000000;
 }
 
 .course-testi-role {
   font-size: 0.82rem;
-  color: #64748B;
+  color: #000000;
+  font-weight: 600;
 }
 
 .course-testi-stars {
@@ -461,7 +465,8 @@
 
 .course-testi-quote {
   font-size: 0.93rem;
-  color: #334155;
+  color: #000000;
+  font-weight: 600;
   font-style: normal;
   line-height: 1.65;
   margin: 0;

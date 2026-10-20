@@ -39,8 +39,8 @@
 .portfolio-hero__title {
   font-family: var(--font-heading);
   font-size: clamp(2.1rem, 4.2vw, 3rem);
-  font-weight: 900;
-  color: #0F172A;
+  font-weight: 800;
+  color: #000000;
   line-height: 1.2;
   margin: 0 auto 14px;
   letter-spacing: -0.025em;
@@ -49,7 +49,8 @@
 
 .portfolio-hero__subtitle {
   font-size: 1.05rem;
-  color: #475569;
+  color: #000000;
+  font-weight: 600;
   line-height: 1.6;
   max-width: 680px;
   margin: 0 auto 28px;
@@ -70,8 +71,8 @@
   border-radius: 9999px;
   padding: 7px 18px;
   font-size: 0.85rem;
-  font-weight: 600;
-  color: #334155;
+  font-weight: 700;
+  color: #000000;
   text-decoration: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   transition: all 0.25s ease;
