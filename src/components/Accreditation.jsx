@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { Award } from 'lucide-react';
 import { gsap } from '../utils/gsapSetup';
 import badge1Img from '../assets/badge1.png';
 import badge2Img from '../assets/badge2.png';
@@ -37,8 +36,8 @@ const badges = [
     subtitle: 'Scientific & Technical Education Development Council',
     desc: 'Authorized Training Provider delivering internationally recognized, government-registered professional certifications.',
     points: ['IQA-USA Accredited Provider', 'Official Verifiable Credentials'],
-    isFeatured: true,
-    ribbonText: 'Authorized Provider',
+    isFeatured: false,
+    ribbonText: null,
   },
   {
     id: 'aaa-accreditation',
@@ -228,15 +227,8 @@ export default function Accreditation() {
           {badges.map((b) => (
             <div 
               key={b.id} 
-              className={`accreditation__card ${b.isFeatured ? 'accreditation__card--featured' : ''}`}
+              className="accreditation__card"
             >
-              {b.isFeatured && (
-                <div className="accreditation__featured-ribbon">
-                  <Award size={13} />
-                  <span>{b.ribbonText || 'Authorized Provider'}</span>
-                </div>
-              )}
-
               {/* Badge Visual Frame */}
               <div className="accreditation__badge-frame">
                 <div className="accreditation__badge-glow" aria-hidden="true" />
