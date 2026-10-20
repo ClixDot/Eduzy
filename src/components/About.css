@@ -281,77 +281,82 @@
 }
 
 /* ============================================
-   BENTO FEATURE GRID
+   OPEN FEATURE LIST (No Enclosed Cards)
    ============================================ */
 
 .about__features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 6px;
+  gap: 26px 28px;
+  margin-top: 10px;
+  margin-bottom: 6px;
 }
 
 .about__feature-card {
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 16px;
-  padding: 16px 18px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
   display: flex;
   gap: 14px;
   align-items: flex-start;
   opacity: 1 !important;
-  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: transform 0.2s ease;
 }
 
 .about__feature-card:hover {
-  background: #ffffff;
-  border-color: rgba(255, 59, 11, 0.4);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(255, 59, 11, 0.08);
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  transform: translateY(-2px);
 }
 
 .about__feature-icon-wrap {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: #F1F5F9;
-  color: #0F172A;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #FFF7ED;
+  color: #FF3B0B;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid #E2E8F0;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  border: 1px solid #FFEDD5;
+  transition: all 0.25s ease;
 }
 
 .about__feature-card:hover .about__feature-icon-wrap {
-  background: #0F172A;
+  background: #FF3B0B;
   color: #ffffff;
-  border-color: #0F172A;
+  border-color: #FF3B0B;
+  transform: scale(1.06);
+  box-shadow: 0 4px 14px rgba(255, 59, 11, 0.28);
 }
 
 .about__feature-info {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
   opacity: 1 !important;
 }
 
 .about__feature-title {
   font-family: var(--font-heading);
-  font-size: 0.94rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: #000000 !important;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
   opacity: 1 !important;
 }
 
 .about__feature-desc {
-  font-size: 0.82rem;
+  font-size: 0.90rem;
   color: #4B5563 !important;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
   opacity: 1 !important;
 }
@@ -506,7 +511,7 @@
 
   .about__features-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 20px;
   }
 
   .about__action-row {
