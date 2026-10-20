@@ -35,6 +35,24 @@
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.header__logo:hover {
+  opacity: 0.95;
+}
+
+.header__logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.header__logo:hover .header__logo-img {
+  transform: scale(1.03);
 }
 
 .header__logo-text {
@@ -450,5 +468,12 @@
 
   .header__hamburger {
     display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .header__logo-img {
+    height: 42px;
+    max-width: 165px;
   }
 }

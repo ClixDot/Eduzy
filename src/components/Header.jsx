@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import EnrollModal from './EnrollModal';
+import logoImg from '../assets/logo.png';
 import './Header.css';
 
 const navLinks = [
@@ -83,11 +84,8 @@ export default function Header() {
       <header className={`header ${scrolled ? 'header--scrolled' : ''}`} role="banner">
         <div className="header__inner container">
           {/* Logo */}
-          <Link to="/" className="header__logo" aria-label="EDUZY - Home">
-            <div className="header__logo-text">
-              <span className="header__logo-name">EDUZY</span>
-              <span className="header__logo-tagline">Excellence in Education</span>
-            </div>
+          <Link to="/" className="header__logo" aria-label="EDUZY - Campus to Career">
+            <img src={logoImg} alt="EDUZY - Campus to Career" className="header__logo-img" />
           </Link>
 
           {/* Desktop Nav */}
@@ -154,11 +152,8 @@ export default function Header() {
         inert={!menuOpen ? true : undefined}
       >
         <div className="mobile-menu__header">
-          <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)}>
-            <div className="header__logo-text">
-              <span className="header__logo-name">EDUZY</span>
-              <span className="header__logo-tagline">Excellence in Education</span>
-            </div>
+          <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)} aria-label="EDUZY - Campus to Career">
+            <img src={logoImg} alt="EDUZY - Campus to Career" className="header__logo-img" />
           </Link>
           <button 
             type="button" 

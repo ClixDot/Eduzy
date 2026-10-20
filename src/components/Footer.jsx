@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, ArrowUp, ChevronDown, ChevronUp } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 import './Footer.css';
 
 const popularCourses = [
@@ -41,12 +42,8 @@ export default function Footer() {
         <div className="footer__grid">
           {/* Column 1: Brand & Socials */}
           <div className="footer__col footer__col--brand">
-            <Link to="/" className="footer__logo" aria-label="EDUZY Home">
-              <span className="footer__logo-mark">E</span>
-              <div className="footer__logo-text">
-                <span className="footer__logo-title">EDUZY</span>
-                <span className="footer__logo-sub">Global Academy • Aluva</span>
-              </div>
+            <Link to="/" className="footer__logo" aria-label="EDUZY - Campus to Career">
+              <img src={logoImg} alt="EDUZY - Campus to Career" className="footer__logo-img" />
             </Link>
 
             <p className="footer__brand-desc">

@@ -53,6 +53,20 @@
   gap: 12px;
   text-decoration: none;
   margin-bottom: 16px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer__logo:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.footer__logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
 }
 
 .footer__logo-mark {
