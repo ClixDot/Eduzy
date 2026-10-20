@@ -10,9 +10,9 @@
   --color-primary-muted: #FFEDD5;
   --color-white: #FFFFFF;
   --color-dark: #000000;
-  --color-text: #000000;
-  --color-secondary: #000000;
-  --color-muted: #000000;
+  --color-text: #374151;
+  --color-secondary: #4B5563;
+  --color-muted: #6B7280;
   --color-border: #E5E5E5;
   --color-bg: #FFFFFF;
   --color-bg-alt: #FAFAFA;
@@ -60,8 +60,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: #000000;
-  font-weight: 600;
+  color: #374151;
+  font-weight: 400;
   background-color: var(--color-bg);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -72,8 +72,8 @@ body {
 }
 
 p, li, dd, dt, blockquote, figcaption {
-  color: #000000;
-  font-weight: 600;
+  color: #4B5563;
+  font-weight: 400;
 }
 
 img {
@@ -169,8 +169,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-subtitle {
   font-size: 1rem;
-  color: #000000;
-  font-weight: 600;
+  color: #4B5563;
+  font-weight: 400;
   line-height: 1.6;
   max-width: 600px;
 }

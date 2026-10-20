@@ -116,15 +116,15 @@
 .faq__answer-inner {
   padding: 0 24px 22px 24px;
   font-size: 0.96rem;
-  color: #000000;
-  font-weight: 600;
+  color: #4B5563;
+  font-weight: 400;
   line-height: 1.7;
 }
 
 .faq__answer-inner p {
   margin: 0;
-  color: #000000;
-  font-weight: 600;
+  color: #4B5563;
+  font-weight: 400;
 }
 
 @media (max-width: 640px) {
