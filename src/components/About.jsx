@@ -118,7 +118,7 @@ export default function About() {
             <div className="about-editorial__mission-media">
               <img
                 src={missionStudentImg}
-                alt="EDUZY students engaged in professional training in a modern classroom"
+                alt="EDUZY professionals engaged in team collaboration and training"
                 className="about-editorial__mission-img"
                 loading="lazy"
                 width="640"
