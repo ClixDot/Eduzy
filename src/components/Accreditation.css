@@ -65,6 +65,11 @@
   max-width: 720px;
 }
 
+/* Badges Wrapper */
+.accreditation__cards-wrapper {
+  width: 100%;
+}
+
 /* Badges Grid Containers */
 .accreditation__grid {
   display: flex;
@@ -439,89 +444,160 @@
     font-size: 1.9rem;
   }
 
-  .accreditation__grid--primary,
-  .accreditation__grid--secondary {
+  /* Seamless 2-card per row grid for all badges on mobile & tablet */
+  .accreditation__cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
     max-width: 540px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .accreditation__grid--primary {
-    margin-bottom: 14px;
-  }
-
-  .accreditation__card--primary,
-  .accreditation__card--secondary {
-    flex: 0 0 calc((100% - 14px) / 2);
-    max-width: calc((100% - 14px) / 2);
-    width: calc((100% - 14px) / 2);
-    min-height: 115px;
-    padding: 16px 12px;
-  }
-
-  .accreditation__card--primary .accreditation__badge-frame {
-    height: 90px;
-  }
-
-  .accreditation__card--primary .accreditation__badge-img {
-    max-height: 85px;
-  }
-
-  .accreditation__card--secondary .accreditation__badge-frame {
-    height: 75px;
-    max-width: 150px;
-  }
-
-  .accreditation__card--secondary .accreditation__badge-img {
-    max-height: 70px;
-  }
-}
-
-@media (max-width: 480px) {
-  .accreditation__title {
-    font-size: 1.65rem;
-  }
-
-  .accreditation__subtitle {
-    font-size: 0.95rem;
+    width: 100%;
   }
 
   .accreditation__grid--primary,
   .accreditation__grid--secondary {
-    max-width: 100%;
-    gap: 10px;
-  }
-
-  .accreditation__grid--primary {
-    margin-bottom: 10px;
+    display: contents;
   }
 
   .accreditation__card--primary,
   .accreditation__card--secondary {
-    flex: 0 0 calc((100% - 10px) / 2);
-    max-width: calc((100% - 10px) / 2);
-    width: calc((100% - 10px) / 2);
-    padding: 14px 10px;
-    min-height: 105px;
-    border-radius: var(--radius-lg);
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    min-height: 120px;
+    padding: 16px 14px;
+    box-sizing: border-box;
   }
 
-  .accreditation__card--primary .accreditation__badge-frame {
-    height: 80px;
-  }
-
-  .accreditation__card--primary .accreditation__badge-img {
-    max-height: 75px;
-  }
-
+  .accreditation__card--primary .accreditation__badge-frame,
   .accreditation__card--secondary .accreditation__badge-frame {
-    height: 65px;
+    height: 85px;
+    width: 100%;
+    max-width: 100%;
   }
 
+  .accreditation__card--primary .accreditation__badge-img,
   .accreditation__card--secondary .accreditation__badge-img {
-    max-height: 60px;
+    max-height: 75px;
+    max-width: 86%;
   }
 }
+
+/* Fine-tuned responsive layout for 425px down to 320px (1 row 2 cards) */
+@media (max-width: 480px) {
+  .accreditation {
+    padding: 50px 0 55px;
+  }
+
+  .accreditation__header {
+    margin-bottom: 28px;
+  }
+
+  .accreditation__title {
+    font-size: 1.6rem;
+    line-height: 1.22;
+  }
+
+  .accreditation__subtitle {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .accreditation__cards-wrapper {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .accreditation__card--primary,
+  .accreditation__card--secondary {
+    min-height: 105px;
+    padding: 14px 10px;
+    border-radius: 16px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-frame,
+  .accreditation__card--secondary .accreditation__badge-frame {
+    height: 72px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .accreditation__card--primary .accreditation__badge-img,
+  .accreditation__card--secondary .accreditation__badge-img {
+    max-height: 64px;
+    max-width: 88%;
+  }
+}
+
+/* Mobile 375px (iPhone SE, etc.) */
+@media (max-width: 375px) {
+  .accreditation {
+    padding: 42px 0 48px;
+  }
+
+  .accreditation__header {
+    margin-bottom: 22px;
+  }
+
+  .accreditation__title {
+    font-size: 1.45rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .accreditation__subtitle {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .accreditation__cards-wrapper {
+    gap: 8px;
+  }
+
+  .accreditation__card--primary,
+  .accreditation__card--secondary {
+    min-height: 95px;
+    padding: 10px 8px;
+    border-radius: 14px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-frame,
+  .accreditation__card--secondary .accreditation__badge-frame {
+    height: 64px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-img,
+  .accreditation__card--secondary .accreditation__badge-img {
+    max-height: 56px;
+    max-width: 90%;
+  }
+}
+
+/* Small mobile down to 320px */
+@media (max-width: 340px) {
+  .accreditation__cards-wrapper {
+    gap: 6px;
+  }
+
+  .accreditation__card--primary,
+  .accreditation__card--secondary {
+    min-height: 88px;
+    padding: 8px 6px;
+    border-radius: 12px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-frame,
+  .accreditation__card--secondary .accreditation__badge-frame {
+    height: 58px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-img,
+  .accreditation__card--secondary .accreditation__badge-img {
+    max-height: 50px;
+    max-width: 92%;
+  }
+}
+
 
 

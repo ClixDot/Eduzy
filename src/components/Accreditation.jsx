@@ -136,48 +136,51 @@ export default function Accreditation() {
           </p>
         </div>
 
-        {/* Row 1: Exactly 3 International Certificates */}
-        <div className="accreditation__grid accreditation__grid--primary">
-          {primaryBadges.map((b) => (
-            <div 
-              key={b.id} 
-              className="accreditation__card accreditation__card--primary"
-            >
-              <div className="accreditation__badge-frame">
-                <div className="accreditation__badge-glow" aria-hidden="true" />
-                <img 
-                  src={b.img} 
-                  alt={b.alt} 
-                  className="accreditation__badge-img"
-                  loading="lazy"
-                  width="220"
-                  height="220"
-                />
+        {/* Cards Wrapper */}
+        <div className="accreditation__cards-wrapper">
+          {/* Row 1: Exactly 3 International Certificates */}
+          <div className="accreditation__grid accreditation__grid--primary">
+            {primaryBadges.map((b) => (
+              <div 
+                key={b.id} 
+                className="accreditation__card accreditation__card--primary"
+              >
+                <div className="accreditation__badge-frame">
+                  <div className="accreditation__badge-glow" aria-hidden="true" />
+                  <img 
+                    src={b.img} 
+                    alt={b.alt} 
+                    className="accreditation__badge-img"
+                    loading="lazy"
+                    width="220"
+                    height="220"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Marked Section: 4 per row in exact user-requested order */}
-        <div className="accreditation__grid accreditation__grid--secondary">
-          {partnerBadges.map((b) => (
-            <div 
-              key={b.id} 
-              className="accreditation__card accreditation__card--secondary"
-            >
-              <div className="accreditation__badge-frame">
-                <div className="accreditation__badge-glow" aria-hidden="true" />
-                <img 
-                  src={b.img} 
-                  alt={b.alt} 
-                  className="accreditation__badge-img"
-                  loading="lazy"
-                  width="220"
-                  height="220"
-                />
+          {/* Marked Section: 4 per row in exact user-requested order */}
+          <div className="accreditation__grid accreditation__grid--secondary">
+            {partnerBadges.map((b) => (
+              <div 
+                key={b.id} 
+                className="accreditation__card accreditation__card--secondary"
+              >
+                <div className="accreditation__badge-frame">
+                  <div className="accreditation__badge-glow" aria-hidden="true" />
+                  <img 
+                    src={b.img} 
+                    alt={b.alt} 
+                    className="accreditation__badge-img"
+                    loading="lazy"
+                    width="220"
+                    height="220"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

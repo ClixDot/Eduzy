@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { gsap } from '../utils/gsapSetup';
 import aboutClassroomImg from '../assets/about_classroom.jpg';
-import missionStudentImg from '../assets/mission_student.jpg';
+import missionTeamImg from '../assets/mission_team.jpg';
 import impactNurseImg from '../assets/impact_nurse.jpg';
 import './About.css';
 
@@ -117,7 +117,7 @@ export default function About() {
             {/* Visual Media Area (Clean, unmasked high-resolution photo) */}
             <div className="about-editorial__mission-media">
               <img
-                src={missionStudentImg}
+                src={missionTeamImg}
                 alt="EDUZY professionals engaged in team collaboration and training"
                 className="about-editorial__mission-img"
                 loading="lazy"
