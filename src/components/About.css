@@ -5,12 +5,12 @@
 .about-editorial {
   background-color: #FFFFFF;
   position: relative;
-  padding: 80px 0 96px;
+  padding: 56px 0 68px;
   overflow: hidden;
 }
 
 .about-editorial__container {
-  max-width: 1260px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -21,20 +21,20 @@
 .about-editorial__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  gap: 22px;
   align-items: stretch;
 }
 
 /* =========================================================
-   BASE CARD STYLES
+   BASE CARD STYLES (COMPACT HEIGHT)
    ========================================================= */
 .about-editorial__card {
-  border-radius: 32px;
+  border-radius: 28px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 640px;
+  min-height: 485px;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.35s ease;
@@ -48,13 +48,13 @@
 .about-editorial__card--light {
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.07);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
-  padding: 34px 28px 28px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+  padding: 26px 24px 22px;
 }
 
 .about-editorial__card--light:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.08), 0 6px 16px rgba(0, 0, 0, 0.03);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
   border-color: rgba(255, 61, 22, 0.22);
 }
 
@@ -64,14 +64,14 @@
 .about-editorial__card--orange {
   background: #FF3D16;
   border: 1px solid #FF3D16;
-  box-shadow: 0 18px 44px rgba(255, 61, 22, 0.32), 0 4px 14px rgba(255, 61, 22, 0.18);
-  padding: 28px 28px 34px 28px;
+  box-shadow: 0 14px 38px rgba(255, 61, 22, 0.30), 0 4px 12px rgba(255, 61, 22, 0.16);
+  padding: 22px 24px 24px 24px;
   justify-content: flex-start;
 }
 
 .about-editorial__card--orange:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 28px 64px rgba(255, 61, 22, 0.44), 0 8px 24px rgba(255, 61, 22, 0.24);
+  transform: translateY(-6px);
+  box-shadow: 0 22px 52px rgba(255, 61, 22, 0.40), 0 6px 18px rgba(255, 61, 22, 0.22);
 }
 
 /* =========================================================
@@ -81,13 +81,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 
 .about-editorial__card-header--mission {
   padding: 0;
-  margin-top: 22px;
-  margin-bottom: 16px;
+  margin-top: 16px;
+  margin-bottom: 12px;
 }
 
 /* Pill Badges */
@@ -98,11 +98,11 @@
   background: #FEECE7;
   color: #1E293B;
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 7px 18px;
+  padding: 6px 14px;
   border-radius: 9999px;
   line-height: 1.2;
 }
@@ -114,15 +114,15 @@
 
 /* Circular Arrow Buttons */
 .about-editorial__arrow-btn {
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #FFFFFF;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.25s ease;
@@ -140,14 +140,14 @@
 
 .about-editorial__card:hover .about-editorial__arrow-btn {
   transform: scale(1.08) rotate(4deg);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
 }
 
 /* =========================================================
    CARD TYPOGRAPHY
    ========================================================= */
 .about-editorial__card-text {
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 
 .about-editorial__card-text--mission {
@@ -157,11 +157,11 @@
 
 .about-editorial__title {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.82rem;
+  font-size: 1.52rem;
   line-height: 1.2;
   font-weight: 800;
   color: #0F172A;
-  margin: 0 0 14px 0;
+  margin: 0 0 10px 0;
   letter-spacing: -0.02em;
 }
 
@@ -175,8 +175,8 @@
 
 .about-editorial__desc {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 0.88rem;
+  line-height: 1.48;
   color: #64748B;
   margin: 0;
   font-weight: 450;
@@ -187,12 +187,12 @@
 }
 
 /* =========================================================
-   CARD 1 & CARD 3 BOTTOM IMAGES
+   CARD 1 & CARD 3 BOTTOM IMAGES (COMPACT)
    ========================================================= */
 .about-editorial__image-box {
   width: 100%;
-  height: 260px;
-  border-radius: 20px;
+  height: 190px;
+  border-radius: 18px;
   overflow: hidden;
   margin-top: auto;
   position: relative;
@@ -212,16 +212,16 @@
 }
 
 /* =========================================================
-   CARD 2 TOP MEDIA (CLEAN, NO SVG OVERLAY)
+   CARD 2 TOP MEDIA (COMPACT & CLEAN)
    ========================================================= */
 .about-editorial__mission-media {
   position: relative;
   width: 100%;
-  height: 270px;
+  height: 195px;
   overflow: hidden;
-  border-radius: 22px;
+  border-radius: 18px;
   background-color: #FFFFFF;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
 }
 
 .about-editorial__mission-img {
@@ -244,56 +244,56 @@
 /* Large Tablets & Medium Screens */
 @media (max-width: 1140px) {
   .about-editorial {
-    padding: 64px 0 80px;
+    padding: 48px 0 60px;
   }
 
   .about-editorial__grid {
-    gap: 20px;
+    gap: 18px;
   }
 
   .about-editorial__card {
-    min-height: 590px;
-    border-radius: 28px;
+    min-height: 460px;
+    border-radius: 24px;
   }
 
   .about-editorial__card--light {
-    padding: 28px 22px 22px;
+    padding: 22px 18px 18px;
   }
 
   .about-editorial__card--orange {
-    padding: 22px 22px 28px 22px;
+    padding: 18px 18px 20px 18px;
   }
 
   .about-editorial__card-header--mission {
-    margin-top: 18px;
+    margin-top: 14px;
   }
 
   .about-editorial__title {
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     line-height: 1.22;
   }
 
   .about-editorial__desc {
-    font-size: 0.9rem;
+    font-size: 0.84rem;
   }
 
   .about-editorial__image-box,
   .about-editorial__mission-media {
-    height: 230px;
+    height: 175px;
   }
 }
 
 /* Small Tablets & Mobile Devices: Stack Vertically */
 @media (max-width: 960px) {
   .about-editorial {
-    padding: 56px 0 72px;
+    padding: 44px 0 56px;
   }
 
   .about-editorial__grid {
     grid-template-columns: 1fr;
-    max-width: 540px;
+    max-width: 500px;
     margin: 0 auto;
-    gap: 28px;
+    gap: 24px;
   }
 
   .about-editorial__card {
@@ -301,17 +301,17 @@
   }
 
   .about-editorial__card--light {
-    padding: 30px 24px 24px;
+    padding: 24px 20px 20px;
   }
 
   .about-editorial__card--orange {
-    padding: 24px 24px 30px 24px;
+    padding: 20px 20px 24px 20px;
   }
 
   .about-editorial__image-box,
   .about-editorial__mission-media {
-    height: 260px;
-    margin-top: 18px;
+    height: 220px;
+    margin-top: 16px;
   }
 
   .about-editorial__mission-media {
@@ -319,38 +319,38 @@
   }
 
   .about-editorial__title {
-    font-size: 1.7rem;
+    font-size: 1.48rem;
   }
 }
 
 @media (max-width: 520px) {
   .about-editorial {
-    padding: 44px 0 60px;
+    padding: 36px 0 48px;
   }
 
   .about-editorial__card {
-    border-radius: 24px;
+    border-radius: 22px;
   }
 
   .about-editorial__card--light {
-    padding: 24px 18px 18px;
+    padding: 20px 16px 16px;
   }
 
   .about-editorial__card--orange {
-    padding: 18px 18px 24px 18px;
+    padding: 16px 16px 20px 16px;
   }
 
   .about-editorial__title {
-    font-size: 1.45rem;
+    font-size: 1.32rem;
   }
 
   .about-editorial__desc {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
   }
 
   .about-editorial__image-box,
   .about-editorial__mission-media {
-    height: 210px;
-    border-radius: 18px;
+    height: 180px;
+    border-radius: 16px;
   }
 }
