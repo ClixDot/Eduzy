@@ -1,32 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { GraduationCap, ClipboardCheck, Trophy, CalendarClock, Award, ArrowRight, CheckCircle2, Star } from 'lucide-react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import aboutImg from '../assets/about_classroom.jpg';
+import { ArrowUpRight } from 'lucide-react';
+import { gsap } from '../utils/gsapSetup';
+import aboutClassroomImg from '../assets/about_classroom.jpg';
+import missionStudentImg from '../assets/mission_student.jpg';
+import impactNurseImg from '../assets/impact_nurse.jpg';
 import './About.css';
-
-const features = [
-  {
-    icon: GraduationCap,
-    title: 'Expert Mentorship',
-    desc: 'Learn from experienced trainers with personalized guidance and dedicated support.',
-  },
-  {
-    icon: ClipboardCheck,
-    title: 'Personalized Learning',
-    desc: 'Get a learning plan tailored to your goals, strengths, and learning pace.',
-  },
-  {
-    icon: Trophy,
-    title: 'Result-Oriented Training',
-    desc: 'Prepare with focused practice, mock exams, and proven learning strategies.',
-  },
-  {
-    icon: CalendarClock,
-    title: 'Flexible Learning Options',
-    desc: 'Choose online or offline classes that fit your schedule and lifestyle.',
-  },
-];
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -36,56 +14,17 @@ export default function About() {
     if (!el) return;
 
     const ctx = gsap.context(() => {
-      // 1. Left image composition slide & zoom
-      gsap.from('.about__image-col', {
-        x: -25,
-        duration: 0.7,
+      // Reveal 3 cards with gentle stagger
+      gsap.from('.about-editorial__card', {
+        y: 35,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 0.75,
         ease: 'power3.out',
         clearProps: 'all',
         scrollTrigger: {
           trigger: el,
-          start: 'top 85%',
-          once: true,
-        },
-      });
-
-      // 2. Right column content stagger
-      gsap.from('.about__content > *', {
-        y: 20,
-        stagger: 0.06,
-        duration: 0.6,
-        ease: 'power3.out',
-        clearProps: 'all',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          once: true,
-        },
-      });
-
-      // 3. Feature cards stagger (NEVER animate opacity - always 100% visible)
-      gsap.from('.about__feature-card', {
-        y: 15,
-        stagger: 0.05,
-        duration: 0.5,
-        ease: 'power2.out',
-        clearProps: 'all',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          once: true,
-        },
-      });
-
-      // 4. Floating badge pop
-      gsap.from('.about__floating-badge', {
-        scale: 0.85,
-        duration: 0.5,
-        ease: 'back.out(1.5)',
-        clearProps: 'all',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
+          start: 'top 82%',
           once: true,
         },
       });
@@ -94,98 +33,231 @@ export default function About() {
     return () => ctx.revert();
   }, []);
 
-  return (
-    <section className="about section" id="about" ref={sectionRef} aria-label="Why Choose EDUZY?">
-      {/* Subtle Background Glows */}
-      <div className="about__bg-glow about__bg-glow--top" aria-hidden="true" />
-      <div className="about__bg-glow about__bg-glow--bottom" aria-hidden="true" />
+  const handleCardClick = (target) => {
+    if (target === 'counseling') {
+      window.dispatchEvent(
+        new CustomEvent('open-enroll-modal', {
+          detail: { course: 'Why Choose EDUZY - Expert Counseling' },
+        })
+      );
+    } else if (target === 'portfolio') {
+      window.location.href = '/portfolio';
+    } else if (target === 'courses') {
+      window.location.href = '/courses';
+    }
+  };
 
-      <div className="container about__inner">
-        {/* ================= LEFT: MODERN VISUAL COMPOSITION ================= */}
-        <div className="about__image-col slide-left">
-          <div className="about__image-frame">
-            <div className="about__image-backdrop" aria-hidden="true" />
-            
-            <div className="about__image-wrapper">
+  return (
+    <section
+      className="about-editorial section"
+      id="about"
+      ref={sectionRef}
+      aria-label="Why Choose EDUZY"
+    >
+      <div className="container about-editorial__container">
+        <div className="about-editorial__grid">
+          {/* =========================================================
+              CARD 1: WHY CHOOSE EDUZY (Light Card)
+              ========================================================= */}
+          <article
+            className="about-editorial__card about-editorial__card--light"
+            onClick={() => handleCardClick('courses')}
+            role="region"
+            aria-label="Why Choose EDUZY details"
+          >
+            <div className="about-editorial__card-header">
+              <span className="about-editorial__pill">WHY CHOOSE EDUZY</span>
+              <button
+                type="button"
+                className="about-editorial__arrow-btn about-editorial__arrow-btn--orange"
+                aria-label="Explore Why Choose EDUZY"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick('courses');
+                }}
+              >
+                <ArrowUpRight size={20} strokeWidth={2.4} />
+              </button>
+            </div>
+
+            <div className="about-editorial__card-text">
+              <h2 className="about-editorial__title">
+                Expert Guidance for a{' '}
+                <span className="about-editorial__title--highlight">
+                  Brighter Global Future
+                </span>
+              </h2>
+              <p className="about-editorial__desc">
+                We help you build the skills, confidence, and opportunities to
+                achieve your dreams abroad.
+              </p>
+            </div>
+
+            <div className="about-editorial__image-box">
               <img
-                src={aboutImg}
-                alt="EDUZY modern classroom training session in Aluva"
-                className="about__main-img"
+                src={aboutClassroomImg}
+                alt="EDUZY professional instructor teaching students in a modern interactive classroom"
+                className="about-editorial__img"
                 loading="lazy"
                 width="640"
-                height="480"
+                height="420"
               />
-              <div className="about__img-overlay" aria-hidden="true" />
+            </div>
+          </article>
+
+          {/* =========================================================
+              CARD 2: OUR MISSION (Dominant Centerpiece Orange Card)
+              ========================================================= */}
+          <article
+            className="about-editorial__card about-editorial__card--orange"
+            onClick={() => handleCardClick('counseling')}
+            role="region"
+            aria-label="Our Mission details"
+          >
+            {/* Visual Media Area with Abstract Geometric Cutout Overlay */}
+            <div className="about-editorial__mission-media">
+              <img
+                src={missionStudentImg}
+                alt="EDUZY student smiling and writing notes in an interactive lecture"
+                className="about-editorial__mission-img"
+                loading="lazy"
+                width="640"
+                height="460"
+              />
+
+              {/* Exact Cutout Shapes matching Reference Design */}
+              <svg
+                className="about-editorial__cutout-overlay"
+                viewBox="0 0 1000 700"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                {/* 1. Top blob hanging down */}
+                <path
+                  d="M 60,0 C 70,45 95,72 120,72 C 145,72 170,45 180,0 Z"
+                  fill="#FF3D16"
+                />
+
+                {/* 2. Left rounded tab */}
+                <path
+                  d="M 0,150 C 48,150 78,180 78,220 C 78,260 48,290 0,290 Z"
+                  fill="#FF3D16"
+                />
+
+                {/* 3. Bottom-Left corner wedge */}
+                <path
+                  d="M 0,490 C 65,490 140,540 210,590 L 210,700 L 0,700 Z"
+                  fill="#FF3D16"
+                />
+
+                {/* 4. Center-Right 4-Prong Asterisk / Starburst + Right/Bottom Fill */}
+                <path
+                  d="M 640,0 
+                     L 750,0 
+                     C 725,85 745,125 770,140 
+                     C 820,120 920,60 1000,25 
+                     L 1000,120 
+                     C 885,160 810,205 745,245 
+                     C 805,275 905,310 1000,330 
+                     L 1000,700 
+                     L 540,700 
+                     C 540,630 525,580 495,540 
+                     C 460,495 405,460 365,435 
+                     C 345,422 348,405 368,392 
+                     C 420,360 490,310 525,260 
+                     C 555,215 565,115 640,0 Z"
+                  fill="#FF3D16"
+                />
+
+                {/* 5. Bottom notch base fill leaving the notebook framed cleanly */}
+                <path
+                  d="M 0,660 
+                     L 210,660 
+                     L 210,700 
+                     L 0,700 Z"
+                  fill="#FF3D16"
+                />
+              </svg>
             </div>
 
-            {/* Floating Top Rating Card */}
-            <div className="about__floating-badge about__floating-badge--top">
-              <div className="about__rating-stars">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="about__star-icon" size={14} fill="#F59E0B" color="#F59E0B" />
-                ))}
-              </div>
-              <div className="about__badge-content">
-                <span className="about__badge-main">4.9 / 5 Rating</span>
-                <span className="about__badge-sub">2,500+ Qualified Aspirants</span>
-              </div>
+            {/* Header row below image */}
+            <div className="about-editorial__card-header about-editorial__card-header--mission">
+              <span className="about-editorial__pill about-editorial__pill--cream">
+                OUR MISSION
+              </span>
+              <button
+                type="button"
+                className="about-editorial__arrow-btn about-editorial__arrow-btn--dark"
+                aria-label="Learn more about our mission"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick('counseling');
+                }}
+              >
+                <ArrowUpRight size={20} strokeWidth={2.4} />
+              </button>
             </div>
 
-            {/* Floating Bottom Milestone Card */}
-            <div className="about__floating-badge about__floating-badge--bottom">
-              <div className="about__badge-icon-box">
-                <Award size={20} className="about__badge-svg" />
-              </div>
-              <div className="about__badge-content">
-                <div className="about__badge-status">
-                  <span className="about__pulse-dot" aria-hidden="true" />
-                  <span className="about__badge-live">Aluva, Kochi</span>
-                </div>
-                <span className="about__badge-main">Premier Training Institute</span>
-              </div>
+            {/* Typography */}
+            <div className="about-editorial__card-text about-editorial__card-text--mission">
+              <h2 className="about-editorial__title about-editorial__title--white">
+                Empowering Healthcare Professionals and Students Worldwide
+              </h2>
+              <p className="about-editorial__desc about-editorial__desc--white">
+                With quality training, personalized support, and proven
+                strategies, EDUZY turns your goals into global opportunities.
+              </p>
             </div>
-          </div>
-        </div>
+          </article>
 
-        {/* ================= RIGHT: CONTENT & FEATURE CARDS ================= */}
-        <div className="about__content slide-right">
-          {/* Heading */}
-          <h2 className="about__heading">
-            Why Choose <span className="about__heading--highlight">EDUZY?</span>
-          </h2>
+          {/* =========================================================
+              CARD 3: OUR IMPACT (Light Card)
+              ========================================================= */}
+          <article
+            className="about-editorial__card about-editorial__card--light"
+            onClick={() => handleCardClick('portfolio')}
+            role="region"
+            aria-label="Our Impact details"
+          >
+            <div className="about-editorial__card-header">
+              <span className="about-editorial__pill">OUR IMPACT</span>
+              <button
+                type="button"
+                className="about-editorial__arrow-btn about-editorial__arrow-btn--orange"
+                aria-label="Explore our impact and success stories"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick('portfolio');
+                }}
+              >
+                <ArrowUpRight size={20} strokeWidth={2.4} />
+              </button>
+            </div>
 
-          {/* Concise Lead Text */}
-          <p className="about__lead">
-            Choose EDUZY for expert guidance, personalized learning, and result-oriented preparation. We help you achieve your goals in OET, IELTS, German, and NCLEX-RN with confidence.
-          </p>
+            <div className="about-editorial__card-text">
+              <h2 className="about-editorial__title">
+                <span className="about-editorial__title--highlight">
+                  2,500+ Learners
+                </span>{' '}
+                Building Global Careers
+              </h2>
+              <p className="about-editorial__desc">
+                From OET to IELTS, German, and NCLEX-RN, our learners are
+                achieving their dreams in top countries worldwide.
+              </p>
+            </div>
 
-          {/* Feature List (Pure Paragraph Level — No Icons) */}
-          <div className="about__features-grid">
-            {features.map((item, idx) => (
-              <div key={idx} className="about__feature-card">
-                <h3 className="about__feature-title">{item.title}</h3>
-                <p className="about__feature-desc">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Action Row */}
-          <div className="about__action-row">
-            <Link to="/portfolio" className="about__primary-btn" id="about-portfolio-btn">
-              <span>Explore Our Success Stories</span>
-              <ArrowRight size={18} className="about__btn-arrow" />
-            </Link>
-
-            <button 
-              type="button" 
-              onClick={() => window.dispatchEvent(new CustomEvent('open-enroll-modal', { detail: { course: 'Free Counseling Session' } }))} 
-              className="about__secondary-link" 
-              id="about-counsel-btn"
-            >
-              <CheckCircle2 size={18} className="about__check-accent" />
-              <span>Book Free Counseling</span>
-            </button>
-          </div>
+            <div className="about-editorial__image-box">
+              <img
+                src={impactNurseImg}
+                alt="Healthcare nurse in blue scrub standing by an illuminated world map holding tablet"
+                className="about-editorial__img"
+                loading="lazy"
+                width="640"
+                height="420"
+              />
+            </div>
+          </article>
         </div>
       </div>
     </section>

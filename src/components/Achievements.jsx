@@ -19,8 +19,8 @@ const proofs = [
         <polyline points="22 4 12 14.01 9 11.01"/>
       </svg>
     ),
-    title: 'First-Attempt Exam Clearances',
-    desc: 'Students achieve high band scores in IELTS, OET Grade B/A, and first-time NCLEX-RN success.',
+    title: 'International Diploma Certifications',
+    desc: 'Students achieve internationally validated diploma qualifications and high-growth industry placements.',
     tag: 'Proven Outcomes',
   },
   {
@@ -30,8 +30,8 @@ const proofs = [
         <circle cx="12" cy="10" r="3"/>
       </svg>
     ),
-    title: 'Global Healthcare Placements',
-    desc: 'Our alumni work as registered nurses, doctors, and specialists in the UK, Australia, USA, Canada, and Ireland.',
+    title: 'Global Career Placements',
+    desc: 'Our alumni work across leading logistics hubs, corporate finance firms, agencies, hospitals, and airlines worldwide.',
     tag: 'International Reach',
   },
   {

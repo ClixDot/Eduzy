@@ -132,28 +132,28 @@ const galleryItems = [
 // Student Achievements Data
 const achievements = [
   {
-    title: 'OET Grade B & A Achievers',
-    stat: '45+ Monthly',
-    badge: 'OET Excellence',
-    desc: 'Consistent monthly qualifiers securing scores needed for UK NMC & Ireland nurse registrations.',
+    title: 'Logistics & Supply Chain Qualifiers',
+    stat: '950+ Certified',
+    badge: 'Logistics Excellence',
+    desc: 'Graduates securing high-demand roles in global shipping lines, freight forwarding, and supply chain hubs.',
   },
   {
-    title: 'IELTS Academic 7.5 - 8.5 Scorers',
-    stat: '1,800+ Qualified',
-    badge: 'IELTS Mastery',
-    desc: 'High-band achievements across all subsets for university admissions and global healthcare visas.',
+    title: 'Accounting & Corporate Finance Specialists',
+    stat: '1,200+ Placed',
+    badge: 'Accounting Mastery',
+    desc: 'Certified professionals equipped with Tally, GST, SAP, and computerized accounting across corporate firms.',
   },
   {
-    title: 'Goethe German B1 & B2 Certified',
-    stat: '650+ Nurses',
-    badge: 'German Pathway',
-    desc: 'Language clearance for healthcare professionals qualifying for direct hospital placement across Germany.',
+    title: 'Digital Marketing & Creative Designers',
+    stat: '850+ Placed',
+    badge: 'Creative & Tech Hub',
+    desc: 'Graduates excelling in performance marketing, fashion styling, interior CAD drafting, and brand design.',
   },
   {
-    title: 'NCLEX-RN USA Licensure Passers',
-    stat: '98.2% Pass Rate',
-    badge: 'USA & Australia',
-    desc: 'Candidates passing the Next Generation NCLEX (NGN) exam on their very first attempt.',
+    title: 'Hospital Admin & Aviation Graduates',
+    stat: '98.4% Placement Rate',
+    badge: 'Global Careers',
+    desc: 'Diploma holders placed across leading healthcare networks and international airport operations.',
   }
 ];
 

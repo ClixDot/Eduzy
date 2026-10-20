@@ -132,7 +132,7 @@ export default function Accreditation() {
 
           <p className="accreditation__subtitle">
             EDUZY training programs are internationally validated, government-regulated, and university-recognized — 
-            ensuring your credentials are accepted for overseas healthcare licensure, embassy attestation, and global careers.
+            ensuring your credentials are accepted for global corporate employment, embassy attestation, and international careers.
           </p>
         </div>
 

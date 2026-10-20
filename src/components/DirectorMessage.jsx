@@ -77,7 +77,7 @@ export default function DirectorMessage() {
             {/* Quote Texts */}
             <div className="director__text">
               <p>
-                &ldquo;At EDUZY, our mission has always been clear and heartfelt: to bridge the gap between ambitious professionals and their international career goals. Whether you are a nurse working tirelessly towards registration abroad, a doctor seeking global practice, or a student aspiring for overseas education, exam preparation is not just about memorization — it is about strategy, confidence, and individualized support.&rdquo;
+                &ldquo;At EDUZY, our mission has always been clear and heartfelt: to bridge the gap between ambitious students and high-growth professional careers. Whether you are stepping into global logistics, corporate accounting, digital marketing, creative design, hospital administration, or aviation, industry preparation is about hands-on practical skills, confidence, and dedicated mentorship.&rdquo;
               </p>
               <p>
                 &ldquo;Every student who enters our doors or logs into our virtual classroom receives our wholehearted dedication. We have carefully curated our faculty, materials, and small batch sizes to ensure no one is left behind. When you succeed, we celebrate your victory as our own.&rdquo;

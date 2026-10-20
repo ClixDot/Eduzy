@@ -133,7 +133,7 @@ export default function VideoTestimonials() {
             Inspiring Journeys, <span className="highlight-orange">Global Careers</span>
           </h2>
           <p className="section-subtitle">
-            Watch verified EDUZY alumni share how personalized mentoring by Rose helped them clear OET, IELTS, German, and NCLEX-RN.
+            Watch verified EDUZY alumni share how industry-led diploma training and practical mentorship helped them build successful global careers.
           </p>
         </div>
 

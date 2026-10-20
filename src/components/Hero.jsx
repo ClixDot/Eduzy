@@ -89,14 +89,14 @@ export default function Hero() {
           <div className="hero-ref__content">
             {/* Main Heading with Orange Highlights */}
             <h1 className="hero-animate hero-ref__heading">
-              Achieve Your <span className="highlight-orange">Dream Score.</span>
+              From Campus to <span className="highlight-orange">Career.</span>
               <br />
-              Build Your <span className="highlight-orange">Global Career.</span>
+              Build Your <span className="highlight-orange">Global Future.</span>
             </h1>
 
             {/* Supporting Description */}
             <p className="hero-animate hero-ref__desc">
-              Personalized coaching by <strong>Rose</strong> for OET, IELTS, German, and NCLEX-RN to help you achieve your dream score.
+              AI-Integrated International Diploma programs in <strong>Logistics, Accounting, Digital Marketing, Designing, Hospital Administration</strong>, and <strong>Aviation</strong> to build your global career.
             </p>
 
             {/* Action Buttons */}
@@ -133,7 +133,7 @@ export default function Hero() {
                   </defs>
                   <text className="hero-ref__curved-text">
                     <textPath href="#circleTextPath" startOffset="0%">
-                      • EDUZY GLOBAL ACADEMY • MENTORED BY ROSE • 10+ YEARS EXCELLENCE • ACHIEVE YOUR DREAM SCORE • EDUZY GLOBAL ACADEMY • MENTORED BY ROSE • 10+ YEARS EXCELLENCE •
+                      • EDUZY GLOBAL ACADEMY • CAMPUS TO CAREER • 10+ YEARS EXCELLENCE • BUILD YOUR GLOBAL FUTURE • EDUZY GLOBAL ACADEMY • CAMPUS TO CAREER • 10+ YEARS EXCELLENCE •
                     </textPath>
                   </text>
                 </svg>

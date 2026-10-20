@@ -2,7 +2,7 @@ export const faqs = [
   {
     id: 1,
     question: "What programs and courses does EDUZY offer?",
-    answer: "EDUZY offers industry-focused AI-Integrated International Diploma programs in Logistics & Supply Chain Management, Accounting, Digital Marketing, Fashion & Interior Designing, Hospital Administration, Human Resource Management, and Aviation, along with dedicated training for OET, IELTS, NCLEX-RN, and German language.",
+    answer: "EDUZY offers industry-focused AI-Integrated International Diploma programs in Logistics & Supply Chain Management, Accounting, Digital Marketing & Influencer Marketing, Fashion & Interior Designing, Animation & Graphic Designing, Hospital Administration, Human Resource Management, and Aviation.",
   },
   {
     id: 2,

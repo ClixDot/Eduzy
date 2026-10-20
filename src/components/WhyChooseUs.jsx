@@ -7,19 +7,19 @@ const features = [
     num: '01',
     tag: 'Certified Mentors',
     title: 'Expert Faculty',
-    desc: 'Learn directly from certified specialists in OET, IELTS, NCLEX-RN, and German with extensive exam coaching experience.',
+    desc: 'Learn directly from certified industry specialists in Logistics, Accounting, Digital Marketing, Designing, Hospital Admin, and Aviation.',
   },
   {
     num: '02',
     tag: 'Tailored Plans',
     title: 'Personalized Learning',
-    desc: 'Custom study roadmaps crafted around your target score and schedule, focusing precisely on your growth areas.',
+    desc: 'Custom study roadmaps crafted around your target career goals and schedule, focusing precisely on your growth areas.',
   },
   {
     num: '03',
-    tag: 'High Pass Rate',
+    tag: 'High Placement',
     title: 'Proven Success',
-    desc: 'Consistent high first-attempt clearance rates across language proficiency and international nursing licensure exams.',
+    desc: 'Consistent high career placement rates across corporate enterprises and international industry employers.',
   },
   {
     num: '04',

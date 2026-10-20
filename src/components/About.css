@@ -1,494 +1,372 @@
-/* ============================================
-   ABOUT EDUZY SECTION — MODERN REDESIGN
-   ============================================ */
+/* =========================================================
+   WHY CHOOSE EDUZY — PREMIUM 3-CARD EDITORIAL LAYOUT
+   ========================================================= */
 
-.about {
-  background: #ffffff;
+.about-editorial {
+  background-color: #FFFFFF;
   position: relative;
-  padding: 90px 0;
+  padding: 80px 0 96px;
   overflow: hidden;
 }
 
-/* Ambient Background Glows */
-.about__bg-glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(80px);
-  opacity: 0.45;
-  z-index: 0;
-}
-
-.about__bg-glow--top {
-  top: -10%;
-  right: -5%;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(255, 59, 11, 0.12) 0%, transparent 70%);
-}
-
-.about__bg-glow--bottom {
-  bottom: -15%;
-  left: -5%;
-  width: 460px;
-  height: 460px;
-  background: radial-gradient(circle, rgba(254, 215, 170, 0.25) 0%, transparent 70%);
-}
-
-.about__inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-/* ============================================
-   LEFT COLUMN: LAYERED VISUAL COMPOSITION
-   ============================================ */
-
-.about__image-col {
-  position: relative;
-}
-
-.about__image-frame {
-  position: relative;
-  max-width: 520px;
+.about-editorial__container {
+  max-width: 1260px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.about__image-backdrop {
-  position: absolute;
-  inset: -12px;
-  background: linear-gradient(135deg, rgba(255, 59, 11, 0.15), rgba(254, 215, 170, 0.3));
+/* =========================================================
+   THREE-COLUMN GRID
+   ========================================================= */
+.about-editorial__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+/* =========================================================
+   BASE CARD STYLES
+   ========================================================= */
+.about-editorial__card {
   border-radius: 32px;
-  transform: rotate(-1.5deg);
-  z-index: 0;
-}
-
-.about__image-wrapper {
   position: relative;
-  z-index: 1;
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.09);
-  border: 4px solid #ffffff;
-  background: #ffffff;
-}
-
-.about__main-img {
-  width: 100%;
-  height: 470px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about__image-frame:hover .about__main-img {
-  transform: scale(1.03);
-}
-
-.about__img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, transparent 40%);
-  pointer-events: none;
-}
-
-/* Floating Glass Badges */
-.about__floating-badge {
-  position: absolute;
-  z-index: 3;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
-  border-radius: 18px;
-  padding: 12px 18px;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about__floating-badge:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.13);
-}
-
-/* Top Badge */
-.about__floating-badge--top {
-  top: 24px;
-  right: -24px;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  padding: 14px 18px;
+  justify-content: space-between;
+  min-height: 640px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.about__rating-stars {
+/* =========================================================
+   LIGHT CARDS (CARD 1 & CARD 3)
+   ========================================================= */
+.about-editorial__card--light {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+  padding: 34px 28px 28px;
+}
+
+.about-editorial__card--light:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.08), 0 6px 16px rgba(0, 0, 0, 0.03);
+  border-color: rgba(255, 61, 22, 0.22);
+}
+
+/* =========================================================
+   ORANGE CENTERPIECE CARD (CARD 2 — OUR MISSION)
+   ========================================================= */
+.about-editorial__card--orange {
+  background: #FF3D16;
+  border: 1px solid #FF3D16;
+  box-shadow: 0 18px 44px rgba(255, 61, 22, 0.32), 0 4px 14px rgba(255, 61, 22, 0.18);
+  padding: 0 0 36px 0;
+  justify-content: flex-start;
+}
+
+.about-editorial__card--orange:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 64px rgba(255, 61, 22, 0.44), 0 8px 24px rgba(255, 61, 22, 0.24);
+}
+
+/* =========================================================
+   CARD HEADER ROW (PILL & ARROW BUTTON)
+   ========================================================= */
+.about-editorial__card-header {
   display: flex;
   align-items: center;
-  gap: 3px;
+  justify-content: space-between;
+  margin-bottom: 22px;
 }
 
-.about__star-icon {
-  flex-shrink: 0;
+.about-editorial__card-header--mission {
+  padding: 0 28px;
+  margin-top: 20px;
+  margin-bottom: 16px;
 }
 
-/* Bottom Badge */
-.about__floating-badge--bottom {
-  bottom: 24px;
-  left: -20px;
-}
-
-.about__badge-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: #F1F5F9;
-  color: #0F172A;
-  display: flex;
+/* Pill Badges */
+.about-editorial__pill {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-}
-
-.about__badge-svg {
-  stroke-width: 2.2;
-}
-
-.about__badge-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.about__badge-status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 2px;
-}
-
-.about__pulse-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #22C55E;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-  animation: pulse-green 1.8s infinite;
-}
-
-@keyframes pulse-green {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
-  }
-}
-
-.about__badge-live {
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: #15803D;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.about__badge-main {
-  font-family: var(--font-heading);
-  font-size: 0.96rem;
+  background: #FEECE7;
+  color: #1E293B;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.72rem;
   font-weight: 800;
-  color: #000000;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 9999px;
   line-height: 1.2;
 }
 
-.about__badge-sub {
-  font-size: 0.78rem;
-  color: #000000;
-  font-weight: 700;
+.about-editorial__pill--cream {
+  background: #FEECE7;
+  color: #1E293B;
 }
 
-/* ============================================
-   RIGHT COLUMN: CONTENT & CARDS
-   ============================================ */
-
-.about__content {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-/* Eyebrow Pill */
-.about__eyebrow-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #FFF7ED;
-  border: 1px solid #FFEDD5;
-  color: #FF3B0B;
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  width: fit-content;
-}
-
-.about__eyebrow-icon {
-  font-size: 0.95rem;
-  color: #FF3B0B;
-}
-
-/* Heading */
-.about__heading {
-  font-family: var(--font-heading);
-  font-size: clamp(2.15rem, 3.6vw, 3rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #000000;
-  letter-spacing: -0.025em;
-  margin: 0;
-}
-
-.about__heading--highlight {
-  color: #FF3B0B;
-}
-
-/* Lead text */
-.about__lead {
-  font-size: 1.04rem;
-  color: #4B5563;
-  font-weight: 400;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.about__lead strong {
-  color: #111827;
-  font-weight: 700;
-}
-
-/* ============================================
-   OPEN FEATURE LIST (Clean Paragraph Level — No Icons)
-   ============================================ */
-
-.about__features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 26px 36px;
-  margin-top: 18px;
-  margin-bottom: 8px;
-}
-
-.about__feature-card {
-  background: transparent;
+/* Circular Arrow Buttons */
+.about-editorial__arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
   border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  opacity: 1 !important;
-}
-
-.about__feature-title {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #000000 !important;
-  margin: 0;
-  line-height: 1.32;
-  letter-spacing: -0.015em;
-  opacity: 1 !important;
-}
-
-.about__feature-desc {
-  font-size: 0.94rem;
-  color: #4B5563 !important;
-  font-weight: 400;
-  line-height: 1.65;
-  margin: 0;
-  opacity: 1 !important;
-}
-
-/* ============================================
-   ACTION ROW
-   ============================================ */
-
-.about__action-row {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-top: 8px;
-  flex-wrap: wrap;
-}
-
-.about__primary-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #FF3B0B;
-  color: #ffffff;
-  padding: 14px 28px;
-  border-radius: 9999px;
-  font-family: var(--font-body);
-  font-size: 0.96rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 8px 24px rgba(255, 59, 11, 0.3);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about__primary-btn:hover {
-  background: #E62E00;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(255, 59, 11, 0.4);
-}
-
-.about__btn-arrow {
-  transition: transform 0.25s ease;
-}
-
-.about__primary-btn:hover .about__btn-arrow {
-  transform: translateX(4px);
-}
-
-.about__secondary-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: none;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   cursor: pointer;
-  font-family: inherit;
-  color: #000000;
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  transition: all 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease;
+  padding: 0;
+  flex-shrink: 0;
 }
 
-.about__secondary-link:hover {
-  color: #000000;
-  background: #F1F5F9;
+.about-editorial__arrow-btn--orange {
+  color: #FF3D16;
 }
 
-.about__check-accent {
-  color: #FF3B0B;
+.about-editorial__arrow-btn--dark {
+  color: #0F172A;
 }
 
-.about__secondary-link:hover {
-  color: #FF3B0B;
-  background: #FFF7ED;
+.about-editorial__card:hover .about-editorial__arrow-btn {
+  transform: scale(1.08) rotate(4deg);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* Animations */
-.slide-left,
-.slide-right {
-  opacity: 1;
-  transform: none;
+/* =========================================================
+   CARD TYPOGRAPHY
+   ========================================================= */
+.about-editorial__card-text {
+  margin-bottom: 22px;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+.about-editorial__card-text--mission {
+  padding: 0 28px;
+  margin-bottom: 0;
+}
 
-@media (max-width: 1024px) {
-  .about {
-    padding: 70px 0;
+.about-editorial__title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.82rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
+}
+
+.about-editorial__title--highlight {
+  color: #FF3D16;
+}
+
+.about-editorial__title--white {
+  color: #FFFFFF;
+}
+
+.about-editorial__desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #64748B;
+  margin: 0;
+  font-weight: 450;
+}
+
+.about-editorial__desc--white {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* =========================================================
+   CARD 1 & CARD 3 BOTTOM IMAGES
+   ========================================================= */
+.about-editorial__image-box {
+  width: 100%;
+  height: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: auto;
+  position: relative;
+  background-color: #F1F5F9;
+}
+
+.about-editorial__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-editorial__card--light:hover .about-editorial__img {
+  transform: scale(1.04);
+}
+
+/* =========================================================
+   CARD 2 TOP MEDIA WITH ABSTRACT GEOMETRIC CUTOUT
+   ========================================================= */
+.about-editorial__mission-media {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+  border-top-left-radius: 31px;
+  border-top-right-radius: 31px;
+  background-color: #FF3D16;
+}
+
+.about-editorial__mission-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 24% 10%;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-editorial__card--orange:hover .about-editorial__mission-img {
+  transform: scale(1.04);
+}
+
+.about-editorial__cutout-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* =========================================================
+   RESPONSIVE LAYOUTS
+   ========================================================= */
+
+/* Large Tablets & Medium Screens */
+@media (max-width: 1140px) {
+  .about-editorial {
+    padding: 64px 0 80px;
   }
 
-  .about__inner {
+  .about-editorial__grid {
+    gap: 20px;
+  }
+
+  .about-editorial__card {
+    min-height: 590px;
+    border-radius: 28px;
+  }
+
+  .about-editorial__card--light {
+    padding: 28px 22px 22px;
+  }
+
+  .about-editorial__card-header--mission,
+  .about-editorial__card-text--mission {
+    padding: 0 22px;
+  }
+
+  .about-editorial__title {
+    font-size: 1.55rem;
+    line-height: 1.22;
+  }
+
+  .about-editorial__desc {
+    font-size: 0.9rem;
+  }
+
+  .about-editorial__image-box {
+    height: 230px;
+  }
+
+  .about-editorial__mission-media {
+    height: 275px;
+    border-top-left-radius: 27px;
+    border-top-right-radius: 27px;
+  }
+}
+
+/* Small Tablets & Mobile Devices: Stack Vertically */
+@media (max-width: 960px) {
+  .about-editorial {
+    padding: 56px 0 72px;
+  }
+
+  .about-editorial__grid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
-  }
-
-  .about__image-col {
-    max-width: 580px;
+    max-width: 540px;
     margin: 0 auto;
-    width: 100%;
+    gap: 28px;
   }
 
-  .about__floating-badge--top {
-    right: 10px;
-    top: 14px;
+  .about-editorial__card {
+    min-height: auto;
   }
 
-  .about__floating-badge--bottom {
-    left: 10px;
-    bottom: 14px;
+  .about-editorial__card--light {
+    padding: 30px 24px 24px;
+  }
+
+  .about-editorial__image-box {
+    height: 260px;
+    margin-top: 18px;
+  }
+
+  .about-editorial__mission-media {
+    height: 310px;
+  }
+
+  .about-editorial__title {
+    font-size: 1.7rem;
   }
 }
 
-@media (max-width: 640px) {
-  .about {
-    padding: 50px 0;
+@media (max-width: 520px) {
+  .about-editorial {
+    padding: 44px 0 60px;
   }
 
-  .about__inner {
-    gap: 2.5rem;
+  .about-editorial__card {
+    border-radius: 24px;
   }
 
-  .about__main-img {
-    height: 320px;
+  .about-editorial__card--light {
+    padding: 24px 18px 18px;
   }
 
-  .about__floating-badge {
-    padding: 10px 14px;
-    border-radius: 14px;
+  .about-editorial__card-header--mission,
+  .about-editorial__card-text--mission {
+    padding: 0 18px;
   }
 
-  .about__floating-badge--top {
-    right: 8px;
-    top: 8px;
+  .about-editorial__card--orange {
+    padding-bottom: 26px;
   }
 
-  .about__floating-badge--bottom {
-    left: 8px;
-    bottom: 8px;
+  .about-editorial__title {
+    font-size: 1.45rem;
   }
 
-  .about__badge-icon-box {
-    width: 36px;
-    height: 36px;
-  }
-
-  .about__badge-main {
+  .about-editorial__desc {
     font-size: 0.88rem;
   }
 
-  .about__features-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 14px;
+  .about-editorial__image-box {
+    height: 210px;
+    border-radius: 16px;
   }
 
-  .about__action-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-
-  .about__primary-btn {
-    justify-content: center;
-  }
-
-  .about__secondary-link {
-    justify-content: center;
+  .about-editorial__mission-media {
+    height: 260px;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
   }
 }
