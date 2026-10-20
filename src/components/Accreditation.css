@@ -64,26 +64,35 @@
   max-width: 720px;
 }
 
-/* Badges Grid (3 Cards per Row, Centered) */
+/* Badges Grid Containers */
 .accreditation__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 28px 24px;
   align-items: stretch;
-  margin-bottom: 0;
-  max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Card Styling */
+/* Row 1: Exactly 3 Cards (Tighter gap & cohesive compact container) */
+.accreditation__grid--primary {
+  max-width: 900px;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Marked Section: 4 Cards per Row */
+.accreditation__grid--secondary {
+  max-width: 1200px;
+  gap: 18px;
+}
+
+/* Card Base Styling */
 .accreditation__card {
   position: relative;
   background: #ffffff;
   border: 1px solid #E5E7EB;
-  border-radius: var(--radius-xl);
-  padding: 30px 24px 26px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,9 +102,6 @@
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.35s ease;
-  flex: 0 0 calc((100% - 48px) / 3);
-  max-width: calc((100% - 48px) / 3);
-  width: calc((100% - 48px) / 3);
   box-sizing: border-box;
 }
 
@@ -103,6 +109,51 @@
   transform: translateY(-5px);
   box-shadow: 0 16px 36px rgba(255, 59, 11, 0.1);
   border-color: rgba(255, 59, 11, 0.35);
+}
+
+/* Row 1 Cards: 3 per row (Prominent badges, minimal dead space) */
+.accreditation__card--primary {
+  flex: 0 0 calc((100% - 32px) / 3);
+  max-width: calc((100% - 32px) / 3);
+  width: calc((100% - 32px) / 3);
+  min-height: 165px;
+  padding: 22px 18px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+
+.accreditation__card--primary .accreditation__badge-frame {
+  width: 100%;
+  max-width: 220px;
+  height: 125px;
+}
+
+.accreditation__card--primary .accreditation__badge-img {
+  max-height: 120px;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+}
+
+.accreditation__card--primary .accreditation__badge-glow {
+  width: 140px;
+  height: 140px;
+}
+
+/* Marked Section Cards: 4 per row */
+.accreditation__card--secondary {
+  flex: 0 0 calc((100% - 54px) / 4);
+  max-width: calc((100% - 54px) / 4);
+  width: calc((100% - 54px) / 4);
+  min-height: 135px;
+  padding: 20px 18px;
+}
+
+.accreditation__card--secondary .accreditation__badge-frame {
+  width: 100%;
+  max-width: 180px;
+  height: 85px;
+}
+
+.accreditation__card--secondary .accreditation__badge-img {
+  max-height: 80px;
 }
 
 /* Featured Centerpiece Card (STED Council & Alagappa) */
@@ -142,12 +193,12 @@
 .accreditation__badge-frame {
   position: relative;
   width: 100%;
-  max-width: 190px;
-  height: 120px;
+  max-width: 200px;
+  height: 95px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 
@@ -330,21 +381,47 @@
    RESPONSIVE BREAKPOINTS
    ============================================ */
 @media (max-width: 1024px) {
-  .accreditation__grid {
-    gap: 18px;
+  .accreditation__grid--primary {
+    max-width: 780px;
+    gap: 14px;
+    margin-bottom: 20px;
   }
 
-  .accreditation__card {
-    flex: 0 0 calc((100% - 36px) / 3);
-    max-width: calc((100% - 36px) / 3);
-    width: calc((100% - 36px) / 3);
-    padding: 22px 14px 18px;
+  .accreditation__grid--secondary {
+    gap: 14px;
+    max-width: 960px;
   }
 
-  .accreditation__badge-frame {
-    width: 100%;
-    max-width: 160px;
-    height: 105px;
+  .accreditation__card--primary {
+    flex: 0 0 calc((100% - 28px) / 3);
+    max-width: calc((100% - 28px) / 3);
+    width: calc((100% - 28px) / 3);
+    padding: 18px 14px;
+    min-height: 145px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-frame {
+    height: 110px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-img {
+    max-height: 105px;
+  }
+
+  .accreditation__card--secondary {
+    flex: 0 0 calc((100% - 42px) / 4);
+    max-width: calc((100% - 42px) / 4);
+    width: calc((100% - 42px) / 4);
+    padding: 16px 12px;
+    min-height: 120px;
+  }
+
+  .accreditation__card--secondary .accreditation__badge-frame {
+    height: 75px;
+  }
+
+  .accreditation__card--secondary .accreditation__badge-img {
+    max-height: 70px;
   }
 }
 
@@ -361,18 +438,42 @@
     font-size: 1.9rem;
   }
 
-  .accreditation__grid {
-    gap: 16px;
+  .accreditation__grid--primary,
+  .accreditation__grid--secondary {
+    gap: 14px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .accreditation__card {
-    flex: 0 0 calc((100% - 16px) / 2);
-    max-width: calc((100% - 16px) / 2);
-    width: calc((100% - 16px) / 2);
+  .accreditation__grid--primary {
+    margin-bottom: 14px;
   }
 
-  .accreditation__badge-frame {
-    height: 95px;
+  .accreditation__card--primary,
+  .accreditation__card--secondary {
+    flex: 0 0 calc((100% - 14px) / 2);
+    max-width: calc((100% - 14px) / 2);
+    width: calc((100% - 14px) / 2);
+    min-height: 115px;
+    padding: 16px 12px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-frame {
+    height: 90px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-img {
+    max-height: 85px;
+  }
+
+  .accreditation__card--secondary .accreditation__badge-frame {
+    height: 75px;
+    max-width: 150px;
+  }
+
+  .accreditation__card--secondary .accreditation__badge-img {
+    max-height: 70px;
   }
 }
 
@@ -385,17 +486,40 @@
     font-size: 0.95rem;
   }
 
-  .accreditation__grid {
-    max-width: 360px;
-    margin: 0 auto;
-    gap: 16px;
+  .accreditation__grid--primary,
+  .accreditation__grid--secondary {
+    max-width: 100%;
+    gap: 10px;
   }
 
-  .accreditation__card {
-    flex: 0 0 100%;
-    max-width: 100%;
-    width: 100%;
-    padding: 20px 14px 18px;
+  .accreditation__grid--primary {
+    margin-bottom: 10px;
+  }
+
+  .accreditation__card--primary,
+  .accreditation__card--secondary {
+    flex: 0 0 calc((100% - 10px) / 2);
+    max-width: calc((100% - 10px) / 2);
+    width: calc((100% - 10px) / 2);
+    padding: 14px 10px;
+    min-height: 105px;
+    border-radius: var(--radius-lg);
+  }
+
+  .accreditation__card--primary .accreditation__badge-frame {
+    height: 80px;
+  }
+
+  .accreditation__card--primary .accreditation__badge-img {
+    max-height: 75px;
+  }
+
+  .accreditation__card--secondary .accreditation__badge-frame {
+    height: 65px;
+  }
+
+  .accreditation__card--secondary .accreditation__badge-img {
+    max-height: 60px;
   }
 }
 

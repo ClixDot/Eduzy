@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FlowButton } from '@/components/ui/flow-button';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import heroGirlImg from '../assets/hero_girl.png';
+import heroBgImg from '../assets/herobg.png';
 import './Hero.css';
 
 export default function Hero() {
@@ -147,8 +147,8 @@ export default function Hero() {
               {/* 3. Mentor Portrait */}
               <div className="hero-ref__portrait-wrapper">
                 <img
-                  src={heroGirlImg}
-                  alt="Mentor at EDUZY"
+                  src={heroBgImg}
+                  alt="Rose - Founder & Chief Mentor at EDUZY"
                   className="hero-ref__portrait-img"
                   width="480"
                   height="640"
