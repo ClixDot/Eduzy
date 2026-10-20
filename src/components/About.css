@@ -281,15 +281,15 @@
 }
 
 /* ============================================
-   OPEN FEATURE LIST (No Enclosed Cards)
+   OPEN FEATURE LIST (Clean Paragraph Level — No Icons)
    ============================================ */
 
 .about__features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 34px 38px;
-  margin-top: 16px;
-  margin-bottom: 12px;
+  gap: 26px 36px;
+  margin-top: 18px;
+  margin-bottom: 8px;
 }
 
 .about__feature-card {
@@ -299,50 +299,6 @@
   padding: 0;
   box-shadow: none;
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  opacity: 1 !important;
-  transition: transform 0.2s ease;
-}
-
-.about__feature-card:hover {
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
-  transform: translateY(-2px);
-}
-
-.about__feature-icon-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: #FFF7ED;
-  color: #FF3B0B;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid #FFEDD5;
-  box-shadow: 0 4px 12px rgba(255, 59, 11, 0.08);
-  transition: all 0.25s ease;
-}
-
-.about__feature-icon {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-}
-
-.about__feature-card:hover .about__feature-icon-wrap {
-  background: #FF3B0B;
-  color: #ffffff;
-  border-color: #FF3B0B;
-  transform: scale(1.06);
-  box-shadow: 0 6px 18px rgba(255, 59, 11, 0.3);
-}
-
-.about__feature-info {
-  display: flex;
   flex-direction: column;
   gap: 6px;
   opacity: 1 !important;
@@ -350,20 +306,20 @@
 
 .about__feature-title {
   font-family: var(--font-heading);
-  font-size: 1.08rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #000000 !important;
   margin: 0;
-  line-height: 1.35;
+  line-height: 1.32;
   letter-spacing: -0.015em;
   opacity: 1 !important;
 }
 
 .about__feature-desc {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: #4B5563 !important;
   font-weight: 400;
-  line-height: 1.62;
+  line-height: 1.65;
   margin: 0;
   opacity: 1 !important;
 }
@@ -518,23 +474,8 @@
 
   .about__features-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
     margin-top: 14px;
-  }
-
-  .about__feature-card {
-    gap: 16px;
-  }
-
-  .about__feature-icon-wrap {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-  }
-
-  .about__feature-icon {
-    width: 24px;
-    height: 24px;
   }
 
   .about__action-row {

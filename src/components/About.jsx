@@ -159,22 +159,14 @@ export default function About() {
             Choose EDUZY for expert guidance, personalized learning, and result-oriented preparation. We help you achieve your goals in OET, IELTS, German, and NCLEX-RN with confidence.
           </p>
 
-          {/* Feature Bento Grid */}
+          {/* Feature List (Pure Paragraph Level — No Icons) */}
           <div className="about__features-grid">
-            {features.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div key={idx} className="about__feature-card">
-                  <div className="about__feature-icon-wrap">
-                    <Icon size={26} className="about__feature-icon" strokeWidth={2.2} />
-                  </div>
-                  <div className="about__feature-info">
-                    <h3 className="about__feature-title">{item.title}</h3>
-                    <p className="about__feature-desc">{item.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
+            {features.map((item, idx) => (
+              <div key={idx} className="about__feature-card">
+                <h3 className="about__feature-title">{item.title}</h3>
+                <p className="about__feature-desc">{item.desc}</p>
+              </div>
+            ))}
           </div>
 
           {/* Action Row */}
