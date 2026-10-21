@@ -15,7 +15,7 @@ export default function AboutPage() {
         <div className="container text-center">
           <h1 className="page-hero__title">Dedicated to Your Global Career</h1>
           <p className="page-hero__subtitle">
-            EDUZY is one of Kerala&apos;s most respected coaching centres for international language exams, healthcare licensure, and professional skill enhancement.
+            EDUZY bridges the gap between education and employment through industry-oriented training, practical learning, and career-focused development.
           </p>
         </div>
       </section>
@@ -55,7 +55,7 @@ export default function AboutPage() {
               </div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: '#000000' }}>Our Mission</h3>
               <p style={{ color: '#000000', fontWeight: 600, lineHeight: 1.7 }}>
-                To provide high-quality, personalized, and exam-focused education that equips healthcare professionals and students with the language proficiency and certifications required to excel on global platforms.
+                To empower students with industry-oriented skills, hands-on practical training, and career-focused mentorship needed to succeed in a competitive professional environment.
               </p>
             </div>
 

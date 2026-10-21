@@ -185,8 +185,9 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="footer__clixdot-link"
+                title="clixdot.com"
               >
-                Clixdot
+                clixdot
               </a>
             </span>
           </p>
