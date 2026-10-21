@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock, GraduationCap } from 'lucide-react';
 import './CourseCard.css';
 
 export default function CourseCard({ course }) {
+  const hasLevel = Boolean(course.level);
   const hasDuration = Boolean(course.duration);
   const hasFormat = Boolean(course.format);
 
@@ -38,9 +39,14 @@ export default function CourseCard({ course }) {
 
       {/* Body */}
       <div className="course-card__body">
-        {/* 2 & 3. Duration & Online/Offline Format (only when verified) */}
+        {/* 2 & 3. Duration/Level & Online/Offline Format */}
         <div className="course-card__meta">
-          {hasDuration ? (
+          {hasLevel ? (
+            <span className="course-card__level-pill">
+              <GraduationCap size={15} strokeWidth={2.2} aria-hidden="true" />
+              <span>{course.level}</span>
+            </span>
+          ) : hasDuration ? (
             <span className="course-card__duration">
               <Clock size={14} aria-hidden="true" />
               <span>{course.duration}</span>

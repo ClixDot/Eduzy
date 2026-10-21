@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { Clock, Globe, Star, Laptop, Building2 } from 'lucide-react';
+import { Clock, Globe, Star, Laptop, Building2, GraduationCap } from 'lucide-react';
 import { courses } from '../data/courses';
 import testimonials from '../data/testimonials';
 import EnquiryForm from '../components/EnquiryForm';
@@ -55,7 +55,8 @@ export default function CourseDetails() {
           <div className="course-hero__content">
             <div className="course-hero__badges">
               <span className="course-hero__cat-badge">{course.category.toUpperCase()}</span>
-              {course.duration && <span className="course-hero__dur-badge">{course.duration.toUpperCase()}</span>}
+              {course.level && <span className="course-hero__dur-badge">{course.level}</span>}
+              {!course.level && course.duration && <span className="course-hero__dur-badge">{course.duration.toUpperCase()}</span>}
               {course.badge && <span className="course-hero__highlight-badge">{course.badge}</span>}
             </div>
 
@@ -69,9 +70,9 @@ export default function CourseDetails() {
 
             <div className="course-hero__highlights">
               <div className="course-hero__meta-card">
-                <span className="course-hero__meta-label">Duration</span>
+                <span className="course-hero__meta-label">{course.level ? 'Program Level' : 'Duration'}</span>
                 <span className="course-hero__meta-val">
-                  <Clock size={16} /> {course.duration || 'Comprehensive'}
+                  {course.level ? <GraduationCap size={16} /> : <Clock size={16} />} {course.level || course.duration || 'Comprehensive'}
                 </span>
               </div>
               <div className="course-hero__meta-card">

@@ -21,6 +21,7 @@ export const courses = [
     shortDesc: 'Streamline global freight operations, inventory planning, procurement strategies, and end-to-end supply chain ecosystems.',
     description: 'Gain end-to-end expertise in international logistics, multimodal transport, customs compliance, warehouse management systems (WMS), and supply chain resilience for global trading, e-commerce, and manufacturing industries.',
     duration: '8–12 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'Logistics coordinators & supply chain executives',
@@ -57,6 +58,7 @@ export const courses = [
     shortDesc: 'Master financial reporting, corporate taxation, statutory audits, and computerized accounting standards.',
     description: 'Master commercial accounting principles, balance sheet analysis, GST filing, corporate tax compliance, and computerized accounting software. Built to prepare job-ready accountants for roles in corporate finance and public practice.',
     duration: '8–10 Weeks',
+    level: 'International Diploma / Global Diploma / Diploma',
     format: 'Online & Offline',
     whoIsItFor: [
       'Commerce graduates & aspiring accountants',
@@ -93,6 +95,7 @@ export const courses = [
     shortDesc: 'Explore fashion illustration, garment construction, pattern drafting, and trend forecasting for modern apparel.',
     description: 'Immerse yourself in creative garment styling and construction. Learn how to transform artistic design concepts into wearable apparel through hands-on pattern drafting, fabric sourcing, fashion illustration, and contemporary trend analysis.',
     duration: '8–12 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'Aspiring fashion designers & stylists',
@@ -129,6 +132,7 @@ export const courses = [
     shortDesc: 'Master spatial planning, 3D architectural rendering, materials selection, and residential & commercial interior aesthetics.',
     description: 'Acquire practical skills in architectural interior design, AutoCAD drafting, 3D visualization, lighting planning, and material palettes for luxurious residential homes, contemporary office layouts, and retail commercial environments.',
     duration: '8–12 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'Future interior designers and spatial consultants',
@@ -166,6 +170,7 @@ export const courses = [
     shortDesc: 'Combine digital graphic design, typography, brand identity, and 2D/3D motion graphics for dynamic visual storytelling.',
     description: 'Bridge static visual artistry and dynamic motion graphics. This comprehensive program covers graphic design foundations, typography, brand identity systems, and keyframe 2D/3D animation for social media, broadcast, and digital brand campaigns.',
     duration: '8–12 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'Graphic designers expanding into motion animation',
@@ -202,6 +207,7 @@ export const courses = [
     shortDesc: 'Master high-ROI performance marketing, SEO, Meta & Google Ads, and full-funnel creator & influencer collaboration systems.',
     description: "EDUZY's integrated Digital Marketing & Influencer Marketing program equips you with actionable, real-world skills in search engine optimization (SEO), social media performance marketing, Google & Meta Ads, full-funnel conversion systems, creator economy growth, viral content production, and high-impact brand ambassador partnerships.",
     duration: '8–12 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'Aspiring digital marketers, media buyers & growth managers',
@@ -243,6 +249,7 @@ export const courses = [
     shortDesc: 'From idea validation and lean MVP development to B2B revenue pipelines, high-stakes negotiation, and fundraising.',
     description: "Transform your vision into a scalable, venture-backed or bootstrap-profitable enterprise. EDUZY's integrated Entrepreneurship & Business Development program covers problem validation, unit economics, lean MVP development, investor pitch decks, predictable outbound B2B prospecting, high-stakes enterprise negotiations, and strategic alliance building.",
     duration: '8–12 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'First-time startup founders, co-founders & next-gen business leaders',
@@ -282,6 +289,7 @@ export const courses = [
     shortDesc: 'Master modern clinical operations, hospital quality accreditations (NABH/JCI), medical records, and healthcare finance.',
     description: "EDUZY's Hospital Administration program prepares healthcare professionals and administrators to manage multi-specialty hospital operations, clinical workflow efficiency, patient care excellence, statutory health compliance, NABH/JCI accreditations, and computerized health information systems (HIS).",
     duration: '8–12 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'Graduates aspiring to enter healthcare & hospital management',
@@ -320,6 +328,7 @@ export const courses = [
     shortDesc: 'Master talent acquisition, HR analytics, performance appraisal systems, payroll compliance, and workplace culture.',
     description: "Master modern people management and organizational strategy. EDUZY's Human Resource Management program equips you with core HR competencies: end-to-end talent acquisition, onboarding architectures, statutory payroll compliance, labor laws, performance appraisal frameworks (OKRs/KPIs), HR analytics, and employee engagement strategies.",
     duration: '6–10 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'Aspiring HR professionals, recruiters & talent acquisition specialists',
@@ -356,6 +365,7 @@ export const courses = [
     shortDesc: 'Comprehensive airport operations, cabin crew hospitality standards, airline safety regulations, and ground handling.',
     description: 'Prepare for dynamic international aviation careers. Covers commercial airline customer service, flight safety protocols, airport terminal operations, baggage logistics, and aviation hospitality standards.',
     duration: '8–12 Weeks',
+    level: 'PG Diploma / Diploma / 6 Months',
     format: 'Online & Offline',
     whoIsItFor: [
       'Aspiring cabin crew and flight attendants',
