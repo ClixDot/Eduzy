@@ -15,7 +15,7 @@ export default function AboutPage() {
         <div className="container text-center">
           <h1 className="page-hero__title">Dedicated to Your Global Career</h1>
           <p className="page-hero__subtitle">
-            EDUZY bridges the gap between education and employment through industry-oriented training, practical learning, and career-focused development.
+            Eduzy bridges the gap between education and employment through industry-oriented training, hands-on practical learning, skill development, and career-focused guidance. With 15+ years of experience, 40,000+ students placed, 97+ placement partners, and 25+ awards won, we empower students to build industry-relevant skills, gain practical experience, improve confidence, and prepare for successful global careers.
           </p>
         </div>
       </section>

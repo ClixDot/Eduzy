@@ -16,7 +16,7 @@ const pillars = [
     icon: Briefcase,
     tag: 'Industry-Oriented',
     title: 'Industry-Oriented Curriculum & Training',
-    desc: 'Our programs are engineered directly around modern market demands. Students learn on the exact tools, commercial workflows, and corporate standards required in Logistics, Corporate Accounting, Digital Marketing, Designing, Hospital Administration, and Aviation.',
+    desc: 'Our programs are engineered directly around modern market demands. Students learn on the exact tools, commercial workflows, and corporate standards required in Logistics, Corporate Accounting, Digital Marketing, Designing, Hospital Administration, and Aviation to build industry-relevant skills.',
     highlights: [
       'Hands-on mastery of SAP, TallyPrime, Advanced Excel, Meta Ads & Figma',
       'Curriculum continually reviewed and updated with top enterprise partners',
@@ -27,7 +27,7 @@ const pillars = [
     icon: Target,
     tag: 'Practical Learning',
     title: 'Hands-On, Practical Learning Beyond Theory',
-    desc: 'We replace passive textbook lectures with experiential workshop learning. Students actively solve business case studies, operate software environments, and execute live client assignments to build true on-the-job competency.',
+    desc: 'We replace passive textbook lectures with experiential workshop learning. Students actively solve real business case studies, operate live software environments, and execute client assignments to gain practical experience and genuine on-the-job competency.',
     highlights: [
       '70% practical computer lab exercises and 30% conceptual foundations',
       'Capstone projects & verified portfolio building before graduation',
@@ -36,9 +36,9 @@ const pillars = [
   },
   {
     icon: Users,
-    tag: 'Career Development',
-    title: 'Comprehensive Career-Focused Development',
-    desc: 'Technical proficiency is matched with professional presentation. Our dedicated career mentoring cell prepares each student through personalized 1-on-1 counseling, soft skills development, and workplace readiness training.',
+    tag: 'Skill & Confidence',
+    title: 'Skill Development & Career-Focused Guidance',
+    desc: 'Technical proficiency is paired with comprehensive professional grooming. Our dedicated mentoring cell helps students improve confidence, workplace communication, and soft skills to prepare for long-term career success.',
     highlights: [
       '1-on-1 resume optimization, portfolio review & LinkedIn profile branding',
       'Intensive mock HR interviews, technical tests & group discussions',
@@ -49,7 +49,7 @@ const pillars = [
     icon: Award,
     tag: 'Verified Outcomes',
     title: 'Proven Placement Network & Track Record',
-    desc: 'Eduzy’s 15+ years of trust and 97+ corporate hiring partnerships create direct placement avenues into top multinational companies, corporate enterprises, and high-growth startups across India and abroad.',
+    desc: 'Backed by 15+ years of educational excellence, 97+ corporate hiring partnerships, and 25+ awards won, Eduzy creates direct placement pathways into leading corporate enterprises and multinational firms.',
     highlights: [
       '40,000+ alumni working across leading corporate and healthcare sectors',
       'On-campus recruitment drives & priority referral interview rounds',
@@ -129,14 +129,27 @@ export default function About() {
             <span className="about-v2__title-highlight">Career</span>
           </h2>
 
-          <p className="about-v2__lead">
-            Eduzy bridges the gap between education and employment through industry-oriented
-            training, practical learning, and career-focused development. With{' '}
-            <strong>15+ years of experience</strong>, <strong>40,000+ students placed</strong>,{' '}
-            <strong>97+ placement partners</strong>, and <strong>25+ awards won</strong>, we are
-            committed to empowering students with the skills and confidence needed to succeed
-            in a competitive professional environment.
-          </p>
+          <div className="about-v2__lead-wrap">
+            <p className="about-v2__lead">
+              Eduzy bridges the gap between education and employment through industry-oriented
+              training, hands-on practical learning, skill development, and career-focused guidance.
+              With <strong>15+ years of experience</strong>, <strong>40,000+ students placed</strong>,{' '}
+              <strong>97+ placement partners</strong>, and <strong>25+ awards won</strong>, we are
+              committed to empowering students with the skills and confidence needed to succeed
+              in a competitive professional environment.
+            </p>
+            <p className="about-v2__lead-sub">
+              By combining live software tools, real-world case simulations, and personalized 1-on-1 mentorship,
+              Eduzy helps students build industry-relevant skills, gain practical experience, improve confidence,
+              and prepare for successful careers in today’s dynamic global economy.
+            </p>
+            <p className="about-v2__lead-sub">
+              Our dedicated career advancement cell actively bridges the final step into the corporate world.
+              Through specialized portfolio branding, rigorous mock HR rounds, and priority recruitment drives
+              with leading multinational partners, we ensure our graduates transition seamlessly into rewarding,
+              high-growth professional roles across India and abroad.
+            </p>
+          </div>
         </div>
 
         {/* =========================================================

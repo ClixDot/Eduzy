@@ -73,10 +73,18 @@
   display: inline-block;
 }
 
+.about-v2__lead-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
 .about-v2__lead {
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-  color: #475569;
-  line-height: 1.75;
+  color: #334155;
+  line-height: 1.8;
   font-weight: 500;
   margin: 0 auto;
 }
@@ -84,6 +92,19 @@
 .about-v2__lead strong {
   color: #0F172A;
   font-weight: 700;
+}
+
+.about-v2__lead-sub {
+  font-size: clamp(0.98rem, 1.6vw, 1.08rem);
+  color: #475569;
+  line-height: 1.75;
+  font-weight: 450;
+  margin: 0 auto;
+}
+
+.about-v2__lead-sub strong {
+  color: #0F172A;
+  font-weight: 600;
 }
 
 
