@@ -646,13 +646,13 @@
   }
 
   .floating-contact__icon {
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
   }
 
   .floating-contact__icon--phone {
-    width: 21px;
-    height: 21px;
+    width: 25px;
+    height: 25px;
   }
 
   .floating-contact__tooltip {

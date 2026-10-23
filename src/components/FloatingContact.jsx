@@ -295,7 +295,7 @@ export default function FloatingContact() {
               id="floating-call-btn"
             >
               <span className="floating-contact__pulse floating-contact__pulse--call" aria-hidden="true" />
-              <Phone className="floating-contact__icon floating-contact__icon--phone" size={24} strokeWidth={2.3} fill="currentColor" aria-hidden="true" />
+              <Phone className="floating-contact__icon floating-contact__icon--phone" size={29} strokeWidth={2.4} fill="currentColor" aria-hidden="true" />
             </a>
           </div>
         )}
@@ -324,9 +324,9 @@ export default function FloatingContact() {
               <span className="floating-contact__pulse floating-contact__pulse--social" aria-hidden="true" />
             )}
             {isOpen ? (
-              <X className="floating-contact__icon floating-contact__icon--close" size={28} strokeWidth={2.4} aria-hidden="true" />
+              <X className="floating-contact__icon floating-contact__icon--close" size={30} strokeWidth={2.4} aria-hidden="true" />
             ) : (
-              <MessagesSquare className="floating-contact__icon" size={28} strokeWidth={2.2} aria-hidden="true" />
+              <MessagesSquare className="floating-contact__icon" size={32} strokeWidth={2.3} aria-hidden="true" />
             )}
           </button>
         </div>
