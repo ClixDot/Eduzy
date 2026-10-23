@@ -11,8 +11,8 @@ export default function FloatingContact() {
     return typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   };
 
-  // Mouse hover open
-  const handleMouseEnter = () => {
+  // Mouse hover open scoped to Social button
+  const handleSocialMouseEnter = () => {
     if (isHoverSupported()) {
       if (closeTimerRef.current) {
         clearTimeout(closeTimerRef.current);
@@ -22,18 +22,33 @@ export default function FloatingContact() {
     }
   };
 
-  // Mouse hover close with smooth grace buffer
-  const handleMouseLeave = () => {
+  const handleSocialMouseLeave = () => {
     if (isHoverSupported()) {
       if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
       closeTimerRef.current = setTimeout(() => {
         setIsOpen(false);
-      }, 300);
+      }, 320);
+    }
+  };
+
+  const handlePopupMouseEnter = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const handlePopupMouseLeave = () => {
+    if (isHoverSupported()) {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = setTimeout(() => {
+        setIsOpen(false);
+      }, 320);
     }
   };
 
   // Click/tap toggle
-  const handleToggleClick = (e) => {
+  const handleToggleClick = () => {
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
@@ -185,8 +200,6 @@ export default function FloatingContact() {
         className="floating-contact"
         ref={containerRef}
         aria-label="Quick Connect Widget"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
         {/* The Connect With Us Popup Card */}
         {isOpen && (
@@ -195,6 +208,8 @@ export default function FloatingContact() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="floating-popup-title"
+            onMouseEnter={handlePopupMouseEnter}
+            onMouseLeave={handlePopupMouseLeave}
           >
             {/* Header */}
             <div className="floating-popup__header">
@@ -266,8 +281,31 @@ export default function FloatingContact() {
           </div>
         )}
 
-        {/* Floating Toggle Button */}
-        <div className="floating-contact__item">
+        {/* Floating Call Button (Direct Calling - Above Chat Button) */}
+        {!isOpen && (
+          <div className="floating-contact__item floating-contact__item--call">
+            <span className="floating-contact__tooltip" role="tooltip" id="call-tooltip">
+              Call Now: +91 97479 44374
+            </span>
+            <a
+              href="tel:+919747944374"
+              className="floating-contact__btn floating-contact__btn--call"
+              aria-label="Call EDUZY Academy directly at +91 97479 44374"
+              aria-describedby="call-tooltip"
+              id="floating-call-btn"
+            >
+              <span className="floating-contact__pulse floating-contact__pulse--call" aria-hidden="true" />
+              <Phone className="floating-contact__icon floating-contact__icon--phone" size={24} strokeWidth={2.3} fill="currentColor" aria-hidden="true" />
+            </a>
+          </div>
+        )}
+
+        {/* Floating Social Toggle Button */}
+        <div
+          className="floating-contact__item floating-contact__item--social"
+          onMouseEnter={handleSocialMouseEnter}
+          onMouseLeave={handleSocialMouseLeave}
+        >
           {!isOpen && (
             <span className="floating-contact__tooltip" role="tooltip" id="social-tooltip">
               Connect With Us
@@ -286,9 +324,9 @@ export default function FloatingContact() {
               <span className="floating-contact__pulse floating-contact__pulse--social" aria-hidden="true" />
             )}
             {isOpen ? (
-              <X className="floating-contact__icon floating-contact__icon--close" size={24} strokeWidth={2.4} aria-hidden="true" />
+              <X className="floating-contact__icon floating-contact__icon--close" size={28} strokeWidth={2.4} aria-hidden="true" />
             ) : (
-              <MessagesSquare className="floating-contact__icon" size={24} strokeWidth={2.2} aria-hidden="true" />
+              <MessagesSquare className="floating-contact__icon" size={28} strokeWidth={2.2} aria-hidden="true" />
             )}
           </button>
         </div>
