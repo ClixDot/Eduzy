@@ -3,8 +3,6 @@ import Hero from '../components/Hero';
 import TrustStats from '../components/TrustStats';
 import About from '../components/About';
 import Accreditation from '../components/Accreditation';
-import WhyChooseUs from '../components/WhyChooseUs';
-import LearningJourney from '../components/LearningJourney';
 import DirectorMessage from '../components/DirectorMessage';
 import VideoTestimonials from '../components/VideoTestimonials';
 import Testimonials from '../components/Testimonials';
@@ -26,25 +24,19 @@ export default function Home() {
       {/* 4. International Accreditations & Certifications */}
       <Accreditation />
 
-      {/* 5. Why Choose Us */}
-      <WhyChooseUs />
-
-      {/* 6. Learning Journey Timeline */}
-      <LearningJourney />
-
-      {/* 7. Director's Message */}
+      {/* 5. Director's Message */}
       <DirectorMessage />
 
-      {/* 8. Student Video Reels Carousel */}
+      {/* 6. Student Video Reels Carousel */}
       <VideoTestimonials />
 
-      {/* 9. Student Testimonials */}
+      {/* 7. Student Testimonials */}
       <Testimonials />
 
-      {/* 10. Frequently Asked Questions */}
+      {/* 8. Frequently Asked Questions */}
       <FAQ />
 
-      {/* 11. Final Enrollment CTA */}
+      {/* 9. Final Enrollment CTA */}
       <CTA />
     </main>
   );

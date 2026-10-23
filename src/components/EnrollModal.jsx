@@ -208,7 +208,7 @@ export default function EnrollModal({ isOpen, onClose, initialCourse = '' }) {
               <span className="enroll-modal__footer-text">Or reach admissions directly:</span>
               <div className="enroll-modal__direct-links">
                 <a
-                  href="https://wa.me/919747944374?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enroll%20in%20a%20course"
+                  href="https://wa.me/916235210100?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enroll%20in%20a%20course"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="enroll-modal__pill enroll-modal__pill--wa"
@@ -217,11 +217,11 @@ export default function EnrollModal({ isOpen, onClose, initialCourse = '' }) {
                   <span>WhatsApp</span>
                 </a>
                 <a
-                  href="tel:+919747944374"
+                  href="tel:+916235210100"
                   className="enroll-modal__pill enroll-modal__pill--phone"
                 >
                   <Phone size={15} />
-                  <span>Call: +91 97479 44374</span>
+                  <span>Call: +91 62352 10100</span>
                 </a>
               </div>
             </div>

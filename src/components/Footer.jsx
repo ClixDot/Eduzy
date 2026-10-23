@@ -88,7 +88,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a 
-                href="https://wa.me/919747944374" 
+                href="https://wa.me/916235210100" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="footer__social-btn footer__social-btn--wa" 
@@ -154,9 +154,7 @@ export default function Footer() {
               <div className="footer__contact-row">
                 <Phone size={17} className="footer__contact-icon" />
                 <div className="footer__phones">
-                  <a href="tel:+919747944374">+91 97479 44374</a>
-                  <span className="footer__phone-sep">/</span>
-                  <a href="tel:+919633133374">+91 96331 33374</a>
+                  <a href="tel:+916235210100">+91 62352 10100</a>
                 </div>
               </div>
 

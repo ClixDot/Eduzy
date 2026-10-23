@@ -99,7 +99,7 @@ export default function CourseDetails() {
                 Enroll in {course.name}
               </button>
               <a
-                href={`https://wa.me/919747944374?text=Hi%2C%20I%20would%20like%20more%20information%20about%20the%20${encodeURIComponent(course.name)}%20course`}
+                href={`https://wa.me/916235210100?text=Hi%2C%20I%20would%20like%20more%20information%20about%20the%20${encodeURIComponent(course.name)}%20course`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline btn-lg course-hero__btn-wa"

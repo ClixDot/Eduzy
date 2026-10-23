@@ -105,7 +105,7 @@ export default function FloatingContact() {
       id: 'whatsapp',
       name: 'WhatsApp',
       subtitle: 'Chat with our advisor',
-      href: 'https://wa.me/919747944374?text=Hello%20EDUZY%2C%20I%20want%20to%20enquire%20about%20admissions',
+      href: 'https://wa.me/916235210100?text=Hello%20EDUZY%2C%20I%20want%20to%20enquire%20about%20admissions',
       isExternal: true,
       cardClass: 'floating-popup__channel--whatsapp',
       iconBoxClass: 'floating-popup__icon-box--whatsapp',
@@ -159,7 +159,7 @@ export default function FloatingContact() {
       id: 'call',
       name: 'Call Now',
       subtitle: 'Speak directly with us',
-      href: 'tel:+919747944374',
+      href: 'tel:+916235210100',
       isExternal: false,
       cardClass: 'floating-popup__channel--call',
       iconBoxClass: 'floating-popup__icon-box--call',
@@ -285,17 +285,17 @@ export default function FloatingContact() {
         {!isOpen && (
           <div className="floating-contact__item floating-contact__item--call">
             <span className="floating-contact__tooltip" role="tooltip" id="call-tooltip">
-              Call Now: +91 97479 44374
+              Call Now: +91 62352 10100
             </span>
             <a
-              href="tel:+919747944374"
+              href="tel:+916235210100"
               className="floating-contact__btn floating-contact__btn--call"
-              aria-label="Call EDUZY Academy directly at +91 97479 44374"
+              aria-label="Call EDUZY Academy directly at +91 62352 10100"
               aria-describedby="call-tooltip"
               id="floating-call-btn"
             >
               <span className="floating-contact__pulse floating-contact__pulse--call" aria-hidden="true" />
-              <Phone className="floating-contact__icon floating-contact__icon--phone" size={29} strokeWidth={2.4} fill="currentColor" aria-hidden="true" />
+              <Phone className="floating-contact__icon floating-contact__icon--phone" size={30} strokeWidth={2.4} fill="currentColor" aria-hidden="true" />
             </a>
           </div>
         )}

@@ -190,7 +190,7 @@ export default function Header() {
             <span className="header__enroll-shimmer" aria-hidden="true" />
             <span className="header__enroll-text">Enroll Now</span>
           </button>
-          <a href="tel:+919747944374" className="btn btn-outline mobile-menu__tel" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+          <a href="tel:+916235210100" className="btn btn-outline mobile-menu__tel" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <Phone size={15} />
             <span>Call Us</span>
           </a>

@@ -102,7 +102,7 @@ export default function CTA() {
               {/* Button 1: Call Now (Direct Call) */}
               <FlowButton
                 text="Call Now"
-                href="tel:+919747944374"
+                href="tel:+916235210100"
                 className="flow-button--white-to-orange"
                 hoverColor="#FF3B0B"
                 id="cta-call-now"
@@ -110,7 +110,7 @@ export default function CTA() {
               {/* Button 2: Message (WhatsApp Message) */}
               <FlowButton
                 text="Message"
-                href="https://wa.me/919747944374?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enquire%20about%20admissions"
+                href="https://wa.me/916235210100?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enquire%20about%20admissions"
                 className="flow-button--orange-to-white"
                 hoverColor="#ffffff"
                 id="cta-message-whatsapp"

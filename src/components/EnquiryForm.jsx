@@ -154,7 +154,7 @@ export default function EnquiryForm({
         <span className="enquiry-card__direct-label">Or reach us directly</span>
         <div className="enquiry-card__direct-actions">
           <a
-            href="https://wa.me/919747944374?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
+            href="https://wa.me/916235210100?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
             target="_blank"
             rel="noopener noreferrer"
             className="enquiry-pill enquiry-pill--wa"
@@ -163,7 +163,7 @@ export default function EnquiryForm({
             <span>WhatsApp Us</span>
           </a>
           <a
-            href="tel:+919747944374"
+            href="tel:+916235210100"
             className="enquiry-pill enquiry-pill--phone"
           >
             <Phone size={15} />
