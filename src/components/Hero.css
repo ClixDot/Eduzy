@@ -694,32 +694,34 @@
 
   .hero-ref__stage {
     max-width: 100%;
-    height: 440px;
-    overflow: hidden;
+    height: 510px;
+    overflow: visible;
   }
 
   .hero-ref__circle-text-wrap {
-    width: 280px;
-    height: 280px;
+    width: 350px;
+    height: 350px;
+    top: 15px;
   }
 
   .hero-ref__portrait-wrapper {
-    width: 250px;
-    height: 350px;
-    border-radius: 125px 125px 28px 28px;
+    width: 300px;
+    height: 445px;
+    border-radius: 150px 150px 32px 32px;
   }
 
   .hero-ref__orange-wave {
     width: 100%;
-    height: 240px;
+    max-width: 400px;
+    height: 300px;
   }
 
   .hero-ref__mentor-card {
-    right: 12px;
-    bottom: 15px;
+    right: 0px;
+    bottom: 20px;
     padding: 10px 14px;
     min-width: auto;
-    max-width: calc(100% - 24px);
+    max-width: calc(100% - 16px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 
@@ -762,23 +764,23 @@
   }
 
   .hero-ref__stage {
-    height: 390px;
+    height: 470px;
   }
 
   .hero-ref__circle-text-wrap {
-    width: 240px;
-    height: 240px;
+    width: 310px;
+    height: 310px;
   }
 
   .hero-ref__portrait-wrapper {
-    width: 220px;
-    height: 310px;
-    border-radius: 110px 110px 24px 24px;
+    width: 275px;
+    height: 410px;
+    border-radius: 138px 138px 28px 28px;
   }
 
   .hero-ref__mentor-card {
-    right: 6px;
-    bottom: 10px;
+    right: 0px;
+    bottom: 15px;
     padding: 8px 12px;
   }
 }
