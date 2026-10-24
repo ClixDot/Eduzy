@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FlowButton } from '@/components/ui/flow-button';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import heroMentorImg from '../assets/herobg.png';
+import heroMentorImg from '../assets/herocropbg.jpg';
 import './Hero.css';
 
 export default function Hero() {

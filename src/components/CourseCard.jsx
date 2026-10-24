@@ -28,7 +28,7 @@ export default function CourseCard({ course }) {
         <div className="course-card__img-wrap">
           <img
             src={course.image}
-            alt={`${course.fullName || course.name} at EDUZY`}
+            alt={course.imageAlt || `${course.fullName || course.name} at EDUZY`}
             className="course-card__img"
             loading="lazy"
             width="480"

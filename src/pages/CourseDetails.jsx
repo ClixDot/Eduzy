@@ -16,6 +16,13 @@ export default function CourseDetails() {
       (Array.isArray(c.aliases) && c.aliases.map((a) => a.toLowerCase()).includes(courseSlug?.toLowerCase()))
   );
 
+  // Remember course category for back navigation
+  React.useEffect(() => {
+    if (course?.category) {
+      sessionStorage.setItem('edozy_active_course_category', course.category);
+    }
+  }, [course]);
+
   if (!course) {
     return <Navigate to="/courses" replace />;
   }
@@ -28,13 +35,6 @@ export default function CourseDetails() {
       (course.category && t.course.toLowerCase().includes(course.category.toLowerCase()))
   );
   const displayedTestimonials = courseTestimonials.length > 0 ? courseTestimonials : testimonials.slice(0, 1);
-
-  // Remember course category for back navigation
-  React.useEffect(() => {
-    if (course?.category) {
-      sessionStorage.setItem('edozy_active_course_category', course.category);
-    }
-  }, [course]);
 
   return (
     <main className="course-detail-page" id="main-content">
@@ -113,7 +113,7 @@ export default function CourseDetails() {
             <div className="course-hero__img-card">
               <img
                 src={course.image}
-                alt={`${course.name} preparation at EDUZY`}
+                alt={course.imageAlt || `${course.name} preparation at EDUZY`}
                 className="course-hero__img"
                 loading="eager"
               />
