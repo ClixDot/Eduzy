@@ -124,16 +124,16 @@ export default function Hero() {
             <div className="hero-ref__stage">
               {/* 1. Large Circular Rotating Text Ring behind portrait */}
               <div className="hero-ref__circle-text-wrap" aria-hidden="true">
-                <svg viewBox="0 0 440 440" className="hero-ref__circle-svg">
+                <svg viewBox="0 0 540 540" className="hero-ref__circle-svg">
                   <defs>
                     <path
                       id="circleTextPath"
-                      d="M 220, 220 m -205, 0 a 205,205 0 1,1 410,0 a 205,205 0 1,1 -410,0"
+                      d="M 270, 270 m -248, 0 a 248,248 0 1,1 496,0 a 248,248 0 1,1 -496,0"
                     />
                   </defs>
                   <text className="hero-ref__curved-text">
                     <textPath href="#circleTextPath" startOffset="0%">
-                      • EDUZY GLOBAL ACADEMY • CAMPUS TO CAREER • 10+ YEARS EXCELLENCE • BUILD YOUR GLOBAL FUTURE • EDUZY GLOBAL ACADEMY • CAMPUS TO CAREER • 10+ YEARS EXCELLENCE •
+                      • EDUZY GLOBAL ACADEMY • CAMPUS TO CAREER • 10+ YEARS EXCELLENCE • BUILD YOUR GLOBAL FUTURE • EDUZY GLOBAL ACADEMY • CAMPUS TO CAREER • 10+ YEARS EXCELLENCE • BUILD YOUR GLOBAL FUTURE •
                     </textPath>
                   </text>
                 </svg>
@@ -150,8 +150,8 @@ export default function Hero() {
                   src={heroMentorImg}
                   alt="Rose - Founder & Chief Mentor at EDUZY"
                   className="hero-ref__portrait-img"
-                  width="480"
-                  height="640"
+                  width="504"
+                  height="1071"
                   loading="eager"
                 />
               </div>
