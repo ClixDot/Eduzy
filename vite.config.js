@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true, // Listen on all network interfaces (0.0.0.0)
-    port: 5173,
+    port: 5180,
   },
   resolve: {
     alias: {
