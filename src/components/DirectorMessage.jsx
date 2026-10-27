@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import heroGirlImg from '../assets/hero_girl.png';
+import directorImg from '../assets/herobg.png';
 import './DirectorMessage.css';
 
 export default function DirectorMessage() {
@@ -95,12 +95,12 @@ export default function DirectorMessage() {
           <div className="director__media">
             <div className="director__img-wrapper">
               <img
-                src={heroGirlImg}
+                src={directorImg}
                 alt="Rose, Director of EDUZY"
                 className="director__img"
                 loading="lazy"
-                width="580"
-                height="700"
+                width="720"
+                height="1080"
               />
 
               {/* Minimalist Floating Pill Badge */}
