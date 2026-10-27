@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import directorImg from '../assets/herobg.png';
+import directorImg from '../assets/whiteimage.png';
 import './DirectorMessage.css';
 
 export default function DirectorMessage() {

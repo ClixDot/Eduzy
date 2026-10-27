@@ -134,8 +134,8 @@ export default function Courses() {
       <section className="courses-catalog-section" aria-label="Available Courses Catalog">
         <div className="container">
           <div className="course-grid" id="courses-catalog-grid">
-            {filteredCourses.map((course) => (
-              <CourseCard key={course.id} course={course} />
+            {filteredCourses.map((course, idx) => (
+              <CourseCard key={course.id} course={course} priority={idx < 4} />
             ))}
           </div>
         </div>

@@ -61,9 +61,9 @@ export default function CourseGrid({ showAll = false, compact = false }) {
 
       {/* Grid */}
       <div className={`course-grid ${compact ? 'course-grid--compact' : ''}`} role="list">
-        {displayed.map((course) => (
+        {displayed.map((course, idx) => (
           <div key={course.id} className="fade-up course-grid__item" role="listitem">
-            <CourseCard course={course} />
+            <CourseCard course={course} priority={idx < 4} />
           </div>
         ))}
       </div>

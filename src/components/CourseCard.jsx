@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, GraduationCap } from 'lucide-react';
 import './CourseCard.css';
 
-export default function CourseCard({ course }) {
+export default function CourseCard({ course, priority = false }) {
   const hasLevel = Boolean(course.level);
   const hasDuration = Boolean(course.duration);
   const hasFormat = Boolean(course.format);
@@ -30,7 +30,8 @@ export default function CourseCard({ course }) {
             src={course.image}
             alt={course.imageAlt || `${course.fullName || course.name} at EDUZY`}
             className="course-card__img"
-            loading="lazy"
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
             width="480"
             height="300"
           />
