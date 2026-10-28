@@ -30,6 +30,7 @@ export default function CourseCard({ course, priority = false }) {
             src={course.image}
             alt={course.imageAlt || `${course.fullName || course.name} at EDUZY`}
             className="course-card__img"
+            style={course.imagePosition ? { objectPosition: course.imagePosition } : undefined}
             loading={priority ? 'eager' : 'lazy'}
             decoding="async"
             width="480"

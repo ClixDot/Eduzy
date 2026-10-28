@@ -115,6 +115,7 @@ export default function CourseDetails() {
                 src={course.image}
                 alt={course.imageAlt || `${course.name} preparation at EDUZY`}
                 className="course-hero__img"
+                style={course.imagePosition ? { objectPosition: course.imagePosition } : undefined}
                 loading="eager"
               />
               <div className="course-hero__img-overlay">
