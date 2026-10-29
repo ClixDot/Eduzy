@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FlowButton } from '@/components/ui/flow-button';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import heroMentorImg from '../assets/cropbg.png';
+import heroMentorImg from '../assets/Professional Woman with Laptop Cutout22.png';
 import './Hero.css';
 
 export default function Hero() {
@@ -150,8 +150,8 @@ export default function Hero() {
                   src={heroMentorImg}
                   alt="Rose - Founder & Chief Mentor at EDUZY"
                   className="hero-ref__portrait-img"
-                  width="680"
-                  height="1140"
+                  width="1024"
+                  height="1536"
                   loading="eager"
                 />
               </div>

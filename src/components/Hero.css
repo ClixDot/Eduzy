@@ -344,7 +344,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 55% top;
+  /* New cutout has more headroom than the old crop; zoom to keep face at the same level */
+  transform: scale(1.12);
+  transform-origin: 55% 0%;
   display: block;
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.06));
 }
