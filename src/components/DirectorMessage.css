@@ -177,7 +177,9 @@
   }
 
   .director__img-wrapper {
-    height: 340px;
+    /* same proportions as desktop so the crop stays identical */
+    height: auto;
+    aspect-ratio: 388 / 440;
     max-width: 380px;
     margin: 0 auto;
   }
@@ -190,10 +192,6 @@
 @media (max-width: 640px) {
   .director {
     padding: 36px 0 28px;
-  }
-
-  .director__img-wrapper {
-    height: 290px;
   }
 
   .director__heading {
