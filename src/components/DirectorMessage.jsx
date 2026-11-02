@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-const directorImg = '/assets/website final 2.png';
+const directorImg = '/assets/the.png';
 import './DirectorMessage.css';
 
 export default function DirectorMessage() {
@@ -86,8 +86,8 @@ export default function DirectorMessage() {
                 alt="Rose Mary Johnson, Founder & CEO of Eduzy"
                 className="director__img"
                 loading="lazy"
-                width="848"
-                height="1264"
+                width="755"
+                height="841"
               />
             </div>
           </div>
