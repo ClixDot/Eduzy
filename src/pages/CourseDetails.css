@@ -7,7 +7,8 @@
 .course-detail-page {
   background: #ffffff;
   padding-top: 70px;
-  overflow-x: hidden;
+  /* clip, not hidden: hidden creates a scroll container that breaks the sticky sidebar */
+  overflow-x: clip;
   width: 100%;
 }
 
