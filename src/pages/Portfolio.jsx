@@ -52,7 +52,7 @@ const galleryItems = [
     category: 'campus',
     categoryLabel: 'Campus & Facilities',
     image: labImg,
-    location: 'Main Lab A, Aluva',
+    location: 'Main Lab A, Kochi',
     desc: 'High-tech workstations with noise-canceling headsets replicating exact CD-IELTS and OET Pearson VUE test environments.',
   },
   {
@@ -305,7 +305,7 @@ export default function Portfolio() {
             <span className="section-tag">Visual Showcase</span>
             <h2 className="section-title">Academy Photo Gallery</h2>
             <p className="section-subtitle">
-              Browse classroom sessions, testing labs, cultural events, and graduation celebrations at our Aluva academy.
+              Browse classroom sessions, testing labs, cultural events, and graduation celebrations at our Kochi academy.
             </p>
           </div>
 

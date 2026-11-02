@@ -7,7 +7,7 @@ export const faqs = [
   {
     id: 2,
     question: "Are classes available online or in-person?",
-    answer: "We offer both interactive live online batches and offline classroom sessions at our Aluva campus in Kochi, with flexible morning, evening, and weekend batches designed for students and working professionals.",
+    answer: "We offer both interactive live online batches and offline classroom sessions at our Kochi campus, with flexible morning, evening, and weekend batches designed for students and working professionals.",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const faqs = [
   {
     id: 6,
     question: "How can I enroll or book a free counseling session?",
-    answer: "You can easily submit an enquiry through our website, message or call us directly on WhatsApp at +91 62352 10100, or visit our campus opposite Pulinchod Metro Pillar 75 in Aluva for a free one-on-one career counseling session.",
+    answer: "You can easily submit an enquiry through our website, message or call us directly on WhatsApp at +91 62352 10100, or visit our campus opposite Pulinchod Metro Pillar 75 in Kochi for a free one-on-one career counseling session.",
   },
 ];
 

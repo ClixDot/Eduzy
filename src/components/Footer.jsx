@@ -47,7 +47,7 @@ export default function Footer() {
             </Link>
 
             <p className="footer__brand-desc">
-              Industry-led executive programs in digital marketing, creator growth, and business leadership in Aluva, Kochi.
+              Industry-led executive programs in digital marketing, creator growth, and business leadership in Kochi.
             </p>
 
             <div className="footer__socials" aria-label="Follow EDUZY on social media">
@@ -148,7 +148,7 @@ export default function Footer() {
             <div className="footer__contact-simple">
               <div className="footer__contact-row">
                 <MapPin size={17} className="footer__contact-icon" />
-                <span>Opp. Metro Pillar 75, Pulinchod, Aluva, Kochi</span>
+                <span>Opp. Metro Pillar 75, Pulinchod, Kochi</span>
               </div>
 
               <div className="footer__contact-row">
