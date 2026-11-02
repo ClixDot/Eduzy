@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FlowButton } from '@/components/ui/flow-button';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import heroMentorImg from '../assets/Professional Woman with Laptop Cutout22.png';
+const heroMentorImg = '/assets/new website.png';
 import './Hero.css';
 
 export default function Hero() {
@@ -148,24 +148,23 @@ export default function Hero() {
               <div className="hero-ref__portrait-wrapper">
                 <img
                   src={heroMentorImg}
-                  alt="Rose - Founder & Chief Mentor at EDUZY"
+                  alt="Rose Mary Johnson - Founder & CEO of Eduzy"
                   className="hero-ref__portrait-img"
-                  width="1024"
-                  height="1536"
+                  width="2309"
+                  height="3464"
                   loading="eager"
                 />
               </div>
 
 
-              {/* 5. Floating Mentor Card for Rose & EDUZY */}
+              {/* 5. Floating Mentor Card for Rose Mary Johnson */}
               <div className="hero-ref__card hero-ref__mentor-card" aria-label="Lead Mentor">
                 <div className="hero-ref__mentor-avatar-box">
                   <span className="hero-ref__mentor-star-icon">★</span>
                 </div>
                 <div className="hero-ref__mentor-details">
-                  <span className="hero-ref__mentor-name">Rose</span>
-                  <span className="hero-ref__mentor-role">Founder &amp; Chief Mentor &bull; EDUZY</span>
-                  <span className="hero-ref__mentor-exp">10+ Yrs Mentorship &bull; 12k+ Placed</span>
+                  <span className="hero-ref__mentor-name">Rose Mary Johnson</span>
+                  <span className="hero-ref__mentor-role">Founder &amp; CEO Eduzy</span>
                 </div>
               </div>
             </div>

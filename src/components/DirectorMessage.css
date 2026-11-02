@@ -146,41 +146,6 @@
   filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.12));
 }
 
-/* Minimalist Floating Pill Badge */
-.director__badge {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 6px 14px;
-  border-radius: 9999px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  z-index: 2;
-}
-
-.director__badge-tag {
-  font-size: 0.68rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: #FF3B0B;
-  padding: 2.5px 7px;
-  border-radius: 9999px;
-  letter-spacing: 0.04em;
-}
-
-.director__badge-text {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #000000;
-}
-
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1140px) {
   .director__editorial-grid {

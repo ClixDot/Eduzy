@@ -37,19 +37,6 @@ export default function DirectorMessage() {
           once: true,
         },
       });
-
-      // 3. Floating badge pops up
-      gsap.from('.director__badge', {
-        scale: 0.88,
-        duration: 0.5,
-        ease: 'back.out(1.5)',
-        clearProps: 'all',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          once: true,
-        },
-      });
     }, el);
 
     return () => ctx.revert();
@@ -86,8 +73,8 @@ export default function DirectorMessage() {
 
             {/* Signature Block */}
             <div className="director__signature">
-              <div className="director__name">Rose</div>
-              <div className="director__role">Director, EDUZY</div>
+              <div className="director__name">Rose Mary Johnson</div>
+              <div className="director__role">Founder &amp; CEO Eduzy</div>
             </div>
           </div>
 
@@ -96,18 +83,12 @@ export default function DirectorMessage() {
             <div className="director__img-wrapper">
               <img
                 src={directorImg}
-                alt="Rose, Director of EDUZY"
+                alt="Rose Mary Johnson, Founder & CEO of Eduzy"
                 className="director__img"
                 loading="lazy"
                 width="720"
                 height="1080"
               />
-
-              {/* Minimalist Floating Pill Badge */}
-              <div className="director__badge">
-                <span className="director__badge-tag">Leadership</span>
-                <span className="director__badge-text">10+ Years of Mentorship</span>
-              </div>
             </div>
           </div>
         </div>
