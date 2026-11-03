@@ -6,8 +6,6 @@ import './Contact.css';
 
 const WHATSAPP_NUMBER = '916235210100';
 
-const MAP_EMBED_URL = 'https://www.google.com/maps?q=Pulinchode%20Metro%20Station%2C%20Kochi&z=15&output=embed';
-
 const locations = ['Thrissur', 'Palakkad', 'Kannur', 'Trivandrum', 'Calicut', 'Kochi', 'Idukki'];
 
 const topics = [
@@ -240,25 +238,6 @@ export default function Contact() {
                 </button>
               </form>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* Map */}
-      <section className="contact-map" aria-label="Our location on the map">
-        <div className="container">
-          <div className="contact-map__header">
-            <span className="eyebrow">Our Location</span>
-            <h2 className="contact-map__title">Visit Our Campus for a Free Counseling Session</h2>
-          </div>
-          <div className="contact-map__frame">
-            <iframe
-              src={MAP_EMBED_URL}
-              title="EDUZY location on Google Maps"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
           </div>
         </div>
       </section>
