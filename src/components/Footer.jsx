@@ -21,6 +21,7 @@ const quickLinks = [
   { label: 'Home', to: '/' },
   { label: 'All Courses', to: '/courses' },
   { label: 'Blogs', to: '/blogs' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 const currentYear = new Date().getFullYear();
@@ -47,7 +48,7 @@ export default function Footer() {
             </Link>
 
             <p className="footer__brand-desc">
-              Industry-led executive programs in digital marketing, creator growth, and business leadership in Kochi.
+              Industry-led executive programs in digital marketing, creator growth, and business leadership across Kerala.
             </p>
 
             <div className="footer__socials" aria-label="Follow EDUZY on social media">
@@ -148,7 +149,12 @@ export default function Footer() {
             <div className="footer__contact-simple">
               <div className="footer__contact-row">
                 <MapPin size={17} className="footer__contact-icon" />
-                <span>Opp. Metro Pillar 75, Pulinchod, Kochi</span>
+                <span>Thrissur, Palakkad, Kannur, Trivandrum, Calicut, Kochi, Idukki</span>
+              </div>
+
+              <div className="footer__contact-row">
+                <MapPin size={17} className="footer__contact-icon" />
+                <span>Kochi: Opp. Metro Pillar 75, Pulinchod</span>
               </div>
 
               <div className="footer__contact-row">
@@ -160,7 +166,7 @@ export default function Footer() {
 
               <div className="footer__contact-row">
                 <Mail size={17} className="footer__contact-icon" />
-                <a href="mailto:info@eduzy.com">info@eduzy.com</a>
+                <a href="mailto:eduzycampus@gmail.com">eduzycampus@gmail.com</a>
               </div>
 
               <div className="footer__contact-row">

@@ -25,7 +25,7 @@ const features = [
     num: '04',
     tag: 'Online & Offline',
     title: 'Flexible Learning',
-    desc: 'Join interactive live online sessions or attend classes at our Kochi centre with flexible weekend and evening batches.',
+    desc: 'Join interactive live online sessions or attend classes at our centres in Thrissur, Palakkad, Kannur, Trivandrum, Calicut, Kochi, and Idukki with flexible weekend and evening batches.',
   },
   {
     num: '05',

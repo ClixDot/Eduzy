@@ -169,12 +169,14 @@
   transition: all 0.18s ease;
 }
 
-.custom-select-option:hover {
+.custom-select-option:hover,
+.custom-select-option.active {
   background: #FFF7ED;
   transform: translateX(2px);
 }
 
-.custom-select-option.selected {
+.custom-select-option.selected,
+.custom-select-option.selected.active {
   background: #FFEDD5;
   color: #FF3B0B;
 }

@@ -10,6 +10,7 @@ import Courses from './pages/Courses';
 import CourseDetails from './pages/CourseDetails';
 import Portfolio from './pages/Portfolio';
 import QuickContact from './pages/QuickContact';
+import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -24,7 +25,8 @@ export default function App() {
           <Route path="/courses/:courseSlug" element={<CourseDetails />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blogs" element={<Portfolio />} />
-          <Route path="/contact" element={<Navigate to="/" replace />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/support" element={<Navigate to="/contact" replace />} />
           <Route path="/quick-contact" element={<QuickContact />} />
           <Route path="/connect" element={<QuickContact />} />
           <Route path="/about" element={<Navigate to="/portfolio" replace />} />

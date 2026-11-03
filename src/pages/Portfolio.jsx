@@ -305,7 +305,7 @@ export default function Portfolio() {
             <span className="section-tag">Visual Showcase</span>
             <h2 className="section-title">Academy Photo Gallery</h2>
             <p className="section-subtitle">
-              Browse classroom sessions, testing labs, cultural events, and graduation celebrations at our Kochi academy.
+              Browse classroom sessions, testing labs, cultural events, and graduation celebrations at EDUZY academy.
             </p>
           </div>
 

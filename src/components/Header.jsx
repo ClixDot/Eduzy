@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Courses', to: '/courses' },
   { label: 'Blogs', to: '/blogs' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 export default function Header() {

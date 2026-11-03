@@ -11,9 +11,22 @@ export default function CustomSelect({
   placeholder = '-- Choose a course --',
   error,
   className = '',
+  icon: Icon = GraduationCap,
+  menuTitle = 'Available Programs',
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const dropdownRef = useRef(null);
+  const listRef = useRef(null);
+
+  const getOptionValue = (opt) => (typeof opt === 'string' ? opt : opt.name || opt.label || opt.value);
+
+  // Keep the keyboard-highlighted option visible
+  useEffect(() => {
+    if (isOpen && activeIndex >= 0) {
+      listRef.current?.children[activeIndex]?.scrollIntoView({ block: 'nearest' });
+    }
+  }, [isOpen, activeIndex]);
 
   // Close on outside click
   useEffect(() => {
@@ -32,13 +45,35 @@ export default function CustomSelect({
     };
   }, [isOpen]);
 
+  const toggleMenu = () => {
+    if (!isOpen) {
+      setActiveIndex(options.findIndex((opt) => getOptionValue(opt) === value));
+    }
+    setIsOpen((prev) => !prev);
+  };
+
   // Handle keyboard navigation
   const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' || e.key === 'Tab') {
       setIsOpen(false);
     } else if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      setIsOpen((prev) => !prev);
+      if (isOpen && activeIndex >= 0) {
+        handleSelect(getOptionValue(options[activeIndex]));
+      } else {
+        toggleMenu();
+      }
+    } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (!isOpen) {
+        toggleMenu();
+        return;
+      }
+      const step = e.key === 'ArrowDown' ? 1 : -1;
+      setActiveIndex((prev) => {
+        if (prev < 0) return step === 1 ? 0 : options.length - 1;
+        return (prev + step + options.length) % options.length;
+      });
     }
   };
 
@@ -72,13 +107,13 @@ export default function CustomSelect({
         type="button"
         id={id}
         className={`custom-select-trigger ${displayLabel ? 'has-value' : ''}`}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={toggleMenu}
         onKeyDown={handleKeyDown}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
         <span className="custom-select-trigger-content">
-          <GraduationCap size={17} className="custom-select-icon" aria-hidden="true" />
+          <Icon size={17} className="custom-select-icon" aria-hidden="true" />
           <span className="custom-select-label">
             {displayLabel || <span className="custom-select-placeholder">{placeholder}</span>}
           </span>
@@ -97,12 +132,12 @@ export default function CustomSelect({
       {isOpen && (
         <div className="custom-select-menu" role="listbox" tabIndex={-1}>
           <div className="custom-select-menu-header">
-            <span>Available Programs</span>
+            <span>{menuTitle}</span>
           </div>
 
-          <div className="custom-select-options-list">
+          <div className="custom-select-options-list" ref={listRef}>
             {options.map((opt, idx) => {
-              const optValue = typeof opt === 'string' ? opt : opt.name || opt.label || opt.value;
+              const optValue = getOptionValue(opt);
               const optCategory = typeof opt === 'object' ? opt.category || opt.badge : null;
               const isSelected = optValue === value;
 
@@ -111,7 +146,7 @@ export default function CustomSelect({
                   key={idx}
                   role="option"
                   aria-selected={isSelected}
-                  className={`custom-select-option ${isSelected ? 'selected' : ''}`}
+                  className={`custom-select-option ${isSelected ? 'selected' : ''} ${idx === activeIndex ? 'active' : ''}`}
                   onClick={() => handleSelect(optValue)}
                 >
                   <div className="custom-select-option-info">
