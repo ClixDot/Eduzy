@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Phone, Mail, Clock, MapPin, MessageCircle, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import CustomSelect from '../components/ui/CustomSelect';
 import '../components/EnquiryForm.css';
@@ -20,7 +21,11 @@ const topics = [
 const emptyForm = { name: '', phone: '', location: '', topic: '', message: '' };
 
 export default function Contact() {
-  const [formData, setFormData] = useState(emptyForm);
+  const { state } = useLocation();
+  const [formData, setFormData] = useState({
+    ...emptyForm,
+    message: state?.course ? `I am interested in: ${state.course}` : '',
+  });
   const [errors, setErrors] = useState({});
   const [whatsappUrl, setWhatsappUrl] = useState('');
 

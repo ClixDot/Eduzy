@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Phone } from 'lucide-react';
-import EnrollModal from './EnrollModal';
 import logoImg from '../assets/logo.png';
 import './Header.css';
 
@@ -15,9 +14,8 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [enrollModalOpen, setEnrollModalOpen] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -28,12 +26,11 @@ export default function Header() {
 
   useEffect(() => {
     const handleOpen = (e) => {
-      setSelectedCourse(e.detail?.course || '');
-      setEnrollModalOpen(true);
+      navigate('/contact', { state: { course: e.detail?.course || '' } });
     };
     window.addEventListener('open-enroll-modal', handleOpen);
     return () => window.removeEventListener('open-enroll-modal', handleOpen);
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -71,7 +68,7 @@ export default function Header() {
   const handleEnrollClick = (e) => {
     if (e) e.preventDefault();
     setMenuOpen(false);
-    setEnrollModalOpen(true);
+    navigate('/contact');
   };
 
   const isActive = (to) => {
@@ -197,13 +194,6 @@ export default function Header() {
           </a>
         </div>
       </nav>
-
-      {/* Global Enrollment Modal */}
-      <EnrollModal
-        isOpen={enrollModalOpen}
-        onClose={() => setEnrollModalOpen(false)}
-        initialCourse={selectedCourse}
-      />
     </>
   );
 }
