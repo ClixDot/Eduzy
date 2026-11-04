@@ -127,8 +127,7 @@ export default function Contact() {
                 <MapPin size={26} strokeWidth={1.75} className="contact-info__icon" aria-hidden="true" />
                 <div>
                   <h3 className="contact-info__label">Our Location</h3>
-                  <span className="contact-info__value">Opp. Metro Pillar 75, Pulinchod, Kochi</span>
-                  <span className="contact-info__note">Also in Thrissur, Palakkad, Kannur, Trivandrum, Calicut, and Idukki</span>
+                  <span className="contact-info__value">Thrissur, Palakkad, Kannur, Trivandrum, Calicut, Kochi, Idukki</span>
                 </div>
               </li>
             </ul>

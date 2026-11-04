@@ -153,11 +153,6 @@ export default function Footer() {
               </div>
 
               <div className="footer__contact-row">
-                <MapPin size={17} className="footer__contact-icon" />
-                <span>Kochi: Opp. Metro Pillar 75, Pulinchod</span>
-              </div>
-
-              <div className="footer__contact-row">
                 <Phone size={17} className="footer__contact-icon" />
                 <div className="footer__phones">
                   <a href="tel:+916235210100">+91 62352 10100</a>
