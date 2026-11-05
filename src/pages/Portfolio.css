@@ -309,38 +309,6 @@
 }
 
 /* ================= 3. ACHIEVEMENTS SECTION ================= */
-.achievement-stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 36px;
-}
-
-.achieve-stat-box {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 24px 20px;
-  text-align: center;
-  border: 1px solid rgba(255, 59, 11, 0.18);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
-}
-
-.achieve-stat-num {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.5vw, 2.6rem);
-  font-weight: 900;
-  color: #FF3B0B;
-  line-height: 1;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.achieve-stat-label {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #334155;
-}
-
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -395,97 +363,6 @@
   margin: 0;
 }
 
-/* ================= 4. EVENTS & WORKSHOPS SECTION ================= */
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.event-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 26px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-}
-
-.event-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 59, 11, 0.35);
-}
-
-.event-card__icon-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: #F8FAFC;
-  color: #0F172A;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid #E2E8F0;
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-.event-card:hover .event-card__icon-wrap {
-  background: #0F172A;
-  color: #ffffff;
-}
-
-.event-card__body {
-  flex: 1;
-}
-
-.event-card__meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.event-card__tag {
-  background: #0F172A;
-  color: #ffffff;
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 9999px;
-  letter-spacing: 0.04em;
-}
-
-.event-card__date {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.78rem;
-  color: #64748B;
-  font-weight: 600;
-}
-
-.event-card__title {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #0F172A;
-  margin: 0 0 6px;
-  line-height: 1.35;
-}
-
-.event-card__desc {
-  font-size: 0.88rem;
-  color: #475569;
-  line-height: 1.55;
-  margin: 0;
-}
-
-.event-card__action-btn,
 .facility-card__action-btn {
   display: inline-flex;
   align-items: center;
@@ -503,7 +380,6 @@
   width: fit-content;
 }
 
-.event-card__action-btn:hover,
 .facility-card__action-btn:hover {
   background: #0F172A;
   color: #ffffff;
@@ -825,7 +701,7 @@
 .gallery-lightbox-img-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -853,32 +729,11 @@
   margin: 0 0 8px;
 }
 
-.gallery-lightbox-desc {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.55;
-  margin: 0 0 12px;
-}
-
-.gallery-lightbox-loc {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.82rem;
-  color: #64748B;
-  font-weight: 600;
-}
-
 /* ================= RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-  }
-
-  .achievement-stats-row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
   }
 
   .facilities-grid {
@@ -918,41 +773,12 @@
     font-size: 0.92rem;
   }
 
-  .achievement-stats-row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-
-  .achieve-stat-box {
-    padding: 16px 12px;
-    border-radius: 14px;
-  }
-
-  .achieve-stat-num {
-    font-size: 1.85rem;
-  }
-
-  .achieve-stat-label {
-    font-size: 0.78rem;
-  }
-
   .achievements-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .achievement-card {
-    padding: 20px 18px;
-    border-radius: 16px;
-  }
-
-  .events-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .event-card {
     padding: 20px 18px;
     border-radius: 16px;
   }
@@ -1043,17 +869,6 @@
 
   .gallery-card__img-wrap {
     height: 190px;
-  }
-
-  .achievement-stats-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .event-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
   }
 
   .gallery-lightbox-overlay {

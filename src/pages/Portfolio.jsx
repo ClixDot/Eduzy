@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  GraduationCap, 
-  Calendar, 
-  MapPin, 
-  Users, 
+import {
+  Users,
   BookOpen, 
   Monitor, 
   Building, 
   ShieldCheck, 
   CheckCircle2, 
   Sparkles,
-  Globe,
   Coffee,
   ArrowRight,
   X, 
@@ -22,110 +18,82 @@ import VideoTestimonials from '../components/VideoTestimonials';
 import CTA from '../components/CTA';
 import './Portfolio.css';
 
-// Image Assets
-import classroomImg from '../assets/about_classroom.jpg';
-import labImg from '../assets/campus_lab.jpg';
-import convocationImg from '../assets/event_graduation.jpg';
-import workshopImg from '../assets/workshop_seminar.jpg';
-import libraryImg from '../assets/campus_library.jpg';
-import healthcareStudentImg from '../assets/healthcare_student.jpg';
-import studyGroupImg from '../assets/hero_card_students.jpg';
-import heroStudentImg from '../assets/hero_student.jpg';
-import languageLearnImg from '../assets/language_learning.jpg';
-
 // Gallery Categories requested by user
 const galleryCategories = [
   { id: 'all', label: 'All' },
   { id: 'classes', label: 'Classes' },
   { id: 'events', label: 'Events' },
-  { id: 'workshops', label: 'Workshops' },
-  { id: 'activities', label: 'Student Activities' },
+  { id: 'industrial-visits', label: 'Industrial Visits' },
+  { id: 'student-activities', label: 'Student Activities' },
   { id: 'achievements', label: 'Achievements' },
   { id: 'campus', label: 'Campus' },
 ];
 
-// Rich Gallery Items
+// Client photos, served from public/assets/gellery
 const galleryItems = [
   {
     id: 1,
-    title: 'CBT Simulation Lab',
+    title: 'CBT / Computer Lab',
     category: 'campus',
     categoryLabel: 'Campus & Facilities',
-    image: labImg,
-    location: 'Main Lab A, Kochi',
-    desc: 'High-tech workstations with noise-canceling headsets replicating exact CD-IELTS and OET Pearson VUE test environments.',
+    image: '/assets/gellery/01-cbt-computer-lab.jpg',
+    alt: 'EDUZY students practising in the computer lab',
   },
   {
     id: 2,
-    title: 'Annual Convocation & Felicitation',
+    title: 'Annual Convocation Ceremony',
     category: 'events',
     categoryLabel: 'Events',
-    image: convocationImg,
-    location: 'Grand Auditorium',
-    desc: 'Honoring over 100+ healthcare nurses who cleared OET & German exams and secured NHS UK and European hospital offers.',
+    image: '/assets/gellery/02-annual-convocation-ceremony.jpg',
+    alt: 'EDUZY convocation ceremony – Our Proud Graduates',
   },
   {
     id: 3,
-    title: 'Clinical Roleplay Workshop',
-    category: 'workshops',
-    categoryLabel: 'Workshops',
-    image: workshopImg,
-    location: 'Interactive Hall 2',
-    desc: 'Hands-on clinical roleplay workshop simulating patient-nurse communication, clinical history taking, and OET speaking criteria.',
+    title: 'Classroom Sessions',
+    category: 'classes',
+    categoryLabel: 'Classes',
+    image: '/assets/gellery/03-classroom-sessions.jpg',
+    alt: 'Students attending a classroom session at EDUZY',
   },
   {
     id: 4,
-    title: 'OET & IELTS Classroom',
-    category: 'classes',
-    categoryLabel: 'Classes',
-    image: classroomImg,
-    location: 'Lecture Hall 1',
-    desc: 'Daily expert mentor-led sessions focusing on intensive grammar drills, case-note reading techniques, and essay writing.',
+    title: 'Industrial Visit – Port / Container Yard',
+    category: 'industrial-visits',
+    categoryLabel: 'Industrial Visits',
+    image: '/assets/gellery/04-industrial-visit-port-container-yard.jpg',
+    alt: 'EDUZY students in safety gear during a container yard visit',
   },
   {
     id: 5,
-    title: 'Reference Library & Lounge',
-    category: 'campus',
-    categoryLabel: 'Campus',
-    image: libraryImg,
-    location: 'Library Wing',
-    desc: 'A serene study haven stocked with Cambridge test packs, British Council materials, medical encyclopedias, and Goethe guides.',
+    title: 'Site Visit & Field Training',
+    category: 'industrial-visits',
+    categoryLabel: 'Industrial Visits',
+    image: '/assets/gellery/05-site-visit-field-training.jpg',
+    alt: 'EDUZY students in helmets and safety vests on a site visit',
   },
   {
     id: 6,
-    title: 'German Language Workshop',
-    category: 'workshops',
-    categoryLabel: 'Workshops',
-    image: languageLearnImg,
-    location: 'Language Lab',
-    desc: 'Intensive vocabulary, German hospital dialogue drills, and listening exercises for nurses preparing for migration to Germany.',
+    title: 'Corporate Visit / Placement Drive',
+    category: 'achievements',
+    categoryLabel: 'Achievements',
+    image: '/assets/gellery/06-corporate-visit-placement-drive.jpg',
+    alt: 'EDUZY students at a corporate office during a placement drive',
   },
   {
     id: 7,
-    title: 'Speaking Circles & Peer Drills',
-    category: 'activities',
+    title: 'Student Trip & Outing',
+    category: 'student-activities',
     categoryLabel: 'Student Activities',
-    image: studyGroupImg,
-    location: 'Student Activity Arena',
-    desc: 'Structured peer group speaking sessions where candidates practice speaking cues, clinical roleplays, and build real confidence.',
+    image: '/assets/gellery/07-student-trip-outing.jpg',
+    alt: 'EDUZY students on a group trip',
   },
   {
     id: 8,
-    title: '1-on-1 Mentor Feedback',
-    category: 'classes',
-    categoryLabel: 'Classes',
-    image: healthcareStudentImg,
-    location: 'Mentorship Cabins',
-    desc: 'Personalized corrections with mentor Rose, dissecting letter structure, medical terminology, and grammatical accuracy.',
-  },
-  {
-    id: 9,
-    title: 'Top Achievers Felicitation',
-    category: 'achievements',
-    categoryLabel: 'Achievements',
-    image: heroStudentImg,
-    location: 'EDUZY Campus',
-    desc: 'Celebrating outstanding first-attempt record scores and presenting official certificates and international migration packages.',
+    title: 'Cultural Events & Celebrations',
+    category: 'events',
+    categoryLabel: 'Events',
+    image: '/assets/gellery/08-cultural-events-celebrations.jpg',
+    alt: 'Collage of EDUZY students celebrating cultural events and festivals',
   },
 ];
 
@@ -154,38 +122,6 @@ const achievements = [
     stat: '98.4% Placement Rate',
     badge: 'Global Careers',
     desc: 'Diploma holders placed across leading healthcare networks and international airport operations.',
-  }
-];
-
-// Events and Programs Data
-const academyEvents = [
-  {
-    tag: 'Recruitment Drive',
-    title: 'UK NHS Hospital Direct Interview Days',
-    date: 'Quarterly Event',
-    desc: 'Delegations from top UK NHS Trusts (Imperial College, Manchester Royal Infirmary) visit EDUZY for direct nurse hiring with immediate job offers.',
-    icon: Building
-  },
-  {
-    tag: 'Clinical Workshop',
-    title: 'Mastering OET Speaking & Roleplay Clinics',
-    date: 'Every Saturday',
-    desc: 'Intensive weekend bootcamps led by senior healthcare trainers simulating complex clinical situations with real feedback.',
-    icon: Users
-  },
-  {
-    tag: 'Career Seminar',
-    title: 'International Licensing & Visa Orientation',
-    date: 'Bi-Monthly',
-    desc: 'Comprehensive roadmaps covering NMC / NMBI verification, credential evaluation, OSCE preparation, and family visa protocols.',
-    icon: GraduationCap
-  },
-  {
-    tag: 'Cultural Program',
-    title: 'German Healthcare Immersion & Language Exchange',
-    date: 'Monthly Feature',
-    desc: 'Interactive live sessions with native German healthcare coordinators to acclimatize candidates with German hospital culture.',
-    icon: Globe
   }
 ];
 
@@ -292,7 +228,6 @@ export default function Portfolio() {
           <div className="portfolio-hero__quick-links">
             <a href="#gallery-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'gallery-section')}>Gallery</a>
             <a href="#achievements-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'achievements-section')}>Achievements</a>
-            <a href="#events-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'events-section')}>Events & Workshops</a>
             <a href="#campus-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'campus-section')}>Campus & Labs</a>
           </div>
         </div>
@@ -345,8 +280,8 @@ export default function Portfolio() {
               >
                 <div className="gallery-card__img-wrap">
                   <img 
-                    src={item.image} 
-                    alt={item.title} 
+                    src={item.image}
+                    alt={item.alt}
                     className="gallery-card__img" 
                     loading="lazy"
                   />
@@ -369,30 +304,10 @@ export default function Portfolio() {
         <div className="container">
           <div className="section-header text-center">
             <span className="section-tag">Proven Track Record</span>
-            <h2 className="section-title">Student Achievements & Exam Results</h2>
+            <h2 className="section-title">Student Achievements</h2>
             <p className="section-subtitle">
               Thousands of healthcare professionals have achieved their dream scores on their first attempt.
             </p>
-          </div>
-
-          {/* Achievement Stats Banner */}
-          <div className="achievement-stats-row">
-            <div className="achieve-stat-box">
-              <span className="achieve-stat-num">96.4%</span>
-              <span className="achieve-stat-label">First-Attempt Pass Rate</span>
-            </div>
-            <div className="achieve-stat-box">
-              <span className="achieve-stat-num">12,500+</span>
-              <span className="achieve-stat-label">Global Nurse Placements</span>
-            </div>
-            <div className="achieve-stat-box">
-              <span className="achieve-stat-num">25+</span>
-              <span className="achieve-stat-label">State & National Awards</span>
-            </div>
-            <div className="achieve-stat-box">
-              <span className="achieve-stat-num">40+</span>
-              <span className="achieve-stat-label">Certified Language Trainers</span>
-            </div>
           </div>
 
           {/* Achievement Grid */}
@@ -411,52 +326,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ================= 4. EVENTS & WORKSHOPS ================= */}
-      <section className="portfolio-section" id="events-section" aria-label="Events and Programs">
-        <div className="container">
-          <div className="section-header text-center">
-            <span className="section-tag">Career Acceleration</span>
-            <h2 className="section-title">Events, Seminars & Workshops</h2>
-            <p className="section-subtitle">
-              Regular interactive masterclasses, mock code roleplays, and direct hospital recruitment drives.
-            </p>
-          </div>
-
-          <div className="events-grid">
-            {academyEvents.map((evt, idx) => {
-              const Icon = evt.icon;
-              return (
-                <div key={idx} className="event-card">
-                  <div className="event-card__icon-wrap">
-                    <Icon size={24} />
-                  </div>
-                  <div className="event-card__body">
-                    <div className="event-card__meta">
-                      <span className="event-card__tag">{evt.tag}</span>
-                      <span className="event-card__date">
-                        <Calendar size={13} /> {evt.date}
-                      </span>
-                    </div>
-                    <h3 className="event-card__title">{evt.title}</h3>
-                    <p className="event-card__desc">{evt.desc}</p>
-                    <button
-                      type="button"
-                      onClick={() => window.dispatchEvent(new CustomEvent('open-enroll-modal', { detail: { course: evt.title } }))}
-                      className="event-card__action-btn"
-                    >
-                      <span>Join Workshop</span>
-                      <ArrowRight size={14} />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= 5. CAMPUS & FACILITIES ================= */}
-      <section className="portfolio-section portfolio-section--alt" id="campus-section" aria-label="Campus Facilities">
+      {/* ================= 4. CAMPUS & FACILITIES ================= */}
+      <section className="portfolio-section" id="campus-section" aria-label="Campus Facilities">
         <div className="container">
           <div className="section-header text-center">
             <span className="section-tag">Infrastructure</span>
@@ -514,16 +385,12 @@ export default function Portfolio() {
               <X size={20} />
             </button>
             <div className="gallery-lightbox-img-box">
-              <img src={selectedImage.image} alt={selectedImage.title} />
+              <img src={selectedImage.image} alt={selectedImage.alt} />
             </div>
             <div className="gallery-lightbox-info">
               <span className="gallery-lightbox-tag">{selectedImage.categoryLabel}</span>
               <h3 className="gallery-lightbox-title">{selectedImage.title}</h3>
-              <p className="gallery-lightbox-desc">{selectedImage.desc}</p>
               <div className="gallery-lightbox-bottom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '14px', paddingTop: '12px', borderTop: '1px solid #E2E8F0' }}>
-                <span className="gallery-lightbox-loc">
-                  <MapPin size={14} /> {selectedImage.location}
-                </span>
                 <button
                   type="button"
                   onClick={() => {
