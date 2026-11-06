@@ -465,26 +465,43 @@
     flex: none;
     width: 100%;
     max-width: 100%;
-    min-height: 120px;
-    padding: 16px 14px;
+    min-height: 144px;
+    padding: 16px 12px;
     box-sizing: border-box;
   }
 
   .accreditation__card--primary .accreditation__badge-frame,
   .accreditation__card--secondary .accreditation__badge-frame {
-    height: 85px;
+    height: 112px;
     width: 100%;
     max-width: 100%;
   }
 
   .accreditation__card--primary .accreditation__badge-img,
   .accreditation__card--secondary .accreditation__badge-img {
-    max-height: 75px;
-    max-width: 86%;
+    max-height: 102px;
+    max-width: 90%;
+  }
+
+  /* Specific size boost for the 4 prominent international seals in mobile view */
+  .accreditation__card--iqa-usa .accreditation__badge-img,
+  .accreditation__card--sted-council .accreditation__badge-img,
+  .accreditation__card--aaa-accreditation .accreditation__badge-img,
+  .accreditation__card--american-board .accreditation__badge-img {
+    max-height: 108px;
+    max-width: 94%;
+    transform: scale(1.12);
+  }
+
+  .accreditation__card--iqa-usa:hover .accreditation__badge-img,
+  .accreditation__card--sted-council:hover .accreditation__badge-img,
+  .accreditation__card--aaa-accreditation:hover .accreditation__badge-img,
+  .accreditation__card--american-board:hover .accreditation__badge-img {
+    transform: scale(1.18);
   }
 }
 
-/* Fine-tuned responsive layout for 425px down to 320px (1 row 2 cards) */
+/* Fine-tuned responsive layout for 480px down to 376px (1 row 2 cards) */
 @media (max-width: 480px) {
   .accreditation {
     padding: 50px 0 55px;
@@ -506,27 +523,44 @@
 
   .accreditation__cards-wrapper {
     max-width: 100%;
-    gap: 10px;
+    gap: 12px;
   }
 
   .accreditation__card--primary,
   .accreditation__card--secondary {
-    min-height: 105px;
+    min-height: 132px;
     padding: 14px 10px;
-    border-radius: 16px;
+    border-radius: 18px;
   }
 
   .accreditation__card--primary .accreditation__badge-frame,
   .accreditation__card--secondary .accreditation__badge-frame {
-    height: 72px;
+    height: 102px;
     width: 100%;
     max-width: 100%;
   }
 
   .accreditation__card--primary .accreditation__badge-img,
   .accreditation__card--secondary .accreditation__badge-img {
-    max-height: 64px;
-    max-width: 88%;
+    max-height: 94px;
+    max-width: 90%;
+  }
+
+  /* Core 4 badges mobile enhancement */
+  .accreditation__card--iqa-usa .accreditation__badge-img,
+  .accreditation__card--sted-council .accreditation__badge-img,
+  .accreditation__card--aaa-accreditation .accreditation__badge-img,
+  .accreditation__card--american-board .accreditation__badge-img {
+    max-height: 100px;
+    max-width: 94%;
+    transform: scale(1.15);
+  }
+
+  .accreditation__card--iqa-usa:hover .accreditation__badge-img,
+  .accreditation__card--sted-council:hover .accreditation__badge-img,
+  .accreditation__card--aaa-accreditation:hover .accreditation__badge-img,
+  .accreditation__card--american-board:hover .accreditation__badge-img {
+    transform: scale(1.22);
   }
 }
 
@@ -552,50 +586,82 @@
   }
 
   .accreditation__cards-wrapper {
-    gap: 8px;
+    gap: 10px;
   }
 
   .accreditation__card--primary,
   .accreditation__card--secondary {
-    min-height: 95px;
-    padding: 10px 8px;
-    border-radius: 14px;
+    min-height: 120px;
+    padding: 12px 8px;
+    border-radius: 16px;
   }
 
   .accreditation__card--primary .accreditation__badge-frame,
   .accreditation__card--secondary .accreditation__badge-frame {
-    height: 64px;
+    height: 92px;
   }
 
   .accreditation__card--primary .accreditation__badge-img,
   .accreditation__card--secondary .accreditation__badge-img {
-    max-height: 56px;
-    max-width: 90%;
+    max-height: 84px;
+    max-width: 92%;
+  }
+
+  .accreditation__card--iqa-usa .accreditation__badge-img,
+  .accreditation__card--sted-council .accreditation__badge-img,
+  .accreditation__card--aaa-accreditation .accreditation__badge-img,
+  .accreditation__card--american-board .accreditation__badge-img {
+    max-height: 90px;
+    max-width: 95%;
+    transform: scale(1.16);
+  }
+
+  .accreditation__card--iqa-usa:hover .accreditation__badge-img,
+  .accreditation__card--sted-council:hover .accreditation__badge-img,
+  .accreditation__card--aaa-accreditation:hover .accreditation__badge-img,
+  .accreditation__card--american-board:hover .accreditation__badge-img {
+    transform: scale(1.22);
   }
 }
 
 /* Small mobile down to 320px */
 @media (max-width: 340px) {
   .accreditation__cards-wrapper {
-    gap: 6px;
+    gap: 8px;
   }
 
   .accreditation__card--primary,
   .accreditation__card--secondary {
-    min-height: 88px;
-    padding: 8px 6px;
-    border-radius: 12px;
+    min-height: 110px;
+    padding: 10px 6px;
+    border-radius: 14px;
   }
 
   .accreditation__card--primary .accreditation__badge-frame,
   .accreditation__card--secondary .accreditation__badge-frame {
-    height: 58px;
+    height: 82px;
   }
 
   .accreditation__card--primary .accreditation__badge-img,
   .accreditation__card--secondary .accreditation__badge-img {
-    max-height: 50px;
+    max-height: 75px;
     max-width: 92%;
+  }
+
+  .accreditation__card--iqa-usa .accreditation__badge-img,
+  .accreditation__card--sted-council .accreditation__badge-img,
+  .accreditation__card--aaa-accreditation .accreditation__badge-img,
+  .accreditation__card--american-board .accreditation__badge-img {
+    max-height: 80px;
+    max-width: 95%;
+    transform: scale(1.15);
+  }
+
+  .accreditation__card--iqa-usa:hover .accreditation__badge-img,
+  .accreditation__card--sted-council:hover .accreditation__badge-img,
+  .accreditation__card--aaa-accreditation:hover .accreditation__badge-img,
+  .accreditation__card--american-board:hover .accreditation__badge-img {
+    transform: scale(1.22);
   }
 }
 

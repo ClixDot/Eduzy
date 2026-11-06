@@ -143,7 +143,7 @@ export default function Accreditation() {
             {primaryBadges.map((b) => (
               <div 
                 key={b.id} 
-                className="accreditation__card accreditation__card--primary"
+                className={`accreditation__card accreditation__card--primary accreditation__card--${b.id}`}
               >
                 <div className="accreditation__badge-frame">
                   <div className="accreditation__badge-glow" aria-hidden="true" />
@@ -165,7 +165,7 @@ export default function Accreditation() {
             {partnerBadges.map((b) => (
               <div 
                 key={b.id} 
-                className="accreditation__card accreditation__card--secondary"
+                className={`accreditation__card accreditation__card--secondary accreditation__card--${b.id}`}
               >
                 <div className="accreditation__badge-frame">
                   <div className="accreditation__badge-glow" aria-hidden="true" />
