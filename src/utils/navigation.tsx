@@ -1,12 +1,21 @@
 'use client';
 import React, { useCallback, useMemo } from 'react';
-import NextLink from 'next/link';
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { useRouter, usePathname, useSearchParams as useNextSearchParams, useParams as useNextParams } from 'next/navigation';
 
-export const Link = React.forwardRef(function Link({ to, href, children, state, ...props }, ref) {
+export interface LinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof NextLinkProps>, Partial<NextLinkProps> {
+  to?: string;
+  href?: string;
+  state?: any;
+}
+
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+  { to, href, children, state, ...props },
+  ref
+) {
   const target = href || to || '#';
   return (
-    <NextLink ref={ref} href={target} {...props}>
+    <NextLink ref={ref} href={target} {...(props as any)}>
       {children}
     </NextLink>
   );
@@ -14,7 +23,7 @@ export const Link = React.forwardRef(function Link({ to, href, children, state, 
 
 export function useNavigate() {
   const router = useRouter();
-  return useCallback((to, options = {}) => {
+  return useCallback((to: string | number, options: { replace?: boolean; state?: any } = {}) => {
     if (typeof to === 'number') {
       if (to === -1) router.back();
       return;
@@ -43,21 +52,22 @@ export function useLocation() {
     pathname,
     search,
     hash,
-    state: null,
+    state: null as any,
   }), [pathname, search, hash]);
 }
 
-export function useParams() {
-  return useNextParams() || {};
+export function useParams<T = Record<string, string>>(): T {
+  const params = useNextParams();
+  return (params || {}) as T;
 }
 
-export function useSearchParams() {
+export function useSearchParams(): [URLSearchParams, (newParams: any, options?: { replace?: boolean }) => void] {
   const searchParams = useNextSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  const setSearchParams = useCallback((newParams, options = {}) => {
-    const params = new URLSearchParams(typeof newParams === 'object' ? newParams : {});
+  const setSearchParams = useCallback((newParams: any, options: { replace?: boolean } = {}) => {
+    const params = new URLSearchParams(typeof newParams === 'object' && newParams !== null ? newParams : {});
     const query = params.toString() ? `?${params.toString()}` : '';
     if (options?.replace) {
       router.replace(`${pathname}${query}`);
@@ -69,7 +79,7 @@ export function useSearchParams() {
   return [searchParams || new URLSearchParams(), setSearchParams];
 }
 
-export function Navigate({ to, replace = false }) {
+export function Navigate({ to, replace = false }: { to: string; replace?: boolean }) {
   const router = useRouter();
   React.useEffect(() => {
     if (replace) router.replace(to);

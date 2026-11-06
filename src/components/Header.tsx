@@ -46,9 +46,9 @@ export default function Header() {
     setMenuOpen(false);
   }, [location.pathname]);
 
-  const handleNavClick = (e, to) => {
-    if (document.activeElement && typeof document.activeElement.blur === 'function') {
-      document.activeElement.blur();
+  const handleNavClick = (e: any, to: string) => {
+    if (document.activeElement && typeof (document.activeElement as HTMLElement).blur === 'function') {
+      (document.activeElement as HTMLElement).blur();
     }
     setMenuOpen(false);
     if (to === '/courses') {
@@ -66,13 +66,13 @@ export default function Header() {
     }
   };
 
-  const handleEnrollClick = (e) => {
+  const handleEnrollClick = (e?: any) => {
     if (e) e.preventDefault();
     setMenuOpen(false);
     navigate('/contact');
   };
 
-  const isActive = (to) => {
+  const isActive = (to: string) => {
     if (to === '/') return location.pathname === '/';
     if (to === '/blogs') return location.pathname === '/blogs' || location.pathname === '/portfolio';
     return location.pathname.startsWith(to.split('#')[0]) && to !== '/';
@@ -84,7 +84,7 @@ export default function Header() {
         <div className="header__inner container">
           {/* Logo */}
           <Link to="/" className="header__logo" aria-label="EDUZY - Campus to Career">
-            <img src={logoImg} alt="EDUZY - Campus to Career" className="header__logo-img" />
+            <img src={typeof logoImg === 'object' ? (logoImg as any).src : logoImg} alt="EDUZY - Campus to Career" className="header__logo-img" />
           </Link>
 
           {/* Desktop Nav */}
@@ -152,7 +152,7 @@ export default function Header() {
       >
         <div className="mobile-menu__header">
           <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)} aria-label="EDUZY - Campus to Career">
-            <img src={logoImg} alt="EDUZY - Campus to Career" className="header__logo-img" />
+            <img src={typeof logoImg === 'object' ? (logoImg as any).src : logoImg} alt="EDUZY - Campus to Career" className="header__logo-img" />
           </Link>
           <button 
             type="button" 

@@ -27,7 +27,7 @@ export default function Contact() {
     ...emptyForm,
     message: state?.course ? `I am interested in: ${state.course}` : '',
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [whatsappUrl, setWhatsappUrl] = useState('');
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function Contact() {
   }, []);
 
   const validate = () => {
-    const errs = {};
+    const errs: Record<string, string> = {};
     if (!formData.name.trim()) errs.name = 'Full name is required';
     if (!formData.phone.trim()) {
       errs.phone = 'Phone number is required';

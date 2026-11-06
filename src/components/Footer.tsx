@@ -45,7 +45,7 @@ export default function Footer() {
           {/* Column 1: Brand & Socials */}
           <div className="footer__col footer__col--brand">
             <Link to="/" className="footer__logo" aria-label="EDUZY - Campus to Career">
-              <img src={logoImg} alt="EDUZY - Campus to Career" className="footer__logo-img" />
+              <img src={typeof logoImg === 'object' ? (logoImg as any).src : logoImg} alt="EDUZY - Campus to Career" className="footer__logo-img" />
             </Link>
 
             <p className="footer__brand-desc">

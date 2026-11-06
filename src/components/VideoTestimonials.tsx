@@ -175,7 +175,7 @@ export default function VideoTestimonials() {
                         className="video-card__img"
                         loading="lazy"
                         onError={(e) => {
-                          e.target.src = item.fallbackImage;
+                          (e.currentTarget as HTMLImageElement).src = item.fallbackImage;
                         }}
                       />
                       <div className="video-card__overlay" />

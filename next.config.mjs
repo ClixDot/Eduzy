@@ -22,13 +22,13 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, './src'),
-      'react-router-dom': path.resolve(__dirname, './src/utils/navigation.jsx'),
+      'react-router-dom': path.resolve(__dirname, './src/utils/navigation.tsx'),
     };
     return config;
   },
   turbopack: {
     resolveAlias: {
-      'react-router-dom': './src/utils/navigation.jsx',
+      'react-router-dom': './src/utils/navigation.tsx',
     },
   },
 };

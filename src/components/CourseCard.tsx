@@ -23,7 +23,7 @@ export default function CourseCard({ course, priority = false }) {
         state={{ fromCategory: course.category }}
         onClick={handleCardClick}
         className="course-card__img-link"
-        tabIndex="-1"
+        tabIndex={-1}
         aria-hidden="true"
       >
         <div className="course-card__img-wrap">

@@ -149,7 +149,7 @@ export default function Accreditation() {
                 <div className="accreditation__badge-frame">
                   <div className="accreditation__badge-glow" aria-hidden="true" />
                   <img 
-                    src={b.img} 
+                    src={typeof b.img === 'object' ? (b.img as any).src : b.img} 
                     alt={b.alt} 
                     className="accreditation__badge-img"
                     loading="lazy"
@@ -171,7 +171,7 @@ export default function Accreditation() {
                 <div className="accreditation__badge-frame">
                   <div className="accreditation__badge-glow" aria-hidden="true" />
                   <img 
-                    src={b.img} 
+                    src={typeof b.img === 'object' ? (b.img as any).src : b.img} 
                     alt={b.alt} 
                     className="accreditation__badge-img"
                     loading="lazy"
