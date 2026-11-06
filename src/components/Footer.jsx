@@ -136,7 +136,7 @@ export default function Footer() {
                 onClick={() => setShowAllPrograms(!showAllPrograms)}
                 aria-expanded={showAllPrograms}
               >
-                <span>{showAllPrograms ? 'View Less' : `View More (${popularCourses.length - 4}+)`}</span>
+                <span>{showAllPrograms ? 'View Less' : 'View More'}</span>
                 {showAllPrograms ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
               </button>
             )}
