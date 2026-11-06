@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { gsap } from '../utils/gsapSetup';

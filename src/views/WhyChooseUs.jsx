@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import WhyChooseUs from '../components/WhyChooseUs';
 import LearningJourney from '../components/LearningJourney';

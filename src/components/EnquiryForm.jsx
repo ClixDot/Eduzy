@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { courses } from '../data/courses';
 import { CheckCircle2, MessageCircle, Phone } from 'lucide-react';

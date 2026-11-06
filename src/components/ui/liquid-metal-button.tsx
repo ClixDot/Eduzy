@@ -1,3 +1,4 @@
+'use client';
 import { liquidMetalFragmentShader, ShaderMount } from "@paper-design/shaders";
 import { Sparkles } from "lucide-react";
 import type React from "react";
@@ -41,13 +42,7 @@ export function LiquidMetalButton({
   const shaderMount = useRef<any>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rippleId = useRef(0);
-
-  let navigate: ReturnType<typeof useNavigate> | null = null;
-  try {
-    navigate = useNavigate();
-  } catch {
-    navigate = null;
-  }
+  const navigate = useNavigate();
 
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200

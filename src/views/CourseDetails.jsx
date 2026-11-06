@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Clock, Globe, Star, Laptop, Building2, GraduationCap } from 'lucide-react';

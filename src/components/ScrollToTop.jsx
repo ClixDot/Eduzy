@@ -1,3 +1,4 @@
+'use client';
 import { useLayoutEffect, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ScrollTrigger } from '../utils/gsapSetup';

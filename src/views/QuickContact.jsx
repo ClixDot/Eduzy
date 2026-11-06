@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { Phone, ArrowRight } from 'lucide-react';
 import { gsap } from '../utils/gsapSetup';

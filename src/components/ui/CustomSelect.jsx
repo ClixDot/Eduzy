@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Check, GraduationCap } from 'lucide-react';
 import './CustomSelect.css';

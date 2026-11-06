@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { gsap } from '../utils/gsapSetup';
 import badge1Img from '../assets/badge1.png';

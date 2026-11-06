@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, ArrowUp, ChevronDown, ChevronUp } from 'lucide-react';

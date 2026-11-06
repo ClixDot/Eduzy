@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
 import testimonials from '../data/testimonials';

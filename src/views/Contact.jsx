@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Phone, Mail, Clock, MapPin, MessageCircle, CheckCircle2, ArrowUpRight } from 'lucide-react';

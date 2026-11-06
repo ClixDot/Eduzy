@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { MessagesSquare, X, Phone, ArrowRight } from 'lucide-react';
 import './FloatingContact.css';

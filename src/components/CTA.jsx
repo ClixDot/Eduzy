@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
 import FlowButton from './ui/flow-button';

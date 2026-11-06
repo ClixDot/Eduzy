@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, ArrowRight, X, ExternalLink, Play } from 'lucide-react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';

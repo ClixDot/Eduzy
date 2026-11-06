@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { BookOpen, Users, MessageSquareCheck, Clock, Trophy } from 'lucide-react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';

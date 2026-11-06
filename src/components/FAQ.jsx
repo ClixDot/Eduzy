@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from '../utils/gsapSetup';
 import faqs from '../data/faqs';

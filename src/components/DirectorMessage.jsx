@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
 const directorImg = '/assets/the.png';

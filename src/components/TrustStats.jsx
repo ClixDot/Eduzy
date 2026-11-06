@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '../utils/gsapSetup';
 import './TrustStats.css';
