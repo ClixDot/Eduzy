@@ -36,6 +36,10 @@ export default function Courses() {
 
   const [selectedCategory, setSelectedCategory] = useState(getInitialCategory);
 
+  useEffect(() => {
+    document.title = 'AI-Integrated International Diploma Courses | EDUZY';
+  }, []);
+
   // Sync state if searchParams or session changes
   useEffect(() => {
     const paramCat = searchParams.get('category');

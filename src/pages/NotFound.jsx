@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function NotFound() {
+  React.useEffect(() => {
+    document.title = '404 Page Not Found | EDUZY';
+  }, []);
+
   return (
     <main className="section text-center" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center' }}>
       <div className="container" style={{ maxWidth: '600px' }}>

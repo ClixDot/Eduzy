@@ -163,6 +163,10 @@ export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    document.title = 'Campus Life, Placements & Gallery | EDUZY';
+  }, []);
+
   // Filter gallery items
   const filteredGallery = activeTab === 'all'
     ? galleryItems

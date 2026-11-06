@@ -16,8 +16,11 @@ export default function CourseDetails() {
       (Array.isArray(c.aliases) && c.aliases.map((a) => a.toLowerCase()).includes(courseSlug?.toLowerCase()))
   );
 
-  // Remember course category for back navigation
+  // Set SEO title and remember course category for back navigation
   React.useEffect(() => {
+    if (course?.name) {
+      document.title = `${course.name} | EDUZY`;
+    }
     if (course?.category) {
       sessionStorage.setItem('edozy_active_course_category', course.category);
     }

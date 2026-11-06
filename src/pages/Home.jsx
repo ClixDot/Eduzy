@@ -10,6 +10,10 @@ import FAQ from '../components/FAQ';
 import CTA from '../components/CTA';
 
 export default function Home() {
+  React.useEffect(() => {
+    document.title = 'EDUZY | AI-Integrated International Diplomas & Professional Training';
+  }, []);
+
   return (
     <main id="main-content">
       {/* 1. Hero Section */}
