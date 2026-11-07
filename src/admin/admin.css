@@ -859,3 +859,41 @@ body:has(.adm) { margin: 0; background: #f2f1ed; }
 }
 .adm-preview__note { border-top: 0; color: #8f8f8f; padding: 10px 6px 0; }
 .adm-preview__loading { background: rgba(18, 18, 18, 0.75); color: #cfcfcf; }
+
+/* =====================================================================
+   Motion: Lenis smooth scroll + soft page and content transitions
+   ===================================================================== */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+:root { --ease-out: cubic-bezier(0.22, 1, 0.36, 1); }
+/* page change: content glides up and fades in */
+.adm-content { animation: admPageIn 0.5s var(--ease-out) backwards; }
+@keyframes admPageIn { from { opacity: 0; transform: translate3d(0, 12px, 0); } to { opacity: 1; transform: none; } }
+
+/* dashboard, tiles and lists: cards arrive one after another */
+.adm-dash > *, .adm-tiles > *, .adm-cards > * { animation: admCardIn 0.55s var(--ease-out) backwards; }
+.adm-dash > :nth-child(2), .adm-tiles > :nth-child(2), .adm-cards > :nth-child(2) { animation-delay: 40ms; }
+.adm-dash > :nth-child(3), .adm-tiles > :nth-child(3), .adm-cards > :nth-child(3) { animation-delay: 80ms; }
+.adm-dash > :nth-child(4), .adm-tiles > :nth-child(4), .adm-cards > :nth-child(4) { animation-delay: 120ms; }
+.adm-dash > :nth-child(5), .adm-tiles > :nth-child(5), .adm-cards > :nth-child(5) { animation-delay: 160ms; }
+.adm-dash > :nth-child(n + 6), .adm-tiles > :nth-child(n + 6), .adm-cards > :nth-child(n + 6) { animation-delay: 200ms; }
+@keyframes admCardIn { from { opacity: 0; transform: translate3d(0, 14px, 0) scale(0.99); } to { opacity: 1; transform: none; } }
+
+/* loading placeholders fade out into real content instead of popping */
+.adm-skel { animation: admShimmer 1.3s infinite, admFade 0.3s var(--ease-out) both; }
+
+/* softer, consistent hover feedback */
+.adm-navlink { transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out), transform 0.25s var(--ease-out); }
+.adm-navlink:not(.is-active):hover { transform: translateX(2px); }
+.adm-btn { transition: background-color 0.25s var(--ease-out), border-color 0.25s var(--ease-out), color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), transform 0.15s var(--ease-out); }
+.adm-btn:active:not(:disabled) { transform: scale(0.97); }
+.adm-card, .adm-tile { transition: box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out); }
+a.adm-card:hover, a.adm-tile:hover, .adm-tile:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -24px rgba(19, 19, 19, 0.25); }
+
+@media (prefers-reduced-motion: reduce) {
+  .adm-content, .adm-dash > *, .adm-tiles > *, .adm-cards > * { animation: none; }
+  .adm-navlink:hover, a.adm-card:hover, .adm-tile:hover, .adm-btn:active { transform: none; }
+}

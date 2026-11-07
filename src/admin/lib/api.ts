@@ -30,8 +30,18 @@ async function request<T>(method: string, url: string, body?: unknown): Promise<
   return json as T;
 }
 
+/** Identical GET requests made at the same moment (e.g. the dashboard page and the notification bell) share one network call. */
+const inflight = new Map<string, Promise<unknown>>();
+function dedupedGet<T>(url: string): Promise<T> {
+  const hit = inflight.get(url);
+  if (hit) return hit as Promise<T>;
+  const p = request<T>('GET', url).finally(() => inflight.delete(url));
+  inflight.set(url, p);
+  return p;
+}
+
 export const api = {
-  get: <T = any>(url: string) => request<T>('GET', url),
+  get: <T = any>(url: string) => dedupedGet<T>(url),
   post: <T = any>(url: string, body?: unknown) => request<T>('POST', url, body ?? {}),
   put: <T = any>(url: string, body?: unknown) => request<T>('PUT', url, body ?? {}),
   del: <T = any>(url: string) => request<T>('DELETE', url),

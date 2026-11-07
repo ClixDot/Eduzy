@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import NextLink from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import Lenis from 'lenis';
 import { Bell, Search, Menu, PanelLeftClose, PanelLeftOpen, X, ExternalLink, TriangleAlert, Info, ChevronRight, FileText, LogOut, UserRound } from 'lucide-react';
 import { NAV, CRUMB_LABELS, type NavItem } from '../lib/nav';
 import { useAdmin } from '../lib/context';
@@ -55,6 +56,31 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
   const [profileOpen, setProfileOpen] = useState(false);
   const [notices, setNotices] = useState<Notice[] | null>(null);
   const [pendingCount, setPendingCount] = useState(0);
+  const lenisRef = useRef<Lenis | null>(null);
+
+  // Lenis smooth scrolling for the admin window (skipped for visitors who prefer reduced motion).
+  // Scrollable areas inside it (sidebar, modals, menus, lists) keep their own native scrolling.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const lenis = new Lenis({
+      autoRaf: true,
+      lerp: 0.12,
+      wheelMultiplier: 1,
+      smoothWheel: true,
+      allowNestedScroll: true,
+      prevent: (node) => !!node.closest?.('.adm-modal, .adm-pop, .adm-sidebar, .adm-search, [data-lenis-prevent], textarea, [contenteditable="true"]'),
+    });
+    lenisRef.current = lenis;
+    return () => {
+      lenis.destroy();
+      lenisRef.current = null;
+    };
+  }, []);
+
+  // start each page at the top, without animating
+  useEffect(() => {
+    lenisRef.current?.scrollTo(0, { immediate: true, force: true });
+  }, [path]);
 
   useEffect(() => {
     try {
@@ -77,12 +103,16 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     return () => window.removeEventListener(SIDEBAR_EVENT, onSidebar);
   }, []);
 
-  useEffect(() => {
+  // Notifications: load once, then refresh only when content changes or the bell is opened
+  // (not on every page change, which made each navigation fetch the whole dashboard again).
+  const loadNotices = useCallback(() => {
     api.get('/api/admin/dashboard').then((d) => {
       setNotices(d.notifications);
       setPendingCount(d.stats.drafts);
     }).catch(() => setNotices([]));
-  }, [version, path]);
+  }, []);
+  useEffect(() => { loadNotices(); }, [version, loadNotices]);
+  useEffect(() => { if (notesOpen) loadNotices(); }, [notesOpen, loadNotices]);
 
   // ⌘K / Ctrl+K opens search
   useEffect(() => {

@@ -147,13 +147,19 @@ const ACTION_ICON: Record<string, React.ReactNode> = {
 };
 const actionWord = (a: string) => ({ published: 'Published', unpublished: 'Unpublished', saved: 'Saved draft', created: 'Created', deleted: 'Deleted', uploaded: 'Uploaded', replaced: 'Replaced', duplicated: 'Duplicated', reordered: 'Reordered', discarded: 'Discarded draft', updated: 'Updated', imported: 'Imported' } as Record<string, string>)[a] || a;
 
+/** last dashboard data, so returning to the dashboard shows it instantly while fresh data loads */
+let lastDash: Dash | null = null;
+
 export default function Dashboard() {
   const { me, version } = useAdmin();
-  const [d, setD] = useState<Dash | null>(null);
+  const [d, setD] = useState<Dash | null>(lastDash);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    api.get<Dash>('/api/admin/dashboard').then(setD).catch((e) => setError(e.message));
+    api.get<Dash>('/api/admin/dashboard').then((fresh) => {
+      lastDash = fresh;
+      setD(fresh);
+    }).catch((e) => setError(e.message));
   }, [version]);
 
   const liveShare = useMemo(() => {

@@ -187,13 +187,13 @@ export async function mediaUsage(): Promise<Map<string, { label: string; href?: 
   for (const s of singletons) docs.push({ label: SINGLETONS[s.id]?.label || s.id, json: JSON.stringify([s.draft, s.published]) });
   for (const [key, def] of Object.entries(SINGLETON_DEFAULTS)) if (!stored.has(key)) docs.push({ label: SINGLETONS[key]?.label || key, json: JSON.stringify(def) });
   const { listItems } = await import('./content');
-  for (const name of Object.keys(COLLECTIONS)) {
-    for (const it of await listItems(name)) {
-      const def = COLLECTIONS[name];
-      docs.push({ label: `${def.singular}: ${it.draft?.[def.titleField] || 'Untitled'}`, json: JSON.stringify([it.draft, it.published]) });
-    }
-  }
-  for (const m of await store.all<MediaDoc>('media')) {
+  const names = Object.keys(COLLECTIONS);
+  const [lists, media] = await Promise.all([Promise.all(names.map((n) => listItems(n))), store.all<MediaDoc>('media')]);
+  names.forEach((name, i) => {
+    const def = COLLECTIONS[name];
+    for (const it of lists[i]) docs.push({ label: `${def.singular}: ${it.draft?.[def.titleField] || 'Untitled'}`, json: JSON.stringify([it.draft, it.published]) });
+  });
+  for (const m of media) {
     const needle = JSON.stringify(m.url).slice(1, -1);
     const hits = docs.filter((d) => d.json.includes(needle)).map(({ label, href }) => ({ label, href }));
     usage.set(m.url, hits);

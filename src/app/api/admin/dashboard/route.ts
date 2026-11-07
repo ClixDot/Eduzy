@@ -31,8 +31,10 @@ export const GET = handler(async () => {
     listMedia(),
     getSingleton('about'),
   ]);
-  const collections: Record<string, Awaited<ReturnType<typeof listItems>>> = {};
-  for (const name of Object.keys(COLLECTIONS)) collections[name] = await listItems(name);
+  // load every collection in parallel (one database round trip each, all at once)
+  const names = Object.keys(COLLECTIONS);
+  const lists = await Promise.all(names.map((name) => listItems(name)));
+  const collections: Record<string, Awaited<ReturnType<typeof listItems>>> = Object.fromEntries(names.map((n, i) => [n, lists[i]]));
 
   // --- pending changes -----------------------------------------------------
   const pending: { label: string; kind: string; href: string; updatedAt: string; updatedBy?: string; state: 'changed' | 'draft' }[] = [];
