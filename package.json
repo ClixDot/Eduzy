@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "db:check": "node scripts/mongo-check.mjs",
+    "db:migrate": "node scripts/migrate-to-mongo.mjs"
   },
   "dependencies": {
     "@paper-design/shaders": "^0.0.81",
@@ -16,16 +18,19 @@
     "i": "^0.3.7",
     "lenis": "^1.3.26",
     "lucide-react": "^1.49.0",
+    "mongodb": "^7.8.0",
     "next": "^16.4.5",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4",
+    "sanitize-html": "^2.18.1",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
+    "@types/sanitize-html": "^2.16.2",
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
     "typescript": "^7.0.2",

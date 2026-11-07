@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Phone, ArrowRight } from 'lucide-react';
 import { gsap } from '../utils/gsapSetup';
+import { useSite } from '@/cms/site/ContentProvider';
+import { tel, whatsapp } from '@/cms/site/helpers';
 import './QuickContact.css';
 
 export default function QuickContact() {
@@ -9,7 +11,6 @@ export default function QuickContact() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
-    document.title = 'Connect With Us | EDUZY Global Academy';
 
     const el = containerRef.current;
     if (!el) return;
@@ -36,7 +37,7 @@ export default function QuickContact() {
     return () => ctx.revert();
   }, []);
 
-  const channels = [
+  const baseChannels = [
     {
       id: 'whatsapp',
       name: 'WhatsApp',
@@ -106,11 +107,28 @@ export default function QuickContact() {
     },
   ];
 
+
+  const { quickContact: qc, settings } = useSite();
+  const youtubeSoon = !!settings.social?.youtubeComingSoon;
+  const hrefs: Record<string, string> = {
+    whatsapp: whatsapp(settings.contact.whatsapp, qc.whatsappMessage),
+    instagram: settings.social?.instagram || '',
+    youtube: settings.social?.youtube || '',
+    call: tel(settings.contact.phone),
+  };
+  const channels = (qc.channels || [])
+    .filter((c: any) => c.visible !== false && (hrefs[c.type] || (c.type === 'youtube' && youtubeSoon)))
+    .map((c: any) => {
+      const base = baseChannels.find((b) => b.id === c.type);
+      return base ? { ...base, name: c.name, subtitle: c.subtitle, href: hrefs[c.type] } : null;
+    })
+    .filter(Boolean) as typeof baseChannels;
+
   const [youtubeComingSoon, setYoutubeComingSoon] = React.useState(false);
   const youtubeTimerRef = useRef(null);
 
   const handleChannelClick = (e, channel) => {
-    if (channel.id === 'youtube') {
+    if (channel.id === 'youtube' && youtubeSoon) {
       e.preventDefault();
       setYoutubeComingSoon(true);
       if (youtubeTimerRef.current) clearTimeout(youtubeTimerRef.current);
@@ -128,16 +146,16 @@ export default function QuickContact() {
         {/* Central Card container */}
         <div className="quick-contact-card" role="region" aria-label="Connect With Us Options">
           <div className="quick-contact-card__header">
-            <h1 className="quick-contact-card__title">Connect With Us</h1>
+            <h1 className="quick-contact-card__title">{qc.title}</h1>
             <p className="quick-contact-card__subtitle">
-              Choose your preferred channel to get in touch instantly.
+              {qc.subtitle}
             </p>
           </div>
 
           {/* YouTube Coming Soon Banner */}
           {youtubeComingSoon && (
             <div className="quick-contact__notice" role="status" aria-live="polite">
-              <span>🎬 YouTube Channel Coming Soon!</span>
+              <span>{qc.comingSoonBanner}</span>
             </div>
           )}
 
@@ -145,10 +163,10 @@ export default function QuickContact() {
             {channels.map((channel) => (
               <a
                 key={channel.id}
-                href={channel.id === 'youtube' ? '#youtube-coming-soon' : channel.href}
+                href={channel.id === 'youtube' && youtubeSoon ? '#youtube-coming-soon' : channel.href}
                 onClick={(e) => handleChannelClick(e, channel)}
-                target={channel.id === 'youtube' ? undefined : (channel.isExternal ? '_blank' : undefined)}
-                rel={channel.id === 'youtube' ? undefined : (channel.isExternal ? 'noopener noreferrer' : undefined)}
+                target={channel.id === 'youtube' && youtubeSoon ? undefined : (channel.isExternal ? '_blank' : undefined)}
+                rel={channel.id === 'youtube' && youtubeSoon ? undefined : (channel.isExternal ? 'noopener noreferrer' : undefined)}
                 className={`quick-channel-item ${channel.cardClass} ${channel.id === 'youtube' && youtubeComingSoon ? 'coming-soon-active' : ''}`}
                 role="listitem"
                 aria-label={channel.id === 'youtube' && youtubeComingSoon ? 'YouTube - Coming Soon' : `${channel.name} - ${channel.subtitle}`}
@@ -162,7 +180,7 @@ export default function QuickContact() {
                     <span className="quick-channel__name">{channel.name}</span>
                     <span className="quick-channel__sub">
                       {channel.id === 'youtube' && youtubeComingSoon
-                        ? '✨ Launching Soon! Stay tuned'
+                        ? qc.comingSoonText
                         : channel.subtitle}
                     </span>
                   </div>
@@ -170,7 +188,7 @@ export default function QuickContact() {
 
                 {channel.id === 'youtube' && youtubeComingSoon ? (
                   <span className="quick-channel__coming-soon-pill" aria-hidden="true">
-                    Coming Soon
+                    {qc.comingSoonPill}
                   </span>
                 ) : (
                   <div className={`quick-channel__arrow-btn ${channel.arrowClass}`} aria-hidden="true">

@@ -1,11 +1,13 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from '../utils/gsapSetup';
-import faqs from '../data/faqs';
+import { useSite } from '@/cms/site/ContentProvider';
+import { spaced } from '@/cms/site/helpers';
 import './FAQ.css';
 
 export default function FAQ() {
-  const [openId, setOpenId] = useState(1); // First FAQ open by default
+  const { faqSection: sec, faqs } = useSite();
+  const [openId, setOpenId] = useState(sec.openFirst !== false ? faqs[0]?.id ?? null : null); // First FAQ open by default
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -52,10 +54,10 @@ export default function FAQ() {
       <div className="container">
         <div className="text-center faq__header">
           <h2 className="section-title">
-            Frequently Asked <span className="highlight-orange">Questions</span>
+            {spaced(sec.titleStart)}<span className="highlight-orange">{sec.titleHighlight}</span>
           </h2>
           <p className="section-subtitle">
-            Find answers to common questions about our courses, training methodology, and enrollment process.
+            {sec.subtitle}
           </p>
         </div>
 

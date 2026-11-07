@@ -212,7 +212,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
   position: relative;
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 50%, #FF3B0B 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, var(--color-primary) 100%);
   background-size: 200% auto;
   color: #fff;
   box-shadow: var(--shadow-orange);

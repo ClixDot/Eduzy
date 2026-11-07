@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://eduzycampus.com/sitemap.xml
-

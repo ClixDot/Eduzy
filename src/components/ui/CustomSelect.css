@@ -42,7 +42,7 @@
 .custom-select-container.is-open .custom-select-trigger,
 .custom-select-trigger:focus {
   outline: none;
-  border-color: #FF3B0B;
+  border-color: var(--color-primary);
   background: #ffffff;
   box-shadow: 0 0 0 3.5px rgba(255, 59, 11, 0.14);
 }
@@ -63,7 +63,7 @@
 }
 
 .custom-select-icon {
-  color: #FF3B0B;
+  color: var(--color-primary);
   flex-shrink: 0;
   transition: transform 0.2s ease;
 }
@@ -99,7 +99,7 @@
 
 .custom-select-arrow.rotate {
   transform: rotate(180deg);
-  color: #FF3B0B;
+  color: var(--color-primary);
 }
 
 /* Dropdown Menu */
@@ -178,7 +178,7 @@
 .custom-select-option.selected,
 .custom-select-option.selected.active {
   background: #FFEDD5;
-  color: #FF3B0B;
+  color: var(--color-primary);
 }
 
 .custom-select-option-info {
@@ -195,7 +195,7 @@
 }
 
 .custom-select-option.selected .custom-select-option-text {
-  color: #FF3B0B;
+  color: var(--color-primary);
   font-weight: 700;
 }
 
@@ -211,11 +211,11 @@
 }
 
 .custom-select-option.selected .custom-select-option-badge {
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
 }
 
 .custom-select-check {
-  color: #FF3B0B;
+  color: var(--color-primary);
   flex-shrink: 0;
 }

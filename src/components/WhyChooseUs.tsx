@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
+import { gsap } from '../utils/gsapSetup';
 import './WhyChooseUs.css';
 
 const features = [

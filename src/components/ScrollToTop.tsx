@@ -69,7 +69,7 @@ export default function ScrollToTop() {
     });
 
     return () => cancelAnimationFrame(rafId);
-  }, [pathname, search]);
+  }, [pathname, search, hash]);
 
   return null;
 }

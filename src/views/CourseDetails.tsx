@@ -1,35 +1,28 @@
 'use client';
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
-import { Clock, Globe, Star, Laptop, Building2, GraduationCap } from 'lucide-react';
-import { courses } from '../data/courses';
-import testimonials from '../data/testimonials';
+import { Link } from 'react-router-dom';
+import { Clock, Globe, Star, GraduationCap } from 'lucide-react';
 import EnquiryForm from '../components/EnquiryForm';
 import CTA from '../components/CTA';
+import { useSite } from '@/cms/site/ContentProvider';
+import { CmsIcon, whatsapp, fill } from '@/cms/site/helpers';
+import '../components/site/SiteExtras.css';
 import './CourseDetails.css';
 
-export default function CourseDetails() {
-  const { courseSlug } = useParams();
+export default function CourseDetails({ courseId }: { courseId: string }) {
+  const { courses, testimonials, coursesPage, settings } = useSite();
+  const course = courses.find((c: any) => c.id === courseId);
+  const t = coursesPage.detail;
 
-  const course = courses.find(
-    (c) =>
-      c.slug.toLowerCase() === courseSlug?.toLowerCase() ||
-      (Array.isArray(c.aliases) && c.aliases.map((a) => a.toLowerCase()).includes(courseSlug?.toLowerCase()))
-  );
-
-  // Set SEO title and remember course category for back navigation
+  // Remember course category for back navigation
   React.useEffect(() => {
-    if (course?.name) {
-      document.title = `${course.name} | EDUZY`;
-    }
     if (course?.category) {
       sessionStorage.setItem('edozy_active_course_category', course.category);
     }
   }, [course]);
 
-  if (!course) {
-    return <Navigate to="/courses" replace />;
-  }
+  if (!course) return null;
+  const categoryLabel = String(course.category || '');
 
   // Find testimonials relevant to this course or fallback
   const courseTestimonials = testimonials.filter(
@@ -58,7 +51,7 @@ export default function CourseDetails() {
         <div className="container course-hero__inner">
           <div className="course-hero__content">
             <div className="course-hero__badges">
-              <span className="course-hero__cat-badge">{course.category.toUpperCase()}</span>
+              <span className="course-hero__cat-badge">{categoryLabel.toUpperCase()}</span>
               {course.level && <span className="course-hero__dur-badge">{course.level}</span>}
               {!course.level && course.duration && <span className="course-hero__dur-badge">{course.duration.toUpperCase()}</span>}
               {course.badge && <span className="course-hero__highlight-badge">{course.badge}</span>}
@@ -80,15 +73,15 @@ export default function CourseDetails() {
                 </span>
               </div>
               <div className="course-hero__meta-card">
-                <span className="course-hero__meta-label">Training Format</span>
+                <span className="course-hero__meta-label">{t.formatLabel || 'Training Format'}</span>
                 <span className="course-hero__meta-val">
-                  <Globe size={16} /> {course.format || 'Online & Offline'}
+                  <Globe size={16} /> {course.format || t.defaultFormat}
                 </span>
               </div>
               <div className="course-hero__meta-card">
                 <span className="course-hero__meta-label">Rating</span>
                 <span className="course-hero__meta-val">
-                  <Star size={16} fill="#FF3B0B" stroke="#FF3B0B" /> {course.rating ? `${course.rating} / 5.0` : '4.8 / 5.0'}
+                  <Star size={16} style={{ fill: 'var(--color-primary)', stroke: 'var(--color-primary)' }} /> {course.rating ? `${course.rating} / 5.0` : t.defaultRating}
                 </span>
               </div>
             </div>
@@ -100,15 +93,15 @@ export default function CourseDetails() {
                 className="btn btn-primary btn-lg course-hero__btn-enroll"
                 id="course-detail-enroll"
               >
-                Enroll in {course.name}
+                {t.enrollPrefix} {course.name}
               </button>
               <a
-                href={`https://wa.me/916235210100?text=Hi%2C%20I%20would%20like%20more%20information%20about%20the%20${encodeURIComponent(course.name)}%20course`}
+                href={whatsapp(settings.contact.whatsapp, fill(t.whatsappMessage, { course: course.name }))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline btn-lg course-hero__btn-wa"
               >
-                Chat on WhatsApp
+                {t.whatsappLabel}
               </a>
             </div>
           </div>
@@ -137,7 +130,7 @@ export default function CourseDetails() {
             {/* 1. What You Will Learn */}
             {course.whatYouLearn && course.whatYouLearn.length > 0 && (
               <article className="course-info-card">
-                <h2 className="course-section-title">What You Will Learn</h2>
+                <h2 className="course-section-title">{t.learnTitle}</h2>
                 <div className="course-syllabus-grid">
                   {course.whatYouLearn.map((item, i) => (
                     <div key={i} className="course-syllabus-item">
@@ -152,7 +145,7 @@ export default function CourseDetails() {
             {/* 2. Who Is This Course For? */}
             {course.whoIsItFor && course.whoIsItFor.length > 0 && (
               <article className="course-info-card">
-                <h2 className="course-section-title">Who Is This Course For?</h2>
+                <h2 className="course-section-title">{t.whoTitle}</h2>
                 <ul className="course-checklist">
                   {course.whoIsItFor.map((item, i) => (
                     <li key={i} className="course-checklist__item">
@@ -164,47 +157,69 @@ export default function CourseDetails() {
               </article>
             )}
 
+            {/* Optional: Course benefits (Courses page settings → Show course benefits) */}
+            {t.showBenefits && course.benefits && course.benefits.length > 0 && (
+              <article className="course-info-card">
+                <h2 className="course-section-title">{t.benefitsTitle}</h2>
+                <ul className="course-checklist">
+                  {course.benefits.map((item, i) => (
+                    <li key={i} className="course-checklist__item">
+                      <span className="course-checklist__icon">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            )}
+
             {/* 3. Flexible Learning Modes */}
+            {(t.modes || []).length > 0 && (
             <article className="course-info-card">
-              <h2 className="course-section-title">Flexible Learning Modes</h2>
+              <h2 className="course-section-title">{t.modesTitle}</h2>
               <div className="course-method-cards">
-                <div className="method-box">
-                  <h4>
-                    <Laptop size={18} />
-                    <span>Online Live Interactive</span>
-                  </h4>
-                  <p>
-                    Live face-to-face online sessions with direct mentor doubts clearing, study materials, and full recording access.
-                  </p>
-                </div>
-                <div className="method-box">
-                  <h4>
-                    <Building2 size={18} />
-                    <span>Classroom Coaching</span>
-                  </h4>
-                  <p>
-                    Physical classroom training in modern lecture rooms, interactive labs, and direct peer group discussions with trainers and mentors.
-                  </p>
-                </div>
+                {t.modes.map((mode: any, i: number) => (
+                  <div className="method-box" key={i}>
+                    <h4>
+                      <CmsIcon name={mode.icon} fallback="Laptop" size={18} />
+                      <span>{mode.title}</span>
+                    </h4>
+                    <p>
+                      {mode.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
             </article>
+            )}
+
+            {/* Optional: Course gallery (only when images were added) */}
+            {course.gallery && course.gallery.length > 0 && (
+              <article className="course-info-card">
+                <h2 className="course-section-title">{t.galleryTitle}</h2>
+                <div className="course-gallery-grid">
+                  {course.gallery.map((src: string, i: number) => (
+                    <img key={i} src={src} alt={`${course.name} – photo ${i + 1}`} loading="lazy" />
+                  ))}
+                </div>
+              </article>
+            )}
 
             {/* 4. Student Review */}
             {displayedTestimonials.length > 0 && (
               <article className="course-info-card">
-                <h2 className="course-section-title">Student Review</h2>
+                <h2 className="course-section-title">{t.reviewTitle}</h2>
                 <div className="course-testimonials-list">
                   {displayedTestimonials.slice(0, 1).map((t) => (
                     <div key={t.id} className="course-testi-box">
                       <div className="course-testi-header">
-                        <div className="course-testi-avatar" style={{ backgroundColor: t.color || '#FF3B0B' }}>
-                          {t.initials}
+                        <div className="course-testi-avatar" style={{ backgroundColor: 'var(--color-primary)', overflow: 'hidden' }}>
+                          {t.image ? <img src={t.image} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : t.initials}
                         </div>
                         <div>
                           <strong className="course-testi-name">{t.name}</strong>
                           <div className="course-testi-role">{t.role} ({t.course})</div>
                         </div>
-                        <div className="course-testi-stars">★★★★★</div>
+                        <div className="course-testi-stars">{'★'.repeat(Math.max(1, Math.min(5, Number(t.rating) || 5)))}</div>
                       </div>
                       <p className="course-testi-quote">&ldquo;{t.text}&rdquo;</p>
                     </div>
@@ -219,8 +234,8 @@ export default function CourseDetails() {
             <div className="sticky-enquiry-box" id="enroll-form">
               <EnquiryForm
                 preselectedCourse={course.name}
-                title={`Enroll in ${course.name}`}
-                subtitle={`Secure your seat for the upcoming ${course.name} batch at EDUZY.`}
+                title={`${t.enrollPrefix} ${course.name}`}
+                subtitle={fill(t.enquirySubtitle, { course: course.name })}
               />
             </div>
           </aside>
@@ -232,4 +247,3 @@ export default function CourseDetails() {
     </main>
   );
 }
-

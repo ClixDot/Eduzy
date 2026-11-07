@@ -25,3 +25,11 @@ out
 *.sln
 *.sw?
 scratch/
+
+# EDUZY CMS local development storage (content, uploads, admin users)
+.cms-data/
+.env*.local
+*.tsbuildinfo
+
+# CMS migration backups (contain password hashes)
+.cms-data-backups/

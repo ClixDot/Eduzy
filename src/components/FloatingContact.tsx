@@ -1,6 +1,8 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { MessagesSquare, X, Phone, ArrowRight } from 'lucide-react';
+import { useSite } from '@/cms/site/ContentProvider';
+import { tel, whatsapp, fill } from '@/cms/site/helpers';
 import './FloatingContact.css';
 
 export default function FloatingContact() {
@@ -101,7 +103,7 @@ export default function FloatingContact() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
-  const channels = [
+  const baseChannels = [
     {
       id: 'whatsapp',
       name: 'WhatsApp',
@@ -171,11 +173,28 @@ export default function FloatingContact() {
     },
   ];
 
+
+  const { quickContact: qc, settings } = useSite();
+  const youtubeSoon = !!settings.social?.youtubeComingSoon;
+  const hrefs: Record<string, string> = {
+    whatsapp: whatsapp(settings.contact.whatsapp, qc.whatsappMessage),
+    instagram: settings.social?.instagram || '',
+    youtube: settings.social?.youtube || '',
+    call: tel(settings.contact.phone),
+  };
+  const channels = (qc.channels || [])
+    .filter((c: any) => c.visible !== false && (hrefs[c.type] || (c.type === 'youtube' && youtubeSoon)))
+    .map((c: any) => {
+      const base = baseChannels.find((b) => b.id === c.type);
+      return base ? { ...base, name: c.name, subtitle: c.subtitle, href: hrefs[c.type] } : null;
+    })
+    .filter(Boolean) as typeof baseChannels;
+
   const [youtubeComingSoon, setYoutubeComingSoon] = useState(false);
   const youtubeTimerRef = useRef(null);
 
   const handleChannelClick = (e, channel) => {
-    if (channel.id === 'youtube') {
+    if (channel.id === 'youtube' && youtubeSoon) {
       e.preventDefault();
       setYoutubeComingSoon(true);
       if (youtubeTimerRef.current) clearTimeout(youtubeTimerRef.current);
@@ -184,6 +203,8 @@ export default function FloatingContact() {
       }, 3200);
     }
   };
+
+  if (qc.showFloating === false) return null;
 
   return (
     <>
@@ -216,10 +237,10 @@ export default function FloatingContact() {
             <div className="floating-popup__header">
               <div>
                 <h2 className="floating-popup__title" id="floating-popup-title">
-                  Connect With Us
+                  {qc.title}
                 </h2>
                 <p className="floating-popup__subtitle">
-                  Choose your preferred channel to get in touch instantly.
+                  {qc.subtitle}
                 </p>
               </div>
               <button
@@ -235,7 +256,7 @@ export default function FloatingContact() {
             {/* Optional Coming Soon Notice banner */}
             {youtubeComingSoon && (
               <div className="floating-popup__notice" role="status" aria-live="polite">
-                <span>🎬 YouTube Channel Coming Soon!</span>
+                <span>{qc.comingSoonBanner}</span>
               </div>
             )}
 
@@ -244,10 +265,10 @@ export default function FloatingContact() {
               {channels.map((channel) => (
                 <a
                   key={channel.id}
-                  href={channel.id === 'youtube' ? '#youtube-coming-soon' : channel.href}
+                  href={channel.id === 'youtube' && youtubeSoon ? '#youtube-coming-soon' : channel.href}
                   onClick={(e) => handleChannelClick(e, channel)}
-                  target={channel.id === 'youtube' ? undefined : (channel.isExternal ? '_blank' : undefined)}
-                  rel={channel.id === 'youtube' ? undefined : (channel.isExternal ? 'noopener noreferrer' : undefined)}
+                  target={channel.id === 'youtube' && youtubeSoon ? undefined : (channel.isExternal ? '_blank' : undefined)}
+                  rel={channel.id === 'youtube' && youtubeSoon ? undefined : (channel.isExternal ? 'noopener noreferrer' : undefined)}
                   className={`floating-popup__channel-item ${channel.cardClass} ${channel.id === 'youtube' && youtubeComingSoon ? 'coming-soon-active' : ''}`}
                   role="listitem"
                   aria-label={channel.id === 'youtube' && youtubeComingSoon ? 'YouTube - Coming Soon' : `${channel.name} - ${channel.subtitle}`}
@@ -261,7 +282,7 @@ export default function FloatingContact() {
                       <span className="floating-popup__channel-name">{channel.name}</span>
                       <span className="floating-popup__channel-sub">
                         {channel.id === 'youtube' && youtubeComingSoon
-                          ? '✨ Launching Soon! Stay tuned'
+                          ? qc.comingSoonText
                           : channel.subtitle}
                       </span>
                     </div>
@@ -269,7 +290,7 @@ export default function FloatingContact() {
 
                   {channel.id === 'youtube' && youtubeComingSoon ? (
                     <span className="floating-popup__coming-soon-pill" aria-hidden="true">
-                      Coming Soon
+                      {qc.comingSoonPill}
                     </span>
                   ) : (
                     <div className={`floating-popup__arrow-btn ${channel.arrowClass}`} aria-hidden="true">
@@ -286,12 +307,12 @@ export default function FloatingContact() {
         {!isOpen && (
           <div className="floating-contact__item floating-contact__item--call">
             <span className="floating-contact__tooltip" role="tooltip" id="call-tooltip">
-              Call Now: +91 62352 10100
+              {fill(qc.callTooltip, { phone: settings.contact.phoneDisplay })}
             </span>
             <a
-              href="tel:+916235210100"
+              href={tel(settings.contact.phone)}
               className="floating-contact__btn floating-contact__btn--call"
-              aria-label="Call EDUZY Academy directly at +91 62352 10100"
+              aria-label={`Call EDUZY Academy directly at ${settings.contact.phoneDisplay}`}
               aria-describedby="call-tooltip"
               id="floating-call-btn"
             >
@@ -309,7 +330,7 @@ export default function FloatingContact() {
         >
           {!isOpen && (
             <span className="floating-contact__tooltip" role="tooltip" id="social-tooltip">
-              Connect With Us
+              {qc.connectTooltip}
             </span>
           )}
           <button

@@ -1,12 +1,17 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
+import { gsap } from '../utils/gsapSetup';
 import FlowButton from './ui/flow-button';
+import { useSite } from '@/cms/site/ContentProvider';
+import { tel, whatsapp } from '@/cms/site/helpers';
 import './CTA.css';
 
 export default function CTA() {
   const sectionRef = useRef(null);
   const cardRef = useRef(null);
+  const { cta, settings } = useSite();
+  const primaryHref = cta.primary?.url || tel(settings.contact.phone);
+  const secondaryHref = cta.secondary?.url || whatsapp(settings.contact.whatsapp, cta.secondary?.whatsappMessage);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -69,11 +74,16 @@ export default function CTA() {
   };
 
   return (
-    <section className="cta-section" ref={sectionRef} aria-label="Call to action">
+    <section className="cta-section" id="cta" ref={sectionRef} aria-label="Call to action">
       <div className="container">
         <div
           className="cta-card"
           ref={cardRef}
+          style={cta.backgroundImage ? {
+            backgroundImage: `linear-gradient(135deg, rgba(204, 41, 0, 0.88) 0%, rgba(255, 59, 11, 0.78) 100%), url("${encodeURI(decodeURI(cta.backgroundImage))}")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          } : undefined}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
@@ -89,39 +99,43 @@ export default function CTA() {
             {/* Animated Transformation Badge */}
             <div className="cta-card__badge">
               <span className="cta-card__badge-dot" aria-hidden="true" />
-              <span>Start Your Transformation</span>
+              <span>{cta.badge}</span>
             </div>
 
             <h2 className="cta-card__heading">
-              Ready to Start Your Success Journey?
+              {cta.heading}
             </h2>
             <p className="cta-card__desc">
-              Take the next step toward your academic and career goals. Join thousands of successful candidates who trusted EDUZY.
+              {cta.description}
             </p>
 
             <div className="cta-card__actions">
               {/* Button 1: Call Now (Direct Call) */}
+              {cta.primary?.label && (
               <FlowButton
-                text="Call Now"
-                href="tel:+916235210100"
+                text={cta.primary.label}
+                href={primaryHref}
                 className="flow-button--white-to-orange"
                 hoverColor="#FF3B0B"
                 id="cta-call-now"
               />
+              )}
               {/* Button 2: Message (WhatsApp Message) */}
+              {cta.secondary?.label && (
               <FlowButton
-                text="Message"
-                href="https://wa.me/916235210100?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enquire%20about%20admissions"
+                text={cta.secondary.label}
+                href={secondaryHref}
                 className="flow-button--orange-to-white"
                 hoverColor="#ffffff"
                 id="cta-message-whatsapp"
               />
+              )}
             </div>
 
             <div className="cta-card__perks">
-              <span className="cta-card__perk-item">✓ Free Consultation</span>
-              <span className="cta-card__perk-item">✓ Flexible Batches</span>
-              <span className="cta-card__perk-item">✓ Online &amp; Offline Available</span>
+              {(cta.perks || []).map((perk: string, i: number) => (
+                <span className="cta-card__perk-item" key={i}>✓ {perk}</span>
+              ))}
             </div>
           </div>
         </div>

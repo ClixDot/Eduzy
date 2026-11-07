@@ -7,40 +7,47 @@ import TrustStats from '../components/TrustStats';
 import Accreditation from '../components/Accreditation';
 import Achievements from '../components/Achievements';
 import CTA from '../components/CTA';
+import { useSite } from '@/cms/site/ContentProvider';
+import { CmsIcon } from '@/cms/site/helpers';
 
 export default function AboutPage() {
+  const { about: page } = useSite();
+  const show = page.show || {};
+  const cardStyle = { padding: '36px', background: '#fff', borderRadius: '16px', border: '1px solid #E5E5E5' };
+
   return (
     <main className="about-page" id="main-content">
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container text-center">
-          <h1 className="page-hero__title">Dedicated to Your Global Career</h1>
+          <h1 className="page-hero__title">{page.heroTitle}</h1>
           <p className="page-hero__subtitle">
-            Eduzy bridges the gap between education and employment through industry-oriented training, hands-on practical learning, skill development, and career-focused guidance. With 15+ years of experience, 40,000+ students placed, 97+ placement partners, and 25+ awards won, we empower students to build industry-relevant skills, gain practical experience, improve confidence, and prepare for successful global careers.
+            {page.heroSubtitle}
           </p>
         </div>
       </section>
 
       {/* About Component (Collage + Story) */}
-      <About />
+      {show.whyChoose && <About />}
 
       {/* Stats */}
-      <TrustStats />
+      {show.stats && <TrustStats />}
 
       {/* International Accreditations & Certifications */}
-      <Accreditation />
+      {show.accreditation && <Accreditation />}
 
       {/* Director's Message */}
-      <DirectorMessage />
+      {show.director && <DirectorMessage />}
 
       {/* Achievements / Trust */}
-      <Achievements />
+      {show.achievements && <Achievements />}
 
       {/* Mission & Vision Section */}
+      {show.mission && (
       <section className="section bg-light-orange" aria-label="Our Mission and Vision">
         <div className="container">
           <div className="text-center" style={{ marginBottom: '40px' }}>
-            <h2 className="section-title">Our Vision &amp; Core Mission</h2>
+            <h2 className="section-title">{page.missionSectionTitle}</h2>
           </div>
 
           <div style={{
@@ -50,31 +57,52 @@ export default function AboutPage() {
             maxWidth: '1000px',
             margin: '0 auto'
           }}>
-            <div className="card" style={{ padding: '36px', background: '#fff', borderRadius: '16px', border: '1px solid #E5E5E5' }}>
+            <div className="card" style={cardStyle}>
               <div style={{ marginBottom: '14px', color: '#0F172A' }}>
                 <Target size={32} />
               </div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: '#000000' }}>Our Mission</h3>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: '#000000' }}>{page.missionTitle}</h3>
               <p style={{ color: '#000000', fontWeight: 600, lineHeight: 1.7 }}>
-                To empower students with industry-oriented skills, hands-on practical training, and career-focused mentorship needed to succeed in a competitive professional environment.
+                {page.mission}
               </p>
             </div>
 
-            <div className="card" style={{ padding: '36px', background: '#fff', borderRadius: '16px', border: '1px solid #E5E5E5' }}>
+            <div className="card" style={cardStyle}>
               <div style={{ marginBottom: '14px', color: '#000000' }}>
                 <Compass size={32} />
               </div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: '#000000' }}>Our Vision</h3>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '12px', color: '#000000' }}>{page.visionTitle}</h3>
               <p style={{ color: '#000000', fontWeight: 600, lineHeight: 1.7 }}>
-                To be the most trusted and result-oriented career training academy in India, celebrated for authentic mentor guidance, cutting-edge teaching methodologies, and life-changing student success stories.
+                {page.vision}
               </p>
             </div>
           </div>
+
+          {/* Core values (only when added in the CMS) */}
+          {(page.values || []).length > 0 && (
+            <>
+              <div className="text-center" style={{ margin: '56px 0 32px' }}>
+                <h2 className="section-title">{page.valuesTitle}</h2>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', maxWidth: '1000px', margin: '0 auto' }}>
+                {page.values.map((v: any, i: number) => (
+                  <div className="card" key={i} style={{ ...cardStyle, padding: '28px' }}>
+                    <div style={{ marginBottom: '12px', color: 'var(--color-primary)' }}>
+                      <CmsIcon name={v.icon} size={28} />
+                    </div>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '8px', color: '#000000' }}>{v.title}</h3>
+                    {v.desc && <p style={{ lineHeight: 1.65 }}>{v.desc}</p>}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
+      )}
 
       {/* Final CTA */}
-      <CTA />
+      {show.cta && <CTA />}
     </main>
   );
 }

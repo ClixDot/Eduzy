@@ -1,14 +1,17 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FlowButton } from '@/components/ui/flow-button';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-const heroMentorImg = '/assets/new website.png';
+import { gsap } from '../utils/gsapSetup';
+import { useSite } from '@/cms/site/ContentProvider';
+import { spaced } from '@/cms/site/helpers';
 import './Hero.css';
 
 export default function Hero() {
   const heroRef = useRef(null);
   const navigate = useNavigate();
+  const { hero } = useSite();
+  const secondaryUrl = hero.secondaryButton?.url;
 
   useEffect(() => {
     const el = heroRef.current;
@@ -81,7 +84,14 @@ export default function Hero() {
   return (
     <section className="hero-ref" ref={heroRef} aria-label="EDUZY Hero">
       {/* Cinematic Study Background Photo & Light Gradient Overlay (From Image 1) */}
-      <div className="hero-ref__bg-photo" aria-hidden="true" />
+      <div
+        className="hero-ref__bg-photo"
+        aria-hidden="true"
+        style={hero.backgroundImage || hero.backgroundPosition ? {
+          ...(hero.backgroundImage ? { backgroundImage: `url("${encodeURI(decodeURI(hero.backgroundImage))}")` } : {}),
+          ...(hero.backgroundPosition ? { backgroundPosition: hero.backgroundPosition } : {}),
+        } : undefined}
+      />
       <div className="hero-ref__bg-overlay" aria-hidden="true" />
 
       <div className="container hero-ref__container">
@@ -90,33 +100,35 @@ export default function Hero() {
           <div className="hero-ref__content">
             {/* Main Heading with Orange Highlights */}
             <h1 className="hero-animate hero-ref__heading">
-              From Campus to <span className="highlight-orange">Career.</span>
+              {spaced(hero.line1Start)}<span className="highlight-orange">{hero.line1Highlight}</span>
               <br />
-              Build Your <span className="highlight-orange">Global Future.</span>
+              {spaced(hero.line2Start)}<span className="highlight-orange">{hero.line2Highlight}</span>
             </h1>
 
             {/* Supporting Description */}
-            <p className="hero-animate hero-ref__desc">
-              AI-Integrated International Diploma programs in <strong>Logistics, Accounting, Digital Marketing, Designing, Hospital Administration</strong>, and <strong>Aviation</strong> to build your global career.
-            </p>
+            <p className="hero-animate hero-ref__desc" dangerouslySetInnerHTML={{ __html: hero.description }} />
 
             {/* Action Buttons */}
             <div className="hero-animate hero-ref__actions">
-              <FlowButton 
-                text="Explore Courses" 
-                to="/courses"
-              />
+              {hero.primaryButton?.label && (
+                <FlowButton 
+                  text={hero.primaryButton.label} 
+                  to={hero.primaryButton.url || '/courses'}
+                />
+              )}
+              {hero.secondaryButton?.label && (
               <button 
                 type="button"
-                onClick={() => window.dispatchEvent(new CustomEvent('open-enroll-modal'))}
+                onClick={() => secondaryUrl ? (/^https?:/i.test(secondaryUrl) ? window.open(secondaryUrl, '_blank', 'noopener,noreferrer') : navigate(secondaryUrl)) : window.dispatchEvent(new CustomEvent('open-enroll-modal'))}
                 className="btn-hero-primary" 
                 id="hero-enroll-btn"
               >
-                <span>Enroll Now</span>
+                <span>{hero.secondaryButton.label}</span>
                 <svg className="btn-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </button>
+              )}
             </div>
           </div>
 
@@ -134,7 +146,7 @@ export default function Hero() {
                   </defs>
                   <text className="hero-ref__curved-text">
                     <textPath href="#circleTextPath" startOffset="0%">
-                      • EDUZY GLOBAL ACADEMY • CAMPUS TO CAREER • 10+ YEARS EXCELLENCE • BUILD YOUR GLOBAL FUTURE • EDUZY GLOBAL ACADEMY • CAMPUS TO CAREER • 10+ YEARS EXCELLENCE • BUILD YOUR GLOBAL FUTURE •
+                      {hero.circleText}
                     </textPath>
                   </text>
                 </svg>
@@ -147,27 +159,35 @@ export default function Hero() {
 
               {/* 3. Mentor Portrait */}
               <div className="hero-ref__portrait-wrapper">
-                <img
-                  src={heroMentorImg}
-                  alt="Rose Mary Johnson - Founder & CEO of Eduzy"
-                  className="hero-ref__portrait-img"
-                  width="2309"
-                  height="3464"
-                  loading="eager"
-                />
+                <picture>
+                  {hero.mobileImage && <source media="(max-width: 640px)" srcSet={encodeURI(decodeURI(hero.mobileImage))} />}
+                  <img
+                    src={hero.portraitImage}
+                    alt={hero.portraitAlt}
+                    className="hero-ref__portrait-img"
+                    style={hero.portraitFit === 'cover'
+                      ? { left: 0, top: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: hero.portraitPosition || 'center top' }
+                      : undefined}
+                    width="2309"
+                    height="3464"
+                    loading="eager"
+                  />
+                </picture>
               </div>
 
 
               {/* 5. Floating Mentor Card for Rose Mary Johnson */}
+              {hero.showMentorCard && (
               <div className="hero-ref__card hero-ref__mentor-card" aria-label="Lead Mentor">
                 <div className="hero-ref__mentor-avatar-box">
                   <span className="hero-ref__mentor-star-icon">★</span>
                 </div>
                 <div className="hero-ref__mentor-details">
-                  <span className="hero-ref__mentor-name">Rose Mary Johnson</span>
-                  <span className="hero-ref__mentor-role">Founder &amp; CEO Eduzy</span>
+                  <span className="hero-ref__mentor-name">{hero.mentorName}</span>
+                  <span className="hero-ref__mentor-role">{hero.mentorRole}</span>
                 </div>
               </div>
+              )}
             </div>
           </div>
         </div>

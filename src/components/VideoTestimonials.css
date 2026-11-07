@@ -89,7 +89,7 @@
 
 .video-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 22px 45px rgba(255, 59, 11, 0.3), 0 0 0 2px #FF3B0B;
+  box-shadow: 0 22px 45px rgba(255, 59, 11, 0.3), 0 0 0 2px var(--color-primary);
 }
 
 /* Background Thumbnail */
@@ -140,7 +140,7 @@
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #FF3B0B;
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,7 +151,7 @@
 
 .video-card:hover .video-card__play-circle {
   transform: scale(1.15);
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
   box-shadow: 0 14px 34px rgba(255, 59, 11, 0.55);
 }
@@ -209,7 +209,7 @@
 
 .video-ctrl-btn--prev {
   background: #FFF7ED;
-  color: #FF3B0B;
+  color: var(--color-primary);
   border: 1px solid #FFEDD5;
 }
 
@@ -220,12 +220,12 @@
 }
 
 .video-ctrl-btn--next {
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
 }
 
 .video-ctrl-btn--next:hover {
-  background: #E62E00;
+  background: var(--color-primary-dark);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(255, 59, 11, 0.35);
 }
@@ -247,7 +247,7 @@
 
 .video-dot.active {
   width: 24px;
-  background: #FF3B0B;
+  background: var(--color-primary);
 }
 
 /* ============================================
@@ -303,7 +303,7 @@
 }
 
 .video-modal__close-btn:hover {
-  background: #FF3B0B;
+  background: var(--color-primary);
   transform: scale(1.08);
 }
 
@@ -336,7 +336,7 @@
 .video-modal__course {
   font-size: 0.78rem;
   font-weight: 700;
-  color: #FF3B0B;
+  color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   display: block;
@@ -363,7 +363,7 @@
   gap: 8px;
   background: rgba(255, 59, 11, 0.15);
   border: 1px solid rgba(255, 59, 11, 0.35);
-  color: #FF3B0B;
+  color: var(--color-primary);
   padding: 10px 16px;
   border-radius: 9999px;
   font-size: 0.88rem;
@@ -373,7 +373,7 @@
 }
 
 .video-modal__external-link:hover {
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
   transform: translateY(-2px);
 }

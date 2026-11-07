@@ -137,7 +137,7 @@
   font-weight: 600;
   font-family: var(--font-body);
   color: #ffffff;
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 45%, #FF5722 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 45%, #FF5722 100%);
   background-size: 200% 200%;
   background-position: 0% 50%;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -370,9 +370,9 @@
 
 .mobile-menu__close:hover,
 .mobile-menu__close:active {
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
-  border-color: #FF3B0B;
+  border-color: var(--color-primary);
 }
 
 .mobile-menu__list {
@@ -404,9 +404,9 @@
 
 .mobile-menu__link:hover,
 .mobile-menu__link.active {
-  color: #FF3B0B;
+  color: var(--color-primary);
   background: #FFF7ED;
-  border-left-color: #FF3B0B;
+  border-left-color: var(--color-primary);
 }
 
 .mobile-menu__footer {

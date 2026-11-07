@@ -165,7 +165,7 @@
 /* Featured Centerpiece Card (STED Council & Alagappa) */
 .accreditation__card--featured {
   background: linear-gradient(180deg, #FFFFFF 0%, #FFF9F2 100%);
-  border: 2px solid #FF3B0B;
+  border: 2px solid var(--color-primary);
   box-shadow: 0 8px 24px rgba(255, 59, 11, 0.1);
   transform: none;
 }
@@ -173,14 +173,14 @@
 .accreditation__card--featured:hover {
   transform: translateY(-5px);
   box-shadow: 0 18px 40px rgba(255, 59, 11, 0.16);
-  border-color: #E62E00;
+  border-color: var(--color-primary-dark);
 }
 
 /* Top ribbon for featured card */
 .accreditation__featured-ribbon {
   position: absolute;
   top: -12px;
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #ffffff;
   font-family: var(--font-heading);
   font-size: 0.68rem;
@@ -256,7 +256,7 @@
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #FF3B0B;
+  color: var(--color-primary);
   background: var(--color-primary-light);
   padding: 4px 12px;
   border-radius: var(--radius-full);

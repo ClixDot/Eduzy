@@ -1,10 +1,12 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import testimonials from '../data/testimonials';
+import { gsap } from '../utils/gsapSetup';
+import { useSite } from '@/cms/site/ContentProvider';
+import { spaced } from '@/cms/site/helpers';
 import './Testimonials.css';
 
 export default function Testimonials() {
+  const { testimonialsSection: sec, testimonials } = useSite();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(3);
   const touchStartX = useRef(0);
@@ -27,6 +29,7 @@ export default function Testimonials() {
   }, []);
 
   const maxIndex = Math.max(0, testimonials.length - cardsToShow);
+  useEffect(() => { if (currentIndex > maxIndex) setCurrentIndex(maxIndex); }, [currentIndex, maxIndex]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
@@ -97,10 +100,10 @@ export default function Testimonials() {
         <div className="testimonials__top">
           <div>
             <h2 className="section-title">
-              What Our Students <span className="highlight-orange">Say</span>
+              {spaced(sec.titleStart)}<span className="highlight-orange">{sec.titleHighlight}</span>
             </h2>
             <p className="section-subtitle">
-              Hear directly from healthcare professionals and students who transformed their global career aspirations with EDUZY.
+              {sec.subtitle}
             </p>
           </div>
 
@@ -153,7 +156,7 @@ export default function Testimonials() {
                   {/* Card Header: Stars + Course Tag */}
                   <div className="testimonial-card__top">
                     <div className="testimonial-card__stars" aria-label={`${item.rating} out of 5 stars`}>
-                      {[...Array(item.rating)].map((_, i) => (
+                      {[...Array(Math.max(0, Math.min(5, Number(item.rating) || 0)))].map((_, i) => (
                         <span key={i} className="star filled">★</span>
                       ))}
                     </div>
@@ -167,12 +170,19 @@ export default function Testimonials() {
 
                   {/* Card Footer: Student Profile */}
                   <div className="testimonial-card__author">
-                    <div className="testimonial-card__avatar">
-                      {item.initials}
+                    <div className="testimonial-card__avatar" style={item.image ? { overflow: 'hidden', padding: 0 } : undefined}>
+                      {item.image
+                        ? <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} loading="lazy" />
+                        : item.initials}
                     </div>
                     <div className="testimonial-card__info">
                       <h3 className="testimonial-card__name">{item.name}</h3>
                       <p className="testimonial-card__role">{item.role}</p>
+                      {item.videoUrl && (
+                        <a href={item.videoUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-primary)' }}>
+                          {sec.videoLinkLabel || 'Watch video'} ▸
+                        </a>
+                      )}
                     </div>
                   </div>
                 </article>

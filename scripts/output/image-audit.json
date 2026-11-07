@@ -1,0 +1,689 @@
+{
+  "totals": {
+    "imageFiles": 125,
+    "used": 0,
+    "unused": 125,
+    "missing": 0,
+    "duplicateGroups": 42,
+    "references": 0
+  },
+  "used": [],
+  "unused": [
+    {
+      "file": "public\\assets\\about_classroom.jpg",
+      "bytes": 866413
+    },
+    {
+      "file": "public\\assets\\ai-integrated-fashion-designing-b.jpg",
+      "bytes": 77485
+    },
+    {
+      "file": "public\\assets\\American Board of Education Seal.png",
+      "bytes": 1629442
+    },
+    {
+      "file": "public\\assets\\badge1.png",
+      "bytes": 1221251
+    },
+    {
+      "file": "public\\assets\\badge2.png",
+      "bytes": 1936028
+    },
+    {
+      "file": "public\\assets\\badge3.png",
+      "bytes": 321040
+    },
+    {
+      "file": "public\\assets\\Blue ISO Globe Logo.png",
+      "bytes": 824271
+    },
+    {
+      "file": "public\\assets\\business_development.jpg",
+      "bytes": 795711
+    },
+    {
+      "file": "public\\assets\\campus_lab.jpg",
+      "bytes": 854820
+    },
+    {
+      "file": "public\\assets\\campus_library.jpg",
+      "bytes": 953736
+    },
+    {
+      "file": "public\\assets\\co-founder.png",
+      "bytes": 609318
+    },
+    {
+      "file": "public\\assets\\contact_campus_bg.jpg",
+      "bytes": 830363
+    },
+    {
+      "file": "public\\assets\\cropbg.png",
+      "bytes": 1071608
+    },
+    {
+      "file": "public\\assets\\digital_marketing.jpg",
+      "bytes": 785636
+    },
+    {
+      "file": "public\\assets\\director_neethu.jpg",
+      "bytes": 670229
+    },
+    {
+      "file": "public\\assets\\director_neethu.png",
+      "bytes": 852704
+    },
+    {
+      "file": "public\\assets\\entrepreneurship.jpg",
+      "bytes": 824036
+    },
+    {
+      "file": "public\\assets\\event_graduation.jpg",
+      "bytes": 971712
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Accounting.jpg",
+      "bytes": 114894
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Animation & Graphic Designing.jpg",
+      "bytes": 45442
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Digital Marketing & Influencer Marketing.jpg",
+      "bytes": 61701
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Entrepreneurship & Business Developmen.jpg",
+      "bytes": 33088
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Entrepreneurship & Business Development.jpg",
+      "bytes": 2121705
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Entrepreneurship & Business Development.png",
+      "bytes": 2121705
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Fashion Designing.jpg",
+      "bytes": 77485
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Hospital Administration.jpg",
+      "bytes": 50118
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Human Resource Management.jpg",
+      "bytes": 52291
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Interior Designing.jpg",
+      "bytes": 164385
+    },
+    {
+      "file": "public\\assets\\final\\AI-Integrated International Diploma in Logistics & Supply Chain Management.jpg",
+      "bytes": 167203
+    },
+    {
+      "file": "public\\assets\\final\\Airport Professional on the Tarmac.png",
+      "bytes": 1893524
+    },
+    {
+      "file": "public\\assets\\gellery\\01-cbt-computer-lab.jpg",
+      "bytes": 132862
+    },
+    {
+      "file": "public\\assets\\gellery\\02-annual-convocation-ceremony.jpg",
+      "bytes": 225610
+    },
+    {
+      "file": "public\\assets\\gellery\\03-classroom-sessions.jpg",
+      "bytes": 230792
+    },
+    {
+      "file": "public\\assets\\gellery\\04-industrial-visit-port-container-yard.jpg",
+      "bytes": 210088
+    },
+    {
+      "file": "public\\assets\\gellery\\05-site-visit-field-training.jpg",
+      "bytes": 156166
+    },
+    {
+      "file": "public\\assets\\gellery\\06-corporate-visit-placement-drive.jpg",
+      "bytes": 135961
+    },
+    {
+      "file": "public\\assets\\gellery\\07-student-trip-outing.jpg",
+      "bytes": 174783
+    },
+    {
+      "file": "public\\assets\\gellery\\08-cultural-events-celebrations.jpg",
+      "bytes": 202606
+    },
+    {
+      "file": "public\\assets\\healthcare_student.jpg",
+      "bytes": 646371
+    },
+    {
+      "file": "public\\assets\\hero girl.png",
+      "bytes": 2029455
+    },
+    {
+      "file": "public\\assets\\hero.png",
+      "bytes": 13057
+    },
+    {
+      "file": "public\\assets\\herobg.png",
+      "bytes": 710843
+    },
+    {
+      "file": "public\\assets\\herocropbg.jpg",
+      "bytes": 86241
+    },
+    {
+      "file": "public\\assets\\hero_card_students.jpg",
+      "bytes": 877565
+    },
+    {
+      "file": "public\\assets\\hero_portrait.jpg",
+      "bytes": 755686
+    },
+    {
+      "file": "public\\assets\\hero_student.jpg",
+      "bytes": 765408
+    },
+    {
+      "file": "public\\assets\\hero_study_bg.jpg",
+      "bytes": 794138
+    },
+    {
+      "file": "public\\assets\\IGNET_University_Emblem_and_Wordmark-removebg-preview.png",
+      "bytes": 196952
+    },
+    {
+      "file": "public\\assets\\impact_nurse.jpg",
+      "bytes": 666256
+    },
+    {
+      "file": "public\\assets\\influencer_marketing.jpg",
+      "bytes": 856486
+    },
+    {
+      "file": "public\\assets\\Kalinga University Heraldic Emblem.png",
+      "bytes": 943926
+    },
+    {
+      "file": "public\\assets\\language_learning.jpg",
+      "bytes": 716238
+    },
+    {
+      "file": "public\\assets\\logestics.jpeg",
+      "bytes": 167203
+    },
+    {
+      "file": "public\\assets\\logo.png",
+      "bytes": 577270
+    },
+    {
+      "file": "public\\assets\\logo2.png",
+      "bytes": 241411
+    },
+    {
+      "file": "public\\assets\\Microsoft Excel Logo on Transparency.png",
+      "bytes": 710205
+    },
+    {
+      "file": "public\\assets\\mission_student.jpg",
+      "bytes": 243108
+    },
+    {
+      "file": "public\\assets\\NCVET_Gear_Emblem_with_Hindi_Tagline-removebg-preview.png",
+      "bytes": 195867
+    },
+    {
+      "file": "public\\assets\\new website.png",
+      "bytes": 5679250
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Accounting-2.png",
+      "bytes": 1986396
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Animation & Graphic Designing-5.png",
+      "bytes": 2173938
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Aviation-10.png",
+      "bytes": 1971787
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Digital Marketing & Influencer Marketing-6.png",
+      "bytes": 2233255
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Entrepreneurship & Business Development-7.png",
+      "bytes": 2121705
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Fashion Designing-3.png",
+      "bytes": 2283609
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Hospital Administration-8.png",
+      "bytes": 2042904
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Human Resource Management.png",
+      "bytes": 2109522
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Interior Designing-4.png",
+      "bytes": 2147357
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Logistics & Supply Chain Management-1.jpeg",
+      "bytes": 344496
+    },
+    {
+      "file": "public\\assets\\nnew coresss\\ai-integrated-aviation..jpg",
+      "bytes": 57357
+    },
+    {
+      "file": "public\\assets\\NSDC Logo with Celebrating Figures.png",
+      "bytes": 561376
+    },
+    {
+      "file": "public\\assets\\Professional Woman with Laptop Cutout22.png",
+      "bytes": 1850943
+    },
+    {
+      "file": "public\\assets\\react.svg",
+      "bytes": 4126
+    },
+    {
+      "file": "public\\assets\\SAP Blue Gradient Logo.png",
+      "bytes": 979142
+    },
+    {
+      "file": "public\\assets\\Tally_Black_and_Red_Script_Logo-removebg-preview.png",
+      "bytes": 189203
+    },
+    {
+      "file": "public\\assets\\the.png",
+      "bytes": 523990
+    },
+    {
+      "file": "public\\assets\\vite.svg",
+      "bytes": 8709
+    },
+    {
+      "file": "public\\assets\\website final 2.png",
+      "bytes": 851272
+    },
+    {
+      "file": "public\\assets\\workshop_seminar.jpg",
+      "bytes": 833623
+    },
+    {
+      "file": "src\\assets\\about_classroom.jpg",
+      "bytes": 866413
+    },
+    {
+      "file": "src\\assets\\American Board of Education Seal.png",
+      "bytes": 1629442
+    },
+    {
+      "file": "src\\assets\\badge1.png",
+      "bytes": 1221251
+    },
+    {
+      "file": "src\\assets\\badge2.png",
+      "bytes": 1936028
+    },
+    {
+      "file": "src\\assets\\badge3.png",
+      "bytes": 321040
+    },
+    {
+      "file": "src\\assets\\Blue ISO Globe Logo.png",
+      "bytes": 824271
+    },
+    {
+      "file": "src\\assets\\campus_lab.jpg",
+      "bytes": 854820
+    },
+    {
+      "file": "src\\assets\\campus_library.jpg",
+      "bytes": 953736
+    },
+    {
+      "file": "src\\assets\\contact_campus_bg.jpg",
+      "bytes": 830363
+    },
+    {
+      "file": "src\\assets\\cropbg.png",
+      "bytes": 1071608
+    },
+    {
+      "file": "src\\assets\\director.png",
+      "bytes": 1712809
+    },
+    {
+      "file": "src\\assets\\director_neethu.jpg",
+      "bytes": 670229
+    },
+    {
+      "file": "src\\assets\\director_neethu.png",
+      "bytes": 852704
+    },
+    {
+      "file": "src\\assets\\event_graduation.jpg",
+      "bytes": 971712
+    },
+    {
+      "file": "src\\assets\\healthcare_student.jpg",
+      "bytes": 646371
+    },
+    {
+      "file": "src\\assets\\hero.png",
+      "bytes": 13057
+    },
+    {
+      "file": "src\\assets\\herobg.png",
+      "bytes": 710843
+    },
+    {
+      "file": "src\\assets\\herobgg.png",
+      "bytes": 702557
+    },
+    {
+      "file": "src\\assets\\herocropbg.jpg",
+      "bytes": 86241
+    },
+    {
+      "file": "src\\assets\\hero_card_students.jpg",
+      "bytes": 877565
+    },
+    {
+      "file": "src\\assets\\hero_girl.png",
+      "bytes": 2029455
+    },
+    {
+      "file": "src\\assets\\hero_portrait.jpg",
+      "bytes": 755686
+    },
+    {
+      "file": "src\\assets\\hero_student.jpg",
+      "bytes": 765408
+    },
+    {
+      "file": "src\\assets\\hero_study_bg.jpg",
+      "bytes": 794138
+    },
+    {
+      "file": "src\\assets\\IGNET_University_Emblem_and_Wordmark-removebg-preview.png",
+      "bytes": 196952
+    },
+    {
+      "file": "src\\assets\\impact_nurse.jpg",
+      "bytes": 666256
+    },
+    {
+      "file": "src\\assets\\Kalinga University Heraldic Emblem.png",
+      "bytes": 943926
+    },
+    {
+      "file": "src\\assets\\language_learning.jpg",
+      "bytes": 716238
+    },
+    {
+      "file": "src\\assets\\logo.png",
+      "bytes": 577270
+    },
+    {
+      "file": "src\\assets\\logo2.png",
+      "bytes": 241411
+    },
+    {
+      "file": "src\\assets\\Microsoft Excel Logo on Transparency.png",
+      "bytes": 710205
+    },
+    {
+      "file": "src\\assets\\mission_student.jpg",
+      "bytes": 84542
+    },
+    {
+      "file": "src\\assets\\mission_team.jpg",
+      "bytes": 84542
+    },
+    {
+      "file": "src\\assets\\NCVET_Gear_Emblem_with_Hindi_Tagline-removebg-preview.png",
+      "bytes": 195867
+    },
+    {
+      "file": "src\\assets\\NSDC Logo with Celebrating Figures.png",
+      "bytes": 561376
+    },
+    {
+      "file": "src\\assets\\Professional Woman Typing on Laptop (1).png",
+      "bytes": 1747443
+    },
+    {
+      "file": "src\\assets\\Professional Woman with Laptop Cutout22.png",
+      "bytes": 1850943
+    },
+    {
+      "file": "src\\assets\\react.svg",
+      "bytes": 4126
+    },
+    {
+      "file": "src\\assets\\rose.png",
+      "bytes": 1712809
+    },
+    {
+      "file": "src\\assets\\rose_white.png",
+      "bytes": 683622
+    },
+    {
+      "file": "src\\assets\\SAP Blue Gradient Logo.png",
+      "bytes": 979142
+    },
+    {
+      "file": "src\\assets\\Tally_Black_and_Red_Script_Logo-removebg-preview.png",
+      "bytes": 189203
+    },
+    {
+      "file": "src\\assets\\test_crop.png",
+      "bytes": 1015244
+    },
+    {
+      "file": "src\\assets\\vite.svg",
+      "bytes": 8709
+    },
+    {
+      "file": "src\\assets\\whiteimage.png",
+      "bytes": 689816
+    },
+    {
+      "file": "src\\assets\\workshop_seminar.jpg",
+      "bytes": 833623
+    }
+  ],
+  "duplicates": [
+    [
+      "public\\assets\\about_classroom.jpg",
+      "src\\assets\\about_classroom.jpg"
+    ],
+    [
+      "public\\assets\\ai-integrated-fashion-designing-b.jpg",
+      "public\\assets\\final\\AI-Integrated International Diploma in Fashion Designing.jpg"
+    ],
+    [
+      "public\\assets\\American Board of Education Seal.png",
+      "src\\assets\\American Board of Education Seal.png"
+    ],
+    [
+      "public\\assets\\badge1.png",
+      "src\\assets\\badge1.png"
+    ],
+    [
+      "public\\assets\\badge2.png",
+      "src\\assets\\badge2.png"
+    ],
+    [
+      "public\\assets\\badge3.png",
+      "src\\assets\\badge3.png"
+    ],
+    [
+      "public\\assets\\Blue ISO Globe Logo.png",
+      "src\\assets\\Blue ISO Globe Logo.png"
+    ],
+    [
+      "public\\assets\\campus_lab.jpg",
+      "src\\assets\\campus_lab.jpg"
+    ],
+    [
+      "public\\assets\\campus_library.jpg",
+      "src\\assets\\campus_library.jpg"
+    ],
+    [
+      "public\\assets\\contact_campus_bg.jpg",
+      "src\\assets\\contact_campus_bg.jpg"
+    ],
+    [
+      "public\\assets\\cropbg.png",
+      "src\\assets\\cropbg.png"
+    ],
+    [
+      "public\\assets\\director_neethu.jpg",
+      "src\\assets\\director_neethu.jpg"
+    ],
+    [
+      "public\\assets\\director_neethu.png",
+      "src\\assets\\director_neethu.png"
+    ],
+    [
+      "public\\assets\\event_graduation.jpg",
+      "src\\assets\\event_graduation.jpg"
+    ],
+    [
+      "public\\assets\\final\\AI-Integrated International Diploma in Entrepreneurship & Business Development.jpg",
+      "public\\assets\\final\\AI-Integrated International Diploma in Entrepreneurship & Business Development.png",
+      "public\\assets\\nnew coresss\\AI-Integrated International Diploma in Entrepreneurship & Business Development-7.png"
+    ],
+    [
+      "public\\assets\\final\\AI-Integrated International Diploma in Logistics & Supply Chain Management.jpg",
+      "public\\assets\\logestics.jpeg"
+    ],
+    [
+      "public\\assets\\healthcare_student.jpg",
+      "src\\assets\\healthcare_student.jpg"
+    ],
+    [
+      "public\\assets\\hero girl.png",
+      "src\\assets\\hero_girl.png"
+    ],
+    [
+      "public\\assets\\hero.png",
+      "src\\assets\\hero.png"
+    ],
+    [
+      "public\\assets\\herobg.png",
+      "src\\assets\\herobg.png"
+    ],
+    [
+      "public\\assets\\herocropbg.jpg",
+      "src\\assets\\herocropbg.jpg"
+    ],
+    [
+      "public\\assets\\hero_card_students.jpg",
+      "src\\assets\\hero_card_students.jpg"
+    ],
+    [
+      "public\\assets\\hero_portrait.jpg",
+      "src\\assets\\hero_portrait.jpg"
+    ],
+    [
+      "public\\assets\\hero_student.jpg",
+      "src\\assets\\hero_student.jpg"
+    ],
+    [
+      "public\\assets\\hero_study_bg.jpg",
+      "src\\assets\\hero_study_bg.jpg"
+    ],
+    [
+      "public\\assets\\IGNET_University_Emblem_and_Wordmark-removebg-preview.png",
+      "src\\assets\\IGNET_University_Emblem_and_Wordmark-removebg-preview.png"
+    ],
+    [
+      "public\\assets\\impact_nurse.jpg",
+      "src\\assets\\impact_nurse.jpg"
+    ],
+    [
+      "public\\assets\\Kalinga University Heraldic Emblem.png",
+      "src\\assets\\Kalinga University Heraldic Emblem.png"
+    ],
+    [
+      "public\\assets\\language_learning.jpg",
+      "src\\assets\\language_learning.jpg"
+    ],
+    [
+      "public\\assets\\logo.png",
+      "src\\assets\\logo.png"
+    ],
+    [
+      "public\\assets\\logo2.png",
+      "src\\assets\\logo2.png"
+    ],
+    [
+      "public\\assets\\Microsoft Excel Logo on Transparency.png",
+      "src\\assets\\Microsoft Excel Logo on Transparency.png"
+    ],
+    [
+      "public\\assets\\NCVET_Gear_Emblem_with_Hindi_Tagline-removebg-preview.png",
+      "src\\assets\\NCVET_Gear_Emblem_with_Hindi_Tagline-removebg-preview.png"
+    ],
+    [
+      "public\\assets\\NSDC Logo with Celebrating Figures.png",
+      "src\\assets\\NSDC Logo with Celebrating Figures.png"
+    ],
+    [
+      "public\\assets\\Professional Woman with Laptop Cutout22.png",
+      "src\\assets\\Professional Woman with Laptop Cutout22.png"
+    ],
+    [
+      "public\\assets\\react.svg",
+      "src\\assets\\react.svg"
+    ],
+    [
+      "public\\assets\\SAP Blue Gradient Logo.png",
+      "src\\assets\\SAP Blue Gradient Logo.png"
+    ],
+    [
+      "public\\assets\\Tally_Black_and_Red_Script_Logo-removebg-preview.png",
+      "src\\assets\\Tally_Black_and_Red_Script_Logo-removebg-preview.png"
+    ],
+    [
+      "public\\assets\\vite.svg",
+      "src\\assets\\vite.svg"
+    ],
+    [
+      "public\\assets\\workshop_seminar.jpg",
+      "src\\assets\\workshop_seminar.jpg"
+    ],
+    [
+      "src\\assets\\director.png",
+      "src\\assets\\rose.png"
+    ],
+    [
+      "src\\assets\\mission_student.jpg",
+      "src\\assets\\mission_team.jpg"
+    ]
+  ],
+  "missing": [],
+  "nonImageFilesInAssets": [
+    "public\\assets\\eduzy gellery.zip",
+    "public\\assets\\EDUZY_Logo.pdf"
+  ]
+}

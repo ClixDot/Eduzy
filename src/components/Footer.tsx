@@ -2,73 +2,80 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, ArrowUp, ChevronDown, ChevronUp } from 'lucide-react';
-import logoImg from '../assets/logo.png';
+import { useSite } from '@/cms/site/ContentProvider';
+import { tel, whatsapp, isExternal } from '@/cms/site/helpers';
 import './Footer.css';
-
-const popularCourses = [
-  { name: 'AI-Integrated International Diploma in Logistics & Supply Chain Management', slug: 'logistics-and-supply-chain-management' },
-  { name: 'AI-Integrated International Diploma in Accounting', slug: 'accounting' },
-  { name: 'AI-Integrated International Diploma in Fashion Designing', slug: 'fashion-designing' },
-  { name: 'AI-Integrated International Diploma in Interior Designing', slug: 'interior-designing' },
-  { name: 'AI-Integrated International Diploma in Animation & Graphic Designing', slug: 'animation-graphic-designing' },
-  { name: 'AI-Integrated International Diploma in Digital Marketing & Influencer Marketing', slug: 'digital-marketing-influencer-marketing' },
-  { name: 'AI-Integrated International Diploma in Entrepreneurship & Business Development', slug: 'entrepreneurship-business-development' },
-  { name: 'AI-Integrated International Diploma in Hospital Administration', slug: 'hospital-administration' },
-  { name: 'AI-Integrated International Diploma in Human Resource Management', slug: 'human-resource-management' },
-  { name: 'AI-Integrated International Diploma in Aviation', slug: 'aviation' },
-];
-
-const quickLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'All Courses', to: '/courses' },
-  { label: 'Blogs', to: '/blogs' },
-  { label: 'Contact', to: '/contact' },
-];
 
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   const [showAllPrograms, setShowAllPrograms] = useState(false);
-
-  const displayedCourses = showAllPrograms ? popularCourses : popularCourses.slice(0, 4);
+  const { footer, settings, courses } = useSite();
+  const contact = settings.contact;
+  const social = settings.social;
+  const quickLinks = (footer.navLinks || []).map((l: any) => ({ label: l.label, to: l.url }));
+  const popularCourses: { name: string; href: string }[] =
+    footer.programsSource === 'custom'
+      ? (footer.customPrograms || []).map((p: any) => ({ name: p.label, href: p.url }))
+      : courses.map((c: any) => ({ name: c.name, href: `/courses/${c.slug}` }));
+  const initialCount = Math.max(1, Number(footer.programsInitialCount) || 4);
+  const displayedCourses = showAllPrograms ? popularCourses : popularCourses.slice(0, initialCount);
+  const logoSrc = footer.logo || settings.logo;
+  const ext = (url: string) => (isExternal(url) ? { target: '_blank', rel: 'noopener noreferrer' } : {});
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  if (footer.visible === false) return null;
 
   return (
-    <footer className="footer" role="contentinfo">
+    <footer className="footer" id="site-footer" role="contentinfo">
       <div className="container footer__container">
+        {footer.cta?.enabled && footer.cta.heading && (
+          <div className="footer__cta-strip">
+            <p className="footer__cta-heading">{footer.cta.heading}</p>
+            {footer.cta.buttonLabel && footer.cta.buttonUrl && (
+              <a href={footer.cta.buttonUrl} className="btn btn-primary" {...ext(footer.cta.buttonUrl)}>
+                {footer.cta.buttonLabel}
+              </a>
+            )}
+          </div>
+        )}
+
         {/* Main 4-Column Grid */}
         <div className="footer__grid">
           {/* Column 1: Brand & Socials */}
           <div className="footer__col footer__col--brand">
-            <Link to="/" className="footer__logo" aria-label="EDUZY - Campus to Career">
-              <img src={typeof logoImg === 'object' ? (logoImg as any).src : logoImg} alt="EDUZY - Campus to Career" className="footer__logo-img" />
+            <Link to="/" className="footer__logo" aria-label={settings.logoAlt}>
+              <img src={logoSrc} alt={settings.logoAlt} className="footer__logo-img" />
             </Link>
 
             <p className="footer__brand-desc">
-              Industry-led executive programs in digital marketing, creator growth, and business leadership across Kerala.
+              {footer.description}
             </p>
 
+            {footer.showSocials && (
             <div className="footer__socials" aria-label="Follow EDUZY on social media">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer__social-btn" 
+              {social.facebook && (
+              <a
+                href={social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer__social-btn"
                 aria-label="Facebook"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
               </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer__social-btn" 
+              )}
+              {social.instagram && (
+              <a
+                href={social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer__social-btn"
                 aria-label="Instagram"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -77,11 +84,13 @@ export default function Footer() {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
               </a>
-              <a 
-                href="https://youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer__social-btn" 
+              )}
+              {social.youtube && (
+              <a
+                href={social.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer__social-btn"
                 aria-label="YouTube"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -89,11 +98,26 @@ export default function Footer() {
                   <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#ffffff"/>
                 </svg>
               </a>
-              <a 
-                href="https://wa.me/916235210100" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer__social-btn footer__social-btn--wa" 
+              )}
+              {social.linkedin && (
+              <a href={social.linkedin} target="_blank" rel="noopener noreferrer" className="footer__social-btn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/>
+                </svg>
+              </a>
+              )}
+              {social.twitter && (
+              <a href={social.twitter} target="_blank" rel="noopener noreferrer" className="footer__social-btn" aria-label="X">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                  <path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3zm-1.2 18h1.9L7.4 3.9H5.4z"/>
+                </svg>
+              </a>
+              )}
+              <a
+                href={whatsapp(contact.whatsapp)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer__social-btn footer__social-btn--wa"
                 aria-label="WhatsApp"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -101,14 +125,15 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
+            )}
           </div>
 
           {/* Column 2: Quick Links */}
           <div className="footer__col">
-            <h4 className="footer__heading">Navigation</h4>
+            <h4 className="footer__heading">{footer.navHeading}</h4>
             <ul className="footer__links">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
+              {quickLinks.map((link: any) => (
+                <li key={link.label + link.to}>
                   <Link to={link.to} className="footer__link">
                     {link.label}
                   </Link>
@@ -119,20 +144,20 @@ export default function Footer() {
 
           {/* Column 3: Popular Courses */}
           <div className="footer__col">
-            <h4 className="footer__heading">Top Programs</h4>
+            <h4 className="footer__heading">{footer.programsHeading}</h4>
             <ul className="footer__links">
               {displayedCourses.map((c) => (
-                <li key={c.slug} className="footer__link-item">
-                  <Link to={`/courses/${c.slug}`} className="footer__link">
+                <li key={c.href + c.name} className="footer__link-item">
+                  <Link to={c.href} className="footer__link">
                     {c.name}
                   </Link>
                 </li>
               ))}
             </ul>
 
-            {popularCourses.length > 4 && (
-              <button 
-                type="button" 
+            {popularCourses.length > initialCount && (
+              <button
+                type="button"
                 className="footer__view-more-btn"
                 onClick={() => setShowAllPrograms(!showAllPrograms)}
                 aria-expanded={showAllPrograms}
@@ -145,30 +170,34 @@ export default function Footer() {
 
           {/* Column 4: Contact & Location */}
           <div className="footer__col footer__col--contact">
-            <h4 className="footer__heading">Contact Campus</h4>
-            
+            <h4 className="footer__heading">{footer.contactHeading}</h4>
+
             <div className="footer__contact-simple">
+              {contact.address && (
               <div className="footer__contact-row">
                 <MapPin size={17} className="footer__contact-icon" />
-                <span>Thrissur, Palakkad, Kannur, Trivandrum, Calicut, Kochi, Idukki</span>
+                <span>{contact.address}</span>
               </div>
+              )}
 
               <div className="footer__contact-row">
                 <Phone size={17} className="footer__contact-icon" />
                 <div className="footer__phones">
-                  <a href="tel:+916235210100">+91 62352 10100</a>
+                  <a href={tel(contact.phone)}>{contact.phoneDisplay}</a>
                 </div>
               </div>
 
               <div className="footer__contact-row">
                 <Mail size={17} className="footer__contact-icon" />
-                <a href="mailto:eduzycampus@gmail.com">eduzycampus@gmail.com</a>
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </div>
 
+              {contact.hours && (
               <div className="footer__contact-row">
                 <Clock size={17} className="footer__contact-icon" />
-                <span>Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM</span>
+                <span>{contact.hours}</span>
               </div>
+              )}
             </div>
           </div>
         </div>
@@ -176,38 +205,43 @@ export default function Footer() {
         {/* Bottom Sub-Footer Bar */}
         <div className="footer__bottom">
           <p className="footer__copyright">
-            &copy; {currentYear} <strong>EDUZY Global Academy</strong>. All Rights Reserved.
-            <span className="footer__powered-sep">&bull;</span>
-            <span className="footer__powered-text">
-              Powered by{' '}
-              <a 
-                href="https://clixdot.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer__clixdot-link"
-                title="clixdot.com"
-              >
-                clixdot
-              </a>
-            </span>
+            &copy; {currentYear} <strong>{footer.copyrightName}</strong>. {footer.copyrightSuffix}
+            {footer.showPoweredBy && footer.poweredByLabel && (
+              <>
+                <span className="footer__powered-sep">&bull;</span>
+                <span className="footer__powered-text">
+                  Powered by{' '}
+                  <a
+                    href={footer.poweredByUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer__clixdot-link"
+                    title={footer.poweredByLabel}
+                  >
+                    {footer.poweredByLabel}
+                  </a>
+                </span>
+              </>
+            )}
           </p>
 
           <div className="footer__legal">
-            <Link to="/">Privacy Policy</Link>
-            <span className="footer__dot">•</span>
-            <Link to="/">Terms &amp; Conditions</Link>
-            <span className="footer__dot">•</span>
-            <Link to="/">Sitemap</Link>
+            {(footer.legalLinks || []).map((l: any, i: number) => (
+              <React.Fragment key={i}>
+                {i > 0 && <span className="footer__dot">•</span>}
+                <Link to={l.url}>{l.label}</Link>
+              </React.Fragment>
+            ))}
           </div>
 
-          <button 
-            type="button" 
-            onClick={scrollToTop} 
-            className="footer__back-top" 
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="footer__back-top"
             aria-label="Back to top"
             title="Scroll to top"
           >
-            <span>Back to top</span>
+            <span>{footer.backToTopLabel}</span>
             <ArrowUp size={15} />
           </button>
         </div>

@@ -2,17 +2,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Phone } from 'lucide-react';
-import logoImg from '../assets/logo.png';
+import { useSite } from '@/cms/site/ContentProvider';
+import { tel } from '@/cms/site/helpers';
 import './Header.css';
 
-const navLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'Courses', to: '/courses' },
-  { label: 'Blogs', to: '/blogs' },
-  { label: 'Contact', to: '/contact' },
-];
-
 export default function Header() {
+  const { header, settings } = useSite();
+  const navLinks = (header.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => ({ label: l.label, to: l.url }));
+  const logoSrc = header.logo || settings.logo;
+  const logoAlt = header.logoAlt || settings.logoAlt;
+  const ctaUrl = header.ctaUrl || '/contact';
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -69,7 +68,8 @@ export default function Header() {
   const handleEnrollClick = (e?: any) => {
     if (e) e.preventDefault();
     setMenuOpen(false);
-    navigate('/contact');
+    if (/^https?:/i.test(ctaUrl)) window.open(ctaUrl, '_blank', 'noopener,noreferrer');
+    else navigate(ctaUrl);
   };
 
   const isActive = (to: string) => {
@@ -78,20 +78,22 @@ export default function Header() {
     return location.pathname.startsWith(to.split('#')[0]) && to !== '/';
   };
 
+  if (header.visible === false) return null;
+
   return (
     <>
       <header className={`header ${scrolled ? 'header--scrolled' : ''}`} role="banner">
         <div className="header__inner container">
           {/* Logo */}
-          <Link to="/" className="header__logo" aria-label="EDUZY - Campus to Career">
-            <img src={typeof logoImg === 'object' ? (logoImg as any).src : logoImg} alt="EDUZY - Campus to Career" className="header__logo-img" />
+          <Link to="/" className="header__logo" aria-label={logoAlt}>
+            <img src={logoSrc} alt={logoAlt} className="header__logo-img" />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="header__nav" role="navigation" aria-label="Main navigation">
             <ul className="header__nav-list" role="list">
               {navLinks.map((link) => (
-                <li key={link.to} className="header__nav-item">
+                <li key={link.to + link.label} className="header__nav-item">
                   <Link
                     to={link.to}
                     className={`header__nav-link ${isActive(link.to) ? 'active' : ''}`}
@@ -106,17 +108,19 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="header__actions">
+            {header.showCta && (
             <button
               type="button"
               onClick={handleEnrollClick}
               className="header__enroll-btn"
               id="header-enroll-btn"
-              aria-label="Enroll Now"
+              aria-label={header.ctaLabel}
             >
               <span className="header__enroll-glow" aria-hidden="true" />
               <span className="header__enroll-shimmer" aria-hidden="true" />
-              <span className="header__enroll-text">Enroll Now</span>
+              <span className="header__enroll-text">{header.ctaLabel}</span>
             </button>
+            )}
           </div>
 
           {/* Mobile hamburger */}
@@ -151,8 +155,8 @@ export default function Header() {
         inert={!menuOpen ? true : undefined}
       >
         <div className="mobile-menu__header">
-          <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)} aria-label="EDUZY - Campus to Career">
-            <img src={typeof logoImg === 'object' ? (logoImg as any).src : logoImg} alt="EDUZY - Campus to Career" className="header__logo-img" />
+          <Link to="/" className="header__logo" onClick={() => setMenuOpen(false)} aria-label={logoAlt}>
+            <img src={logoSrc} alt={logoAlt} className="header__logo-img" />
           </Link>
           <button 
             type="button" 
@@ -166,7 +170,7 @@ export default function Header() {
 
         <ul className="mobile-menu__list" role="list">
           {navLinks.map((link, i) => (
-            <li key={link.to} style={{ animationDelay: `${i * 0.05}s` }}>
+            <li key={link.to + link.label} style={{ animationDelay: `${i * 0.05}s` }}>
               <Link
                 to={link.to}
                 className={`mobile-menu__link ${isActive(link.to) ? 'active' : ''}`}
@@ -179,20 +183,24 @@ export default function Header() {
         </ul>
 
         <div className="mobile-menu__footer">
+          {header.showCta && (
           <button
             type="button"
             className="header__enroll-btn mobile-enroll-btn"
             onClick={handleEnrollClick}
-            aria-label="Enroll Now"
+            aria-label={header.ctaLabel}
           >
             <span className="header__enroll-glow" aria-hidden="true" />
             <span className="header__enroll-shimmer" aria-hidden="true" />
-            <span className="header__enroll-text">Enroll Now</span>
+            <span className="header__enroll-text">{header.ctaLabel}</span>
           </button>
-          <a href="tel:+916235210100" className="btn btn-outline mobile-menu__tel" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+          )}
+          {header.showMobileCall && (
+          <a href={tel(settings.contact.phone)} className="btn btn-outline mobile-menu__tel" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
             <Phone size={15} />
-            <span>Call Us</span>
+            <span>{header.mobileCallLabel}</span>
           </a>
+          )}
         </div>
       </nav>
     </>

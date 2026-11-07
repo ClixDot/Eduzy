@@ -1,21 +1,23 @@
 'use client';
 import React, { useState } from 'react';
-import { courses } from '../data/courses';
 import { CheckCircle2, MessageCircle, Phone } from 'lucide-react';
 import CustomSelect from './ui/CustomSelect';
+import { useSite } from '@/cms/site/ContentProvider';
+import { tel, whatsapp, fill } from '@/cms/site/helpers';
 import './EnquiryForm.css';
 
-export default function EnquiryForm({ 
-  preselectedCourse = '', 
-  title = 'Need Help Choosing a Course?', 
-  subtitle = 'Leave your details and our academic advisor will connect with you.' 
+export default function EnquiryForm({
+  preselectedCourse = '',
+  title = undefined as string | undefined,
+  subtitle = undefined as string | undefined,
 }) {
+  const { contact, settings, courses } = useSite();
+  const t = contact.enquiry;
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     course: preselectedCourse || '',
   });
-
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -49,7 +51,6 @@ export default function EnquiryForm({
       setErrors(errs);
       return;
     }
-
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -67,22 +68,27 @@ export default function EnquiryForm({
     setErrors({});
   };
 
+  // successText supports {course} and {phone}, rendered in bold like the original design
+  const successParts = String(t.successText || '').split(/(\{course\}|\{phone\})/);
+
   return (
     <div className="enquiry-card" id="enquiry-form">
       <div className="enquiry-card__header">
-        <h3 className="enquiry-card__title">{title}</h3>
-        <p className="enquiry-card__subtitle">{subtitle}</p>
+        <h3 className="enquiry-card__title">{title ?? t.title}</h3>
+        <p className="enquiry-card__subtitle">{subtitle ?? t.subtitle}</p>
       </div>
 
       {submitted ? (
         <div className="enquiry-success" role="status" aria-live="polite">
           <CheckCircle2 size={44} className="enquiry-success__icon" />
-          <h4 className="enquiry-success__title">Thank You, {formData.name}!</h4>
+          <h4 className="enquiry-success__title">{fill(t.successTitle, { name: formData.name })}</h4>
           <p className="enquiry-success__text">
-            Your enquiry for <strong>{formData.course}</strong> has been received. We will call you shortly at <strong>{formData.phone}</strong>.
+            {successParts.map((part, i) =>
+              part === '{course}' ? <strong key={i}>{formData.course}</strong> : part === '{phone}' ? <strong key={i}>{formData.phone}</strong> : part,
+            )}
           </p>
           <button className="btn btn-outline btn-sm" onClick={handleReset}>
-            Submit Another Enquiry
+            {t.anotherLabel}
           </button>
         </div>
       ) : (
@@ -90,7 +96,7 @@ export default function EnquiryForm({
           {/* Name */}
           <div className="form-group">
             <label htmlFor="enquiry-name" className="form-label">
-              Full Name
+              {t.nameLabel}
             </label>
             <input
               type="text"
@@ -98,7 +104,7 @@ export default function EnquiryForm({
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="e.g. Sandra Joseph"
+              placeholder={t.namePlaceholder}
               className={`form-input ${errors.name ? 'is-invalid' : ''}`}
             />
             {errors.name && <span className="form-error">{errors.name}</span>}
@@ -107,7 +113,7 @@ export default function EnquiryForm({
           {/* Phone */}
           <div className="form-group">
             <label htmlFor="enquiry-phone" className="form-label">
-              Phone Number
+              {t.phoneLabel}
             </label>
             <input
               type="tel"
@@ -115,7 +121,7 @@ export default function EnquiryForm({
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+91 98765 43210"
+              placeholder={t.phonePlaceholder}
               className={`form-input ${errors.phone ? 'is-invalid' : ''}`}
             />
             {errors.phone && <span className="form-error">{errors.phone}</span>}
@@ -124,7 +130,7 @@ export default function EnquiryForm({
           {/* Course Select */}
           <div className="form-group">
             <label htmlFor="enquiry-course" className="form-label">
-              Select Course
+              {t.courseLabel}
             </label>
             <CustomSelect
               id="enquiry-course"
@@ -132,7 +138,7 @@ export default function EnquiryForm({
               value={formData.course}
               onChange={handleChange}
               options={courses}
-              placeholder="-- Choose a course --"
+              placeholder={t.coursePlaceholder}
               error={errors.course}
             />
             {errors.course && <span className="form-error">{errors.course}</span>}
@@ -145,30 +151,30 @@ export default function EnquiryForm({
             disabled={loading}
             id="enquiry-submit-btn"
           >
-            {loading ? 'Submitting...' : 'Submit Enquiry'}
+            {loading ? t.submittingLabel : t.submitLabel}
           </button>
         </form>
       )}
 
       {/* Quick Direct Contact */}
       <div className="enquiry-card__direct">
-        <span className="enquiry-card__direct-label">Or reach us directly</span>
+        <span className="enquiry-card__direct-label">{t.directLabel}</span>
         <div className="enquiry-card__direct-actions">
           <a
-            href="https://wa.me/916235210100?text=Hello%20EDUZY%2C%20I%20would%20like%20to%20enquire%20about%20your%20courses"
+            href={whatsapp(settings.contact.whatsapp, t.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
             className="enquiry-pill enquiry-pill--wa"
           >
             <MessageCircle size={15} />
-            <span>WhatsApp Us</span>
+            <span>{t.whatsappLabel}</span>
           </a>
           <a
-            href="tel:+916235210100"
+            href={tel(settings.contact.phone)}
             className="enquiry-pill enquiry-pill--phone"
           >
             <Phone size={15} />
-            <span>Call Now</span>
+            <span>{t.callLabel}</span>
           </a>
         </div>
       </div>

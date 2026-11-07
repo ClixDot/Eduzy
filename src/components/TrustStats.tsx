@@ -1,17 +1,15 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
+import { gsap } from '../utils/gsapSetup';
+import { useSite } from '@/cms/site/ContentProvider';
 import './TrustStats.css';
-
-const stats = [
-  { number: 15, suffix: '+', label: 'Years of Experience' },
-  { number: 40000, suffix: '+', label: 'Students Placed' },
-  { number: 97, suffix: '+', label: 'Placement Partners' },
-  { number: 25, suffix: '+', label: 'Awards Won' },
-];
 
 export default function TrustStats() {
   const sectionRef = useRef(null);
+  const { stats: statsContent } = useSite();
+  const stats = (statsContent.items || []).map((s: any) => ({ ...s, number: Number(s.number) || 0 }));
+  const animate = statsContent.animate !== false;
+  const statsKey = JSON.stringify(stats);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -36,7 +34,9 @@ export default function TrustStats() {
       });
 
       // 2. Count numbers up smoothly
+      if (!animate) return;
       numberEls.forEach((numEl, i) => {
+        if (!stats[i]) return;
         const target = stats[i].number;
         const obj = { val: 0 };
 
@@ -57,14 +57,15 @@ export default function TrustStats() {
     }, el);
 
     return () => ctx.revert();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [statsKey, animate]);
 
   return (
-    <section className="trust-stats section-sm" aria-label="Academy statistics" ref={sectionRef}>
+    <section className="trust-stats section-sm" id="trust-stats" aria-label="Academy statistics" ref={sectionRef}>
       <div className="container">
         <div className="trust-stats__grid">
-          {stats.map((stat) => (
-            <div className="trust-stat-card" key={stat.label}>
+          {stats.map((stat, i) => (
+            <div className="trust-stat-card" key={i}>
               <div className="trust-stat-number">
                 <span className="trust-stat-num-val">{stat.number.toLocaleString()}</span>
                 <span>{stat.suffix}</span>

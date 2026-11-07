@@ -72,7 +72,7 @@
 .footer__logo-mark {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #ffffff;
   border-radius: 12px;
   display: flex;
@@ -143,8 +143,8 @@
 }
 
 .footer__social-btn:hover {
-  background: #FF3B0B;
-  border-color: #FF3B0B;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(255, 59, 11, 0.35);
@@ -202,7 +202,7 @@
 }
 
 .footer__link:hover {
-  color: #FF3B0B;
+  color: var(--color-primary);
   transform: translateX(2px);
 }
 
@@ -214,7 +214,7 @@
   margin-top: 12px;
   padding: 6px 14px;
   background: rgba(255, 59, 11, 0.08);
-  color: #FF3B0B;
+  color: var(--color-primary);
   border: 1px solid rgba(255, 59, 11, 0.22);
   border-radius: var(--radius-full);
   font-family: var(--font-heading);
@@ -227,9 +227,9 @@
 }
 
 .footer__view-more-btn:hover {
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
-  border-color: #FF3B0B;
+  border-color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(255, 59, 11, 0.25);
 }
@@ -256,7 +256,7 @@
 }
 
 .footer__contact-icon {
-  color: #FF3B0B;
+  color: var(--color-primary);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -269,7 +269,7 @@
 }
 
 .footer__contact-row a:hover {
-  color: #FF3B0B;
+  color: var(--color-primary);
 }
 
 .footer__phones {
@@ -326,7 +326,7 @@
 }
 
 .footer__clixdot-link {
-  color: #FF3B0B;
+  color: var(--color-primary);
   font-weight: 700;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -335,7 +335,7 @@
 }
 
 .footer__clixdot-link:hover {
-  color: #E62E00;
+  color: var(--color-primary-dark);
   background: rgba(255, 59, 11, 0.1);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -356,7 +356,7 @@
 }
 
 .footer__legal a:hover {
-  color: #FF3B0B;
+  color: var(--color-primary);
 }
 
 .footer__dot {
@@ -382,8 +382,8 @@
 }
 
 .footer__back-top:hover {
-  background: #FF3B0B;
-  border-color: #FF3B0B;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(255, 59, 11, 0.3);
@@ -423,3 +423,7 @@
     margin-top: 4px;
   }
 }
+
+/* Optional CMS call-to-action strip (Admin → Footer → Call to action) */
+.footer__cta-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 28px; margin-bottom: 40px; border-radius: 20px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); }
+.footer__cta-heading { margin: 0; font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: inherit; }

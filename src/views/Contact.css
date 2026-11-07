@@ -80,7 +80,7 @@
 }
 
 .contact-info__icon {
-  color: #FF3B0B;
+  color: var(--color-primary);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -104,7 +104,7 @@
 }
 
 a.contact-info__value:hover {
-  color: #FF3B0B;
+  color: var(--color-primary);
 }
 
 .contact-info__note {

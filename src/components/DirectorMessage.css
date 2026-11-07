@@ -55,7 +55,7 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FF3B0B;
+  color: var(--color-primary);
   margin-bottom: 10px;
 }
 
@@ -107,7 +107,7 @@
 
 .director__role {
   font-size: 0.82rem;
-  color: #FF3B0B;
+  color: var(--color-primary);
   font-weight: 700;
   margin-top: 2px;
 }

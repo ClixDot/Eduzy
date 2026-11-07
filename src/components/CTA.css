@@ -4,7 +4,7 @@
 
 .cta-card {
   position: relative;
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 50%, #CC2900 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, #CC2900 100%);
   border-radius: var(--radius-xl);
   padding: 48px 32px;
   overflow: hidden;

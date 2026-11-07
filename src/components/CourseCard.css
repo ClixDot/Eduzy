@@ -77,14 +77,14 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #FF3B0B;
+  color: var(--color-primary);
   font-weight: 600;
   font-size: 0.82rem;
   letter-spacing: -0.01em;
 }
 
 .course-card__duration svg {
-  color: #FF3B0B;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
@@ -92,7 +92,7 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: #FF3B0B;
+  color: var(--color-primary);
   font-weight: 700;
   font-size: clamp(0.68rem, 0.8vw, 0.75rem);
   background: #FFF7ED;
@@ -105,12 +105,12 @@
 }
 
 .course-card__level-pill svg {
-  color: #FF3B0B;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
 .course-card__format {
-  color: #FF3B0B;
+  color: var(--color-primary);
   font-weight: 700;
   font-size: 0.76rem;
   background: #FFF7ED;
@@ -142,7 +142,7 @@
 
 .course-card:hover .course-card__name,
 .course-card:hover .course-card__title-link {
-  color: #FF3B0B;
+  color: var(--color-primary);
 }
 
 /* 5. Short Description */
@@ -174,7 +174,7 @@
   align-items: center;
   gap: 8px;
   background: #FFF7ED;
-  color: #FF3B0B;
+  color: var(--color-primary);
   font-weight: 700;
   font-size: 0.85rem;
   padding: 8px 18px;
@@ -191,9 +191,9 @@
 }
 
 .course-card:hover .course-card__btn {
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
-  border-color: #FF3B0B;
+  border-color: var(--color-primary);
   box-shadow: 0 4px 14px rgba(255, 59, 11, 0.26);
 }
 

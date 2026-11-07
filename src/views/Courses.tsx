@@ -2,7 +2,8 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { gsap } from '../utils/gsapSetup';
-import { courses, courseCategories } from '../data/courses';
+import { useSite } from '@/cms/site/ContentProvider';
+import { spaced } from '@/cms/site/helpers';
 import CourseCard from '../components/CourseCard';
 import EnquiryForm from '../components/EnquiryForm';
 import CTA from '../components/CTA';
@@ -11,8 +12,13 @@ import './Courses.css';
 export default function Courses() {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
+  const { courses, courseCategories: cats, coursesPage: page } = useSite();
+  const courseCategories = useMemo(
+    () => [{ id: 'all', label: page.allLabel }, ...cats.map((c: any) => ({ id: c.slug, label: c.label }))],
+    [cats, page.allLabel],
+  );
 
-  const validCategoryIds = useMemo(() => new Set(courseCategories.map((c) => c.id)), []);
+  const validCategoryIds = useMemo(() => new Set(courseCategories.map((c) => c.id)), [courseCategories]);
 
   const getInitialCategory = () => {
     // 1. From URL query param
@@ -27,19 +33,12 @@ export default function Courses() {
     if (location.state?.category && validCategoryIds.has(location.state.category)) {
       return location.state.category;
     }
-    // 3. From session storage (e.g., if user backed out from a course details page)
-    const storedCat = sessionStorage.getItem('edozy_active_course_category');
-    if (storedCat && validCategoryIds.has(storedCat)) {
-      return storedCat;
-    }
+    // 3. Session storage (user backed out from a course details page) is browser-only,
+    //    so it is restored by the effect below after hydration rather than during render.
     return 'all';
   };
 
   const [selectedCategory, setSelectedCategory] = useState(getInitialCategory);
-
-  useEffect(() => {
-    document.title = 'AI-Integrated International Diploma Courses | EDUZY';
-  }, []);
 
   // Sync state if searchParams or session changes
   useEffect(() => {
@@ -80,7 +79,7 @@ export default function Courses() {
       if (Array.isArray(c.categories) && c.categories.includes(selectedCategory)) return true;
       return false;
     });
-  }, [selectedCategory]);
+  }, [selectedCategory, courses]);
 
   useEffect(() => {
     gsap.fromTo(
@@ -104,11 +103,11 @@ export default function Courses() {
       <section className="courses-hero" aria-label="Course Explorer Hero">
         <div className="container text-center courses-hero__container">
           <h1 className="courses-hero__title">
-            Explore All <span className="highlight-orange">Courses</span>
+            {spaced(page.titleStart)}<span className="highlight-orange">{page.titleHighlight}</span>
           </h1>
 
           <p className="courses-hero__subtitle">
-            Industry-focused programs designed to develop professional skills and prepare learners for career opportunities.
+            {page.subtitle}
           </p>
 
           {/* Functional Category Filter matching reference screenshot */}
@@ -150,8 +149,8 @@ export default function Courses() {
       <section className="courses-advisory-section">
         <div className="container" style={{ maxWidth: '580px' }}>
           <EnquiryForm
-            title="Need Help Choosing a Course?"
-            subtitle="Leave your details and our team will get in touch with you."
+            title={page.enquiryTitle}
+            subtitle={page.enquirySubtitle}
           />
         </div>
       </section>

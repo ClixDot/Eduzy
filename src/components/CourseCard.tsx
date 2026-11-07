@@ -2,9 +2,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, GraduationCap } from 'lucide-react';
+import { useSite } from '@/cms/site/ContentProvider';
 import './CourseCard.css';
 
 export default function CourseCard({ course, priority = false }) {
+  const { coursesPage } = useSite();
   const hasLevel = Boolean(course.level);
   const hasDuration = Boolean(course.duration);
   const hasFormat = Boolean(course.format);
@@ -90,7 +92,7 @@ export default function CourseCard({ course, priority = false }) {
             id={`course-view-${course.slug}`}
             aria-label={`Explore ${course.name} course`}
           >
-            <span>Explore Course</span>
+            <span>{coursesPage.cardButtonLabel || 'Explore Course'}</span>
             <ArrowRight size={15} aria-hidden="true" />
           </Link>
         </div>

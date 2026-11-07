@@ -10,7 +10,8 @@ export interface LinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorEle
 }
 
 export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
-  { to, href, children, state, ...props },
+  // `state` is a react-router prop with no Next.js equivalent; pulled out so it is not passed to <a>.
+  { to, href, children, state: _state, ...props },
   ref
 ) {
   const target = href || to || '#';

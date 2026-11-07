@@ -1,177 +1,36 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import {
-  Users,
-  BookOpen, 
-  Monitor, 
-  Building, 
-  ShieldCheck, 
-  CheckCircle2, 
-  Sparkles,
-  Coffee,
-  ArrowRight,
-  X, 
-  ExternalLink,
-  ChevronRight
-} from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useSite } from '@/cms/site/ContentProvider';
+import { spaced } from '@/cms/site/helpers';
+import { CmsIcon } from '@/cms/site/helpers';
+import '../components/site/SiteExtras.css';
 import { gsap } from '../utils/gsapSetup';
 import VideoTestimonials from '../components/VideoTestimonials';
 import CTA from '../components/CTA';
 import './Portfolio.css';
 
-// Gallery Categories requested by user
-const galleryCategories = [
-  { id: 'all', label: 'All' },
-  { id: 'classes', label: 'Classes' },
-  { id: 'events', label: 'Events' },
-  { id: 'industrial-visits', label: 'Industrial Visits' },
-  { id: 'student-activities', label: 'Student Activities' },
-  { id: 'achievements', label: 'Achievements' },
-  { id: 'campus', label: 'Campus' },
-];
-
-// Client photos, served from public/assets/gellery
-const galleryItems = [
-  {
-    id: 1,
-    title: 'CBT / Computer Lab',
-    category: 'campus',
-    categoryLabel: 'Campus & Facilities',
-    image: '/assets/gellery/01-cbt-computer-lab.jpg',
-    alt: 'EDUZY students practising in the computer lab',
-  },
-  {
-    id: 2,
-    title: 'Annual Convocation Ceremony',
-    category: 'events',
-    categoryLabel: 'Events',
-    image: '/assets/gellery/02-annual-convocation-ceremony.jpg',
-    alt: 'EDUZY convocation ceremony – Our Proud Graduates',
-  },
-  {
-    id: 3,
-    title: 'Classroom Sessions',
-    category: 'classes',
-    categoryLabel: 'Classes',
-    image: '/assets/gellery/03-classroom-sessions.jpg',
-    alt: 'Students attending a classroom session at EDUZY',
-  },
-  {
-    id: 4,
-    title: 'Industrial Visit – Port / Container Yard',
-    category: 'industrial-visits',
-    categoryLabel: 'Industrial Visits',
-    image: '/assets/gellery/04-industrial-visit-port-container-yard.jpg',
-    alt: 'EDUZY students in safety gear during a container yard visit',
-  },
-  {
-    id: 5,
-    title: 'Site Visit & Field Training',
-    category: 'industrial-visits',
-    categoryLabel: 'Industrial Visits',
-    image: '/assets/gellery/05-site-visit-field-training.jpg',
-    alt: 'EDUZY students in helmets and safety vests on a site visit',
-  },
-  {
-    id: 6,
-    title: 'Corporate Visit / Placement Drive',
-    category: 'achievements',
-    categoryLabel: 'Achievements',
-    image: '/assets/gellery/06-corporate-visit-placement-drive.jpg',
-    alt: 'EDUZY students at a corporate office during a placement drive',
-  },
-  {
-    id: 7,
-    title: 'Student Trip & Outing',
-    category: 'student-activities',
-    categoryLabel: 'Student Activities',
-    image: '/assets/gellery/07-student-trip-outing.jpg',
-    alt: 'EDUZY students on a group trip',
-  },
-  {
-    id: 8,
-    title: 'Cultural Events & Celebrations',
-    category: 'events',
-    categoryLabel: 'Events',
-    image: '/assets/gellery/08-cultural-events-celebrations.jpg',
-    alt: 'Collage of EDUZY students celebrating cultural events and festivals',
-  },
-];
-
-// Student Achievements Data
-const achievements = [
-  {
-    title: 'Logistics & Supply Chain Qualifiers',
-    stat: '950+ Certified',
-    badge: 'Logistics Excellence',
-    desc: 'Graduates securing high-demand roles in global shipping lines, freight forwarding, and supply chain hubs.',
-  },
-  {
-    title: 'Accounting & Corporate Finance Specialists',
-    stat: '1,200+ Placed',
-    badge: 'Accounting Mastery',
-    desc: 'Certified professionals equipped with Tally, GST, SAP, and computerized accounting across corporate firms.',
-  },
-  {
-    title: 'Digital Marketing & Creative Designers',
-    stat: '850+ Placed',
-    badge: 'Creative & Tech Hub',
-    desc: 'Graduates excelling in performance marketing, fashion styling, interior CAD drafting, and brand design.',
-  },
-  {
-    title: 'Hospital Admin & Aviation Graduates',
-    stat: '98.4% Placement Rate',
-    badge: 'Global Careers',
-    desc: 'Diploma holders placed across leading healthcare networks and international airport operations.',
-  }
-];
-
-// Campus Facilities Data
-const campusFacilities = [
-  {
-    icon: Monitor,
-    title: 'CBT Computer Mock Lab',
-    desc: 'Equipped with 50+ high-performance workstations, licensed software, and studio headphones simulating real Pearson VUE & CD-IELTS test environments.'
-  },
-  {
-    icon: BookOpen,
-    title: 'Comprehensive Reference Library',
-    desc: 'Vast collection of official Cambridge practice manuals, medical journals, German grammar guides, and quiet reading desks.'
-  },
-  {
-    icon: Users,
-    title: 'Sound-Insulated Speaking Booths',
-    desc: 'Dedicated individual booths allowing students to record, replay, and review mock speaking tests with zero external noise interference.'
-  },
-  {
-    icon: Building,
-    title: 'Smart Digital Classrooms',
-    desc: 'Air-conditioned lecture spaces equipped with 4K interactive presentation touchscreens, surround sound, and ergonomic student seating.'
-  },
-  {
-    icon: Coffee,
-    title: 'Student Lounge & Collaboration Zone',
-    desc: 'A vibrant cafeteria and open-air discussion deck where peer study circles, group revisions, and informal mentorship interactions happen.'
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Official Test Registration Desk',
-    desc: 'In-house authorized assistance for exam slot booking, passport verification, credential evaluation, and exam fee payments.'
-  }
-];
-
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
-
-  useEffect(() => {
-    document.title = 'Campus Life, Placements & Gallery | EDUZY';
-  }, []);
+  const { portfolio: page, placementAchievements, gallery, galleryCategories: gcats, blogs, journal, blogCategories } = useSite();
+  const show = page.show || {};
+  const galleryCategories = [{ id: 'all', label: page.galleryAllLabel }, ...gcats.map((c: any) => ({ id: c.slug, label: c.label }))];
+  const galleryItems = gallery.map((g: any) => {
+    const cat = gcats.find((c: any) => c.slug === g.category);
+    return { ...g, categoryLabel: cat?.badgeLabel || cat?.label || '' };
+  });
+  const achievements = placementAchievements.items || [];
+  const campusFacilities = page.facilities || [];
+  const posts = blogs.slice(0, Number(journal.perPage) || 9);
+  const blogCategoryLabel = (slug: string) => blogCategories.find((c: any) => c.slug === slug)?.label || '';
 
   // Filter gallery items
   const filteredGallery = activeTab === 'all'
     ? galleryItems
     : galleryItems.filter((item) => item.category === activeTab);
+  const filterKey = filteredGallery.length;
 
   // GSAP animation on tab change
   useEffect(() => {
@@ -180,7 +39,7 @@ export default function Portfolio() {
       { y: 20, opacity: 0.2 },
       { y: 0, opacity: 1, stagger: 0.05, duration: 0.5, ease: 'power2.out', clearProps: 'all' }
     );
-  }, [activeTab]);
+  }, [activeTab, filterKey]);
 
   // Smooth scroll handler with header offset
   const scrollToSection = (e, id) => {
@@ -220,32 +79,61 @@ export default function Portfolio() {
       <section className="portfolio-hero">
         <div className="container text-center">
           <span className="portfolio-hero__badge">
-            Campus Life, Achievements & Gallery
+            {page.heroBadge}
           </span>
           <h1 className="portfolio-hero__title">
-            Life at EDUZY: <span className="highlight-orange">Portfolio & Achievements</span>
+            {spaced(page.heroTitleStart)}<span className="highlight-orange">{page.heroTitleHighlight}</span>
           </h1>
           <p className="portfolio-hero__subtitle">
-            Explore our state-of-the-art campus infrastructure, clinical simulation labs, student celebrations, and global healthcare career milestones.
+            {page.heroSubtitle}
           </p>
 
           {/* Jump Navigation Quick Links */}
           <div className="portfolio-hero__quick-links">
-            <a href="#gallery-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'gallery-section')}>Gallery</a>
-            <a href="#achievements-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'achievements-section')}>Achievements</a>
-            <a href="#campus-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'campus-section')}>Campus & Labs</a>
+            {show.gallery && <a href="#gallery-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'gallery-section')}>{page.linkGallery}</a>}
+            {show.achievements && <a href="#achievements-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'achievements-section')}>{page.linkAchievements}</a>}
+            {show.campus && <a href="#campus-section" className="quick-link-pill" onClick={(e) => scrollToSection(e, 'campus-section')}>{page.linkCampus}</a>}
           </div>
         </div>
       </section>
 
+      {/* ================= BLOG POSTS (shown once posts are published) ================= */}
+      {show.journal && posts.length > 0 && (
+        <section className="portfolio-section" id="journal-section" aria-label={journal.title}>
+          <div className="container">
+            <div className="section-header text-center">
+              <span className="section-tag">{journal.tag}</span>
+              <h2 className="section-title">{journal.title}</h2>
+              {journal.subtitle && <p className="section-subtitle">{journal.subtitle}</p>}
+            </div>
+            <div className="journal-grid">
+              {posts.map((post: any) => (
+                <Link key={post.id} to={`/blogs/${post.slug}`} className="journal-card">
+                  {post.coverImage && <img src={post.coverImage} alt={post.coverAlt || post.title} className="journal-card__img" loading="lazy" />}
+                  <div className="journal-card__body">
+                    <span className="journal-card__meta">
+                      {[blogCategoryLabel(post.category), post.publishDate ? new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : ''].filter(Boolean).join(' · ')}
+                    </span>
+                    <h3 className="journal-card__title">{post.title}</h3>
+                    {post.excerpt && <p className="journal-card__excerpt">{post.excerpt}</p>}
+                    <span className="journal-card__more">{journal.readMoreLabel} →</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ================= 2. INTERACTIVE GALLERY & FILTER ================= */}
+      {show.gallery && (
       <section className="portfolio-section" id="gallery-section" aria-label="Academy Gallery">
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-tag">Visual Showcase</span>
-            <h2 className="section-title">Academy Photo Gallery</h2>
+            <span className="section-tag">{page.galleryTag}</span>
+            <h2 className="section-title">{page.galleryTitle}</h2>
             <p className="section-subtitle">
-              Browse classroom sessions, testing labs, cultural events, and graduation celebrations at EDUZY academy.
+              {page.gallerySubtitle}
             </p>
           </div>
 
@@ -291,7 +179,7 @@ export default function Portfolio() {
                     loading="lazy"
                   />
                   <div className="gallery-card__overlay">
-                    <span className="gallery-card__zoom-btn">View Photo</span>
+                    <span className="gallery-card__zoom-btn">{page.galleryViewLabel}</span>
                   </div>
                   <span className="gallery-card__category-badge">{item.categoryLabel}</span>
                 </div>
@@ -304,14 +192,17 @@ export default function Portfolio() {
         </div>
       </section>
 
+      )}
+
       {/* ================= 3. STUDENT ACHIEVEMENTS ================= */}
+      {show.achievements && (
       <section className="portfolio-section portfolio-section--alt" id="achievements-section" aria-label="Student Achievements">
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-tag">Proven Track Record</span>
-            <h2 className="section-title">Student Achievements</h2>
+            <span className="section-tag">{placementAchievements.tag}</span>
+            <h2 className="section-title">{placementAchievements.title}</h2>
             <p className="section-subtitle">
-              Thousands of healthcare professionals have achieved their dream scores on their first attempt.
+              {placementAchievements.subtitle}
             </p>
           </div>
 
@@ -331,24 +222,26 @@ export default function Portfolio() {
         </div>
       </section>
 
+      )}
+
       {/* ================= 4. CAMPUS & FACILITIES ================= */}
+      {show.campus && (
       <section className="portfolio-section" id="campus-section" aria-label="Campus Facilities">
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-tag">Infrastructure</span>
-            <h2 className="section-title">Modern Campus & Facilities</h2>
+            <span className="section-tag">{page.campusTag}</span>
+            <h2 className="section-title">{page.campusTitle}</h2>
             <p className="section-subtitle">
-              Designed from the ground up to offer the most conducive environment for language learning and test preparation.
+              {page.campusSubtitle}
             </p>
           </div>
 
           <div className="facilities-grid">
-            {campusFacilities.map((fac, idx) => {
-              const Icon = fac.icon;
+            {campusFacilities.map((fac: any, idx: number) => {
               return (
                 <div key={idx} className="facility-card">
                   <div className="facility-card__icon-box">
-                    <Icon size={24} />
+                    <CmsIcon name={fac.icon} size={24} />
                   </div>
                   <h3 className="facility-card__title">{fac.title}</h3>
                   <p className="facility-card__desc">{fac.desc}</p>
@@ -357,7 +250,7 @@ export default function Portfolio() {
                     onClick={() => window.dispatchEvent(new CustomEvent('open-enroll-modal', { detail: { course: `Campus Visit: ${fac.title}` } }))}
                     className="facility-card__action-btn"
                   >
-                    <span>Book Campus Visit</span>
+                    <span>{page.campusButtonLabel}</span>
                     <ArrowRight size={14} />
                   </button>
                 </div>
@@ -367,11 +260,13 @@ export default function Portfolio() {
         </div>
       </section>
 
+      )}
+
       {/* ================= 6. VIDEO REELS & TESTIMONIALS ================= */}
-      <VideoTestimonials />
+      {show.videos && <VideoTestimonials />}
 
       {/* ================= 10. CALL TO ACTION ================= */}
-      <CTA />
+      {show.cta && <CTA />}
 
       {/* ================= LIGHTBOX MODAL ================= */}
       {selectedImage && (
@@ -395,6 +290,7 @@ export default function Portfolio() {
             <div className="gallery-lightbox-info">
               <span className="gallery-lightbox-tag">{selectedImage.categoryLabel}</span>
               <h3 className="gallery-lightbox-title">{selectedImage.title}</h3>
+              {selectedImage.description && <p style={{ marginTop: 6, fontSize: '0.92rem' }}>{selectedImage.description}</p>}
               <div className="gallery-lightbox-bottom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginTop: '14px', paddingTop: '12px', borderTop: '1px solid #E2E8F0' }}>
                 <button
                   type="button"
@@ -406,7 +302,7 @@ export default function Portfolio() {
                   className="btn btn-primary btn-sm"
                   style={{ borderRadius: '9999px', padding: '7px 18px', fontSize: '0.84rem' }}
                 >
-                  Book Campus Visit
+                  {page.campusButtonLabel}
                 </button>
               </div>
             </div>

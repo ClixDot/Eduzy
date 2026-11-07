@@ -14,7 +14,7 @@
   padding: 112px 0 44px;
   background-image: 
     linear-gradient(180deg, rgba(255, 255, 255, 0.84) 0%, rgba(255, 255, 255, 0.94) 60%, #ffffff 100%), 
-    url('/assets/hero_study_bg.jpg');
+    url('https://res.cloudinary.com/wbckkjmc/image/upload/v1794040643/eduzy/backgrounds/hero-study-bg.jpg');
   background-size: cover;
   background-position: center 25%;
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@
 }
 
 .highlight-orange {
-  color: #FF3B0B;
+  color: var(--color-primary);
 }
 
 .courses-hero__subtitle {
@@ -100,12 +100,12 @@
 }
 
 .course-filter__btn:hover {
-  color: #FF3B0B;
+  color: var(--color-primary);
   background: #FFF7ED;
 }
 
 .course-filter__btn.active {
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
   font-weight: 700;
   box-shadow: 0 4px 16px rgba(255, 59, 11, 0.28);

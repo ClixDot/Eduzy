@@ -9,41 +9,38 @@ import VideoTestimonials from '../components/VideoTestimonials';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import CTA from '../components/CTA';
+import Achievements from '../components/Achievements';
+import FeaturedCourses from '../components/FeaturedCourses';
+import CustomBlock from '../components/CustomBlock';
+import { useSite } from '@/cms/site/ContentProvider';
+
+/** Home page sections, in the order and visibility set in Admin → Home Page. */
+const SECTIONS: Record<string, React.ComponentType<any>> = {
+  hero: Hero,
+  stats: TrustStats,
+  whyChoose: About,
+  accreditation: Accreditation,
+  featuredCourses: FeaturedCourses,
+  director: DirectorMessage,
+  videoStories: VideoTestimonials,
+  testimonials: Testimonials,
+  achievements: Achievements,
+  faq: FAQ,
+  cta: CTA,
+};
 
 export default function Home() {
-  React.useEffect(() => {
-    document.title = 'EDUZY | AI-Integrated International Diplomas & Professional Training';
-  }, []);
+  const { home } = useSite();
 
   return (
     <main id="main-content">
-      {/* 1. Hero Section */}
-      <Hero />
-
-      {/* 2. Trust Stats */}
-      <TrustStats />
-
-      {/* 3. About Section */}
-      <About />
-
-      {/* 4. International Accreditations & Certifications */}
-      <Accreditation />
-
-      {/* 5. Director's Message */}
-      <DirectorMessage />
-
-      {/* 6. Student Video Reels Carousel */}
-      <VideoTestimonials />
-
-      {/* 7. Student Testimonials */}
-      <Testimonials />
-
-      {/* 8. Frequently Asked Questions */}
-      <FAQ />
-
-      {/* 9. Final Enrollment CTA */}
-      <CTA />
+      {(home.sections || [])
+        .filter((s: any) => s.enabled)
+        .map((s: any) => {
+          if (s.type === 'richText') return <CustomBlock key={s.id} id={s.id} block={home.blocks?.[s.id] || {}} />;
+          const Section = SECTIONS[s.type];
+          return Section ? <Section key={s.id} /> : null;
+        })}
     </main>
   );
 }
-

@@ -13,7 +13,7 @@ export const videoTestimonials = [
     title: 'From Campus to Logistics Executive in Dubai',
     duration: '0:58',
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: '/assets/healthcare_student.jpg',
+    thumbnail: 'https://res.cloudinary.com/wbckkjmc/image/upload/v1794040657/eduzy/testimonials/healthcare-student.jpg',
     badge: 'UAE Placed',
   },
   {
@@ -25,7 +25,7 @@ export const videoTestimonials = [
     title: 'How I Transitioned into Corporate Accounting',
     duration: '1:12',
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: '/assets/hero_student.jpg',
+    thumbnail: 'https://res.cloudinary.com/wbckkjmc/image/upload/v1794040609/eduzy/hero/hero-student.jpg',
     badge: 'EY Placed',
   },
   {
@@ -37,7 +37,7 @@ export const videoTestimonials = [
     title: 'Launching My Career in Modern Marketing',
     duration: '1:05',
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: '/assets/language_learning.jpg',
+    thumbnail: 'https://res.cloudinary.com/wbckkjmc/image/upload/v1794040659/eduzy/testimonials/language-learning.jpg',
     badge: 'High Salary',
   },
   {
@@ -49,7 +49,7 @@ export const videoTestimonials = [
     title: 'Transforming Creative Skills into a Global Career',
     duration: '0:45',
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: '/assets/about_classroom.jpg',
+    thumbnail: 'https://res.cloudinary.com/wbckkjmc/image/upload/v1794040661/eduzy/testimonials/about-classroom.jpg',
     badge: 'Qatar Placed',
   },
   {
@@ -61,7 +61,7 @@ export const videoTestimonials = [
     title: 'My Diploma Journey to Healthcare Administration',
     duration: '1:20',
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: '/assets/director_neethu.png',
+    thumbnail: 'https://res.cloudinary.com/wbckkjmc/image/upload/v1794040663/eduzy/directors/director-neethu.png',
     badge: 'Aster Placed',
   },
 ];

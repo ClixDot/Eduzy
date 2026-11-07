@@ -1,79 +1,15 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import { gsap } from '../utils/gsapSetup';
-import badge1Img from '../assets/badge1.png';
-import badge2Img from '../assets/badge2.png';
-import badge3Img from '../assets/badge3.png';
-import americanBoardImg from '../assets/American Board of Education Seal.png';
-import nsdcImg from '../assets/NSDC Logo with Celebrating Figures.png';
-import isoImg from '../assets/Blue ISO Globe Logo.png';
-import ignetImg from '../assets/IGNET_University_Emblem_and_Wordmark-removebg-preview.png';
-import sapImg from '../assets/SAP Blue Gradient Logo.png';
-import excelImg from '../assets/Microsoft Excel Logo on Transparency.png';
-import tallyImg from '../assets/Tally_Black_and_Red_Script_Logo-removebg-preview.png';
+import { useSite } from '@/cms/site/ContentProvider';
 import './Accreditation.css';
-
-// --- ROW 1: 3 International Certificates ---
-const primaryBadges = [
-  {
-    id: 'iqa-usa',
-    img: badge1Img,
-    alt: 'IQA - International Qualifications and Assessments USA',
-  },
-  {
-    id: 'sted-council',
-    img: badge2Img,
-    alt: 'STED Council - Scientific and Technical Education Development Council',
-  },
-  {
-    id: 'aaa-accreditation',
-    img: badge3Img,
-    alt: 'Accreditation AAA - Organizational Member',
-  },
-];
-
-// --- PARTNER SECTION: Exactly matches user's screenshot order ---
-// 1. American Board of Education | 2. NSDC | 3. IGNET | 4. ISO | 5. SAP | 6. Excel | 7. Tally
-const partnerBadges = [
-  {
-    id: 'american-board',
-    img: americanBoardImg,
-    alt: 'American Board of Education',
-  },
-  {
-    id: 'nsdc-india',
-    img: nsdcImg,
-    alt: 'NSDC - National Skill Development Corporation',
-  },
-  {
-    id: 'ignet-network',
-    img: ignetImg,
-    alt: 'IGNET - Indira Gandhi National Open University',
-  },
-  {
-    id: 'iso-9001',
-    img: isoImg,
-    alt: 'ISO 9001:2015 Certified',
-  },
-  {
-    id: 'sap-erp',
-    img: sapImg,
-    alt: 'SAP Enterprise ERP Solutions',
-  },
-  {
-    id: 'microsoft-excel',
-    img: excelImg,
-    alt: 'Microsoft Excel',
-  },
-  {
-    id: 'tally-prime',
-    img: tallyImg,
-    alt: 'Tally - Power of Simplicity',
-  },
-];
 
 export default function Accreditation() {
   const sectionRef = useRef(null);
+  const { accreditationSection: sec, accreditations } = useSite();
+  const toBadge = (a: any) => ({ id: a.id.replace(/^acc-/, ''), img: a.image, alt: a.name });
+  const primaryBadges = accreditations.filter((a: any) => a.group === 'primary').map(toBadge);
+  const partnerBadges = accreditations.filter((a: any) => a.group !== 'primary').map(toBadge);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -127,19 +63,19 @@ export default function Accreditation() {
         {/* Section Header */}
         <div className="text-center accreditation__header">
           <h2 className="accreditation__title">
-            International Certifications &<br />
-            <span className="highlight-orange">University Recognitions</span>
+            {sec.titleLine1}<br />
+            <span className="highlight-orange">{sec.titleHighlight}</span>
           </h2>
 
           <p className="accreditation__subtitle">
-            EDUZY training programs are internationally validated, government-regulated, and university-recognized — 
-            ensuring your credentials are accepted for global corporate employment, embassy attestation, and international careers.
+            {sec.subtitle}
           </p>
         </div>
 
         {/* Cards Wrapper */}
         <div className="accreditation__cards-wrapper">
-          {/* Row 1: Exactly 3 International Certificates */}
+          {/* Row 1: International Certificates */}
+          {primaryBadges.length > 0 && (
           <div className="accreditation__grid accreditation__grid--primary">
             {primaryBadges.map((b) => (
               <div 
@@ -149,7 +85,7 @@ export default function Accreditation() {
                 <div className="accreditation__badge-frame">
                   <div className="accreditation__badge-glow" aria-hidden="true" />
                   <img 
-                    src={typeof b.img === 'object' ? (b.img as any).src : b.img} 
+                    src={b.img} 
                     alt={b.alt} 
                     className="accreditation__badge-img"
                     loading="lazy"
@@ -160,8 +96,10 @@ export default function Accreditation() {
               </div>
             ))}
           </div>
+          )}
 
-          {/* Marked Section: 4 per row in exact user-requested order */}
+          {/* Partner logos: 4 per row in the order set in the CMS */}
+          {partnerBadges.length > 0 && (
           <div className="accreditation__grid accreditation__grid--secondary">
             {partnerBadges.map((b) => (
               <div 
@@ -171,7 +109,7 @@ export default function Accreditation() {
                 <div className="accreditation__badge-frame">
                   <div className="accreditation__badge-glow" aria-hidden="true" />
                   <img 
-                    src={typeof b.img === 'object' ? (b.img as any).src : b.img} 
+                    src={b.img} 
                     alt={b.alt} 
                     className="accreditation__badge-img"
                     loading="lazy"
@@ -182,6 +120,7 @@ export default function Accreditation() {
               </div>
             ))}
           </div>
+          )}
         </div>
       </div>
     </section>

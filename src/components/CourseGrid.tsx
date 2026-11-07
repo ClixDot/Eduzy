@@ -1,20 +1,23 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { courses, courseCategories } from '../data/courses';
 import CourseCard from './CourseCard';
+import { useSite } from '@/cms/site/ContentProvider';
 import './CourseGrid.css';
 
-const INITIAL_COUNT = 6;
-
-export default function CourseGrid({ showAll = false, compact = false }) {
+export default function CourseGrid({ showAll = false, compact = false, courses: list = null as any[] | null, showFilter = true, initialCount = 6, loadMoreLabel = 'Load More Courses', viewAllLabel = 'View All Courses' }) {
+  const site = useSite();
+  const courses = list || site.courses;
+  const INITIAL_COUNT = initialCount;
+  const courseCategories = [{ id: 'all', label: site.coursesPage.allLabel }, ...site.courseCategories.map((c: any) => ({ id: c.slug, label: c.label }))]
+    .filter((cat) => cat.id === 'all' || courses.some((c: any) => c.categories?.includes(cat.id)));
   const [activeCategory, setActiveCategory] = useState('all');
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const sectionRef = useRef(null);
 
   const filtered = activeCategory === 'all'
     ? courses
-    : courses.filter((c) => c.category === activeCategory);
+    : courses.filter((c) => c.category === activeCategory || c.categories?.includes(activeCategory));
 
   const displayed = showAll ? filtered : filtered.slice(0, visibleCount);
 
@@ -43,6 +46,7 @@ export default function CourseGrid({ showAll = false, compact = false }) {
   return (
     <div className="course-grid-wrapper" ref={sectionRef}>
       {/* Category filter */}
+      {showFilter && (
       <div className="course-filter-wrapper">
         <div className="course-filter" role="tablist" aria-label="Filter courses by category">
           {courseCategories.map((cat) => (
@@ -59,6 +63,7 @@ export default function CourseGrid({ showAll = false, compact = false }) {
           ))}
         </div>
       </div>
+      )}
 
       {/* Grid */}
       <div className={`course-grid ${compact ? 'course-grid--compact' : ''}`} role="list">
@@ -78,11 +83,11 @@ export default function CourseGrid({ showAll = false, compact = false }) {
               onClick={() => setVisibleCount((p) => p + 6)}
               id="load-more-courses"
             >
-              Load More Courses
+              {loadMoreLabel}
             </button>
           ) : (
             <Link to="/courses" className="btn btn-outline" id="view-all-courses">
-              View All Courses
+              {viewAllLabel}
               <svg className="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
               </svg>

@@ -45,9 +45,9 @@
 }
 
 .carousel-btn:hover {
-  background: #FF3B0B;
+  background: var(--color-primary);
   color: #ffffff;
-  border-color: #FF3B0B;
+  border-color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(255, 59, 11, 0.28);
 }
@@ -123,7 +123,7 @@
 .testimonial-card__course-tag {
   font-size: 0.74rem;
   font-weight: 700;
-  color: #FF3B0B;
+  color: var(--color-primary);
   background: #FFF7ED;
   padding: 3px 10px;
   border-radius: 9999px;
@@ -156,7 +156,7 @@
   height: 44px;
   border-radius: 50%;
   background: #FFF7ED;
-  color: #FF3B0B;
+  color: var(--color-primary);
   border: 1.5px solid #FFEDD5;
   display: flex;
   align-items: center;
@@ -169,7 +169,7 @@
 }
 
 .testimonial-card:hover .testimonial-card__avatar {
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #ffffff;
   border-color: transparent;
   transform: scale(1.08);
@@ -213,7 +213,7 @@
 
 .testimonials__dot.active {
   width: 28px;
-  background: #FF3B0B;
+  background: var(--color-primary);
 }
 
 /* Responsive */

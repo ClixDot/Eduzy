@@ -2,65 +2,18 @@
 import { useEffect, useRef } from 'react';
 import { 
   Sparkles, 
-  Briefcase, 
-  Target, 
-  Users, 
-  Award, 
   CheckCircle2, 
   ArrowRight 
 } from 'lucide-react';
 import { gsap } from '../utils/gsapSetup';
+import { useSite } from '@/cms/site/ContentProvider';
+import { CmsIcon } from '@/cms/site/helpers';
 import './About.css';
-
-const pillars = [
-  {
-    icon: Briefcase,
-    tag: 'Industry-Oriented',
-    title: 'Industry-Oriented Curriculum & Training',
-    desc: 'Our programs are engineered directly around modern market demands. Students learn on the exact tools, commercial workflows, and corporate standards required in Logistics, Corporate Accounting, Digital Marketing, Designing, Hospital Administration, and Aviation to build industry-relevant skills.',
-    highlights: [
-      'Hands-on mastery of SAP, TallyPrime, Advanced Excel, Meta Ads & Figma',
-      'Curriculum continually reviewed and updated with top enterprise partners',
-      'Dual government-approved accreditations (NSDC, NCVET & University tie-ups)',
-    ],
-  },
-  {
-    icon: Target,
-    tag: 'Practical Learning',
-    title: 'Hands-On, Practical Learning Beyond Theory',
-    desc: 'We replace passive textbook lectures with experiential workshop learning. Students actively solve real business case studies, operate live software environments, and execute client assignments to gain practical experience and genuine on-the-job competency.',
-    highlights: [
-      '70% practical computer lab exercises and 30% conceptual foundations',
-      'Capstone projects & verified portfolio building before graduation',
-      'Interactive classroom sessions guided by seasoned industry practitioners',
-    ],
-  },
-  {
-    icon: Users,
-    tag: 'Skill & Confidence',
-    title: 'Skill Development & Career-Focused Guidance',
-    desc: 'Technical proficiency is paired with comprehensive professional grooming. Our dedicated mentoring cell helps students improve confidence, workplace communication, and soft skills to prepare for long-term career success.',
-    highlights: [
-      '1-on-1 resume optimization, portfolio review & LinkedIn profile branding',
-      'Intensive mock HR interviews, technical tests & group discussions',
-      'Corporate etiquette, English speaking confidence & workplace ethics',
-    ],
-  },
-  {
-    icon: Award,
-    tag: 'Verified Outcomes',
-    title: 'Proven Placement Network & Track Record',
-    desc: 'Backed by 15+ years of educational excellence, 97+ corporate hiring partnerships, and 25+ awards won, Eduzy creates direct placement pathways into leading corporate enterprises and multinational firms.',
-    highlights: [
-      '40,000+ alumni working across leading corporate and healthcare sectors',
-      'On-campus recruitment drives & priority referral interview rounds',
-      'Dedicated placement coordinator support until successful job onboarding',
-    ],
-  },
-];
 
 export default function About() {
   const sectionRef = useRef(null);
+  const { whyChoose: w } = useSite();
+  const pillars = w.pillars || [];
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -122,34 +75,19 @@ export default function About() {
             ========================================================= */}
         <div className="about-v2__header">
           <span className="about-v2__badge">
-            <Sparkles size={16} /> Why Choose Eduzy?
+            <Sparkles size={16} /> {w.badge}
           </span>
 
           <h2 className="about-v2__title">
-            From Campus to{' '}
-            <span className="about-v2__title-highlight">Career</span>
+            {w.titleStart}{' '}
+            <span className="about-v2__title-highlight">{w.titleHighlight}</span>
           </h2>
 
           <div className="about-v2__lead-wrap">
-            <p className="about-v2__lead">
-              Eduzy bridges the gap between education and employment through industry-oriented
-              training, hands-on practical learning, skill development, and career-focused guidance.
-              With <strong>15+ years of experience</strong>, <strong>40,000+ students placed</strong>,{' '}
-              <strong>97+ placement partners</strong>, and <strong>25+ awards won</strong>, we are
-              committed to empowering students with the skills and confidence needed to succeed
-              in a competitive professional environment.
-            </p>
-            <p className="about-v2__lead-sub">
-              By combining live software tools, real-world case simulations, and personalized 1-on-1 mentorship,
-              Eduzy helps students build industry-relevant skills, gain practical experience, improve confidence,
-              and prepare for successful careers in today’s dynamic global economy.
-            </p>
-            <p className="about-v2__lead-sub">
-              Our dedicated career advancement cell actively bridges the final step into the corporate world.
-              Through specialized portfolio branding, rigorous mock HR rounds, and priority recruitment drives
-              with leading multinational partners, we ensure our graduates transition seamlessly into rewarding,
-              high-growth professional roles across India and abroad.
-            </p>
+            <p className="about-v2__lead" dangerouslySetInnerHTML={{ __html: w.lead }} />
+            {(w.paragraphs || []).map((para: string, i: number) => (
+              <p className="about-v2__lead-sub" key={i}>{para}</p>
+            ))}
           </div>
         </div>
 
@@ -157,14 +95,13 @@ export default function About() {
             2. EXPANDED CONTENT PILLARS (Detailed Features)
             ========================================================= */}
         <div className="about-v2__pillars-grid">
-          {pillars.map((pillar, index) => {
-            const PillarIcon = pillar.icon;
+          {pillars.map((pillar: any, index: number) => {
             return (
               <article className="about-v2__pillar-card" key={index}>
                 <div>
                   <div className="about-v2__pillar-top">
                     <div className="about-v2__pillar-icon">
-                      <PillarIcon size={26} strokeWidth={2.2} />
+                      <CmsIcon name={pillar.icon} size={26} strokeWidth={2.2} />
                     </div>
                     <span className="about-v2__pillar-tag">{pillar.tag}</span>
                   </div>
@@ -174,7 +111,7 @@ export default function About() {
                 </div>
 
                 <ul className="about-v2__pillar-features">
-                  {pillar.highlights.map((item, hIdx) => (
+                  {(pillar.highlights || []).map((item: string, hIdx: number) => (
                     <li className="about-v2__pillar-feature-item" key={hIdx}>
                       <CheckCircle2 size={16} strokeWidth={2.6} className="about-v2__check-icon" />
                       <span>{item}</span>
@@ -193,31 +130,36 @@ export default function About() {
         {/* =========================================================
             5. BOTTOM CTA CALLOUT BANNER
             ========================================================= */}
+        {w.showCta && (
         <div className="about-v2__cta-banner">
           <div className="about-v2__cta-text">
             <h3 className="about-v2__cta-heading">
-              Ready to Bridge the Gap Between Education and Employment?
+              {w.ctaHeading}
             </h3>
             <p className="about-v2__cta-sub">
-              Get personalized career counseling, choose the right industry program, and start
-              your journey toward high-growth job placements.
+              {w.ctaText}
             </p>
           </div>
 
           <div className="about-v2__cta-actions">
-            <a href="/courses" className="about-v2__btn-white">
-              <span>Explore Programs</span>
+            {w.ctaPrimary?.label && (
+            <a href={w.ctaPrimary.url || '/courses'} className="about-v2__btn-white">
+              <span>{w.ctaPrimary.label}</span>
               <ArrowRight size={18} strokeWidth={2.5} />
             </a>
+            )}
+            {w.ctaSecondaryLabel && (
             <button
               type="button"
               onClick={openCounseling}
               className="about-v2__btn-outline"
             >
-              <span>Free Counseling</span>
+              <span>{w.ctaSecondaryLabel}</span>
             </button>
+            )}
           </div>
         </div>
+        )}
       </div>
     </section>
   );

@@ -1,0 +1,155 @@
+/* Announcement bar, popup and maintenance page (all off by default). */
+.site-announcement {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 40px;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 44px;
+  background: #111111;
+  color: #ffffff;
+}
+.site-announcement__text {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.site-announcement__link {
+  margin-left: 10px;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-announcement__close {
+  position: absolute;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  opacity: 0.8;
+}
+.site-announcement__close:hover { opacity: 1; background: rgba(255, 255, 255, 0.12); }
+html.has-announcement body { padding-top: 40px; }
+html.has-announcement .header { top: 40px; }
+
+.site-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  animation: sitePopupFade 0.25s ease;
+}
+.site-popup__card {
+  position: relative;
+  width: min(440px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  animation: sitePopupRise 0.3s ease;
+}
+.site-popup__img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.site-popup__body { padding: 24px; text-align: center; }
+.site-popup__title { font-size: 1.4rem; margin-bottom: 8px; color: #000; }
+.site-popup__text { margin-bottom: 18px; }
+.site-popup__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+  z-index: 1;
+}
+@keyframes sitePopupFade { from { opacity: 0; } }
+@keyframes sitePopupRise { from { opacity: 0; transform: translateY(16px) scale(0.98); } }
+
+.site-maintenance {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px 16px;
+  text-align: center;
+}
+.site-maintenance__logo { height: 56px; width: auto; margin-bottom: 12px; }
+.site-maintenance__title { font-size: clamp(1.8rem, 5vw, 2.6rem); color: #000; }
+.site-maintenance__text { max-width: 520px; }
+.site-maintenance__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
+
+/* Custom text block (home page builder) */
+.cms-block__grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+@media (min-width: 900px) {
+  .cms-block__grid--image { grid-template-columns: 1fr 1fr; }
+  .cms-block__grid--left .cms-block__media { order: -1; }
+}
+.cms-block__media img { width: 100%; border-radius: var(--radius-xl); display: block; object-fit: cover; }
+.cms-block__body { margin-top: 16px; }
+.cms-block__body p, .cms-block__body li { margin-bottom: 12px; }
+.cms-block__body ul, .cms-block__body ol { padding-left: 1.25rem; }
+.cms-block__btn { margin-top: 20px; }
+
+/* Blog (journal) */
+.journal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+.journal-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.journal-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.journal-card__img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--color-bg-alt); }
+.journal-card__body { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.journal-card__meta { font-size: 0.78rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.06em; }
+.journal-card__title { font-size: 1.15rem; color: #000; line-height: 1.35; }
+.journal-card__excerpt { font-size: 0.92rem; }
+.journal-card__more { margin-top: auto; font-weight: 700; color: var(--color-primary); font-size: 0.9rem; }
+
+.blog-post { padding: 120px 0 72px; }
+.blog-post__inner { max-width: 760px; margin: 0 auto; padding: 0 var(--container-padding); }
+.blog-post__back { display: inline-block; font-weight: 700; color: var(--color-primary); margin-bottom: 20px; font-size: 0.9rem; }
+.blog-post__meta { font-size: 0.85rem; font-weight: 600; color: var(--color-muted); margin-bottom: 12px; }
+.blog-post__title { font-size: clamp(1.9rem, 5vw, 2.8rem); color: #000; line-height: 1.15; margin-bottom: 20px; }
+.blog-post__cover { width: 100%; border-radius: var(--radius-xl); margin: 8px 0 32px; display: block; }
+.blog-post__content { font-size: 1.05rem; line-height: 1.8; }
+.blog-post__content h2 { font-size: 1.6rem; margin: 36px 0 14px; color: #000; }
+.blog-post__content h3 { font-size: 1.3rem; margin: 28px 0 12px; color: #000; }
+.blog-post__content p, .blog-post__content ul, .blog-post__content ol, .blog-post__content blockquote { margin-bottom: 18px; }
+.blog-post__content ul, .blog-post__content ol { padding-left: 1.4rem; }
+.blog-post__content img { border-radius: var(--radius-lg); margin: 12px 0; }
+.blog-post__content a { color: var(--color-primary); text-decoration: underline; }
+.blog-post__content blockquote { border-left: 4px solid var(--color-primary); padding: 6px 0 6px 18px; font-style: italic; }
+.blog-post__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+.blog-post__tag { padding: 6px 12px; border-radius: 999px; background: var(--color-primary-light); color: var(--color-primary); font-size: 0.8rem; font-weight: 700; }
+
+/* Course detail extras (only rendered when content exists / enabled) */
+.course-gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.course-gallery-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; display: block; }
+
+/* Contact map */
+.contact-map { padding: 0 0 72px; }
+.contact-map__title { font-size: 1.5rem; color: #000; margin-bottom: 16px; }
+.contact-map__frame { width: 100%; height: 380px; border: 0; border-radius: 20px; display: block; }

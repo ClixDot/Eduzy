@@ -1,0 +1,8 @@
+import { CourseEditorPage } from '@/admin/pages/ContentPages';
+
+export const metadata = { title: "Edit course" };
+
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  return <CourseEditorPage id={id} />;
+}

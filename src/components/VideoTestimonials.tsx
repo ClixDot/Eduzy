@@ -1,14 +1,15 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, ArrowRight, X, ExternalLink, Play } from 'lucide-react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-import videoTestimonials from '../data/videoTestimonials';
+import { gsap } from '../utils/gsapSetup';
+import { useSite } from '@/cms/site/ContentProvider';
+import { spaced } from '@/cms/site/helpers';
 import './VideoTestimonials.css';
 
 // Extract YouTube Video ID to generate embed link
 function getYouTubeEmbedUrl(url) {
   if (!url) return null;
-  const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+  const regExp = /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
   const match = url.match(regExp);
   return match && match[1] ? `https://www.youtube.com/embed/${match[1]}?autoplay=1&rel=0` : url;
 }
@@ -16,12 +17,13 @@ function getYouTubeEmbedUrl(url) {
 // Extract YouTube Thumbnail
 function getYouTubeThumbnail(url) {
   if (!url) return null;
-  const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+  const regExp = /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
   const match = url.match(regExp);
   return match && match[1] ? `https://img.youtube.com/vi/${match[1]}/maxresdefault.jpg` : null;
 }
 
 export default function VideoTestimonials() {
+  const { videoSection: sec, videoTestimonials } = useSite();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(4);
   const [activeVideo, setActiveVideo] = useState(null);
@@ -47,6 +49,7 @@ export default function VideoTestimonials() {
   }, []);
 
   const maxIndex = Math.max(0, videoTestimonials.length - Math.floor(cardsToShow));
+  useEffect(() => { if (currentIndex > maxIndex) setCurrentIndex(maxIndex); }, [currentIndex, maxIndex]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
@@ -131,10 +134,10 @@ export default function VideoTestimonials() {
         {/* Section Header */}
         <div className="text-center video-section__header">
           <h2 className="section-title">
-            Inspiring Journeys, <span className="highlight-orange">Global Careers</span>
+            {spaced(sec.titleStart)}<span className="highlight-orange">{sec.titleHighlight}</span>
           </h2>
           <p className="section-subtitle">
-            Watch verified EDUZY alumni share how industry-led diploma training and practical mentorship helped them build successful global careers.
+            {sec.subtitle}
           </p>
         </div>
 
@@ -272,7 +275,7 @@ export default function VideoTestimonials() {
                 rel="noopener noreferrer" 
                 className="video-modal__external-link"
               >
-                <span>Watch on YouTube</span>
+                <span>{sec.watchLabel}</span>
                 <ExternalLink size={16} />
               </a>
             </div>

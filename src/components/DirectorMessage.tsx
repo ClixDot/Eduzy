@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from '../utils/gsapSetup';
-const directorImg = '/assets/the.png';
+import { gsap } from '../utils/gsapSetup';
+import { useSite } from '@/cms/site/ContentProvider';
 import './DirectorMessage.css';
 
 export default function DirectorMessage() {
   const sectionRef = useRef(null);
+  const { director: d } = useSite();
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -50,7 +51,7 @@ export default function DirectorMessage() {
         <div className="director__editorial-grid">
           {/* Vertical Side Accent */}
           <div className="director__side-label" aria-hidden="true">
-            <span>Leadership &bull; Estd 2014</span>
+            <span>{d.sideLabel}</span>
           </div>
 
           {/* Left: Main Editorial Content */}
@@ -59,23 +60,23 @@ export default function DirectorMessage() {
 
             {/* Main Editorial Headline */}
             <h2 className="director__heading">
-              Guiding Every Student to Their Global Potential
+              {d.heading}
             </h2>
 
             {/* Quote Texts */}
             <div className="director__text">
-              <p>
-                &ldquo;At EDUZY, our mission has always been clear and heartfelt: to bridge the gap between ambitious students and high-growth professional careers. Whether you are stepping into global logistics, corporate accounting, digital marketing, creative design, hospital administration, or aviation, industry preparation is about hands-on practical skills, confidence, and dedicated mentorship.&rdquo;
-              </p>
-              <p>
-                &ldquo;Every student who enters our doors or logs into our virtual classroom receives our wholehearted dedication. We have carefully curated our faculty, materials, and small batch sizes to ensure no one is left behind. When you succeed, we celebrate your victory as our own.&rdquo;
-              </p>
+              {(d.paragraphs || []).map((para: string, i: number) => (
+                <p key={i}>
+                  &ldquo;{para}&rdquo;
+                </p>
+              ))}
             </div>
 
             {/* Signature Block */}
             <div className="director__signature">
-              <div className="director__name">Rose Mary Johnson</div>
-              <div className="director__role">Founder &amp; CEO Eduzy</div>
+              {d.signature && <img src={d.signature} alt={`${d.name} signature`} style={{ height: 48, width: 'auto', marginBottom: 6, display: 'block' }} loading="lazy" />}
+              <div className="director__name">{d.name}</div>
+              <div className="director__role">{d.role}</div>
             </div>
           </div>
 
@@ -83,8 +84,8 @@ export default function DirectorMessage() {
           <div className="director__media">
             <div className="director__img-wrapper">
               <img
-                src={directorImg}
-                alt="Rose Mary Johnson, Founder & CEO of Eduzy"
+                src={d.image}
+                alt={d.imageAlt}
                 className="director__img"
                 loading="lazy"
                 width="755"

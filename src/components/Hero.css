@@ -19,7 +19,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('../assets/hero_study_bg.jpg');
+  background-image: url('https://res.cloudinary.com/wbckkjmc/image/upload/v1794040643/eduzy/backgrounds/hero-study-bg.jpg');
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -92,7 +92,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #FF3B0B;
+  background: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(255, 59, 11, 0.2);
   display: inline-block;
 }
@@ -103,7 +103,7 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FF3B0B;
+  color: var(--color-primary);
 }
 
 /* Main Heading */
@@ -118,7 +118,7 @@
 }
 
 .highlight-orange {
-  color: #FF3B0B;
+  color: var(--color-primary);
   position: relative;
   display: inline-block;
 }
@@ -157,7 +157,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 50%, #FF5722 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, #FF5722 100%);
   background-size: 200% 200%;
   background-position: 0% 50%;
   color: #ffffff;
@@ -232,8 +232,8 @@
 }
 
 .btn-hero-outline:hover {
-  border-color: #FF3B0B;
-  color: #FF3B0B;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
@@ -304,7 +304,7 @@
   right: -40px;
   width: 540px;
   height: 340px;
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   border-radius: 120px 220px 80px 140px;
   transform: rotate(-4deg);
   z-index: 2;
@@ -399,7 +399,7 @@
 .hero-ref__chart-pct {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #FF3B0B;
+  color: var(--color-primary);
   background: #FFF7ED;
   padding: 2px 6px;
   border-radius: 6px;
@@ -416,7 +416,7 @@
 
 .hero-ref__chart-bars span {
   flex: 1;
-  background: linear-gradient(180deg, #FF3B0B 0%, #E62E00 100%);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   border-radius: 3px 3px 0 0;
   transform-origin: bottom;
   animation: barGrow 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) backwards,
@@ -495,7 +495,7 @@
 }
 
 .hero-ref__trust-badge {
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #ffffff;
   font-size: 0.72rem;
   font-weight: 800;
@@ -544,7 +544,7 @@
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #FF3B0B 0%, #E62E00 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -570,7 +570,7 @@
 .hero-ref__mentor-role {
   font-size: 0.72rem;
   font-weight: 800;
-  color: #FF3B0B;
+  color: var(--color-primary);
   margin-top: 2px;
 }
 
@@ -599,7 +599,7 @@
   height: 42px;
   border-radius: 12px;
   background: #FFF7ED;
-  color: #FF3B0B;
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
