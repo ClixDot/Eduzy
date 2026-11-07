@@ -28,7 +28,10 @@ scratch/
 
 # EDUZY CMS local development storage (content, uploads, admin users)
 .cms-data/
-.env*.local
+# Environment files hold secrets: never commit them (only .env.example is allowed)
+.env
+.env.*
+!.env.example
 *.tsbuildinfo
 
 # CMS migration backups (contain password hashes)
