@@ -10,7 +10,7 @@ const g = globalThis as unknown as { __eduzyMongo?: Promise<MongoClient> };
 
 function client(uri: string): Promise<MongoClient> {
   if (!g.__eduzyMongo) {
-    g.__eduzyMongo = new MongoClient(uri, { maxPoolSize: 10, serverSelectionTimeoutMS: 8000 }).connect().catch((e) => {
+    g.__eduzyMongo = new MongoClient(uri, { maxPoolSize: 10, minPoolSize: 0, maxIdleTimeMS: 60000, serverSelectionTimeoutMS: 8000, appName: "eduzy-cms" }).connect().catch((e) => {
       g.__eduzyMongo = undefined; // allow retry on next request
       throw e;
     });

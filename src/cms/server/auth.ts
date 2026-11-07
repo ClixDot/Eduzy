@@ -1,5 +1,6 @@
 import 'server-only';
 import { cookies, headers } from 'next/headers';
+import { cache } from 'react';
 import { randomBytes, randomUUID, scrypt as scryptCb, timingSafeEqual, createHash } from 'crypto';
 import { promisify } from 'util';
 import { getStore } from './store';
@@ -91,9 +92,8 @@ export async function createUser(input: { email: string; name: string; password:
   return user;
 }
 
-export async function getUser(id: string) {
-  return getStore().get<UserDoc>('users', id);
-}
+/** Cached per request: the admin layout and the session check would otherwise each fetch the same user. */
+export const getUser = cache(async (id: string) => getStore().get<UserDoc>('users', id));
 export async function saveUser(user: UserDoc) {
   await getStore().put('users', user);
 }
@@ -169,9 +169,12 @@ export async function login(emailIn: string, password: string, remember: boolean
     const prev = user.onboarding ?? { started: false, completed: false, skipped: false, lastStep: 0, showAgain: true, updatedAt: '' };
     user.onboarding = { ...prev, showAgain: true, updatedAt: user.lastLoginAt };
   }
-  await saveUser(user);
   await startSession(user, remember);
-  await logActivity({ id: user.id, name: user.name, email: user.email, role: user.role }, { action: 'signed-in', kind: 'user', target: user.id, label: 'Signed in' });
+  // both are independent database writes: run them together
+  await Promise.all([
+    saveUser(user),
+    logActivity({ id: user.id, name: user.name, email: user.email, role: user.role }, { action: 'signed-in', kind: 'user', target: user.id, label: 'Signed in' }),
+  ]);
   return user;
 }
 
