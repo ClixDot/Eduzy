@@ -255,7 +255,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
                 <button type="button" className="adm-pop__item" onClick={async () => { setProfileOpen(false); if (await guard.confirmLeave()) router.push('/admin/profile'); }}>
                   <span className="adm-pop__icon"><UserRound size={16} /></span><span><strong>Admin profile</strong><span>Name, password, admins</span></span>
                 </button>
-                <button type="button" className="adm-pop__item" onClick={logout}>
+                <button type="button" className="adm-pop__item adm-pop__item--danger" onClick={logout}>
                   <span className="adm-pop__icon"><LogOut size={16} /></span><span><strong>Log out</strong><span>End this session</span></span>
                 </button>
               </Popover>

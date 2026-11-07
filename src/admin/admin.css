@@ -901,3 +901,11 @@ a.adm-card:hover, a.adm-tile:hover, .adm-tile:hover { transform: translateY(-2px
 /* ☰ menu button: only on small screens, where the sidebar is hidden (the round-button style was making it show on desktop) */
 .adm .adm-topbar .adm-topbar__menu { display: none; }
 @media (max-width: 900px) { .adm .adm-topbar .adm-topbar__menu { display: grid; } }
+
+/* Log out: turns red on hover / keyboard focus */
+.adm-pop__item--danger { transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out); }
+.adm-pop__item--danger .adm-pop__icon { transition: background-color 0.2s var(--ease-out), color 0.2s var(--ease-out); }
+.adm-pop__item--danger:hover, .adm-pop__item--danger:focus-visible { background: var(--red-50); }
+.adm-pop__item--danger:hover strong, .adm-pop__item--danger:focus-visible strong { color: var(--red); }
+.adm-pop__item--danger:hover span, .adm-pop__item--danger:focus-visible span { color: rgba(217, 45, 45, 0.75); }
+.adm-pop__item--danger:hover .adm-pop__icon, .adm-pop__item--danger:focus-visible .adm-pop__icon { background: #fff; color: var(--red); }
