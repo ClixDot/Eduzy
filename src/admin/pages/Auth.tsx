@@ -10,9 +10,6 @@ const LOGO = 'https://res.cloudinary.com/wbckkjmc/image/upload/v1794040607/eduzy
 function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="adm-auth">
-      <span className="adm-auth__blob adm-auth__blob--a" aria-hidden="true" />
-      <span className="adm-auth__blob adm-auth__blob--b" aria-hidden="true" />
-      <span className="adm-auth__blob adm-auth__blob--c" aria-hidden="true" />
       <div className="adm-auth__shell">
         <aside className="adm-auth__art">
           <span className="adm-auth__glow" aria-hidden="true" />
