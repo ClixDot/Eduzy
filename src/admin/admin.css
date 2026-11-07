@@ -897,3 +897,7 @@ a.adm-card:hover, a.adm-tile:hover, .adm-tile:hover { transform: translateY(-2px
   .adm-content, .adm-dash > *, .adm-tiles > *, .adm-cards > * { animation: none; }
   .adm-navlink:hover, a.adm-card:hover, .adm-tile:hover, .adm-btn:active { transform: none; }
 }
+
+/* ☰ menu button: only on small screens, where the sidebar is hidden (the round-button style was making it show on desktop) */
+.adm .adm-topbar .adm-topbar__menu { display: none; }
+@media (max-width: 900px) { .adm .adm-topbar .adm-topbar__menu { display: grid; } }
