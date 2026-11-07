@@ -23,7 +23,6 @@ function AuthLayout({ children }: { children: React.ReactNode }) {
           <div className="adm-auth__card">
             {children}
           </div>
-          <p className="adm-auth__foot">© {new Date().getFullYear()} EDUZY Campus · Admin access only</p>
         </main>
       </div>
     </div>
@@ -71,7 +70,6 @@ export function LoginPage() {
   const params = useSearchParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [remember, setRemember] = useState(false);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
@@ -85,7 +83,7 @@ export function LoginPage() {
     if (!email.trim() || !password) return setError('Enter your email and password.');
     setBusy(true);
     try {
-      await api.post('/api/admin/auth/login', { email, password, remember });
+      await api.post('/api/admin/auth/login', { email, password });
       const next = params.get('next');
       window.location.href = next && next.startsWith('/admin') && !next.startsWith('//') ? next : '/admin';
     } catch (e: any) {
@@ -108,10 +106,6 @@ export function LoginPage() {
         <div className="adm-field">
           <label className="adm-label" htmlFor="password">Password</label>
           <PasswordInput id="password" value={password} onChange={setPassword} autoComplete="current-password" />
-        </div>
-        <div className="adm-auth__row">
-          <label className="adm-check"><input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} /> Keep me signed in for 30 days</label>
-          <a className="adm-link" href="/admin/forgot-password">Forgot password?</a>
         </div>
         {error && <div className="adm-notice adm-notice--error" role="alert"><CircleAlert size={16} />{error}</div>}
         <button type="submit" className="adm-btn adm-btn--primary adm-btn--lg adm-btn--block" disabled={busy}>{busy && <Spinner />} Sign in</button>
