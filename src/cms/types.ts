@@ -66,6 +66,8 @@ export interface OnboardingState {
   lastStep: number;
   /** show the welcome screen again on the next visit */
   showAgain: boolean;
+  /** show the welcome screen after every sign-in (default on) */
+  showOnLogin?: boolean;
   updatedAt: string;
 }
 

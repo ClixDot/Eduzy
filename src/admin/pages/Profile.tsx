@@ -57,9 +57,9 @@ function HelpSupport() {
   const setShowAgain = async (v: boolean) => {
     setSaving(true);
     try {
-      await api.put('/api/admin/me', { action: 'onboarding', showAgain: v });
+      await api.put('/api/admin/me', { action: 'onboarding', showOnLogin: v, showAgain: v });
       await reloadMe();
-      toast(v ? 'The welcome screen will show next time you open the dashboard.' : 'The welcome screen won’t show again.');
+      toast(v ? 'The welcome screen will show every time you sign in.' : 'The welcome screen won’t show when you sign in.');
     } catch (e: any) {
       toast(e.message, 'error');
     } finally {
@@ -79,9 +79,9 @@ function HelpSupport() {
           {canResume && <button type="button" className="adm-btn adm-btn--light" onClick={() => startTour(o!.lastStep)}><RotateCcw size={16} /> Resume at step {o!.lastStep + 1}</button>}
         </div>
         <label className="adm-toggle" style={{ marginTop: 18 }}>
-          <input type="checkbox" checked={!!o?.showAgain} disabled={saving} onChange={(e) => setShowAgain(e.target.checked)} />
+          <input type="checkbox" checked={o?.showOnLogin !== false} disabled={saving} onChange={(e) => setShowAgain(e.target.checked)} />
           <span className="adm-toggle__track" />
-          Show the welcome screen next time I open the dashboard
+          Show the welcome screen every time I sign in
         </label>
       </section>
 

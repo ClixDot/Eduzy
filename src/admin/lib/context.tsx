@@ -8,6 +8,7 @@ export interface OnboardingState {
   skipped: boolean;
   lastStep: number;
   showAgain: boolean;
+  showOnLogin?: boolean;
   updatedAt: string;
 }
 

@@ -164,6 +164,11 @@ export async function login(emailIn: string, password: string, remember: boolean
   }
   attempts.delete(key);
   user.lastLoginAt = new Date().toISOString();
+  // show the welcome / guided-tour screen after every sign-in, unless the admin turned that off
+  if (user.onboarding?.showOnLogin !== false) {
+    const prev = user.onboarding ?? { started: false, completed: false, skipped: false, lastStep: 0, showAgain: true, updatedAt: '' };
+    user.onboarding = { ...prev, showAgain: true, updatedAt: user.lastLoginAt };
+  }
   await saveUser(user);
   await startSession(user, remember);
   await logActivity({ id: user.id, name: user.name, email: user.email, role: user.role }, { action: 'signed-in', kind: 'user', target: user.id, label: 'Signed in' });

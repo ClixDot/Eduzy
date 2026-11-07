@@ -68,6 +68,7 @@ export const PUT = handler(async (req) => {
       completed: flag('completed'),
       skipped: flag('skipped'),
       showAgain: flag('showAgain'),
+      showOnLogin: typeof input.showOnLogin === 'boolean' ? input.showOnLogin : prev.showOnLogin,
       lastStep: step,
       updatedAt: new Date().toISOString(),
     };
